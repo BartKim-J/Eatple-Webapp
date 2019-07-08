@@ -3,7 +3,7 @@
 }
   
 .about-logo {
-  animation: about-logo-spin infinite 20s linear;
+  animation: about-logo-spin infinite 15s linear;
   height: 40vmin;
   pointer-events: none;
 }

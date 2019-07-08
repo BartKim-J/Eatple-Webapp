@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 // Image Resources
-import logo from '../../../resource/images/logo.svg';
+import logo from '../../../resource/images/logo.png';
 
 // Components
 
@@ -14,12 +14,9 @@ class About extends Component {
     return (
       <div className="about">
         <header className="about-header">
-          <img src={logo} className="about-logo" alt="logo" />
-          <h1 className="about-title">Welcome to React</h1>
+
+          <h1 className="about-title">About Page.</h1>
         </header>
-        <p className="about-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
