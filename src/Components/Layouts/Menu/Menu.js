@@ -1,22 +1,19 @@
 // Standard Include
 import React, { Component } from 'react';
-import { stack as BuggerMenu } from "react-burger-menu";
+import { push as BuggerMenu } from "react-burger-menu";
 import { Navbar, NavItem, NavDropdown, Nav } from 'react-bootstrap';
-
-// Image Resources
-import logo from '../../../resource/images/logo.png'
 
 // Components
 
 // Style Sheets
-import './menu.css';
+import './Menu.css';
 
 class Menu extends Component {
     render() {
         return (
             <div>
                 <div className="bugger_menu-wrap">
-                    <BuggerMenu className="bugger_menu" right width={ '400px' }>
+                    <BuggerMenu className="bugger_menu" width={ '400px' }>
                         <a className="menu-item" href="/">Main</a>
                         <a className="menu-item" href="/ellydesign ">Elly's Design</a>
                         <a className="menu-item" href="/benlab">Ben's Lab</a>

@@ -1,23 +1,25 @@
+/*************************
+ * 
+ * Bugger Menu 
+ *
+ *************************/
 .bugger_menu {
 
 }
 
 .bugger_menu-wrap {
-    display: none;
-}
-
-.bugger_menu-item {
-    font-size: 23px;
+    display: block;
 }
     /* Individual item */
     .bm-item {
         display: inline-block;
+        font-size: 23px;
 
         /* Our sidebar item styling */
         text-decoration: none;
         margin-bottom: 10px;
         color: #d1d1d1;
-        transition: color 0.2s;
+        transition: color 0.1s;
     }
 
     /* Change color on hover */
@@ -74,9 +76,11 @@
         fill: #373a47;
     }
 
-.nav_var-wrap {
-    display: block;
-}
+ /*************************
+ * 
+ * Navigation Var Menu
+ *
+ *************************/
 .nav_var {
     width: 100%;
     height: 100px;
@@ -89,35 +93,37 @@
 
     position: relative;
 }
-
-.navbar-brand {
-    float: left;
-    height: 50px;
-    padding: 20px 20px;
-    font-size: 18px;
-    line-height: 20px;
+.nav_var-wrap {
+    display: none;
 }
+    .navbar-brand {
+        float: left;
+        height: 50px;
+        padding: 20px 20px;
+        font-size: 18px;
+        line-height: 20px;
+    }
 
-.nav_menu-logo {
-    width:  80px;
-    height: 60px;
-}
+    .nav_menu-logo {
+        width:  80px;
+        height: 60px;
+    }
 
-.nav_menu-items {
-    position: relative;
-    top: 31%;
+    .nav_menu-items {
+        position: relative;
+        top: 31%;
 
-    display: flex;
-    float: right;
+        display: flex;
+        float: right;
 
-}
+    }
 
-.nav_menu-item {
-    font-size: 24px;
-    font-weight: bold;
-    
-    color: rgb(224, 67, 5)!important;
-    text-decoration: none !important;
+    .nav_menu-item {
+        font-size: 24px;
+        font-weight: bold;
+        
+        color: rgb(224, 67, 5)!important;
+        text-decoration: none !important;
 
-    margin-right: 18px;
-}
+        margin-right: 18px;
+    }

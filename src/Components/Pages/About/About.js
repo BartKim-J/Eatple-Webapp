@@ -1,13 +1,10 @@
 // Standard Include
 import React, { Component } from 'react';
 
-// Image Resources
-import logo from '../../../resource/images/logo.png';
-
 // Components
 
 // Style Sheets
-import './about.css';
+import './About.css';
 
 class About extends Component {
   render() {

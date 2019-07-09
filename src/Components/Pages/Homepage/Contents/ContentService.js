@@ -6,11 +6,11 @@ import React, { Component } from 'react';
 // Components
 
 // Style Sheets
-import './contents_desktop.css';
-import './contents_tablet.css';
-import './contents_mobile.css';
+import './Contents_Desktop.css';
+import './Contents_Tablet.css';
+import './Contents_Mobile.css';
 
-class ContentsService extends Component {
+class ContentService extends Component {
     render() {
       return (
         <div className="content_service">
@@ -40,4 +40,4 @@ class ContentsService extends Component {
     }
   }
   
-  export default ContentsService;
+  export default ContentService;
