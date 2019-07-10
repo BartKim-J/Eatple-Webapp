@@ -1,14 +1,14 @@
-.about {
+.signUp {
     text-align: center;
 }
   
-.about-logo {
-  animation: about-logo-spin infinite 15s linear;
+.signUp-logo {
+  animation: signUp-logo-spin infinite 15s linear;
   height: 40vmin;
   pointer-events: none;
 }
   
-.about-header {
+.signUp-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -19,11 +19,11 @@
   color: white;
 }
   
-.about-link {
+.signUp-link {
   color: #61dafb;
 }
   
-@keyframes about-logo-spin {
+@keyframes signUp-logo-spin {
   from {
     transform: rotate(0deg);
   }

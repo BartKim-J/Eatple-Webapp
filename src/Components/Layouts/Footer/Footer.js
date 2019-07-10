@@ -6,14 +6,16 @@ import React, { Component } from 'react';
 // Components
 
 // Style Sheets
-import './Footer.css';
+import './Footer.scss';
 
 class Footer extends Component {
   render() {
         return (
             <div>
                 <footer className="footer">
-
+                    <div className="title">
+                        <p>이것은 푸터입니다.</p>
+                    </div>
                 </footer>
             </div>
         );

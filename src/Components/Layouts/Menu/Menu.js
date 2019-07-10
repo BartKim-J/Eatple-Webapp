@@ -1,23 +1,40 @@
 // Standard Include
 import React, { Component } from 'react';
-import { push as BuggerMenu } from "react-burger-menu";
+import { reveal as BuggerMenu } from "react-burger-menu";
+
 import { Navbar, NavItem, NavDropdown, Nav } from 'react-bootstrap';
 
 // Components
 
 // Style Sheets
-import './Menu.css';
+import './Menu.scss';
 
 class Menu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            listDataFromChild: null
+        };    
+    }
+
     render() {
+        let links = [
+            { label: 'Homepage',     link: '/'},
+            { label: 'About',        link: '/About' },
+            { label: 'Membership',   link: '/Membership' },
+            { label: 'SignIn',       link: '/SignIn' },
+            { label: 'SignUp',       link: '/SignUp' },
+          ];
+      
         return (
             <div>
                 <div className="bugger_menu-wrap">
-                    <BuggerMenu className="bugger_menu" width={ '400px' }>
+                    <BuggerMenu {...this.props} className="bugger_menu">
                         <a className="menu-item" href="/">Main</a>
-                        <a className="menu-item" href="/ellydesign ">Elly's Design</a>
-                        <a className="menu-item" href="/benlab">Ben's Lab</a>
-                        <a className="menu-item" href="/about">About</a>
+                        <a className="menu-item" href="/Membership ">Membership</a>
+                        <a className="menu-item" href="/SignIn">SignIn</a>
+                        <a className="menu-item" href="/SignUp">SignUp</a>
+                        <a className="menu-item" href="/About">About</a>
                     </BuggerMenu>
                 </div>
                 

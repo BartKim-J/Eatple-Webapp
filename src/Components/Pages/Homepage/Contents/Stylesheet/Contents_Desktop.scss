@@ -1,0 +1,158 @@
+@import "src/Resource/Fonts/Fonts.scss";
+
+
+/** Contents - Map **/
+@media all and (min-width: 1025px) {
+    /** Service **/
+    .content-map {
+        max-width: 100%;
+        min-width: 1025px;
+
+        height: 100%;
+
+        margin: 0 auto;
+
+        background-color: rgb(223, 162, 83);
+        position: relative;
+
+        .map {
+            padding: 13% 0 10% 5%;
+            height: 50%;
+
+            .NaverMap {
+                width: 50%;
+                height: 100%;
+                border-radius: 3%;
+            }
+        }
+    }
+}
+
+/** Contents - Service **/
+@media all and (min-width: 1025px) {
+    /** Service **/
+    .content-service {
+        max-width: 100%;
+        min-width: 1025px;
+
+        height: 100%;
+
+        margin: 0 auto;
+
+        background-color: rgb(238, 184, 84);
+        position: relative;
+
+        /** Title **/
+        .title {
+            position: absolute;
+            top:    15%;
+            right: 21%;
+        
+            .text {
+                text-align: left;
+                line-height: 4vw;
+
+                font-family: 'BMHANNAPro';
+                font-size: 3vw;
+                color: #282c34;
+            }
+        }
+        /** Donwload **/
+        .download {
+            right: 28%;        
+            bottom: 30%;
+            
+            position: absolute;    
+        }
+        .btn_box {
+            margin: 5px 5px 5px 5px;
+
+            display: flex;
+            text-align: center;
+
+            position: relative;
+        }
+        .btn {
+            margin: 30px;
+
+            border: none;
+            border-radius: 30px;
+
+            background-color: #282c34;
+
+            width: 300px;
+            height: 70px;
+
+            .text{
+                font-family: 'BMHANNAPro';
+                font-size: 1vw;
+                
+                color: white;
+            }
+        }
+    }
+}
+
+
+/** Contents - Trial **/
+@media all and (min-width: 1025px) {
+    /** Service **/
+    .content-trial {
+        max-width: 100%;
+        min-width: 1025px;
+
+        height: 100%;
+
+        margin: 0 auto;
+
+        background-color: rgb(238, 184, 84);
+        position: relative;
+
+        /** Title **/
+         .title {
+            position: absolute;
+            top:   38px;
+            right: 21%;
+
+            .text {
+                text-align: left;
+                font-family: 'BMHANNAPro';
+                line-height: 4vw;
+                font-size: 3vw;
+                color: #282c34;
+            } 
+        }
+    }
+}
+
+/** Contents - Works **/
+@media all and (min-width: 1025px) {
+    /** Service **/
+    .content-works {
+        max-width: 100%;
+        min-width: 1025px;
+
+        height: 100%;
+
+        margin: 0 auto;
+
+        background-color: rgb(255, 142, 49);
+        position: relative;
+
+        /** Title **/
+        .title {
+            position: absolute;
+            top:    15%;
+            right: 21%;
+        
+            .text {
+                text-align: center;
+                
+                font-family: 'BMHANNAPro';
+                line-height: 4vw;
+                font-size: 3vw;
+                color: #282c34;
+            }
+        }
+    } 
+}

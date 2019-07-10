@@ -1,0 +1,5 @@
+{
+    "less.lint.float": "warning",
+    "less.lint.hexColorLength": "warning",
+    "npm.runSilent": true
+}

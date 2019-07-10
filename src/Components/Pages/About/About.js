@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // Components
 
 // Style Sheets
-import './About.css';
+import './About.scss';
 
 class About extends Component {
   render() {
