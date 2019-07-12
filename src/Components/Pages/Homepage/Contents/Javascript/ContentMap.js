@@ -12,23 +12,24 @@ import '../Stylesheet/Contents_Mobile.scss';
 
 class ContentMap extends Component {
     render() {
-      return (
-        <div className="content-map">
-            <div className="map">
-                <RenderAfterNavermapsLoaded
-                  ncpClientId='cos7enbwmi'
-                >
-                  <NaverMap 
-                    className = "NaverMap"
-                    mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
-                    defaultCenter={{ lat: 37.4979277, lng: 127.0266946 }}
-                    defaultZoom={12}
-                  />
-                </RenderAfterNavermapsLoaded>
+        return (
+            <div className="content-map">
+                <div className="map">
+                    <p> 서울시 강남구 </p>
+                    <RenderAfterNavermapsLoaded
+                        ncpClientId='cos7enbwmi'
+                    >
+                        <NaverMap
+                            className="NaverMap"
+                            mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
+                            defaultCenter={{ lat: 37.4979277, lng: 127.0266946 }}
+                            defaultZoom={12}
+                        />
+                    </RenderAfterNavermapsLoaded>
+                </div>
             </div>
-        </div>
-      );
+        );
     }
-  }
-  
-  export default ContentMap;
+}
+
+export default ContentMap;

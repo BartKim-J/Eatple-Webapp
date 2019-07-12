@@ -1,8 +1,8 @@
 // Standard Include
 import React, { Component } from 'react';
-import { reveal as BuggerMenu } from "react-burger-menu";
+import { push as BuggerMenu } from "react-burger-menu";
 
-import { Navbar, NavItem, NavDropdown, Nav } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 // Components
 
@@ -17,15 +17,7 @@ class Menu extends Component {
         };    
     }
 
-    render() {
-        let links = [
-            { label: 'Homepage',     link: '/'},
-            { label: 'About',        link: '/About' },
-            { label: 'Membership',   link: '/Membership' },
-            { label: 'SignIn',       link: '/SignIn' },
-            { label: 'SignUp',       link: '/SignUp' },
-          ];
-      
+    render() {      
         return (
             <div>
                 <div className="bugger_menu-wrap">

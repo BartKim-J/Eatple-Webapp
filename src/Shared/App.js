@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 // Components
-import { Homepage, About, Membership, SignIn, SignUp } from '../Components/Pages/PageIndex';
+import { Homepage, Membership, SignIn, SignUp } from 'Components/Pages/PageIndex';
 
-import Menu from '../Components/Layouts/Menu/Menu';
-import Footer from '../Components/Layouts/Footer/Footer';
+import Menu   from 'Components/Layouts/Menu/Menu';
+import Footer from 'Components/Layouts/Footer/Footer';
 
 // Image Resources
 

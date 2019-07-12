@@ -1,5 +1,39 @@
-@import "src/Resource/Fonts/Fonts.scss";
+//@import "src/Resource/Fonts/Fonts.scss"; // Fonts
 
+
+
+
+/** Contents - Main **/
+@media all and (min-width: 1025px) {
+    /** Service **/
+    .content-main {
+        max-width: 100%;
+        min-width: 1025px;
+
+        height: 100%;
+
+        margin: 0 auto;
+
+        background-color: rgb(77, 89, 106);
+        position: relative;
+
+        /** Title **/
+        .title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 35%;
+        
+            .text {
+                text-align: center;
+                
+                line-height: 4vw;
+                font-size: 6vw;
+                color: rgb(245, 246, 250);
+            }
+        }
+    }
+}
 
 /** Contents - Map **/
 @media all and (min-width: 1025px) {
@@ -12,7 +46,7 @@
 
         margin: 0 auto;
 
-        background-color: rgb(223, 162, 83);
+        background-color: rgb(245, 246, 250);
         position: relative;
 
         .map {
@@ -39,55 +73,30 @@
 
         margin: 0 auto;
 
-        background-color: rgb(238, 184, 84);
+        background-color: rgb(255, 255, 255);
         position: relative;
 
         /** Title **/
-        .title {
-            position: absolute;
-            top:    15%;
-            right: 21%;
-        
-            .text {
+        .explain {                
+            position: relative;
+            top:     35%;
+            left:    15%;
+            .title {
                 text-align: left;
                 line-height: 4vw;
 
-                font-family: 'BMHANNAPro';
-                font-size: 3vw;
-                color: #282c34;
-            }
-        }
-        /** Donwload **/
-        .download {
-            right: 28%;        
-            bottom: 30%;
-            
-            position: absolute;    
-        }
-        .btn_box {
-            margin: 5px 5px 5px 5px;
+                .number {
+                    font-size: 2vw;
+                }
 
-            display: flex;
-            text-align: center;
+                .text {
+                    font-size: 3vw;
+                    color: #282c34;
+                }
 
-            position: relative;
-        }
-        .btn {
-            margin: 30px;
-
-            border: none;
-            border-radius: 30px;
-
-            background-color: #282c34;
-
-            width: 300px;
-            height: 70px;
-
-            .text{
-                font-family: 'BMHANNAPro';
-                font-size: 1vw;
-                
-                color: white;
+                .subText {
+                    
+                }
             }
         }
     }
@@ -105,7 +114,7 @@
 
         margin: 0 auto;
 
-        background-color: rgb(238, 184, 84);
+        background-color: rgb(245, 246, 250);
         position: relative;
 
         /** Title **/
@@ -116,7 +125,6 @@
 
             .text {
                 text-align: left;
-                font-family: 'BMHANNAPro';
                 line-height: 4vw;
                 font-size: 3vw;
                 color: #282c34;
@@ -136,23 +144,66 @@
 
         margin: 0 auto;
 
-        background-color: rgb(255, 142, 49);
+        background-color: rgb(245, 246, 250);
         position: relative;
+        justify-content: center;
 
         /** Title **/
-        .title {
+        .control {
             position: absolute;
-            top:    15%;
-            right: 21%;
-        
-            .text {
-                text-align: center;
-                
-                font-family: 'BMHANNAPro';
-                line-height: 4vw;
-                font-size: 3vw;
-                color: #282c34;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            bottom: 25%;
+
+            .title {
+                margin-bottom: 200px;
+                .text {
+                    text-align: center;
+                    
+                    line-height: 6vw;
+                    font-size: 4vw;
+                    color: rgb(77, 89, 106);
+
+                    .value {
+                        color: rgb(162, 176, 192);
+                    }
+                }            
+            }
+            
+            .slider-bar {
+                width: 62%;
+                margin: 0 auto;
             }
         }
     } 
+}
+
+
+
+.slider-bar {
+    display: block;
+    position: relative;
+    height: 25px;
+    border-radius: 13px;
+    background: rgb(229,235,242);;
+    
+    .slider-button {
+      user-select: none;
+      cursor: pointer;
+
+      position: absolute;
+      top: -40%;
+      left: 0;
+
+      height: 35px;
+      width: 35px;
+      margin-left: -17.5px;
+
+      border-style: solid;
+      border-color: rgb(110,124,142);
+      border-radius: 50px;
+
+      background: rgb(245, 246, 250);
+    }
 }

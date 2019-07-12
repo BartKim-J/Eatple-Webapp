@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import Root from './Client/Root';
 
 // Style Sheets
-import './index.css';
+import 'index.scss';
 
 import * as ServiceWorker from './Server/ServiceWorker';
 

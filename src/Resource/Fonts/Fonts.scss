@@ -1,29 +1,35 @@
+$fontPath : "Resource/Fonts";
+
+
 /* BM HANNA Pro Fonts */
 @font-face{
     font-family:"BMHANNAPro";
-    src:url('/src/Resource/Fonts/BM/BMHANNAPro.ttf') format('truetype'),
-        url('/src/Resource/Fonts/BM/BMHANNAProOTF.otf') format('opentype'),
-        url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    src:url('#{$fontPath}/BM/BMHANNAPro.woff')   format('woff'),
+        url('#{$fontPath}/BM/BMHANNAPro.ttf')    format('truetype'),
+        url('#{$fontPath}/BM/BMHANNAProOTF.otf') format('opentype');
+        //url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
 
     font-weight:normal;
     font-style:normal;
 }
+
+
 /* BM HANNA 11yrs Fonts */
 @font-face{
     font-family:"BMHANNA_11yrs";
-    src:url('/src/Resource/Fonts/BM/BMHANNA_11yrs.ttf') format('truetype'),
-        url('/src/Resource/Fonts/BM/BMHANNA_11yrs.woff') format('woff');
+    src:url('#{$fontPath}/BM/BMHANNA_11yrs.ttf')  format('truetype'),
+        url('#{$fontPath}/BM/BMHANNA_11yrs.woff') format('woff');
 
     font-weight:normal;
     font-style:normal;
 }
 /* BM DOHYEON Fonts */
 @font-face{
-    font-family:"BMDOHYEON_font";
-    src:url('/src/Resource/Fonts/BM/BMDOHYEON.otf') format('otf'),
-        url('/src/Resource/Fonts/BM/BMDOHYEON.woff') format('woff'),
-        url('/src/Resource/Fonts/BM/BMDOHYEON.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-family:"BMDOHYEON";
+    src:url('#{$fontPath}/BM/BMDOHYEON.otf')   format('otf'),
+        url('#{$fontPath}/BM/BMDOHYEON.woff')  format('woff'),
+        url('#{$fontPath}/BM/BMDOHYEON.woff2') format('woff2');
+        //url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
 
     font-weight:normal;
     font-style:normal;
@@ -31,8 +37,8 @@
 /* BM JUA Pro Fonts */
 @font-face{
     font-family: "BMJUA";
-    src:url("/src/Resource/Fonts/BM/BMJUA_ttf.ttf") format('truetype'),
-        url("/src/Resource/Fonts/BM/BMJUA_ttf.woff") format('woff');
+    src:url("#{$fontPath}/BM/BMJUA_ttf.ttf")  format('truetype'),
+        url("#{$fontPath}/BM/BMJUA_ttf.woff") format('woff');
 
     font-weight: normal;
     font-style: normal;
@@ -40,8 +46,8 @@
 /* BM HANNA Pro Fonts */
 @font-face{
     font-family:"NanumGothic";
-    src:url("/src/Resource/Fonts/Nanum-web-font/NanumGothic.eot") format('eot'),
-        url("/src/Resource/Fonts/Nanum-web-font/NanumGothic.woff") format('woff');
+    src:url("#{$fontPath}/Nanum-web-font/NanumGothic.eot")  format('eot'),
+        url("#{$fontPath}/Nanum-web-font/NanumGothic.woff") format('woff');
 
     font-weight:normal;
     font-style:normal;
