@@ -16,9 +16,14 @@ class ContentTrial extends Component {
         return (
             <div className="content-trial">
                     <div className="title">
-                        <p className="text">무료 체험을 하려는건가?<br />
-                            아주 좋은 생각이군!<br />
-                            아래 신청하기를 눌러 밀콕을 사용해보라구!
+                        <p className="text">
+                            무료 체험을 하러 <br/>
+                            가볼까요?
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            버튼
                         </p>
                     </div>
             </div>

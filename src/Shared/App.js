@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 // Components
 import { Homepage, Membership, SignIn, SignUp } from 'Components/Pages/PageIndex';
 
-import Menu   from 'Components/Layouts/Menu/Menu';
+import { Menu, SideMenu } from 'Components/Layouts/Menu/Menu';
 import Footer from 'Components/Layouts/Footer/Footer';
 
 // Image Resources
@@ -17,9 +17,10 @@ class App extends Component {
   render() {
     return (
       <div id="outer-container">
-        <Menu pageWrapId={"page-wrap"} outerContainerId={"App"} width={'400px'}/>
+        <SideMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} width={'20vw'}/>
         <div id="page-wrap">
-          <div id="contents">
+          <Menu/>
+          <div id="contents" className="contents">
             <Route exact path="/"      component={Homepage}/>
             <Route path="/Membership"  component={Membership}/>
             <Route path="/SignIn"      component={SignIn}/>

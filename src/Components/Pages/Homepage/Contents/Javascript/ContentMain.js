@@ -16,7 +16,7 @@ class ContentMain extends Component {
             <div className="content-main">
                 <div className="title">
                     <p className="text">
-                        엘리 엘리 우쭈쭈
+                        잇플
                     </p>
                 </div>
             </div>

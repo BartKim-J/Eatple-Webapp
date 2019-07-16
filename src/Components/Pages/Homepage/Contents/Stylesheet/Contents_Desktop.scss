@@ -1,21 +1,24 @@
-//@import "src/Resource/Fonts/Fonts.scss"; // Fonts
+@import "Configure/mediaConfig.scss";
 
 
 /**
  * Contents - Main 
  **/
-@media all and (min-width: 1025px) {
+@media all and (min-width: $media-width-desktop) {
     /** Service **/
     .content-main {
+        position: relative;
+
+        overflow: hidden;
+
         max-width: 100%;
-        min-width: 1025px;
+        min-width: $media-width-desktop;
 
         height: 100%;
 
         margin: 0 auto;
 
         background-color: rgb(77, 89, 106);
-        position: relative;
 
         /** Title **/
         .title {
@@ -36,18 +39,21 @@
 }
 
 /** Contents - Map **/
-@media all and (min-width: 1025px) {
+@media all and (min-width: $media-width-desktop) {
     /** Service **/
     .content-map {
+        position: relative;
+
+        overflow: hidden;
+
         max-width: 100%;
-        min-width: 1025px;
+        min-width: $media-width-desktop;
 
         height: 100%;
 
         margin: 0 auto;
 
         background-color: rgb(245, 246, 250);
-        position: relative;
 
         .map {
             position: relative;
@@ -83,11 +89,27 @@
 
         }
     }
-}
 
 .slick-slider {
     width: 100%;
+    height: 21vh;
+
+    overflow: hidden;
+
     margin: 0 auto;
+}
+
+.slick-arrow {
+    top: 10.5vh !important;
+    z-index: 106 !important;
+    opacity: 1 !important; 
+}
+.slick-prev {
+    left: 150px !important;
+}
+
+.slick-next {
+    right: 150px !important;
 }
 
 .slick-slide {
@@ -110,17 +132,21 @@
     display: table-cell;
     vertical-align: middle;
 }
+}
+
 
 /**
  * Contents - Service 
  **/
-@media all and (min-width: 1025px) {
+@media all and (min-width: $media-width-desktop) {
     /** Service **/
     .content-service {
         position: relative;
 
+        overflow: hidden;
+
         max-width: 100%;
-        min-width: 1025px;
+        min-width: $media-width-desktop;
 
         height: 100%;
 
@@ -132,7 +158,7 @@
         .explain {                
             position: relative;
 
-            padding: 4vw 13vw 4vw 13vw;
+            padding: 11vh 15vw 11vh 15vw;
 
             .explain-box {
                 position: relative;
@@ -182,7 +208,7 @@
                 top: 3vw;
                 right: 0;
                 
-                width: 45vw;
+                width: 50vw;
             }
         }
     }
@@ -192,30 +218,33 @@
 /**
  * Contents - Trial 
  **/
-@media all and (min-width: 1025px) {
+@media all and (min-width: $media-width-desktop) {
     /** Service **/
     .content-trial {
+        position: relative;
+
+        overflow: hidden;
+
         max-width: 100%;
-        min-width: 1025px;
+        min-width: $media-width-desktop;
 
-        height: 100%;
+        height: 110%;
 
-        margin: 0 auto;
+        margin: auto 0;
 
         background-color: rgb(245, 246, 250);
-        position: relative;
 
         /** Title **/
          .title {
-            position: absolute;
-            top:   38px;
-            right: 21%;
+            position: relative;
+
+            top: 15vh;
 
             .text {
-                text-align: left;
-                line-height: 4vw;
-                font-size: 3vw;
-                color: #282c34;
+                text-align: center;
+                line-height: 5vw;
+                font-size: 4vw;
+                color: rgb(77, 89, 106);
             } 
         }
     }
@@ -224,13 +253,15 @@
 /**
  * Contents - Works 
  **/
-@media all and (min-width: 1025px) {
+@media all and (min-width: $media-width-desktop) {
     /** Service **/
     .content-works {
         position: relative;
 
+        overflow: hidden;
+
         max-width: 100%;
-        min-width: 1025px;
+        min-width: $media-width-desktop;
 
         height: 100%;
 
@@ -244,13 +275,13 @@
             left:0;
             right:0;
 
+            background-color: rgb(245, 246, 250);
+
             margin: 0 auto;
 
             bottom: 30%;
             
             width: 80%;
-
-            transition: width 1s;
 
             .title {
                 margin-bottom: 15vh;
@@ -278,40 +309,134 @@
             position: absolute;
             right: -50vw;
 
-            bottom: 30%;
+            height: 100%;
+            width: 50%;
 
-            font-size: 7vw;
+            padding: 11vh 0vw 0vh 0vw;
+
+            background-color: rgb(255, 255, 255);
+            .title {
+                .value {
+                    color: rgb(207, 75, 71);
+                }
+                font-size: 3vw;
+
+                margin-bottom: 4vh;
+            }
+            .text {
+                padding: 5vh 8vw 0vh 8vw;
+                font-size: 1.4vw;
+                line-height: 4vh;
+
+                .category {
+                    text-align: left;
+                    .value {
+                        float: right;
+                        width: 5vw;
+
+                        text-align: left;
+                        color: rgb(207, 75, 71);
+
+                        .counter {
+                            color: black;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .resultBox {
+            position: absolute;
+            right: -50vw;
+            top: 60%;
+
+            .average {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                background-color: rgb(241, 236, 230);
+                height: 10vh;
+                width: 32vw;
+
+                .text {
+                    position: relative;
+                    left: -1.6vw;
+
+                    line-height: 10vh;
+                    vertical-align: middle;
+
+                    color: rgb(116, 103, 103);
+
+                    text-align: left;
+                    font-size: 1.1vw;
+
+                    .value {
+                        float: right;
+                        margin-right: 3vw;
+
+                        line-height: 10vh;
+                        vertical-align: middle;
+
+                        color: rgb(0, 0, 0);
+                        font-size: 1.2vw;
+                    }
+                }
+            }
+
+
+            .result {
+                position: absolute;
+                top: 15vh;
+                right: 0;
+
+                background-color: rgb(207, 75, 71);
+
+                height: 10vh;
+                width: 20vw;
+
+                .text {
+                    line-height: 10vh;
+                    vertical-align: middle;
+
+                    color: rgb(255, 255, 255);
+
+                    text-align: left;
+                    font-size: 1.5vw;
+                }
+            }
         }
     } 
-}
+    // Slider-bar-component
+    .slider-bar {
+        position: relative;
 
-// Slider-bar-component
-.slider-bar {
-    position: relative;
+        display: block;
+        
+        height: 2.5vh;
+        border-radius: 3vh;
 
-    display: block;
-    
-    height: 2.5vh;
-    border-radius: 3vh;
+        background: rgb(229,235,242);;
+        
+        .slider-button {
+        user-select: none;
+        cursor: pointer;
 
-    background: rgb(229,235,242);;
-    
-    .slider-button {
-      user-select: none;
-      cursor: pointer;
+        position: relative;
+        top:  -0.7vh;
 
-      position: relative;
-      top:  -0.9vh;
+        height: 3vh;
+        width: 3vh;
 
-      height: 3.5vh;
-      width: 3.5vh;
+        margin-left: -1.75vh;
 
-      margin-left: -1.75vh;
+        border-style: solid;
+        border-color: rgb(110,124,142);
+        border-radius: 3vh;
 
-      border-style: solid;
-      border-color: rgb(110,124,142);
-      border-radius: 3vh;
-
-      background: rgb(245, 246, 250);
+        background: rgb(245, 246, 250);
+        }
     }
 }
+

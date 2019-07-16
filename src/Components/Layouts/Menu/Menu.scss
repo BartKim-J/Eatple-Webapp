@@ -1,131 +1,238 @@
+@import "Configure/mediaConfig.scss";
+
+$nav_menu_z_index: 900;
+$bugger_menu_z_idex: $nav_menu_z_index + 1;
+
+
 /*************************
  * 
  * Bugger Menu 
  *
  *************************/
-.bugger_menu {
-
+ @media all and (min-width: $media-width-tablet) {
+    .bugger_menu {
+        display: block;
+    }
+    
+    .bugger_menu-wrap {
+        z-index: $bugger_menu_z_idex;
+    }
+        /* Individual item */
+        .bm-item {
+            display: inline-block;
+            font-size: 2vw;
+    
+            /* Our sidebar item styling */
+            text-decoration: none;
+            margin-bottom: 10px;
+            color: #d1d1d1;
+            transition: color 0.5s;
+        }
+    
+        /* Change color on hover */
+        .bm-item:hover {
+            color: white    
+        }
+    
+        /* The rest copied directly from react-burger-menu docs */
+    
+        /* Position and sizing of burger button */
+        .bm-burger-button {
+            position: fixed;
+            width: 2vw;
+            height: 2vw;
+            left: 4vw;
+            top: 2vw;
+        }
+    
+        /* Color/shape of burger icon bars */
+        .bm-burger-bars {
+            background: rgb(0, 0, 0);
+        }
+    
+        /* Position and sizing of clickable cross button */
+        .bm-cross-button {
+            width: 2vw;
+            height: 2vw;
+        }
+    
+        /* Color/shape of close button cross */
+        .bm-cross {
+            background: #bdc3c7;
+        }
+    
+        /* General sidebar styles */
+        .bm-menu {
+            background: #373a47;
+            padding: 2.5em 1.5em 0;
+            font-size: 1.15em;
+        }
+    
+        /* Wrapper for item list */
+        .bm-item-list {
+            color: #b8b7ad;
+        }
+    
+        /* Styling of overlay */
+        .bm-overlay {
+            background: rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Morph shape necessary with bubble or elastic */
+        .bm-morph-shape {
+            fill: #373a47;
+        }
+    
 }
 
-.bugger_menu-wrap {
-    display: block;
+@media all and (min-width: $media-width-desktop) {
+    .bugger_menu {
+    }
+    
+    .bugger_menu-wrap {
+    }
+        /* Individual item */
+        .bm-item {
+
+        }
+    
+        /* Change color on hover */
+        .bm-item:hover {
+
+        }
+    
+        /* The rest copied directly from react-burger-menu docs */
+    
+        /* Position and sizing of burger button */
+        .bm-burger-button {
+ 
+        }
+    
+        /* Color/shape of burger icon bars */
+        .bm-burger-bars {
+
+        }
+    
+        /* Position and sizing of clickable cross button */
+        .bm-cross-button {
+
+        }
+    
+        /* Color/shape of close button cross */
+        .bm-cross {
+
+        }
+    
+        /* General sidebar styles */
+        .bm-menu {
+ 
+        }
+    
+        /* Wrapper for item list */
+        .bm-item-list {
+
+        }
+    
+        /* Styling of overlay */
+        .bm-overlay {
+
+        }
+    
+        /* Morph shape necessary with bubble or elastic */
+        .bm-morph-shape {
+
+        }
 }
-    /* Individual item */
-    .bm-item {
-        display: inline-block;
-        font-size: 2vw;
-        
-        font-family: 'BMHANNAPro';
 
-        /* Our sidebar item styling */
-        text-decoration: none;
-        margin-bottom: 10px;
-        color: #d1d1d1;
-        transition: color 0.1s;
-    }
+ @media all and (min-width: $media-width-mobile) {
 
-    /* Change color on hover */
-    .bm-item:hover {
-        color: white    
-    }
+ }
 
-    /* The rest copied directly from react-burger-menu docs */
 
-    /* Position and sizing of burger button */
-    .bm-burger-button {
-        position: fixed;
-        width: 36px;
-        height: 30px;
-        left: 36px;
-        top: 36px;
-    }
-
-    /* Color/shape of burger icon bars */
-    .bm-burger-bars {
-        background: #373a47;
-    }
-
-    /* Position and sizing of clickable cross button */
-    .bm-cross-button {
-        height: 24px;
-        width: 24px;
-    }
-
-    /* Color/shape of close button cross */
-    .bm-cross {
-        background: #bdc3c7;
-    }
-
-    /* General sidebar styles */
-    .bm-menu {
-        background: #373a47;
-        padding: 2.5em 1.5em 0;
-        font-size: 1.15em;
-    }
-
-    /* Wrapper for item list */
-    .bm-item-list {
-        color: #b8b7ad;
-    }
-
-    /* Styling of overlay */
-    .bm-overlay {
-        background: rgba(0, 0, 0, 0.3);
-    }
-
-    /* Morph shape necessary with bubble or elastic */
-    .bm-morph-shape {
-        fill: #373a47;
-    }
 
  /*************************
  * 
  * Navigation Var Menu
  *
  *************************/
-.nav_var {
-    width: 100%;
-    height: 100px;
+ @media all and (min-width: $media-width-tablet) {
+    .nav_var-wrap {
+        position: fixed;
+        top: 2vw;
+        left: 0;
     
-    background-color: white;
-    border-radius: 0px;
+        z-index: $nav_menu_z_index;
+    
+        width: 100%;
+        height: 10vh;
 
-    margin: 0 0 0 0;
-    padding: 0 5% 0 5%;
+        //background-color: white;
+        border-radius: 0px;
+    
+        margin: 0 auto;
+    }
+    
+    .nav_var {
+        max-width: $media-width-desktop;
+        padding: 0 5% 0 10%;
+        margin: 0 auto;
 
-    position: relative;
+        .navbar-brand {
+            float: left;
+        }
+    
+        .nav_menu-logo {
+            width:  6vh;
+            height: 5vh;
+        }
+    
+        .nav_menu-items {
+            display: flex;
+            float: right;
+        }
+    
+        .nav_menu-item {
+            font-weight: normal;
+            line-height: 6vh;
+            
+            color: rgb(0, 0, 0) !important;
+            text-decoration: none !important;
+    
+            margin-right: 3vw;
+        }
+    
+        .nav_menu-login {
+    
+        }
+    }
 }
-.nav_var-wrap {
-    display: none;
+
+@media all and (min-width: $media-width-desktop) {
+    .nav_var-wrap {
+    }
+    
+    .nav_var {
+        .navbar-brand {
+        }
+    
+        .nav_menu-logo {
+        }
+    
+        .nav_menu-items {
+        }
+    
+        .nav_menu-item {
+        }
+    
+        .nav_menu-login {
+    
+        }
+    }
 }
-    .navbar-brand {
-        float: left;
-        height: 50px;
-        padding: 20px 20px;
-        font-size: 18px;
-        line-height: 20px;
+
+ @media all and (max-width: $media-width-mobile) {
+    .nav_var-wrap {
+        display: none;
     }
+ }
 
-    .nav_menu-logo {
-        width:  80px;
-        height: 60px;
-    }
-
-    .nav_menu-items {
-        position: relative;
-        top: 31%;
-
-        display: flex;
-        float: right;
-
-    }
-
-    .nav_menu-item {
-        font-size: 24px;
-        font-weight: bold;
-        
-        color: rgb(224, 67, 5)!important;
-        text-decoration: none !important;
-
-        margin-right: 18px;
-    }
