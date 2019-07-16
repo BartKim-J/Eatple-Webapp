@@ -43,7 +43,7 @@ const fullpageOption = {
   //resetSliders: false,
   //fadingEffect: false,
   //normalScrollElements: '#element1, .element2',
-  scrollOverflow: true,
+  scrollOverflow: false,
   scrollOverflowReset: false,
   scrollOverflowOptions: null,
   //touchSensitivity: 15,
@@ -77,7 +77,7 @@ const SECTION_SEL = `.${SEL}`;
 
 // NOTE: if using fullpage extensions/plugins put them here and pass it as props
 const pluginWrapper = () => {
-  require('fullpage.js/vendors/scrolloverflow'); // Optional. When using scrollOverflow:true
+  //require('fullpage.js/vendors/scrolloverflow'); // Optional. When using scrollOverflow:true
 };
 
 class Homepage extends Component {

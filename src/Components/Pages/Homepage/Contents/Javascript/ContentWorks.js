@@ -11,6 +11,9 @@ import '../Stylesheet/Contents_Tablet.scss';
 import '../Stylesheet/Contents_Mobile.scss';
 
 
+const controlBox = "control-box"
+const displayBox = "display-box"
+
 class SliderBar extends Component {
     constructor(props) {
         super(props)
@@ -61,7 +64,10 @@ class SliderBar extends Component {
         const { min, max } = this.props;
         const { isDragging } = this.state;
         let { value } = this.state;
-        if (typeof value === 'undefined') value = min;
+
+        if (typeof value === 'undefined') {
+            value = min;
+        }
 
         return(
             <div
@@ -91,19 +97,34 @@ class ContentWorks extends Component {
         super(props)
         this.state = {
             displayValue: 0,
+            controlFlag: false,
         }
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(value) {
-        this.setState({ displayValue: Math.round(value) });
+        this.setState({ displayValue: Math.round(value)});
+        
+        if((!this.state.controlFlag) && (this.state.displayValue > 0))
+        {
+            this.setState({ controlFlag: true});
+
+            let controlBoxElmt = document.getElementById(controlBox);
+            let displayBoxElmt = document.getElementById(displayBox);
+
+            controlBoxElmt.style.transform  = "translate3d(-25%, 0, 0)";
+            controlBoxElmt.style.transition = "all .7s ease 0.1s";
+
+            displayBoxElmt.style.transform  = "translate3d(-65vw, 0, 0)";
+            displayBoxElmt.style.transition = "all .7s ease 0.1s";
+        }
     }
 
     render() {
         return (
             <div className="content-works">
-                <div className="control">
+                <div id={controlBox} className="controlBox">
                     <div className="title">
                         <p className="text">한 달에<br />
                             <span className="value">{this.state.displayValue}</span> 번<br />
@@ -112,6 +133,12 @@ class ContentWorks extends Component {
                     </div>
 
                     <SliderBar className="slider-bar" min="0" max="25" onChange={this.handleChange}/>
+                </div>
+
+                <div id={displayBox} className="displayBox">
+                    OH<br/>
+                    {this.state.displayValue}<br/>
+                    OH
                 </div>
             </div>
         );

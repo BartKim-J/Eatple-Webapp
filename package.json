@@ -1,10 +1,11 @@
 {
-  "name": "meal-kok",
-  "version": "0.0.1",
+  "name": "meaekok.com",
+  "version": "0.0.2",
   "private": true,
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.14",
     "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -15,8 +16,11 @@
     "react-naver-maps": "0.0.13",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-slick": "^0.24.0",
     "redux": "^4.0.1",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "slick-carousel": "^1.8.1",
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
