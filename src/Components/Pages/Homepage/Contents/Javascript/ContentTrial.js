@@ -17,13 +17,13 @@ class ContentTrial extends Component {
             <div className="content-trial">
                     <div className="title">
                         <p className="text">
-                            무료 체험을 하러 <br/>
+                            <br/>
+                            <br/>
+                            이제 무료 체험을 하러 <br/>
                             가볼까요?
                             <br/>
                             <br/>
-                            <br/>
-                            <br/>
-                            버튼
+
                         </p>
                     </div>
             </div>

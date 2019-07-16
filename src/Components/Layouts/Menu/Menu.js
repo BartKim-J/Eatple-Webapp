@@ -56,6 +56,8 @@ class SideMenu extends Component {
             <div className="bugger_menu-wrap">
                 <BuggerMenu {...this.props} className="bugger_menu">
                     <a className="menu-item" href="/">HOME</a>
+                    <a className="menu-item" href="/">MEMBERSHIP</a>
+                    <a className="menu-item" href="/">LOGIN</a>
                 </BuggerMenu>
             </div>
         );
