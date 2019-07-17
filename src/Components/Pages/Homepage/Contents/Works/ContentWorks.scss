@@ -1,0 +1,229 @@
+@import "Configure/mediaConfig.scss";
+
+/**
+ * Contents - Works 
+ **/
+@media all and (min-width: $media-width-desktop) {
+    /** Service **/
+    .content-works {
+        position: relative;
+
+        overflow: hidden;
+
+        width:  100vw;
+        height: 100vh;
+
+        background-color: #f7f8fb;
+
+        .content-works-inner {
+            position: relative;
+
+           //@debugmax-width: $media-width-max;
+            min-width: $media-width-desktop;
+
+            margin: 0 auto;
+
+
+            .control-box {
+                position: absolute;
+                
+                width: 100vw;
+                height: 100vh;
+
+                background-color: #f7f8fb;                
+
+                .control-box-inner {
+                    padding-top: 30vh;
+                    
+                    .title {
+                        margin-bottom: 14vh;
+    
+                        .text {
+                            text-align: center;
+                            
+                            line-height: 5vw;
+                            font-size: 4vw;
+                            color: #5f6c7d;
+    
+                            .value {
+                                color: #b1becb;
+                            }
+                        }            
+                    }
+                    
+                    .slider-bar {
+                        width: 45%;
+                        min-width: 36vw;
+                        margin: 0 auto;
+                    }
+                }
+            }
+
+            .display-box {
+                position: absolute;
+                right: -50vw;
+
+                height: 100vh;
+                width: 50vw;
+   
+                height: 100vh;
+
+                background-color: white;
+
+                .display-box-inner {
+                    padding-top: 30vh;
+
+                    .title {
+                        .value {
+                            color: #5f6c7d;
+                        }
+                        font-size: 3vw;
+    
+                        margin-bottom: 4vh;
+                    }
+                    .text {
+                        padding: 5vh 8vw 0vh 8vw;
+                        font-size: 1.4vw;
+                        line-height: 4vh;
+    
+                        .category {
+                            text-align: left;
+                            color: #808f9f;
+
+                            .value {
+                                float: right;
+                                width: 5vw;
+    
+                                text-align: left;
+                                color: #5f6c7d;
+    
+                                .counter {
+                                    color: #808f9f;
+                                }
+                            }
+    
+                        }
+                    }
+                }
+            }
+
+            .resultBox {
+                position: absolute;
+                right: -50vw;
+                top: 70vh;
+
+                .average {
+                    position: relative;
+                    top: 0;
+                    right: 0;
+
+                    background-color: #eaeff5;
+                    height: 10vh;
+                    width: 32vw;
+
+                    .text {
+                        position: absolute;
+                        left: 2vw;
+
+                        width: 100%;
+
+                        line-height: 10vh;
+                        vertical-align: middle;
+
+                        color: rgb(116, 103, 103);
+
+                        text-align: left;
+                        font-size: 1.1vw;
+                    }
+
+                    .value {
+                        position: absolute;
+                        right: 0;
+
+                        margin-right: 3vw;
+
+                        line-height: 10vh;
+                        vertical-align: middle;
+
+                        color: #808f9f;
+                        font-size: 1.2vw;
+                    }
+                }
+
+
+                .result {
+                    position: absolute;
+                    top: 15vh;
+                    right: 0;
+
+                    background-color: #5f6c7d;
+
+                    height: 10vh;
+                    width: 20vw;
+
+                    .text {
+                        position: absolute;
+                        left: 2vw;
+
+                        width: 100%;
+
+                        line-height: 10vh;
+                        vertical-align: middle;
+
+                        color: white;
+
+                        text-align: left;
+                        font-size: 2.8vw;
+                    }
+
+                    .value {
+                        position: absolute;
+                        right: 0;
+
+                        margin-right: 3vw;
+
+                        line-height: 10vh;
+                        vertical-align: middle;
+
+                        color: white;
+
+                        text-align: left;
+                        font-size: 1.5vw;
+                    }
+                }
+            }
+        }
+        
+    } 
+    // Slider-bar-component
+    .slider-bar {
+        position: relative;
+
+        display: block;
+        
+        height: 2.5vh;
+        border-radius: 3vh;
+
+        background: rgb(229,235,242);;
+        
+        .slider-button {
+        user-select: none;
+        cursor: pointer;
+
+        position: relative;
+        top:  -0.7vh;
+
+        height: 3vh;
+        width: 3vh;
+
+        margin-left: -1.75vh;
+
+        border-style: solid;
+        border-color: rgb(110,124,142);
+        border-radius: 3vh;
+
+        background: rgb(245, 246, 250);
+        }
+    }
+}
+

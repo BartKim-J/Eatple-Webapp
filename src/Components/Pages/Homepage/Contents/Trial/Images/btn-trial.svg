@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="82" viewBox="0 0 256 82">
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#5F6C7D" font-family="NanumSquareOTFEB, NanumSquareOTF" font-size="24" font-weight="600" letter-spacing=".423">
+            <tspan x="61.211" y="37">무료체험하기</tspan>
+        </text>
+        <rect width="255" height="81" x=".5" y=".5" stroke="#5F6C7D" rx="40.5"/>
+    </g>
+</svg>

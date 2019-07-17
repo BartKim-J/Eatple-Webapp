@@ -6,6 +6,8 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 // Components
 
+import Logo from '../Images/logo/logo@3x.png'
+import TrialBtn from '../Images/Menu/btn-trial@3x.png'
 // Style Sheets
 import './Menu.scss';
 
@@ -24,16 +26,17 @@ class Menu extends Component {
                     <Navbar.Brand href="/">
                         <img
                             alt="MealKok"
-                            src="https://mealkok.s3-ap-northeast-1.amazonaws.com/images/layouts/logo.png"
+                            src={Logo}
 
                             className="d-inline-block align-top nav_menu-logo"
                         />
                     </Navbar.Brand>
                     <Nav className="mr-auto nav_menu-items">
-                        <Nav.Link className="nav_menu-item" href="/">밀콕이란?</Nav.Link>
                         <Nav.Link className="nav_menu-item" href="/">멤버쉽</Nav.Link>
                         <Nav.Link className="nav_menu-item" href="/">
-                            <div className="nav_menu-login">로그인</div>
+                            <div className="trial-btn-box">
+                                <img className="btn" src={TrialBtn}/>
+                            </div>
                         </Nav.Link>
                     </Nav>
                 </Navbar>
@@ -55,9 +58,9 @@ class SideMenu extends Component {
         return (            
             <div className="bugger_menu-wrap">
                 <BuggerMenu {...this.props} className="bugger_menu">
-                    <a className="menu-item" href="/">HOME</a>
-                    <a className="menu-item" href="/">MEMBERSHIP</a>
-                    <a className="menu-item" href="/">LOGIN</a>
+                    <a className="menu-item" href="/">홈</a>
+                    <a className="menu-item" href="/">멤버쉽</a>
+                    <a className="menu-item" href="/">무료 체험하기</a>
                 </BuggerMenu>
             </div>
         );

@@ -1,0 +1,74 @@
+@import "Configure/mediaConfig.scss";
+
+
+/**
+ * Contents - Main 
+ **/
+ @media all and (min-width: $media-width-desktop) {
+    /** Service **/
+    .content-main {
+        position: relative;
+
+        overflow: hidden;
+
+        width:  84vw;
+        height: 100vh;
+        padding: 0 8vw;
+
+        background-color: #9aa6b7;
+
+        .content-main-inner {
+            position: relative;
+
+            max-width: $media-width-max;
+            min-width: $media-width-desktop;
+
+            margin: 0 auto;
+
+            .main-image-box {
+                position: absolute;
+                right: 0;
+
+                line-height: 100vh;
+
+                .image {
+                    vertical-align: middle;
+                    max-width:100%;
+                    max-height:100%;
+                }
+            }
+    
+            /** Title **/
+            .main-head-box {
+                position: relative;
+                left: 0;
+
+                color: rgb(245, 246, 250);
+    
+                .text-box{
+                    display: table;
+                    height: 100vh;
+
+                    .title {
+                        display: table-cell;
+                        vertical-align: middle;
+
+                        font-family: 'NanumSquare';
+                        text-align: left;
+                        font-size: 4vw;
+        
+                        .highlight{
+                            font-family: 'BMDOHYEON';
+                        }
+
+                        .sub-text {
+                            margin-top: 3vh;
+                            font-size: 1.5vw;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
