@@ -1,5 +1,5 @@
 {
-  "name": "meaekok.com",
+  "name": "eatplus.com",
   "version": "0.0.2",
   "private": true,
   "dependencies": {
@@ -24,7 +24,7 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3333 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
