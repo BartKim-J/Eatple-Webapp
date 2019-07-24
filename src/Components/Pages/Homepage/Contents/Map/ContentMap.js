@@ -5,6 +5,7 @@ import { RenderAfterNavermapsLoaded, NaverMap } from 'react-naver-maps';
 import Slider from "react-slick";
 // Image Resources
 
+import ImgPinmap from "./Images/pinMap.png"
 // Components
 
 // Style Sheets
@@ -12,6 +13,9 @@ import './ContentMap.scss';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { isTemplateElement } from '@babel/types';
+
+
+const NaverMapClientID = "cos7enbwmi";
 
 class ContentMap extends Component {
     render() {
@@ -42,16 +46,17 @@ class ContentMap extends Component {
                             <div className="text">
                                 <img 
                                 className="icon"
-                                src="https://mealkok.s3-ap-northeast-1.amazonaws.com/images/Contents/Map/mapPin.png"
-                                alt="Map Pin"
+                                src={ImgPinmap}
+                                alt="Pin Map"
                                 />
                                 서울시 강남구
                             </div>
                         </div>
                         <RenderAfterNavermapsLoaded
-                            ncpClientId='cos7enbwmi'
+                            ncpClientId={NaverMapClientID}
                         >
                             <NaverMap
+                                ncpClientId={NaverMapClientID}
                                 className="map"
                                 mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
                                 defaultCenter={{ lat: 37.4979277, lng: 127.0266946 }}
