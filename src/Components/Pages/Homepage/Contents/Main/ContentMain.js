@@ -36,10 +36,7 @@ class ContentMain extends Component {
                                 식사에 가치를 더하다,<br/>
                                 <span className="highlight">잇플</span>
                                 <div className="sub-text">
-                                    엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리<br/>
-                                    엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리<br/>
-                                    엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리<br/>
-                                    엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리엘리
+                                    식사를 마음 껏 즐겨보세요.
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // Components
 
 // Style Sheets
-import './SignIn.css';
+import './SignIn.scss';
 
 class SignIn extends Component {
   render() {
