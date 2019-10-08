@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 // Components
-import { Homepage, Membership, SignIn, SignUp } from 'Components/Pages/PageIndex';
+import { Homepage, Membership, SignIn, SignUp, Payment } from 'Components/Pages/PageIndex';
 
 import { Menu, SideMenu } from 'Components/Layouts/Menu/Menu';
 import Footer from 'Components/Layouts/Footer/Footer';
@@ -25,6 +25,7 @@ class App extends Component {
             <Route path="/Membership" component={Membership} />
             <Route path="/SignIn" component={SignIn} />
             <Route path="/SignUp" component={SignUp} />
+            <Route path="/Payment" component={Payment} />
           </div>
           <Footer />
         </div>
