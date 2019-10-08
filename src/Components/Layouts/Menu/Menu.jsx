@@ -16,11 +16,11 @@ class Menu extends Component {
         super(props);
         this.state = {
 
-        };    
+        };
     }
 
-    render() {      
-        return (               
+    render() {
+        return (
             <div className="nav_var-wrap">
                 <Navbar className="nav_var">
                     <Navbar.Brand href="/">
@@ -35,7 +35,7 @@ class Menu extends Component {
                         <Nav.Link className="nav_menu-item" href="/">멤버쉽</Nav.Link>
                         <Nav.Link className="nav_menu-item" href="/">
                             <div className="trial-btn-box">
-                                <img className="btn" src={TrialBtn}/>
+                                <img className="btn" src={TrialBtn} alt=""/>
                             </div>
                         </Nav.Link>
                     </Nav>
@@ -51,11 +51,11 @@ class SideMenu extends Component {
         super(props);
         this.state = {
             listDataFromChild: null
-        };    
+        };
     }
 
-    render() {      
-        return (            
+    render() {
+        return (
             <div className="bugger_menu-wrap">
                 <BuggerMenu {...this.props} className="bugger_menu">
                     <a className="menu-item" href="/">홈</a>

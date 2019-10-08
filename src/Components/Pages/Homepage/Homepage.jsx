@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 
 // Components
-import Menu from 'Components/Layouts/Menu/Menu';
-import Footer from 'Components/Layouts/Footer/Footer';
-
 import { ContentMain, ContentMap, ContentService, ContentTrial, ContentWorks } from './Contents/ContentsIndex'
 
 // Style Sheets
