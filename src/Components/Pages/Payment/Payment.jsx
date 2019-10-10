@@ -1,25 +1,11 @@
-// Standard Include
-import React, {
-    Component
-} from 'react';
+import React, { PureComponent } from 'react'
 
-// Style Sheets
-import './Payment.scss';
+import './Payment.scss'
 
-class Payment extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        };
-    }
+export default class Payment extends PureComponent {
     render() {
         return (
-            <div>
-
-            </div>
-        );
+          <div />
+        )
     }
 }
-
-export default Payment;

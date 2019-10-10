@@ -1,12 +1,6 @@
-// Standard Include
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react'
 
-// Components
-
-// Style Sheets
-import './SignUp.scss';
-
-class SignUp extends Component {
+export default class SignUp extends PureComponent {
   render() {
     return (
       <div className="about">
@@ -15,8 +9,6 @@ class SignUp extends Component {
           <h1 className="about-title">SignUp Page.</h1>
         </header>
       </div>
-    );
+    )
   }
 }
-
-export default SignUp;
