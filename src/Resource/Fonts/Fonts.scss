@@ -1,85 +1,78 @@
-$fontPath : "Resource/Fonts";
+$fontPath: 'reesource/Fonts';
 
-$fontAll: "BMHANNAPro",
-"BMHANNA_11yrs",
-"BMDOHYEON",
-"BMJUA",
-"NanumGothic",
-"NanumSquare",
-"NanumSquareBold";
+$fontAll: 'BMHANNAPro', 'BMHANNA_11yrs', 'BMDOHYEON', 'BMJUA', 'NanumGothic', 'NanumSquare',
+  'NanumSquareBold';
 
 /* BM HANNA Pro Fonts */
 @font-face {
-    font-family: "BMHANNAPro";
-    src:url('#{$fontPath}/BM/BMHANNAPro.woff') format('woff'),
+  font-family: 'BMHANNAPro';
+  src: url('#{$fontPath}/BM/BMHANNAPro.woff') format('woff'),
     url('#{$fontPath}/BM/BMHANNAPro.ttf') format('truetype'),
     url('#{$fontPath}/BM/BMHANNAProOTF.otf') format('opentype');
-    //url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+  //url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
 
-    font-weight: normal;
-    font-style: normal;
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 /* BM HANNA 11yrs Fonts */
 @font-face {
-    font-family: "BMHANNA_11yrs";
-    src:url('#{$fontPath}/BM/BMHANNA_11yrs.ttf') format('truetype'),
+  font-family: 'BMHANNA_11yrs';
+  src: url('#{$fontPath}/BM/BMHANNA_11yrs.ttf') format('truetype'),
     url('#{$fontPath}/BM/BMHANNA_11yrs.woff') format('woff');
 
-    font-weight: normal;
-    font-style: normal;
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* BM DOHYEON Fonts */
 @font-face {
-    font-family: "BMDOHYEON";
-    src:url('#{$fontPath}/BM/BMDOHYEON.otf') format('otf'),
+  font-family: 'BMDOHYEON';
+  src: url('#{$fontPath}/BM/BMDOHYEON.otf') format('otf'),
     url('#{$fontPath}/BM/BMDOHYEON.woff') format('woff'),
     url('#{$fontPath}/BM/BMDOHYEON.woff2') format('woff2');
-    //url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+  //url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
 
-    font-weight: normal;
-    font-style: normal;
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* BM JUA Pro Fonts */
 @font-face {
-    font-family: "BMJUA";
-    src:url("#{$fontPath}/BM/BMJUA_ttf.ttf") format('truetype'),
-    url("#{$fontPath}/BM/BMJUA_ttf.woff") format('woff');
+  font-family: 'BMJUA';
+  src: url('#{$fontPath}/BM/BMJUA_ttf.ttf') format('truetype'),
+    url('#{$fontPath}/BM/BMJUA_ttf.woff') format('woff');
 
-    font-weight: normal;
-    font-style: normal;
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* NanumGothic Fonts */
 @font-face {
-    font-family: "NanumGothic";
-    src:url("#{$fontPath}/NanumGothic/NanumGothic.eot") format('eot'),
-    url("#{$fontPath}/NanumGothic/NanumGothic.woff") format('woff');
+  font-family: 'NanumGothic';
+  src: url('#{$fontPath}/NanumGothic/NanumGothic.eot') format('eot'),
+    url('#{$fontPath}/NanumGothic/NanumGothic.woff') format('woff');
 
-    font-weight: normal;
-    font-style: normal;
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 /* NanumSquare Fonts */
 @font-face {
-    font-family: "NanumSquare";
-    src:url("#{$fontPath}/NanumSquare/NanumSquareR.eot") format('eot'),
-    url("#{$fontPath}/NanumSquare/NanumSquareR.woff") format('woff');
+  font-family: 'NanumSquare';
+  src: url('#{$fontPath}/NanumSquare/NanumSquareR.eot') format('eot'),
+    url('#{$fontPath}/NanumSquare/NanumSquareR.woff') format('woff');
 
-    font-weight: normal;
-    font-style: normal;
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "NanumSquareBold";
-    src:url("#{$fontPath}/NanumSquare/NanumSquareB.eot") format('eot'),
-    url("#{$fontPath}/NanumSquare/NanumSquareB.woff") format('woff'),
-    url("#{$fontPath}/NanumSquare/NanumSquareB.woff2") format('woff2');
+  font-family: 'NanumSquareBold';
+  src: url('#{$fontPath}/NanumSquare/NanumSquareB.eot') format('eot'),
+    url('#{$fontPath}/NanumSquare/NanumSquareB.woff') format('woff'),
+    url('#{$fontPath}/NanumSquare/NanumSquareB.woff2') format('woff2');
 
-    font-weight: bold;
-    font-style: normal;
+  font-weight: bold;
+  font-style: normal;
 }

@@ -1,13 +1,13 @@
 .payment {
-    text-align: center;
+  text-align: center;
 }
-  
+
 .payment-logo {
   animation: membership-logo-spin infinite 15s linear;
   height: 40vmin;
   pointer-events: none;
 }
-  
+
 .payment-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -18,11 +18,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-  
+
 .payment-link {
   color: #61dafb;
 }
-  
+
 @keyframes payment-logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,4 +31,3 @@
     transform: rotate(360deg);
   }
 }
-  

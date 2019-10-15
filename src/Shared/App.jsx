@@ -2,15 +2,14 @@ import React, { PureComponent } from 'react';
 
 import { Switch, Route } from 'react-router-dom';
 
-// Components
-import { Homepage, Membership, SignIn, SignUp, Payment } from 'Components/Pages/PageIndex';
+import { Homepage, Membership, SignIn, SignUp, Payment } from 'components/Pages/PageIndex';
 
-import { Menu, SideMenu } from 'Components/Layouts/Menu/Menu';
-import Footer from 'Components/Layouts/Footer/Footer';
+import Menu from 'components/Layouts/Menu/NavMenu';
+import SideMenu from 'components/Layouts/Menu/SideMenu';
 
-// Image Resources
 
-// Style Sheets
+import Footer from 'components/Layouts/Footer/Footer';
+
 import './App.scss';
 
 export default class App extends PureComponent {
@@ -23,10 +22,16 @@ export default class App extends PureComponent {
           <div id="contents" className="contents">
             <Switch>
               <Route exact path="/" component={Homepage} />
-              <Route path="/Membership" component={Membership} />
-              <Route path="/SignIn" component={SignIn} />
-              <Route path="/SignUp" component={SignUp} />
-              <Route path="/Payment" component={Payment} />
+              <Route path="/membership" component={Membership} />
+              <Route path="/signIn" component={SignIn} />
+              <Route path="/signUp" component={SignUp} />
+
+              <Route exact path="/payment" component={Payment} />
+              {/*
+                <Route exact path="/payment/result" component={PaymentResult} />
+                <Route exact path="/certification" component={Certification} />
+                <Route exact path="/certification/result" component={CertificationResult} />
+              */}
               {/* <Route component={ErrorView} /> */}
             </Switch>
           </div>
