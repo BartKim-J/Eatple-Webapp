@@ -13,7 +13,7 @@ import {
 
 import Menu from 'components/Layouts/Menu/Menu';
 
-import Footer from 'components/Layouts/Footer/Footer';
+// import Footer from 'components/Layouts/Footer/Footer';
 
 import './App.scss';
 
@@ -40,7 +40,7 @@ export default class App extends PureComponent {
             </Switch>
           </div>
 
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
     );

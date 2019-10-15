@@ -4,9 +4,17 @@
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .payment-section {
     position: relative;
-    margin-top: 10vh;
+    margin-top: 7vh;
+
+    font-family: 'SCoreDreamBold';
+    
     .payment-container {
       position: relative;
+    }
+    .payment-footer {
+      position: relative;
+
+      padding: 5em;
     }
   }
 }
@@ -14,9 +22,16 @@
 @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
   .payment-section {
     position: relative;
-    margin-top: 10vh;
+    margin-top: 7vh;
+
+    font-family: 'SCoreDreamBold';
     .payment-container {
       position: relative;
+    }
+    .payment-footer {
+      position: relative;
+
+      padding: 5em;
     }
   }
 }
@@ -24,9 +39,21 @@
 @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
   .payment-section {
     position: relative;
-    margin-top: 10vh;
+    margin-top: 7vh;
+
+    font-family: 'SCoreDreamBold';
+
     .payment-container {
       position: relative;
+    }
+    .payment-footer {
+      position: relative;
+
+      padding: 1em 5em;
+
+      text-align: center;
+      font-size: 0.6em;
+      line-height: 1.7em;
     }
   }
 }

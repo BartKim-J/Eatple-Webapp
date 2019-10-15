@@ -2,7 +2,8 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
-import React, { useState } from 'react';
+import React, { useState, PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 
@@ -15,6 +16,7 @@ import { PGS, METHODS_FOR_INICIS, QUOTAS_FOR_INICIS_AND_KCP } from './constants'
 import { getMethods, getQuotas } from './utils';
 
 import 'antd/dist/antd.css';
+import './index.scss';
 
 function PGPayment({ history, form }) {
   const [methods, setMethods] = useState(METHODS_FOR_INICIS);
@@ -78,9 +80,6 @@ function PGPayment({ history, form }) {
 
         /* 웹 환경일때 */
         const { IMP } = window;
-        console.log(IMP);
-        console.log(data);
-        console.log(callback);
 
         IMP.init(userCode);
         IMP.request_pay(data, callback);
@@ -91,8 +90,6 @@ function PGPayment({ history, form }) {
   function callback(response) {
     const query = queryString.stringify(response);
 
-    console.log(response);
-    console.log(history)
     history.push(`/payment/result?${query}`);
   }
 
@@ -299,7 +296,7 @@ const { Item } = styled(Form)``;
 const { Option } = styled(Select)``;
 
 const Wrapper = styled.div`
-  padding: 5rem 0;
+  padding: 2em 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -375,6 +372,38 @@ const FormContainer = styled(Form)`
   }
 `;
 
-const Payment = Form.create({ name: 'payment' })(PGPayment);
+const PaymentForm = Form.create({ name: 'payment' })(PGPayment);
+
+const propTypes = {};
+
+const defaultProps = {};
+
+class Payment extends PureComponent {
+  render() {
+    const { history } = this.props;
+    return (
+      <div className="payment-section">
+        <div className="payment-container">
+          <PaymentForm history={history} />
+        </div>
+        <div className="payment-footer">
+          상호명: (주)아스테라 / 대표자: 정재호
+          <br />
+          경기도 성남시 대왕판교로 645번길 14, 2층(네오위즈판교타워)
+          <br />
+          사업자등록번호: 255-87-01463
+          <br />
+          개인정보보호책임자: 전세훈
+          <br />
+          고객센터: 070-8252-4295(평일 09:00~18:00) hey@eatple.com
+          <br />
+        </div>
+      </div>
+    );
+  }
+}
+
+Payment.propTypes = propTypes;
+Payment.defaultProps = defaultProps;
 
 export default withUserAgent(withRouter(Payment));
