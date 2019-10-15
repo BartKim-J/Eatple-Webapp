@@ -2,11 +2,16 @@ import React, { PureComponent } from 'react';
 
 import { Switch, Route } from 'react-router-dom';
 
-import { Homepage, Membership, SignIn, SignUp, Payment } from 'components/Pages/PageIndex';
+import {
+  Homepage,
+  Membership,
+  SignIn,
+  SignUp,
+  Payment,
+  PaymentResult,
+} from 'components/Pages/PageIndex';
 
-import Menu from 'components/Layouts/Menu/NavMenu';
-import SideMenu from 'components/Layouts/Menu/SideMenu';
-
+import Menu from 'components/Layouts/Menu/Menu';
 
 import Footer from 'components/Layouts/Footer/Footer';
 
@@ -15,10 +20,9 @@ import './App.scss';
 export default class App extends PureComponent {
   render() {
     return (
-      <div id="outer-container">
-        <SideMenu pageWrapId="page-wrap" outerContainerId="outer-container" width="20vw" />
-        <div id="page-wrap">
-          <Menu />
+      <div className="out-container">
+        <Menu />
+        <div className="inner-container">
           <div id="contents" className="contents">
             <Switch>
               <Route exact path="/" component={Homepage} />
@@ -27,14 +31,15 @@ export default class App extends PureComponent {
               <Route path="/signUp" component={SignUp} />
 
               <Route exact path="/payment" component={Payment} />
+              <Route exact path="/payment/result" component={PaymentResult} />
               {/*
-                <Route exact path="/payment/result" component={PaymentResult} />
                 <Route exact path="/certification" component={Certification} />
                 <Route exact path="/certification/result" component={CertificationResult} />
               */}
               {/* <Route component={ErrorView} /> */}
             </Switch>
           </div>
+
           <Footer />
         </div>
       </div>

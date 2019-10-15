@@ -1,3 +1,7 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
+/* eslint-disable camelcase */
 import React from 'react';
 import styled from 'styled-components';
 import { Icon, Button } from 'antd';
@@ -8,15 +12,18 @@ function PaymentResult({ history }) {
   const { location } = history;
   const { search } = location;
   const query = queryString.parse(search);
-  
+
   const { merchant_uid, error_msg, imp_uid } = query;
   const isSuccessed = getIsSuccessed();
+
   function getIsSuccessed() {
     const { success, imp_success } = query;
     if (typeof imp_success === 'string') return imp_success === 'true';
     if (typeof imp_success === 'boolean') return imp_success === true;
     if (typeof success === 'string') return success === 'true';
     if (typeof success === 'boolean') return success === true;
+
+    return false;
   }
 
   const iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
@@ -32,7 +39,7 @@ function PaymentResult({ history }) {
             <span>주문번호</span>
             <span>{merchant_uid}</span>
           </li>
-          {isSuccessed  ? (
+          {isSuccessed ? (
             <li>
               <span>아임포트 번호</span>
               <span>{imp_uid}</span>
@@ -54,11 +61,12 @@ function PaymentResult({ history }) {
 }
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  height: 100vh;
 `;
 
 const Container = styled.div`
@@ -106,7 +114,8 @@ const Container = styled.div`
     }
   }
 
-  button, button:hover {
+  button,
+  button:hover {
     border-color: ${props => props.colorType};
     color: ${props => props.colorType};
   }

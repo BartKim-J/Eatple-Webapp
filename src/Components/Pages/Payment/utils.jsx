@@ -14,9 +14,12 @@ import {
 
 export function getMethods(pg) {
   switch (pg) {
-    case 'html5_inicis': return METHODS_FOR_INICIS;
-    case 'kcp': return METHODS_FOR_KCP;
-    case 'uplus': return METHODS_FOR_UPLUS;
+    case 'html5_inicis':
+      return METHODS_FOR_INICIS;
+    case 'kcp':
+      return METHODS_FOR_KCP;
+    case 'uplus':
+      return METHODS_FOR_UPLUS;
     case 'kcp_billing':
     case 'kakaopay':
     case 'kakao':
@@ -31,9 +34,10 @@ export function getMethods(pg) {
       return METHODS_FOR_MOBILIANS;
     case 'settle':
       return METHOD_FOR_VBANK;
-    default: return METHODS;
-  }  
-} 
+    default:
+      return METHODS;
+  }
+}
 
 export function getQuotas(pg, method) {
   if (method === 'card') {

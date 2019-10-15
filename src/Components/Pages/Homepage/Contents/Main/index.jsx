@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import imageChef from './Images/Chef.svg';
-
-import './ContentMain.scss';
+import './index.scss';
 
 export default class ContentMain extends PureComponent {
   constructor(props) {
@@ -16,17 +14,14 @@ export default class ContentMain extends PureComponent {
     return (
       <div className="content-main">
         <div className="content-main-inner">
-          <div className="main-image-box">
-            <img className="image" src={imageChef} alt="chef" />
-          </div>
-
           <div className="main-head-box">
             <div className="text-box">
               <div className="title">
-                식사에 가치를 더하다,
+                한끼 식사에
                 <br />
-                <span className="highlight">잇플</span>
-                <div className="sub-text">식사를 마음 껏 즐겨보세요.</div>
+                가치를 더하다, 
+                <span className="highlight"> 잇플</span>
+                <div className="sub-text">잇플은 한끼 식사를 5500원에 해결할 수 있는 테이크아웃 멤버쉽입니다.</div>
               </div>
             </div>
           </div>

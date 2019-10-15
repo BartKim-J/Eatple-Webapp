@@ -8,7 +8,7 @@ class Footer extends PureComponent {
       <div>
         <footer className="footer">
           <div className="title">
-            <p>이것은 푸터입니다.</p>
+            <p>여기서 부터 푸터입니다.</p>
           </div>
         </footer>
       </div>

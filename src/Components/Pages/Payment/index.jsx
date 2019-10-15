@@ -1,5 +1,11 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
+/* eslint-disable camelcase */
 import React, { useState } from 'react';
+
 import styled from 'styled-components';
+
 import { Form, Select, Icon, Input, Switch, Button } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { withUserAgent } from 'react-useragent';
@@ -8,10 +14,9 @@ import queryString from 'query-string';
 import { PGS, METHODS_FOR_INICIS, QUOTAS_FOR_INICIS_AND_KCP } from './constants';
 import { getMethods, getQuotas } from './utils';
 
-const { Item } = Form;
-const { Option } = Select;
+import 'antd/dist/antd.css';
 
-function Payment({ history, form, ua }) {
+function PGPayment({ history, form }) {
   const [methods, setMethods] = useState(METHODS_FOR_INICIS);
   const [quotas, setQuotas] = useState(QUOTAS_FOR_INICIS_AND_KCP);
   const [isQuotaRequired, setIsQuotaRequired] = useState(true);
@@ -26,7 +31,7 @@ function Payment({ history, form, ua }) {
     validateFieldsAndScroll((error, values) => {
       if (!error) {
         /* 가맹점 식별코드 */
-        const userCode = 'imp19424728';
+        const userCode = 'imp49220546';
         /* 결제 데이터 */
         const {
           pg,
@@ -71,27 +76,23 @@ function Payment({ history, form, ua }) {
           data.digital = digital;
         }
 
-        if (isReactNative()) {
-          /* 리액트 네이티브 환경일때 */
-          const params = {
-            userCode,
-            data,
-            type: 'payment', // 결제와 본인인증을 구분하기 위한 필드
-          };
-          const paramsToString = JSON.stringify(params);
-          window.ReactNativeWebView.postMessage(paramsToString);
-        } else {
-          /* 웹 환경일때 */
-          const { IMP } = window;
-          IMP.init(userCode);
-          IMP.request_pay(data, callback);
-        }
+        /* 웹 환경일때 */
+        const { IMP } = window;
+        console.log(IMP);
+        console.log(data);
+        console.log(callback);
+
+        IMP.init(userCode);
+        IMP.request_pay(data, callback);
       }
     });
   }
 
   function callback(response) {
     const query = queryString.stringify(response);
+
+    console.log(response);
+    console.log(history)
     history.push(`/payment/result?${query}`);
   }
 
@@ -159,22 +160,8 @@ function Payment({ history, form, ua }) {
     setFieldsValue({ card_quota: quotas[0].value });
   }
 
-  function isReactNative() {
-    /*
-      리액트 네이티브 환경인지 여부를 판단해
-      리액트 네이티브의 경우 IMP.payment()를 호출하는 대신
-      iamport-react-native 모듈로 post message를 보낸다
-
-      아래 예시는 모든 모바일 환경을 리액트 네이티브로 인식한 것으로
-      실제로는 user agent에 값을 추가해 정확히 판단해야 한다
-    */
-    if (ua.mobile) return true;
-    return false;
-  }
-
   return (
     <Wrapper>
-      <Header>아임포트 결제 테스트</Header>
       <FormContainer onSubmit={handleSubmit}>
         <Item label="PG사">
           {getFieldDecorator('pg', {
@@ -307,6 +294,10 @@ function Payment({ history, form, ua }) {
   );
 }
 
+const { Item } = styled(Form)``;
+
+const { Option } = styled(Select)``;
+
 const Wrapper = styled.div`
   padding: 5rem 0;
   display: flex;
@@ -315,16 +306,9 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Header = styled.div`
-  font-weight: bold;
-  text-align: center;
-  padding: 2rem;
-  padding-top: 0;
-  font-size: 3rem;
-`;
-
 const FormContainer = styled(Form)`
-  width: 350px;
+  width: 90vw;
+  padding: 15px;
   border-radius: 3px;
 
   .ant-row {
@@ -340,7 +324,7 @@ const FormContainer = styled(Form)`
     text-align: left;
     label {
       color: #888;
-      font-size: 1.2rem;
+      font-size: 1em;
     }
     & + .ant-col.ant-form-item-control-wrapper {
       width: 26rem;
@@ -371,7 +355,7 @@ const FormContainer = styled(Form)`
     width: 9rem;
     text-align: left;
     color: #888;
-    font-size: 1.2rem;
+    font-size: 1em;
     border: none;
     background-color: inherit;
   }
@@ -386,11 +370,11 @@ const FormContainer = styled(Form)`
   button[type='submit'] {
     width: 100%;
     height: 5rem;
-    font-size: 1.6rem;
-    margin-top: 2rem;
+    font-size: 1.2em;
+    margin-top: 1.4em;
   }
 `;
 
-const PaymentForm = Form.create({ name: 'payment' })(Payment);
+const Payment = Form.create({ name: 'payment' })(PGPayment);
 
-export default withUserAgent(withRouter(PaymentForm));
+export default withUserAgent(withRouter(Payment));

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Navbar, Nav } from 'react-bootstrap';
 
-import Logo from '../Images/logo/logo@3x.png';
+import Logo from 'resource/Image/ImgLogo.png';
 import TrialBtn from '../Images/Menu/btn-trial@3x.png';
 
 import './Menu.scss';
