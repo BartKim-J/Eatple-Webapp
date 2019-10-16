@@ -15,6 +15,7 @@ import queryString from 'query-string';
 import { PGS, METHODS_FOR_INICIS, QUOTAS_FOR_INICIS_AND_KCP } from './constants';
 import { getMethods, getQuotas } from './utils';
 
+import btnPayment from './Images/BtnPayment@3x.png';
 import 'antd/dist/antd.css';
 import './index.scss';
 
@@ -249,43 +250,46 @@ function PGPayment({ history, form }) {
         </Item>
         <Item>
           {getFieldDecorator('name', {
-            initialValue: '아임포트 결제 데이터 분석',
+            initialValue: '잇플 가맹점',
             rules: [{ required: true, message: '주문명은 필수입력입니다' }],
           })(<Input size="large" addonBefore="주문명" />)}
         </Item>
         <Item>
           {getFieldDecorator('amount', {
-            initialValue: '39000',
+            initialValue: '5500',
             rules: [{ required: true, message: '결제금액은 필수입력입니다' }],
           })(<Input size="large" type="number" addonBefore="결제금액" />)}
         </Item>
         <Item>
           {getFieldDecorator('merchant_uid', {
-            initialValue: `min_${new Date().getTime()}`,
+            initialValue: `eatplus_${new Date().getTime()}`,
             rules: [{ required: true, message: '주문번호는 필수입력입니다' }],
           })(<Input size="large" addonBefore="주문번호" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_name', {
-            initialValue: '홍길동',
+            initialValue: '장윤지',
             rules: [{ required: true, message: '구매자 이름은 필수입력입니다' }],
           })(<Input size="large" addonBefore="이름" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_tel', {
-            initialValue: '01012341234',
+            initialValue: '01025486135',
             rules: [{ required: true, message: '구매자 전화번호는 필수입력입니다' }],
           })(<Input size="large" type="number" addonBefore="전화번호" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_email', {
-            initialValue: 'example@example.com',
+            initialValue: 'eatplus@gmail.com',
             rules: [{ required: true, message: '구매자 이메일은 필수입력입니다' }],
           })(<Input size="large" addonBefore="이메일" />)}
         </Item>
-        <Button type="primary" htmlType="submit" size="large">
-          결제하기
-        </Button>
+        <PayButtonBox>
+          <Button type="primary" htmlType="submit" size="large">
+            <img src={btnPayment} alt="payment btn" />
+            <span className="buttonText">결제하기</span>
+          </Button>
+        </PayButtonBox>
       </FormContainer>
     </Wrapper>
   );
@@ -293,7 +297,12 @@ function PGPayment({ history, form }) {
 
 const { Item } = styled(Form)``;
 
-const { Option } = styled(Select)``;
+const { Option } = styled(Select)`
+  font-size: 0.em;
+  font-weight: bold;
+  font-family: 'SCoreDream';
+  color: #666666;
+`;
 
 const Wrapper = styled.div`
   padding: 2em 0;
@@ -315,18 +324,38 @@ const FormContainer = styled(Form)`
     display: flex;
     align-items: center;
   }
+
+  .ant-switch-checked {
+    background-color: #fca800;
+  }
+
+  .ant-select-lg .ant-select-selection--single {
+    height: 30px;
+  }
+  
+  .ant-select-lg .ant-select-selection__rendered {
+    line-height: 28px;
+  }
+
+  .ant-select-selection-selected-value {
+    font-size: 0.68em;
+    font-weight: bold;
+    font-family: 'SCoreDream';
+    color: #666666;
+  }
+
   .ant-col.ant-form-item-label {
     padding: 0 11px;
-    width: 9rem;
     text-align: left;
     label {
-      color: #888;
+      color: #000000;
       font-size: 1em;
     }
     & + .ant-col.ant-form-item-control-wrapper {
       width: 26rem;
       .ant-form-item-control {
         line-height: inherit;
+        heigth: 20px;
       }
     }
   }
@@ -334,24 +363,39 @@ const FormContainer = styled(Form)`
     display: none;
   }
   .ant-row.ant-form-item.toggle-container .ant-form-item-control {
-    padding: 0 11px;
-    height: 4rem;
+    position: relative;
+    padding: 0;
+    height: 2.4rem;
     display: flex;
     align-items: center;
+
     .ant-switch {
-      margin: 0;
+      position: relative;
+      margin: 0 0 0 9rem;
+      right: 0;
     }
   }
 
   .ant-form-explain {
     margin-top: 0.5rem;
     margin-left: 9rem;
+    color: #f5222d;
+    font-size: 0.8em;
+  }
+
+  .ant-input-lg {
+    font-size: 0.8em;
+    font-weight: bold;
+    font-family: 'SCoreDream';
+    color: #666666;
+
+    height: 30px;
   }
 
   .ant-input-group-addon:first-child {
     width: 9rem;
     text-align: left;
-    color: #888;
+    color: #000000;
     font-size: 1em;
     border: none;
     background-color: inherit;
@@ -365,11 +409,40 @@ const FormContainer = styled(Form)`
   }
 
   button[type='submit'] {
-    width: 100%;
-    height: 5rem;
-    font-size: 1.2em;
-    margin-top: 1.4em;
+    position: relative;
+    width: 180px;
+    height: 54px;
+
+    margin: 3em 0;
+    padding: 0px;
+
+    background: none;
+    border: none;
+
+    box-shadow: none;
+
+    .buttonText {
+      position: absolute;
+      
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      font-size: 18px;
+      color: black;
+      line-height: 54px;
   }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+`;
+
+const PayButtonBox = styled.div`
+  text-align: center;
 `;
 
 const PaymentForm = Form.create({ name: 'payment' })(PGPayment);

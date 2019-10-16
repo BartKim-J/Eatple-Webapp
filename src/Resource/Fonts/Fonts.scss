@@ -79,6 +79,14 @@ $fontAll: 'BMHANNAPro', 'BMHANNA_11yrs', 'BMDOHYEON', 'BMJUA', 'NanumGothic', 'N
 
 /* S Core Dream Fonts */
 @font-face {
+  font-family: 'SCoreDreamLtd';
+  src: url('#{$fontPath}/SCoreDream/SCDream.woff') format('woff');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'SCoreDream';
   src: url('#{$fontPath}/SCoreDream/SCDream.woff') format('woff');
 

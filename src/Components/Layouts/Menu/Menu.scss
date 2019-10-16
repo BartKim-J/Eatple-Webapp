@@ -5,9 +5,9 @@ $nav_menu_z_index: 900;
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .nav_var-wrap {
-    position: fixed;
+    position: relative;
 
-    top: 1vh;
+    top: 0;
     left: 0;
 
     z-index: $nav_menu_z_index;
@@ -17,6 +17,10 @@ $nav_menu_z_index: 900;
   }
 
   .nav_var {
+    position: relative;
+
+    top: 2.5vh;
+
     max-width: $media-width-max;
     padding: 0 8%;
     margin: 0 auto;
@@ -52,9 +56,9 @@ $nav_menu_z_index: 900;
 
 @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
   .nav_var-wrap {
-    position: fixed;
+    position: relative;
 
-    top: 1vh;
+    top: 0;
     left: 0;
 
     z-index: $nav_menu_z_index;
@@ -64,6 +68,10 @@ $nav_menu_z_index: 900;
   }
 
   .nav_var {
+    position: relative;
+
+    top: 2.5vh;
+    
     max-width: $media-width-max;
     padding: 0 8%;
     margin: 0 auto;
@@ -99,9 +107,9 @@ $nav_menu_z_index: 900;
 
 @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
   .nav_var-wrap {
-    position: fixed;
+    position: relative;
 
-    top: 1vh;
+    top: 0;
     left: 0;
 
     z-index: $nav_menu_z_index;
@@ -111,6 +119,10 @@ $nav_menu_z_index: 900;
   }
   
   .nav_var {
+    position: relative;
+
+    top: 2.5vh;
+    
     max-width: $media-width-max;
     padding: 0 8%;
     margin: 0 auto;

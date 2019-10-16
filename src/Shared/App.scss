@@ -3,11 +3,15 @@
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .out-container {
-    position: relative;
-    .inner-container {
+    .out-container {
       position: relative;
-      .contents {
+  
+      .inner-container {
         position: relative;
+  
+        .contents {
+          position: relative;
+        }
       }
     }
   }
@@ -16,8 +20,10 @@
 @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
   .out-container {
     position: relative;
+
     .inner-container {
       position: relative;
+
       .contents {
         position: relative;
       }
@@ -28,8 +34,10 @@
 @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
   .out-container {
     position: relative;
+
     .inner-container {
       position: relative;
+
       .contents {
         position: relative;
       }
