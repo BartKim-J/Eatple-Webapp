@@ -2,52 +2,83 @@
 @import 'configure/componentsConfig.scss';
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
-  /** Service **/
   .content-main {
     position: relative;
 
-    overflow: hidden;
-
-    width: 100vw;
+    width: 100%;
     height: 80vh;
-    padding: 0 8vw;
-
+    
     background-color: white;
 
     .content-main-inner {
       position: relative;
 
-      max-width: $media-width-max;
-      min-width: $media-width-desktop;
-
-      margin: 0 auto;
-
-      /** Title **/
-      .main-head-box {
+      .main-head-wrapper {
         position: relative;
         left: 0;
 
+        width: 60%;
+        height: 70vh;
+
         color: black;
 
-        .text-box {
-          display: table;
-          height: 80vh;
+        display: table;
 
+        .main-head-box {
+          display: table-cell;
+          vertical-align: middle;
+
+          padding: 0 8vw;
           .title {
-            display: table-cell;
-            vertical-align: middle;
-
             text-align: left;
-            font-size: 4vw;
+            font-size: 4.4em;
 
             .highlight {
               font-family: 'SCoreDreamBold';
             }
 
             .sub-text {
-              margin-top: 3vh;
-              font-size: 1.5vw;
+              margin: 0.8em 0 0 0.4em;
+              font-size: 0.3em;
             }
+          }
+        }
+      }
+
+      .main-slide-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: 40%;
+        
+        .main-slide-box {
+          img {
+            width: 100%;
+          }
+        }
+
+        .main-slide-btn-left {
+          position: absolute;
+          bottom: 0;
+          left: -6em;
+
+          width: 6em;
+          
+          img {
+            width: 100%;
+          }
+        }
+
+        .main-slide-btn-right {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          width: 6em;
+
+          img {
+            width: 100%;
           }
         }
       }
@@ -56,52 +87,62 @@
 }
 
 @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
-  /** Service **/
   .content-main {
     position: relative;
 
     overflow: hidden;
 
-    width: 100vw;
-    height: 80vh;
-    padding: 0 8vw;
+    width: 100%;
+    height: 100%;
 
-    background-color: #9aa6b7;
+    background-color: white;
 
     .content-main-inner {
       position: relative;
 
-      max-width: $media-width-max;
-      min-width: $media-width-desktop;
+      min-height: 80vh;
 
-      margin: 0 auto;
-
-      /** Title **/
-      .main-head-box {
+      .main-head-wrapper {
         position: relative;
         left: 0;
 
+        width: 65%;
+        height: 60vh;
+
         color: black;
 
-        .text-box {
-          display: table;
-          height: 80vh;
+        display: table;
 
+        .main-head-box {
+          display: table-cell;
+          vertical-align: middle;
+
+          padding: 0 6vw;
           .title {
-            display: table-cell;
-            vertical-align: middle;
-
             text-align: left;
-            font-size: 4em;
+            font-size: 2.8em;
 
             .highlight {
               font-family: 'SCoreDreamBold';
             }
 
             .sub-text {
-              margin-top: 3vh;
-              font-size: 1.5vw;
+              margin: 0.4em 0 0 0.2em;
+              font-size: 0.26em;
             }
+          }
+        }
+      }
+
+      .main-slide-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 35%;
+
+        .main-slide-box {
+          img {
+            width: 100%;
           }
         }
       }
@@ -118,19 +159,12 @@
 
     width: 100vw;
     height: 80vh;
-    padding: 0 8vw;
-
-    background-color: #9aa6b7;
 
     .content-main-inner {
       position: relative;
 
-      max-width: $media-width-max;
-      min-width: $media-width-desktop;
-
       margin: 0 auto;
 
-      /** Title **/
       .main-head-box {
         position: relative;
         left: 0;
@@ -158,6 +192,10 @@
             }
           }
         }
+      }
+
+      .main-slide-box {
+        position: relative;
       }
     }
   }
