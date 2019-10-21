@@ -28,12 +28,60 @@ function PaymentResult({ history }) {
 
   const iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
   const resultType = isSuccessed ? '성공' : '실패';
+  const resultMessage = isSuccessed ? '앱으로 돌아가 식권을 확인해주세요.' : '다시 결제해 주세요.';
   const colorType = isSuccessed ? '#52c41a' : '#f5222d';
+
+  /* 웹 환경일때 */
+  const { Kakao } = window;
+  const apiKey = '2b7052dfc89e89644677cb1be76b7a18';
+
+  Kakao.init(apiKey);
+
+  function handleSubmit() {
+    const r = Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '딸기 치즈 케익',
+        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+        imageUrl:
+          'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        link: {
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com',
+        },
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845,
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+      ],
+    });
+
+    console.log(r);
+  }
+
   return (
     <Wrapper>
       <Container colorType={colorType}>
         <Icon type={iconType} theme="filled" />
         <p>{`결제에 ${resultType}하였습니다`}</p>
+        <p>{`${resultMessage}`}</p>
         <ul>
           <li>
             <span>주문번호</span>
@@ -41,7 +89,7 @@ function PaymentResult({ history }) {
           </li>
           {isSuccessed ? (
             <li>
-              <span>아임포트 번호</span>
+              <span>식별 번호</span>
               <span>{imp_uid}</span>
             </li>
           ) : (
@@ -51,9 +99,11 @@ function PaymentResult({ history }) {
             </li>
           )}
         </ul>
-        <Button size="large" onClick={() => history.push('/')}>
+        <Button
+          size="large"
+        >
           <Icon type="arrow-left" />
-          돌아가기
+          앱으로 돌아가기
         </Button>
       </Container>
     </Wrapper>

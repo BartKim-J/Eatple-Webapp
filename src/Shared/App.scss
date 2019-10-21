@@ -3,15 +3,15 @@
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .out-container {
-    .out-container {
+    position: relative;
+
+    .inner-container {
       position: relative;
-  
-      .inner-container {
+
+      .contents {
         position: relative;
-  
-        .contents {
-          position: relative;
-        }
+
+        min-height: 100vh;
       }
     }
   }
@@ -26,6 +26,8 @@
 
       .contents {
         position: relative;
+
+        min-height: 100vh;
       }
     }
   }
@@ -40,6 +42,8 @@
 
       .contents {
         position: relative;
+
+        min-height: 100vh;
       }
     }
   }

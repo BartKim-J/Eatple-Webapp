@@ -1,0 +1,86 @@
+@import 'configure/mediaConfig.scss';
+@import 'configure/componentsConfig.scss';
+
+@media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
+  .footer-section {
+    position: relative;
+
+    .footer-inner {
+      position: relative;
+      font-family: 'SCoreDreamBold';
+
+      .footer-box-wrapper {
+        position: relative;
+        
+        .footer-box {
+          position: relative;
+
+          background-color: #eff6ff;
+          color: #818991;
+
+          padding: 4em 4em;
+    
+          text-align: left;
+          font-size: 0.78em;
+          line-height: 1.7em;
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
+  .footer-section {
+    position: relative;
+
+    .footer-inner {
+      position: relative;
+      font-family: 'SCoreDreamBold';
+
+      .footer-box-wrapper {
+        position: relative;
+        
+        .footer-box {
+          position: relative;
+
+          background-color: #eff6ff;
+          color: #818991;
+
+          padding: 4em 4em;
+    
+          text-align: left;
+          font-size: 0.78em;
+          line-height: 1.7em;
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
+  .footer-section {
+    position: relative;
+
+    .footer-inner {
+      position: relative;
+      font-family: 'SCoreDreamBold';
+
+      .footer-box-wrapper {
+        position: relative;
+        
+        .footer-box {
+          position: relative;
+
+          background-color: #eff6ff;
+          color: #818991;
+
+          padding: 1em 5em;
+    
+          text-align: center;
+          font-size: 0.5em;
+          line-height: 1.7em;
+        }
+      }
+    }
+  }
+}

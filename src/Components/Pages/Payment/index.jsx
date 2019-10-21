@@ -23,10 +23,23 @@ function PGPayment({ history, form }) {
   const [methods, setMethods] = useState(METHODS_FOR_INICIS);
   const [quotas, setQuotas] = useState(QUOTAS_FOR_INICIS_AND_KCP);
   const [isQuotaRequired, setIsQuotaRequired] = useState(true);
+  const [isGetParamURL, setIsGetParamURL] = useState(true);
   const [isDigitalRequired, setIsDigitalRequired] = useState(false);
   const [isVbankDueRequired, setIsVbankDueRequired] = useState(false);
   const [isBizNumRequired, setisBizNumRequired] = useState(false);
   const { getFieldDecorator, validateFieldsAndScroll, setFieldsValue, getFieldsValue } = form;
+
+
+  const { location } = history;
+  const { search } = location;
+  const query = queryString.parse(search);
+  const { storeName, menuName, menuPrice } = query;
+
+  if (storeName === undefined ||
+      menuName === undefined ||
+      menuPrice === undefined ) {
+    history.push(`/payment/result`);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -250,39 +263,39 @@ function PGPayment({ history, form }) {
         </Item>
         <Item>
           {getFieldDecorator('name', {
-            initialValue: '잇플 가맹점',
+            initialValue: `${storeName} - ${menuName}`,
             rules: [{ required: true, message: '주문명은 필수입력입니다' }],
-          })(<Input size="large" addonBefore="주문명" />)}
+          })(<Input disabled={isGetParamURL} size="large" addonBefore="주문명" />)}
         </Item>
         <Item>
           {getFieldDecorator('amount', {
-            initialValue: '5500',
+            initialValue: menuPrice,
             rules: [{ required: true, message: '결제금액은 필수입력입니다' }],
-          })(<Input size="large" type="number" addonBefore="결제금액" />)}
+          })(<Input disabled={isGetParamURL} size="large" type="number" addonBefore="결제금액" />)}
         </Item>
         <Item>
           {getFieldDecorator('merchant_uid', {
             initialValue: `eatplus_${new Date().getTime()}`,
             rules: [{ required: true, message: '주문번호는 필수입력입니다' }],
-          })(<Input size="large" addonBefore="주문번호" />)}
+          })(<Input disabled={isGetParamURL} size="large" addonBefore="주문번호" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_name', {
             initialValue: '장윤지',
             rules: [{ required: true, message: '구매자 이름은 필수입력입니다' }],
-          })(<Input size="large" addonBefore="이름" />)}
+          })(<Input disabled={isGetParamURL} size="large" addonBefore="이름" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_tel', {
             initialValue: '01025486135',
             rules: [{ required: true, message: '구매자 전화번호는 필수입력입니다' }],
-          })(<Input size="large" type="number" addonBefore="전화번호" />)}
+          })(<Input disabled={isGetParamURL} size="large" type="number" addonBefore="전화번호" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_email', {
             initialValue: 'eatplus@gmail.com',
             rules: [{ required: true, message: '구매자 이메일은 필수입력입니다' }],
-          })(<Input size="large" addonBefore="이메일" />)}
+          })(<Input disabled={isGetParamURL} size="large" addonBefore="이메일" />)}
         </Item>
         <PayButtonBox>
           <Button type="primary" htmlType="submit" size="large">
@@ -298,14 +311,14 @@ function PGPayment({ history, form }) {
 const { Item } = styled(Form)``;
 
 const { Option } = styled(Select)`
-  font-size: 0.em;
+  font-size: 0em;
   font-weight: bold;
   font-family: 'SCoreDream';
   color: #666666;
 `;
 
 const Wrapper = styled.div`
-  padding: 2em 0;
+  padding: 10vh 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -458,18 +471,6 @@ class Payment extends PureComponent {
       <div className="payment-section">
         <div className="payment-container">
           <PaymentForm history={history} />
-        </div>
-        <div className="payment-footer">
-          상호명: (주)아스테라 / 대표자: 정재호
-          <br />
-          경기도 성남시 대왕판교로 645번길 14, 2층(네오위즈판교타워)
-          <br />
-          사업자등록번호: 255-87-01463
-          <br />
-          개인정보보호책임자: 전세훈
-          <br />
-          고객센터: 070-8252-4295(평일 09:00~18:00) hey@eatple.com
-          <br />
         </div>
       </div>
     );

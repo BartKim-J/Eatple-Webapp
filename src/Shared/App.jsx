@@ -12,6 +12,7 @@ import {
 } from 'components/Pages/PageIndex';
 
 import Menu from 'components/Layouts/Menu/Menu';
+import Footer from 'components/Layouts/Footer';
 
 // import Footer from 'components/Layouts/Footer/Footer';
 
@@ -21,7 +22,9 @@ export default class App extends PureComponent {
   render() {
     return (
       <div className="out-container">
-        <Menu />
+        {
+          // <Menu />
+        }
         <div className="inner-container">
           <div id="contents" className="contents">
             <Switch>
@@ -40,7 +43,7 @@ export default class App extends PureComponent {
             </Switch>
           </div>
 
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </div>
     );

@@ -1,12 +1,14 @@
-import React, { PureComponent, useState } from 'react';
+import React from 'react';
 
 import './index.scss';
 
-import imgBtnLeft from './Images/BtnLeft.png';
-import imgBtnRight from './Images/BtnRight.png';
-import imgBtnFree from './Images/BtnFree.png';
-import imgSlider from './Images/Slider-1.png';
+// import imgBtnLeft from './Images/BtnLeft.png';
+// import imgBtnRight from './Images/BtnRight.png';
+// import imgBtnFree from './Images/BtnFree.png';
+// import imgSlider from './Images/Slider-1.png';
 
+import imgDemo from './Images/demo.png';
+/*
 export default function CotentMain() {
   return (
     <div className="content-main">
@@ -37,6 +39,18 @@ export default function CotentMain() {
           <button type="button" className="main-slide-btn-right">
             <img src={imgBtnRight} alt="BtnLeft" />
           </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+*/
+export default function CotentMain() {
+  return (
+    <div className="content-main">
+      <div className="content-main-inner">
+        <div className="main-head-wrapper">
+          <img src={imgDemo} alt="demoImg" />
         </div>
       </div>
     </div>
