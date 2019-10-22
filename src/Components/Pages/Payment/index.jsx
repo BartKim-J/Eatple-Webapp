@@ -313,7 +313,7 @@ const { Item } = styled(Form)``;
 const { Option } = styled(Select)`
   font-size: 0em;
   font-weight: bold;
-  font-family: 'SCoreDream';
+  font-family: 'S-CoreDream';
   color: #666666;
 `;
 
@@ -399,7 +399,7 @@ const FormContainer = styled(Form)`
   .ant-input-lg {
     font-size: 0.8em;
     font-weight: bold;
-    font-family: 'SCoreDream';
+    font-family: 'S-CoreDream';
     color: #666666;
 
     height: 30px;

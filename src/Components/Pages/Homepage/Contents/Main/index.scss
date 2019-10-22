@@ -2,83 +2,110 @@
 @import 'configure/componentsConfig.scss';
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
-  .content-main {
+  .content-main-section {
     position: relative;
 
     width: 100%;
-    min-height: 80vh;
-    
+    height: 100vh;
+
     background-color: white;
 
     .content-main-inner {
-      position: relative;
+      max-width: $media-width-desktop-content;
+      margin: 0 auto;
 
-      .main-head-wrapper {
-        position: relative;
-        left: 0;
-
-        width: 60%;
-        height: 70vh;
+      .content-main-head-wrap {
+        height: 100vh;
 
         color: black;
 
         display: table;
-
-        .main-head-box {
+        .content-main-head-box {
           display: table-cell;
           vertical-align: middle;
 
-          padding: 0 8vw;
-          .title {
-            text-align: left;
-            font-size: 4.4em;
+          @media all and (min-width: $media-width-desktop-content) {
+            .content-main-text-box-wrap {
+              position: relative;
 
-            .highlight {
-              font-family: 'SCoreDreamBold';
+              .content-main-text-box {
+                text-align: left;
+                font-size: 4.4em;
+                line-height: 1.33;
+
+                .highlight {
+                  font-family: 'S-CoreDream-Bold';
+                }
+
+                .sub-text {
+                  margin: 0.8em 0 0 0.4em;
+                  font-size: 0.3em;
+                  line-height: 1.33;
+                }
+              }
             }
+            .content-main-btn-box-wrap {
+              margin-top: 66px;
+              margin-bottom: 10vh;
+              
+              .content-main-btn-box {
+                width: 2.8em;
 
-            .sub-text {
-              margin: 0.8em 0 0 0.4em;
-              font-size: 0.3em;
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+
+          @media all and (max-width: $media-width-desktop-content) {
+            .content-main-text-box-wrap {
+              position: relative;
+              padding: 0vh 6vw;
+              .content-main-text-box {
+                text-align: left;
+                font-size: 3.8em;
+                line-height: 1.33;
+
+                .highlight {
+                  font-family: 'S-CoreDream-Bold';
+                }
+
+                .sub-text {
+                  margin: 0.8em 0 0 0.4em;
+                  font-size: 0.28em;
+                  line-height: 1.33;
+                }
+              }
+            }
+            .content-main-btn-box-wrap {
+              margin-top: 66px;
+              margin-bottom: 10vh;
+
+              .content-main-btn-box {
+                width: 2.4em;
+
+                img {
+                  width: 100%;
+                }
+              }
             }
           }
         }
       }
 
-      .main-slide-wrapper {
+      .main-image-wrap {
         position: absolute;
         top: 0;
         right: 0;
 
-        width: 40%;
-        
-        .main-slide-box {
+        z-index: 100;
+
+        .main-image-box {
+          overflow: hidden;
+          max-width: 50vw;
           img {
-            width: 100%;
-          }
-        }
-
-        .main-slide-btn-left {
-          position: absolute;
-          bottom: 0;
-          left: -6em;
-
-          width: 6em;
-          
-          img {
-            width: 100%;
-          }
-        }
-
-        .main-slide-btn-right {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-
-          width: 6em;
-
-          img {
-            width: 100%;
+            height: 100vh;
           }
         }
       }
@@ -87,115 +114,13 @@
 }
 
 @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
-  .content-main {
-    position: relative;
-
-    overflow: hidden;
-
-    width: 100%;
-    min-height: 80vh;
-
-    background-color: white;
-
-    .content-main-inner {
-      position: relative;
-
-      min-height: 80vh;
-
-      .main-head-wrapper {
-        position: relative;
-        left: 0;
-
-        width: 65%;
-        height: 60vh;
-
-        color: black;
-
-        display: table;
-
-        .main-head-box {
-          display: table-cell;
-          vertical-align: middle;
-
-          padding: 0 6vw;
-          .title {
-            text-align: left;
-            font-size: 2.8em;
-
-            .highlight {
-              font-family: 'SCoreDreamBold';
-            }
-
-            .sub-text {
-              margin: 0.4em 0 0 0.2em;
-              font-size: 0.26em;
-            }
-          }
-        }
-      }
-
-      .main-slide-wrapper {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 35%;
-
-        .main-slide-box {
-          img {
-            width: 100%;
-          }
-        }
-      }
-    }
+  .content-main-section {
+    display: none;
   }
 }
 
 @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
-  .content-main {
-    position: relative;
-
-    overflow: hidden;
-
-    width: 100vw;
-    min-height: 80vh;
-
-    .content-main-inner {
-      position: relative;
-
-      margin: 0 auto;
-
-      .main-head-box {
-        position: relative;
-        left: 0;
-
-        color: black;
-
-        .text-box {
-          display: table;
-          height: 80vh;
-
-          .title {
-            display: table-cell;
-            vertical-align: middle;
-
-            text-align: left;
-            font-size: 4vw;
-
-            .highlight {
-              font-family: 'SCoreDreamBold';
-            }
-
-            .sub-text {
-              margin-top: 3vh;
-              font-size: 1.5vw;
-            }
-          }
-        }
-      }
-
-      .main-slide-box {
-        position: relative;
-      }
-    }
+  .content-main-section {
+    display: none;
   }
 }
