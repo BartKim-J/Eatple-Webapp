@@ -368,7 +368,7 @@ const FormContainer = styled(Form)`
       width: 26rem;
       .ant-form-item-control {
         line-height: inherit;
-        heigth: 20px;
+        height: 20px;
       }
     }
   }
@@ -444,7 +444,6 @@ const FormContainer = styled(Form)`
       font-size: 18px;
       color: black;
       line-height: 54px;
-  }
     }
 
     img {

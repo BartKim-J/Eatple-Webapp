@@ -5,7 +5,7 @@ import React, { PureComponent } from 'react';
 import ContentMain from './Contents/Main';
 
 // Style Sheets
-import './Homepage.scss';
+import './index.scss';
 
 export default class Homepage extends PureComponent {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class Homepage extends PureComponent {
 
   render() {
     return (
-      <div className="Homepage">
+      <div className="homepage-section">
         <ContentMain />
       </div>
     );

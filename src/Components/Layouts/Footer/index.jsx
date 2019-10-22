@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="footer-section">
       <div className="footer-inner">
-        <div className="footer-box-wrapper">
+        <div className="footer-box-wrap">
           <div className="footer-box">
             상호명: (주)아스테라 / 대표자: 정재호
             <br />

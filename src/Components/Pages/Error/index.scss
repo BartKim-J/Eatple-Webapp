@@ -1,0 +1,101 @@
+@import 'configure/mediaConfig.scss';
+@import 'configure/componentsConfig.scss';
+
+@media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
+  .error-section {
+    .error-inner {
+      .error-result-box-wrap {
+        position: relative;
+
+        width: 100vw;
+        height: 100vh;
+
+        padding-top: 20vh;
+
+        .error-result-box {
+          position: relative;
+          padding: 0vh 10vw;
+
+          .error-result-box-title {
+            font-family: 'SCoreDreamBold';
+            font-size: 7em;
+          }
+          .error-result-box-code {
+            font-family: 'SCoreDreamBold';
+            font-size: 7em;
+          }
+          
+          .error-result-box-text {
+            font-size: 3em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
+  .error-section {
+    .error-inner {
+      .error-result-box-wrap {
+        position: relative;
+
+        width: 100vw;
+        height: 100vh;
+
+        padding-top: 20vh;
+
+        .error-result-box {
+          position: relative;
+          padding: 0vh 10vw;
+
+          .error-result-box-title {
+            font-family: 'SCoreDreamBold';
+            font-size: 7em;
+          }
+          .error-result-box-code {
+            font-family: 'SCoreDreamBold';
+            font-size: 7em;
+          }
+          
+          .error-result-box-text {
+            font-size: 3em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
+  .error-section {
+    .error-inner {
+      .error-result-box-wrap {
+        position: relative;
+
+        width: 100vw;
+        height: 100vh;
+
+        padding-top: 20vh;
+
+        .error-result-box {
+          position: relative;
+          padding: 0vh 10vw;
+
+          .error-result-box-title {
+            font-family: 'SCoreDreamBold';
+            font-size: 7em;
+          }
+          .error-result-box-code {
+            font-family: 'SCoreDreamBold';
+            font-size: 7em;
+          }
+          
+          .error-result-box-text {
+            font-size: 3em;
+          }
+        }
+      }
+    }
+  }
+}

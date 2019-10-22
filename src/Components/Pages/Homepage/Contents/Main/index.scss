@@ -1,11 +1,6 @@
 @import 'configure/mediaConfig.scss';
 @import 'configure/componentsConfig.scss';
 
-/* Demo */
-img {
-  width: 100vw;
-}
-
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .content-main {
     position: relative;
@@ -156,7 +151,6 @@ img {
 }
 
 @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
-  /** Service **/
   .content-main {
     position: relative;
 

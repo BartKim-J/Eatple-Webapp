@@ -3,17 +3,15 @@
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .footer-section {
-    position: relative;
-
     .footer-inner {
-      position: relative;
-      font-family: 'SCoreDreamBold';
 
-      .footer-box-wrapper {
+      .footer-box-wrap {
         position: relative;
         
         .footer-box {
           position: relative;
+
+          font-family: 'SCoreDreamBold';
 
           background-color: #eff6ff;
           color: #818991;
@@ -31,17 +29,15 @@
 
 @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
   .footer-section {
-    position: relative;
-
     .footer-inner {
-      position: relative;
-      font-family: 'SCoreDreamBold';
 
-      .footer-box-wrapper {
+      .footer-box-wrap {
         position: relative;
         
         .footer-box {
           position: relative;
+          
+          font-family: 'SCoreDreamBold';
 
           background-color: #eff6ff;
           color: #818991;
@@ -59,18 +55,16 @@
 
 @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
   .footer-section {
-    position: relative;
-
     .footer-inner {
-      position: relative;
-      font-family: 'SCoreDreamBold';
 
-      .footer-box-wrapper {
+      .footer-box-wrap {
         position: relative;
         
         .footer-box {
           position: relative;
 
+          font-family: 'SCoreDreamBold';
+          
           background-color: #eff6ff;
           color: #818991;
 
