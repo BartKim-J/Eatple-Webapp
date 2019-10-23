@@ -64,7 +64,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 4px;
   position: absolute;
   top: 2rem;

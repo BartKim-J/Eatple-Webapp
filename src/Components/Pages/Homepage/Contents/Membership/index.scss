@@ -2,19 +2,73 @@
 @import 'configure/componentsConfig.scss';
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
+  .float-box {
+    .float-box-icon {
+      position: relative;
+
+      .color-line {
+        position: absolute;
+        top: 0;
+        left: -0.16vw;
+
+        background: #fca800;
+
+        height: 3vw;
+        width: 0.45vw;
+
+        margin-top: 0.5vw;
+      }
+
+      padding-left: 1.4vw;
+
+      img {
+        width: 4vw;
+      }
+    }
+    .text-box-wrap {
+      .text-box {
+        padding: 4vh 1vw 0 1vw;
+
+        .title {
+          font-size: 2em;
+          line-height: 0.86;
+          font-family: 'S-CoreDream-6';
+        }
+
+        .sub-text {
+          margin-top: 1vh;
+          font-size: 1.4em;
+          line-height: 1.44;
+          font-family: 'S-CoreDream-3';
+        }
+      }
+    }
+  }
+
   .content-membership-section {
     position: relative;
 
     width: 100%;
     height: 100vh;
 
-    background-color: white;
-
     .content-membership-inner {
       max-width: $media-width-desktop-content;
       margin: 0 auto;
 
-      .content-membership-mini-boxs-wrap {
+      .content-membership-image-box-wrap {
+        position: absolute;
+        top: 15vh;
+        right: 0;
+
+        .content-membership-image-box {
+          width: 25vw;
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .content-membership-background-rectangle-wrap {
         position: absolute;
         top: 0;
         left: 0;
@@ -22,7 +76,7 @@
         width: 100%;
         height: 100vh;
 
-        .content-membership-mini-boxs {
+        .content-membership-background-rectangle {
           position: absolute;
           left: 0;
           bottom: 0;
@@ -40,7 +94,7 @@
           padding: 0;
         }
 
-        .content-membership-mini-box-wrap {
+        .content-membership-float-box-list-wrap {
           position: relative;
           width: 100%;
           text-align: left;
@@ -51,6 +105,25 @@
             position: relative;
             display: inline-block;
             width: 24%;
+          }
+
+          li:nth-child(1) {
+            .li-float-box-1 {
+              position: absolute;
+              top: 10vh;
+            }
+
+            .li-float-box-2 {
+              position: absolute;
+              bottom: 10vh;
+            }
+          }
+
+          li:nth-child(2) {
+            .li-float-box {
+              position: absolute;
+              top: 38.5vh;
+            }
           }
 
           .content-membership-mini-box {
@@ -100,7 +173,7 @@
           padding: 0;
         }
 
-        .content-membership-mini-box-wrap {
+        .content-membership-float-box-list-wrap {
           position: relative;
           width: 100%;
           text-align: left;
@@ -113,7 +186,7 @@
             width: 24%;
           }
 
-          .content-membership-mini-box {
+          .content-membership-float-box-list {
             position: relative;
             height: 100vh;
 

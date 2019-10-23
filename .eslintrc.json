@@ -27,7 +27,8 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-unused-vars": "warn",
     // "no-console": "off",
-    "no-class-assign": "off"
+    "no-class-assign": "off",
+    "react/jsx-one-expression-per-line": "off"
   },
   "settings": {
     "import/resolver": {
