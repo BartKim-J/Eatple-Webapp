@@ -40,8 +40,8 @@ export default function CotentMembership() {
           <div className="content-membership-background-rectangle" />
         </div>
 
-        <ul className="content-membership-float-box-list-wrap">
-          <li className="content-membership-float-box-list">
+        <ul className="content-membership-float-box-item-list">
+          <li className="content-membership-float-box-item">
             <div className="vertical-line" />
             <FloatBox
               className="li-float-box-1"
@@ -57,7 +57,7 @@ export default function CotentMembership() {
               subText="내가 평소 자주가던 식당의 메뉴를 5,500원에 즐길 수 있어요!"
             />
           </li>
-          <li className="content-membership-mini-box">
+          <li className="content-membership-float-box-item">
             <div className="vertical-line" />
 
             <FloatBox
@@ -67,7 +67,7 @@ export default function CotentMembership() {
               subText="검증된 음식만을 제공하며, 다양한 식사를 선택할 수 있어요"
             />
           </li>
-          <li className="content-membership-mini-box">
+          <li className="content-membership-float-box-item">
             <div className="vertical-line" />
           </li>
         </ul>

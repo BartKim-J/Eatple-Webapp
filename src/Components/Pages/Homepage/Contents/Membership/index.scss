@@ -94,7 +94,7 @@
           padding: 0;
         }
 
-        .content-membership-float-box-list-wrap {
+        .content-membership-float-box-item-list {
           position: relative;
           width: 100%;
           text-align: left;
@@ -126,7 +126,7 @@
             }
           }
 
-          .content-membership-mini-box {
+          .content-membership-float-box-item {
             position: relative;
             height: 100vh;
 
@@ -173,7 +173,7 @@
           padding: 0;
         }
 
-        .content-membership-float-box-list-wrap {
+        .content-membership-float-box-item-list {
           position: relative;
           width: 100%;
           text-align: left;
@@ -186,7 +186,26 @@
             width: 24%;
           }
 
-          .content-membership-float-box-list {
+          li:nth-child(1) {
+            .li-float-box-1 {
+              position: absolute;
+              top: 10vh;
+            }
+
+            .li-float-box-2 {
+              position: absolute;
+              bottom: 10vh;
+            }
+          }
+
+          li:nth-child(2) {
+            .li-float-box {
+              position: absolute;
+              top: 38.5vh;
+            }
+          }
+
+          .content-membership-float-box-item {
             position: relative;
             height: 100vh;
 
@@ -201,6 +220,7 @@
             }
           }
         }
+
         .content-membership-text-box-wrap {
           position: absolute;
           bottom: 0;
