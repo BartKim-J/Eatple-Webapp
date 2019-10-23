@@ -86,54 +86,12 @@
 
 @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
   .footer-section {
-    .footer-inner {
-
-      .footer-box-wrap {
-        position: relative;
-        
-        .footer-box {
-          position: relative;
-          
-          font-family: 'S-CoreDream-Bold';
-
-          background-color: #f8f8fa;
-          color: #818991;
-
-          padding: 4em 4em;
-    
-          padding: 10vh 6vw 3vh 6vw;
-    
-          text-align: left;
-          font-size: 0.76em;
-          line-height: 1.5;
-        }
-      }
-    }
+    display: none;
   }
 }
 
 @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
   .footer-section {
-    .footer-inner {
-
-      .footer-box-wrap {
-        position: relative;
-        
-        .footer-box {
-          position: relative;
-
-          font-family: 'S-CoreDream-Bold';
-          
-          background-color: #f8f8fa;
-          color: #818991;
-
-          padding: 1em 5em;
-    
-          text-align: center;
-          font-size: 0.5em;
-          line-height: 1.7em;
-        }
-      }
-    }
+    display: none;
   }
 }
