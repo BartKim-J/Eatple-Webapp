@@ -3,24 +3,81 @@
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .footer-section {
+    position: relative;
+    
+    @media all and (max-width: $media-width-desktop-content + 160px) {
+      padding: 0vh 6vw;
+    }
+
+    @media all and (min-width: $media-width-desktop-content + 160px) {
+      padding: 0vh 0vw;
+    }
+
     .footer-inner {
+      position: relative;
 
-      .footer-box-wrap {
-        position: relative;
-        
-        .footer-box {
-          position: relative;
+      height: 240px;
+      
+      max-width: $media-width-desktop-content;
+      margin: 0 auto;
 
-          font-family: 'S-CoreDream-Bold';
+      .footer-copyright-box-wrap {
+        position: absolute;
+        left: 0px;
+        bottom: 34px;
 
-          background-color: #f8f8fa;
-          color: #818991;
+        .footer-copyright-box {
+          font-family: 'S-CoreDream-3';
 
-          padding: 10vh 6vw 3vh 6vw;
+          color: #1c1c1c;
     
           text-align: left;
           font-size: 0.9em;
-          line-height: 1.6;
+          line-height: 1.54;
+        }
+      }
+
+      .footer-wordmark-wrap {
+        position: absolute;
+
+        top: 58px;
+        left: 0px;
+
+        .footer-wordmark {
+          width: 86px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .footer-site-map-wrap {
+        position: absolute;
+        
+        top: 58px;
+        right: 7vw;
+
+        display: inline-block;
+
+        .footer-site-map {
+          width: 26vw;
+
+          padding: 0;
+          margin: 0;
+
+          li {
+            display: inline-block;
+            width: 8vw;
+
+            font-family: 'S-CoreDream-5';
+            font-weight: 500;
+            line-height: 1.33;
+            font-size: 0.8em;
+          }
+
+          li:nth-child(odd) {
+            margin-right: 4vw;
+          }
         }
       }
     }

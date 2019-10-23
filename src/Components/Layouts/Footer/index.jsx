@@ -2,24 +2,35 @@ import React from 'react';
 
 import './index.scss';
 
+import ImgWordmark from './Image/ImgWordmark@3x.png';
+
 export default function Footer() {
   return (
     <div className="footer-section">
       <div className="footer-inner">
-        <div className="footer-box-wrap">
-          <div className="footer-box">
-            상호명: (주)아스테라 / 대표자: 정재호
-            <br />
-            경기도 성남시 대왕판교로 645번길 14, 2층(네오위즈판교타워)
-            <br />
-            사업자등록번호: 255-87-01463
-            <br />
-            개인정보보호책임자: 전세훈
-            <br />
-            고객센터: 070-8252-4295(평일 09:00~18:00) hey@eatple.com
-            <br />
+        <div className="footer-wordmark-wrap">
+          <div className="footer-wordmark">
+            <img src={ImgWordmark} alt="wordmark" />
           </div>
         </div>
+
+        <div className="footer-copyright-box-wrap">
+          <div className="footer-copyright-box">
+            서울특별시 서초구 서초동 서초대로 398 패스트파이브 강남 3호점 611호
+            <br />
+            ©2019 Astera Inc. All rights reserved.
+          </div>
+        </div>
+
+        <div className="footer-site-map-wrap">
+          <ul className="footer-site-map">
+            <li>제휴 점포 리스트</li>
+            <li>이용약관</li>
+            <li>자주 묻는 질문</li>
+            <li>개인정보취급방침</li>
+          </ul>
+        </div>
+
       </div>
     </div>
   );

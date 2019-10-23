@@ -5,6 +5,8 @@ $nav_menu_z_index: 900;
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .menu-section {
+    position: relative;
+    
     .menu-inner {
       .menu-wrap {
         position: absolute;
@@ -28,6 +30,10 @@ $nav_menu_z_index: 900;
 
           .menu-bar-logo {
             width: 108px;
+          }
+
+          .menu-bar-btn-trial {
+            width: 158px;
           }
 
           .menu-bar-items {

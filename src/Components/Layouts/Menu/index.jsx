@@ -6,6 +6,8 @@ import Logo from 'resource/Image/ImgLogo.png';
 
 import './index.scss';
 
+import BtnTrial from './Image/BtnNav@3x.png'
+
 export default function Menu() {
   return (
     <div className="menu-section">
@@ -16,7 +18,9 @@ export default function Menu() {
               <img alt="Logo" src={Logo} className="d-inline-block align-top menu-bar-logo" />
             </Navbar.Brand>
             <Nav className="mr-auto menu-bar-items">
-              {/* <Nav.Link className="menu-bar-item" href="/"></Nav.Link> */}
+              <Nav.Link className="menu-bar-item" href="/">
+                <img alt="Button Trial" src={BtnTrial} className="menu-bar-btn-trial" />
+              </Nav.Link>
             </Nav>
           </Navbar>
         </div>

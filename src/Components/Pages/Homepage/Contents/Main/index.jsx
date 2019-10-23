@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 import ImgBtnCTA from './Images/BtnCTA@3x.png';
-import ImgHero from './Images/ImgHero.jpg';
+import ImgHero from './Images/ImgHero.png';
 
 export default function CotentMain() {
   return (
