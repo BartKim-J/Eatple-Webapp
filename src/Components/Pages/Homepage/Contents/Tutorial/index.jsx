@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import clamp from 'lodash-es/clamp';
+import { useSpring, animated } from 'react-spring';
+import { useGesture } from 'react-with-gesture';
 
 import './index.scss';
 
@@ -18,17 +21,31 @@ function BackgroundImg() {
 }
 
 function PhoneBox() {
+  const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }));
+  const bind = useGesture(({ down, delta, velocity }) => {
+    // eslint-disable-next-line no-param-reassign
+    velocity = clamp(velocity, 1, 8);
+    set({
+      xy: down ? delta : [0, 0],
+      config: { mass: velocity, tension: 500 * velocity, friction: 50 },
+    });
+  });
+
   return (
     <div className="content-tutorial-phone-box-wrap">
-      <div className="content-tutorial-phone-box">
-        <img src={ImgPhone} alt="Phone" />
+      <animated.div
+        className="content-tutorial-phone-box"
+        {...bind()}
+        style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }}
+      >
+        <img src={ImgPhone} alt="Phone" draggable="false" />
 
         <div className="content-tutorial-screen-box-wrap">
           <div className="content-tutorial-screen-box">
-            <img src={ImgScreen} alt="Screen" />
+            <img src={ImgScreen} alt="Screen" draggable="false" />
           </div>
         </div>
-      </div>
+      </animated.div>
     </div>
   );
 }
