@@ -39,40 +39,43 @@ FloatBox.propTypes = {
 
 function FloatBoxList() {
   return (
-    <ul className="content-membership-float-box-item-list">
-      <li className="content-membership-float-box-item">
-        <div className="vertical-line" />
-        <FloatBox
-          className="li-float-box-1"
-          icon={IconValue}
-          title="소비에 가치를 더하다"
-          subTextLine1="내가 평소 자주가던 식당의 메뉴를"
-          subTextLine2="5,500원에 즐길 수 있어요!"
-        />
+    <div className="content-membership-float-box-item-list">
+      <ul>
+        <li className="content-membership-float-box-item">
+          <div className="vertical-line" />
+          <FloatBox
+            className="li-float-box-1"
+            icon={IconValue}
+            title="소비에 가치를 더하다"
+            subTextLine1="내가 평소 자주가던 식당의 메뉴를"
+            subTextLine2="5,500원에 즐길 수 있어요!"
+          />
 
-        <FloatBox
-          className="li-float-box-2"
-          icon={IconTime}
-          title="식사시간에 여유를 더하다"
-          subTextLine1="미리 주문하고 픽업시간을 예약하여"
-          subTextLine2="기다림없이 맛있는 식사를!"
-        />
-      </li>
-      <li className="content-membership-float-box-item">
-        <div className="vertical-line" />
+          <FloatBox
+            className="li-float-box-2"
+            icon={IconTime}
+            title="식사시간에 여유를 더하다"
+            subTextLine1="미리 주문하고 픽업시간을 예약하여"
+            subTextLine2="기다림없이 맛있는 식사를!"
+          />
+        </li>
+        <li className="content-membership-float-box-item">
+          <div className="vertical-line" />
 
-        <FloatBox
-          className="li-float-box"
-          icon={IconVariety}
-          title="맛에 실속을 더하다"
-          subTextLine1="검증된 음식만을 제공하며,"
-          subTextLine2="다양한 식사를 선택할 수 있어요!"
-        />
-      </li>
-      <li className="content-membership-float-box-item">
-        <div className="vertical-line" />
-      </li>
-    </ul>
+          <FloatBox
+            className="li-float-box"
+            icon={IconVariety}
+            title="맛에 실속을 더하다"
+            subTextLine1="검증된 음식만을 제공하며,"
+            subTextLine2="다양한 식사를 선택할 수 있어요!"
+          />
+        </li>
+        <li className="content-membership-float-box-item">
+          <div className="vertical-line" />
+        </li>
+      </ul>
+      <FloatText />
+    </div>
   );
 }
 
@@ -117,7 +120,7 @@ export default function CotentMembership() {
       <div className="content-membership-inner">
         <RectangleBox />
         <FloatBoxList />
-        <FloatText />
+
         <EatpleImage />
       </div>
     </div>

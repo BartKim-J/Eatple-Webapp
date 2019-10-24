@@ -1,16 +1,155 @@
 @import 'configure/mediaConfig.scss';
 @import 'configure/componentsConfig.scss';
 
+$phone-screen-width: 22vw;
+
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .content-tutorial-section {
     position: relative;
 
     width: 100%;
-    height: 100vh;
+    height: 115vh;
+
+    @media all and (max-width: $media-width-desktop-content + 160px) {
+      padding: 0vh $media-width-desktop-content-padding;
+    }
+
+    @media all and (min-width: $media-width-desktop-content + 160px) {
+      padding: 0vh 0vw;
+    }
 
     .content-tutorial-inner {
+      position: relative;
+
       max-width: $media-width-desktop-content;
       margin: 0 auto;
+
+      .content-tutorial-background-image-box-wrap {
+        position: absolute;
+        top: 0vh;
+        right: 0%;
+
+        .content-tutorial-background-image-box {
+          width: 30vw;
+          max-width: 580px;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .content-tutorial-phone-box-wrap {
+        position: absolute;
+        top: 20vh;
+        right: 20%;
+
+        .content-tutorial-phone-box {
+          width: $phone-screen-width;
+          max-width: 445px;
+
+          img {
+            width: 100%;
+          }
+
+          .content-tutorial-screen-box-wrap {
+            position: absolute;
+            top: 0;
+
+            padding-top: 2.2vh;
+
+            width: $phone-screen-width;
+            max-width: 445px;
+
+            text-align: center;
+
+            .content-tutorial-screen-box {
+              position: relative;
+              display: inline-block;
+
+              width: $phone-screen-width * 0.883146;
+              max-width: 393px;
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .content-tutorial-text-box-wrap {
+        position: relative;
+        top: 36vh;
+
+        .content-tutorial-text-box {
+          text-align: left;
+          font-family: 'S-CoreDream-5';
+          font-size: 3em;
+          line-height: 1.46;
+          .highlight {
+            color: #fca800;
+          }
+        }
+      }
+
+      .content-tutorial-select-category-box-wrap {
+        position: relative;
+        top: 45vh;
+
+        .content-tutorial-select-category-box {
+          width: 45vw;
+          text-align: left;
+
+          ul {
+            padding: 0;
+            margin: 0;
+          }
+
+          li {
+            display: inline-block;
+
+            margin: 2vh 1vw 0vh 0vw;
+            color: #aaaaaa;
+
+            font-size: 1.6em;
+            font-family: 'S-CoreDream-5';
+            letter-spacing: -0.93px;
+            line-height: 1.29;
+
+            transition: all ease 0.6s 0s;
+          }
+
+          li:last-child {
+            margin: 2vh 0vw 0vh 0vw;
+          }
+
+          li:hover {
+            color: #222222;
+          }
+
+          .selected-category {
+            color: #222222;
+
+            button {
+              padding-bottom: 14px;
+              border-bottom: solid 4px #1c1c1c;
+            }
+          }
+
+          .sub-text-box-wrap {
+            position: relative;
+            top: 2vh;
+
+            .sub-text-box {
+              font-size: 1.4em;
+              font-family: 'S-CoreDream-3';
+              line-height: 2.67;
+              color: #1c1c1c;
+            }
+          }
+        }
+      }
     }
   }
 }

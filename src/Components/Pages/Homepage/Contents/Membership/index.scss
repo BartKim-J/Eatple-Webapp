@@ -102,6 +102,31 @@
       }
 
       @media all and (min-width: $media-width-desktop-content) {
+        .content-membership-text-box-wrap {
+          position: absolute;
+          bottom: 0;
+          right: -10vw;
+
+          margin: 12vh 0vw;
+          .content-membership-text-box {
+            position: relative;
+
+            width: 30vw;
+            max-width: 495px;
+
+            text-align: left;
+
+            font-size: 3em;
+            font-family: 'S-CoreDream-5';
+            line-height: 1.46;
+            color: #222222;
+
+            .highlight {
+              color: #fca800;
+            }
+          }
+        }
+
         ul {
           margin: 0;
           padding: 0;
@@ -152,13 +177,15 @@
             }
           }
         }
+      }
 
+      @media all and (max-width: $media-width-desktop-content) {
         .content-membership-text-box-wrap {
           position: absolute;
           bottom: 0;
           right: 0;
 
-          margin: 0 4vw 12vh 0;
+          margin: 12vh 0vw;
           .content-membership-text-box {
             position: relative;
 
@@ -167,7 +194,7 @@
 
             text-align: left;
 
-            font-size: 3em;
+            font-size: 2.4em;
             font-family: 'S-CoreDream-5';
             line-height: 1.46;
             color: #222222;
@@ -177,9 +204,7 @@
             }
           }
         }
-      }
 
-      @media all and (max-width: $media-width-desktop-content) {
         ul {
           margin: 0;
           padding: 0;
@@ -227,31 +252,6 @@
 
               height: 120vh;
               border: solid 0.5px #e0e0e0;
-            }
-          }
-        }
-
-        .content-membership-text-box-wrap {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-
-          margin: 0 4vw 12vh 0;
-          .content-membership-text-box {
-            position: relative;
-
-            width: 30vw;
-            max-width: 495px;
-            
-            text-align: left;
-
-            font-size: 2.4em;
-            font-family: 'S-CoreDream-5';
-            line-height: 1.46;
-            color: #222222;
-
-            .highlight {
-              color: #fca800;
             }
           }
         }

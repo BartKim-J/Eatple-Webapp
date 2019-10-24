@@ -45,7 +45,9 @@ function TextBox() {
 }
 
 function BoxAnimationBox({ xy }) {
-  const interp = i => r => `translate3d(0, ${15 * Math.sin(r + (i * 2 * Math.PI) / 1.6)}px, 0)`;
+  const verticalMovement = 6;
+
+  const interp = i => r => `translate3d(0, ${verticalMovement * Math.sin(r + (i * 2 * Math.PI) / 1.8)}px, 0)`;
 
   const trans1 = (x, y) => `translate3d(${x / 10 + 220}px,${y / 10 + 20}px,0)`;
   const trans2 = (x, y) => `translate3d(${x / 8 + 10}px,${y / 8 + 110}px,0)`;
@@ -102,7 +104,7 @@ function BackgroundImg() {
   return (
     <div className="content-tale-background-image-box-wrap">
       <div className="content-tale-background-image-box">
-        <img src={ImgBackground} alt="background" />
+        <img src={ImgBackground} alt="Background" />
       </div>
     </div>
   );
