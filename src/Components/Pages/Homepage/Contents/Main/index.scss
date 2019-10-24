@@ -5,19 +5,25 @@
   .content-main-section {
     position: relative;
 
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+
+    @media all and (max-width: $media-width-desktop-content + 160px) {
+      padding: 0vh $media-width-desktop-content-padding;
+    }
+
+    @media all and (min-width: $media-width-desktop-content + 160px) {
+      padding: 0vh 0vw;
+    }
 
     .content-main-inner {
       max-width: $media-width-desktop-content;
       margin: 0 auto;
 
       .content-main-head-wrap {
-        height: 100vh;
-
-        color: black;
-
         display: table;
+
+        height: 100vh;
         .content-main-head-box {
           display: table-cell;
           vertical-align: middle;
@@ -47,7 +53,9 @@
               margin-bottom: 10vh;
 
               .content-main-btn-box {
-                width: 2.8em;
+                width: 10vw;
+                max-width: 134px;
+                min-width: 100px;
 
                 img {
                   width: 100%;
@@ -59,7 +67,7 @@
           @media all and (max-width: $media-width-desktop-content) {
             .content-main-text-box-wrap {
               position: relative;
-              padding: 0vh 6vw;
+
               .content-main-text-box {
                 text-align: left;
                 font-size: 3.5em;
@@ -81,7 +89,9 @@
               margin-bottom: 10vh;
 
               .content-main-btn-box {
-                width: 2.4em;
+                width: 10vw;
+                max-width: 134px;
+                min-width: 100px;
 
                 img {
                   width: 100%;

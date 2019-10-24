@@ -1,11 +1,9 @@
-// Standard Include
 import React, { PureComponent } from 'react';
 
-// Components
 import ContentMain from './Contents/Main';
 import ContentMembership from './Contents/Membership';
+import ContentTale from './Contents/Tale'
 
-// Style Sheets
 import './index.scss';
 
 export default class Homepage extends PureComponent {
@@ -19,6 +17,7 @@ export default class Homepage extends PureComponent {
       <div className="homepage-section">
         <ContentMain />
         <ContentMembership />
+        <ContentTale />
       </div>
     );
   }

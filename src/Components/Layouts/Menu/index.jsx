@@ -6,7 +6,7 @@ import Logo from 'resource/Image/ImgLogo.png';
 
 import './index.scss';
 
-import BtnTrial from './Image/BtnNav@3x.png'
+import BtnTrial from './Images/BtnNav@3x.png'
 
 export default function Menu() {
   return (

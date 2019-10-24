@@ -1,0 +1,173 @@
+@import 'configure/mediaConfig.scss';
+@import 'configure/componentsConfig.scss';
+
+@media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
+  .content-tale-section {
+    position: relative;
+
+    width: 100vw;
+    height: 718px;
+
+    background-color: #f8f8fa;
+
+    overflow: hidden;
+
+    @media all and (max-width: $media-width-desktop-content + 160px) {
+      padding: 0vh $media-width-desktop-content-padding;
+    }
+
+    @media all and (min-width: $media-width-desktop-content + 160px) {
+      padding: 0vh 0vw;
+    }
+
+    .content-tale-inner {
+      max-width: $media-width-desktop-content;
+      margin: 0 auto;
+
+      .content-tale-background-image-box-wrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .content-tale-background-image-box {
+          width: 100%;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .content-tale-head-box-wrap {
+        position: relative;
+
+        .content-tale-head-box {
+          height: 718px;
+
+          .content-tale-text-box-wrap {
+            position: absolute;
+            left: 0;
+            width: 55%;
+
+            .content-tale-text-box {
+              padding: 117px 0;
+
+              text-align: left;
+
+              font-family: 'S-CoreDream-5';
+              font-size: 2.8em;
+              line-height: 1.46;
+
+              color: #1c1c1c;
+
+              .highlight {
+                color: #fca800;
+              }
+
+              .sub-text {
+                font-family: 'S-CoreDream-3';
+                font-size: 0.36em;
+                line-height: 1.44;
+              }
+
+              .divider-line {
+                margin: 121px 0 34px 0;
+                width: 70%;
+                height: 1px;
+                border: solid 1px #ececed;
+              }
+
+              .qna-text-box {
+                font-family: 'S-CoreDream-3';
+                font-size: 0.5em;
+                line-height: 1.44;
+
+                .qna-highlight {
+                  font-family: 'S-CoreDream-6';
+                  text-decoration: underline;
+                }
+              }
+
+              .content-tale-btn-box-wrap {
+                margin-top: 80px;
+                margin-bottom: 10vh;
+
+                .content-tale-btn-box {
+                  width: 10vw;
+                  max-width: 134px;
+                  min-width: 100px;
+
+                  img {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+
+          .content-tale-box-animation-box-wrap {
+            position: absolute;
+            right: 0;
+
+            width: 100%;
+            height: 718px;
+
+            .content-tale-box-animation-box {
+              position: absolute;
+              right: 0;
+
+              width: 45%;
+
+              height: 718px;
+
+              img {
+                width: 100%;
+              }
+
+              .cube-plus {
+                position: absolute;
+                top: 0;
+                width: 9vw;
+                max-width: 93px;
+              }
+              .cube-joy {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                width: 11vw;
+                max-width: 158px;
+              }
+              .cube-won {
+                position: absolute;
+                top: 0;
+
+                width: 14vw;
+                max-width: 216px;
+              }
+              .cube-question {
+                position: absolute;
+                top: 0;
+
+                width: 32vw;
+                max-width: 432px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
+  .content-tale-section {
+    display: none;
+  }
+}
+
+@media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
+  .content-tale-section {
+    display: none;
+  }
+}

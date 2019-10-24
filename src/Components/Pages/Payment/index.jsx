@@ -3,7 +3,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React, { useState, PureComponent } from 'react';
-import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 
@@ -155,6 +154,8 @@ function PGPayment({ history, form }) {
       default:
         break;
     }
+    
+    setIsGetParamURL(isGetParamURL);
     setIsQuotaRequired(isQuotaRequired);
     setIsDigitalRequired(isDigitalRequired);
     setIsVbankDueRequired(isVbankDueRequired);

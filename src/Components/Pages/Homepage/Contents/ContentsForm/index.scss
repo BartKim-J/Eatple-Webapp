@@ -5,9 +5,17 @@
   .content-form-section {
     position: relative;
 
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     
+    @media all and (max-width: $media-width-desktop-content + 160px) {
+      padding: 0vh $media-width-desktop-content-padding;
+    }
+
+    @media all and (min-width: $media-width-desktop-content + 160px) {
+      padding: 0vh 0vw;
+    }
+
     .content-form-inner {
       max-width: $media-width-desktop-content;
       margin: 0 auto;
