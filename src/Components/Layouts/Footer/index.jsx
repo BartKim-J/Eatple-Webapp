@@ -50,7 +50,7 @@ function Wordmark() {
   return (
     <div className="footer-wordmark-wrap">
       <div className="footer-wordmark">
-        <img src={ImgWordmark} alt="wordmark" />
+        <img src={ImgWordmark} alt="wordmark" draggable="false" />
       </div>
     </div>
   );
@@ -97,7 +97,7 @@ function SocialMap({ mapArray }) {
           return (
             <li key={entryIcon.label}>
               <a href={entryIcon.link} target="_blank" rel="noopener noreferrer">
-                <img src={entryIcon.icon} alt={entryIcon.label} />
+                <img src={entryIcon.icon} alt={entryIcon.label} draggable="false" />
               </a>
             </li>
           );

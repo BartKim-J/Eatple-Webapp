@@ -13,7 +13,7 @@ function FloatBox({ className, icon, title, subTextLine1, subTextLine2 }) {
     <div className={`${className} float-box`}>
       <div className="float-box-icon">
         <div className="color-line" />
-        <img src={icon} alt="Icon Value" />
+        <img src={icon} alt="Icon Value" draggable="false" />
       </div>
       <div className="text-box-wrap">
         <div className="text-box">
@@ -91,7 +91,7 @@ function EatpleImage() {
   return (
     <div className="content-membership-image-box-wrap">
       <div className="content-membership-image-box">
-        <img src={IconEatple} alt="eatple" />
+        <img src={IconEatple} alt="eatple" draggable="false" />
       </div>
     </div>
   );

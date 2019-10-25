@@ -8,10 +8,6 @@
     width: 100vw;
     height: 718px;
 
-    background-color: #f8f8fa;
-
-    overflow: hidden;
-
     @media all and (max-width: $media-width-desktop-content + 160px) {
       padding: 0vh $media-width-desktop-content-padding;
     }
@@ -30,10 +26,31 @@
         right: 0;
 
         .content-tale-background-image-box {
-          width: 100%;
+          width: 80vw;
+          height: 718px;
 
-          img {
+          .image-in-wrap {
+            position: absolute;
+            bottom: -2vh;
+            left: 0;
+
             width: 100%;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .image-out-wrap {
+            position: absolute;
+            bottom: -2vh;
+            left: 0;
+
+            width: 100%;
+
+            img {
+              width: 100%;
+            }
           }
         }
       }
@@ -65,9 +82,11 @@
               }
 
               .sub-text {
+                margin-top: 16px;
+
                 font-family: 'S-CoreDream-3';
                 font-size: 0.36em;
-                line-height: 1.44;
+                line-height: 1.6;
               }
 
               .divider-line {

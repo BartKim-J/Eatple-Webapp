@@ -28,15 +28,12 @@ function PGPayment({ history, form }) {
   const [isBizNumRequired, setisBizNumRequired] = useState(false);
   const { getFieldDecorator, validateFieldsAndScroll, setFieldsValue, getFieldsValue } = form;
 
-
   const { location } = history;
   const { search } = location;
   const query = queryString.parse(search);
   const { storeName, menuName, menuPrice } = query;
 
-  if (storeName === undefined ||
-      menuName === undefined ||
-      menuPrice === undefined ) {
+  if (storeName === undefined || menuName === undefined || menuPrice === undefined) {
     history.push(`/payment/result`);
   }
 
@@ -154,7 +151,7 @@ function PGPayment({ history, form }) {
       default:
         break;
     }
-    
+
     setIsGetParamURL(isGetParamURL);
     setIsQuotaRequired(isQuotaRequired);
     setIsDigitalRequired(isDigitalRequired);
@@ -300,7 +297,7 @@ function PGPayment({ history, form }) {
         </Item>
         <PayButtonBox>
           <Button type="primary" htmlType="submit" size="large">
-            <img src={btnPayment} alt="payment btn" />
+            <img src={btnPayment} alt="payment btn" draggable="false" />
             <span className="buttonText">결제하기</span>
           </Button>
         </PayButtonBox>
@@ -346,7 +343,7 @@ const FormContainer = styled(Form)`
   .ant-select-lg .ant-select-selection--single {
     height: 30px;
   }
-  
+
   .ant-select-lg .ant-select-selection__rendered {
     line-height: 28px;
   }
@@ -437,7 +434,7 @@ const FormContainer = styled(Form)`
 
     .buttonText {
       position: absolute;
-      
+
       left: 0;
       width: 100%;
       height: 100%;

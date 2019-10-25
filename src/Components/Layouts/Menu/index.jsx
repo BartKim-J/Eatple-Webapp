@@ -6,7 +6,7 @@ import Logo from 'resource/Image/ImgLogo.png';
 
 import './index.scss';
 
-import BtnTrial from './Images/BtnNav@3x.png'
+import BtnTrial from './Images/BtnNav@3x.png';
 
 export default function Menu() {
   return (
@@ -15,11 +15,21 @@ export default function Menu() {
         <div className="menu-wrap">
           <Navbar className="menu-bar">
             <Navbar.Brand href="/">
-              <img alt="Logo" src={Logo} className="d-inline-block align-top menu-bar-logo" />
+              <img
+                alt="Logo"
+                src={Logo}
+                className="d-inline-block align-top menu-bar-logo"
+                draggable="false"
+              />
             </Navbar.Brand>
             <Nav className="mr-auto menu-bar-items">
               <Nav.Link className="menu-bar-item" href="/">
-                <img alt="Button Trial" src={BtnTrial} className="menu-bar-btn-trial" />
+                <img
+                  alt="Button Trial"
+                  src={BtnTrial}
+                  className="menu-bar-btn-trial"
+                  draggable="false"
+                />
               </Nav.Link>
             </Nav>
           </Navbar>

@@ -8,13 +8,15 @@ import './index.scss';
 
 import ImgPhone from './Images/ImgPhone@3x.png';
 import ImgScreen from './Images/ImgScreen@3x.png';
-import ImgBackground from './Images/BgCalculator@3x.png';
+import ImgBackground from './Images/BgHowto@3x.png';
 
 function BackgroundImg() {
   return (
     <div className="content-tutorial-background-image-box-wrap">
-      <div className="content-tutorial-background-image-box">
-        <img src={ImgBackground} alt="Background" />
+      <div className="content-tutorial-background-image-box-mask">
+        <div className="content-tutorial-background-image-box">
+          <img src={ImgBackground} alt="Background" draggable="false" />
+        </div>
       </div>
     </div>
   );
@@ -85,26 +87,29 @@ function SelectCategoryBox({ mapArray, selected, selectHandler }) {
   return (
     <div className="content-tutorial-select-category-box-wrap">
       <div className="content-tutorial-select-category-box">
-        <ul>
-          {mapArray.map((entryCategory, i) => {
-            let className = '';
-            if (selected === i) {
-              className = 'selected-category';
-            }
-            return (
-              <li className={className} key={entryCategory.category}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    selectHandler(i);
-                  }}
-                >
-                  {entryCategory.category}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="category-box">
+          <ul>
+            {mapArray.map((entryCategory, i) => {
+              let className = '';
+              if (selected === i) {
+                className = 'selected-category';
+              }
+              return (
+                <li className={className} key={entryCategory.category}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      selectHandler(i);
+                    }}
+                  >
+                    {entryCategory.category}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="divider-line" />
+        </div>
         <div className="sub-text-box-wrap">
           <div className="sub-text-box">{mapArray[selected].subText}</div>
         </div>
@@ -123,10 +128,9 @@ export default function Tutorial() {
 
   return (
     <div className="content-tutorial-section">
+      <BackgroundImg />
+      <PhoneBox selected={selected} />
       <div className="content-tutorial-inner">
-        <BackgroundImg />
-        <PhoneBox selected={selected} />
-
         <div className="content-tutorial-box-wrap">
           <div className="content-tutorial-box">
             <TextBox />
