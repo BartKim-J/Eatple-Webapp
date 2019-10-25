@@ -84,6 +84,17 @@ const categoryMap = [
 ];
 
 function SelectCategoryBox({ mapArray, selected, selectHandler }) {
+  const trans = pos => `translate3d(${pos * 100}%, 0px,0)`;
+
+  const [props, set] = useSpring(() => ({
+    position: selected,
+    config: { mass: 10, tension: 550, friction: 140 },
+  }));
+
+  const { position } = props;
+
+  set({ position: selected });
+
   return (
     <div className="content-tutorial-select-category-box-wrap">
       <div className="content-tutorial-select-category-box">
@@ -108,7 +119,17 @@ function SelectCategoryBox({ mapArray, selected, selectHandler }) {
               );
             })}
           </ul>
-          <div className="divider-line" />
+
+          <div className="line-box">
+            <animated.div
+              className="hover-line-wrap"
+              style={{ transform: position.interpolate(trans) }}
+            >
+              <div className="hover-line" />
+            </animated.div>
+
+            <div className="divider-line" />
+          </div>
         </div>
         <div className="sub-text-box-wrap">
           <div className="sub-text-box">{mapArray[selected].subText}</div>
@@ -121,9 +142,13 @@ SelectCategoryBox.propTypes = {
   mapArray: PropTypes.array.isRequired,
   selected: PropTypes.number.isRequired,
   selectHandler: PropTypes.func.isRequired,
+  position: PropTypes.object,
+};
+SelectCategoryBox.defaultProps = {
+  position: {},
 };
 
-export default function Tutorial() {
+export default function ContentTutorial() {
   const [selected, setSelected] = useState(0);
 
   return (

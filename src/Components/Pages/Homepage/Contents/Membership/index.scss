@@ -54,6 +54,8 @@
     width: 100vw;
     height: 100vh;
 
+    overflow: hidden;
+
     @media all and (max-width: $media-width-desktop-content + 160px) {
       padding: 0vh $media-width-desktop-content-padding;
     }
@@ -146,19 +148,19 @@
           li:nth-child(1) {
             .li-float-box-1 {
               position: absolute;
-              top: 10vh;
+              top: -35vh;
             }
 
             .li-float-box-2 {
               position: absolute;
-              bottom: 10vh;
+              top: -30vh;
             }
           }
 
           li:nth-child(2) {
             .li-float-box {
               position: absolute;
-              top: 42.8vh;
+              top: -33vh;
             }
           }
 
@@ -224,19 +226,19 @@
           li:nth-child(1) {
             .li-float-box-1 {
               position: absolute;
-              top: 10vh;
+              top: -35vh;
             }
 
             .li-float-box-2 {
               position: absolute;
-              bottom: 10vh;
+              top: -30vh;
             }
           }
 
           li:nth-child(2) {
             .li-float-box {
               position: absolute;
-              top: 38.5vh;
+              top: -33vh;
             }
           }
 

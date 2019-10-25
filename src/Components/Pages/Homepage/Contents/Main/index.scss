@@ -38,7 +38,7 @@
                 line-height: 1.33;
 
                 .highlight {
-                  font-family: 'S-CoreDream-Bold';
+                  font-family: 'S-CoreDream-5';
                 }
 
                 .sub-text {
@@ -46,19 +46,19 @@
                   font-size: 0.32em;
                   line-height: 1.33;
                 }
-              }
-            }
-            .content-main-btn-box-wrap {
-              margin-top: 66px;
-              margin-bottom: 10vh;
+                .btn-box-wrap {
+                  padding-top: 10vh;
+                  margin-bottom: 0;
 
-              .content-main-btn-box {
-                width: 10vw;
-                max-width: 134px;
-                min-width: 100px;
+                  .btn-box {
+                    width: 10vw;
+                    max-width: 134px;
+                    min-width: 100px;
 
-                img {
-                  width: 100%;
+                    img {
+                      width: 100%;
+                    }
+                  }
                 }
               }
             }
@@ -82,19 +82,20 @@
                   font-size: 0.28em;
                   line-height: 1.33;
                 }
-              }
-            }
-            .content-main-btn-box-wrap {
-              margin-top: 66px;
-              margin-bottom: 10vh;
 
-              .content-main-btn-box {
-                width: 10vw;
-                max-width: 134px;
-                min-width: 100px;
+                .btn-box-wrap {
+                  padding-top: 10vh;
+                  margin-bottom: 0;
 
-                img {
-                  width: 100%;
+                  .btn-box {
+                    width: 10vw;
+                    max-width: 134px;
+                    min-width: 100px;
+
+                    img {
+                      width: 100%;
+                    }
+                  }
                 }
               }
             }

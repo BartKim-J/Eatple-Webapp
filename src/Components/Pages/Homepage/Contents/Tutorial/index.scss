@@ -24,8 +24,6 @@ $phone-screen-width: 22vw;
       max-width: $media-width-desktop-content;
       margin: 0 auto;
 
-
-
       .content-tutorial-text-box-wrap {
         position: relative;
         top: 36vh;
@@ -46,8 +44,10 @@ $phone-screen-width: 22vw;
         top: 45vh;
 
         .content-tutorial-select-category-box {
-          width: 28vw;
+          width: 30vw;
           text-align: left;
+
+          padding: 0vh 1vw;
 
           .category-box {
             display: inline-block;
@@ -78,17 +78,43 @@ $phone-screen-width: 22vw;
                 color: #222222;
               }
             }
-            .divider-line {
+
+            .line-box {
               width: 100%;
-              height: 1px;
-              border: solid 1px #ececed;
+              margin: 0 auto;
+
+              .divider-line {
+                width: 100%;
+                height: 1px;
+                border: solid 1px #ececed;
+              }
+
+              .hover-line-wrap {
+                position: relative;
+
+                width: 25%;
+                
+                .hover-line {
+                  position: relative;
+                  bottom: -4px;
+                  
+                  width: 100%;  
+
+                  margin: 0 auto;
+
+                  height: 1px;
+    
+                  border-bottom: solid 4px #1c1c1c;
+                }
+              }
+
             }
+
             .selected-category {
               color: #222222;
 
               button {
                 padding-bottom: 14px;
-                border-bottom: solid 4px #1c1c1c;
               }
             }
           }

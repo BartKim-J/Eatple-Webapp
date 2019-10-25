@@ -1,0 +1,171 @@
+@import 'configure/mediaConfig.scss';
+@import 'configure/componentsConfig.scss';
+
+@media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
+  .content-menu-slide-section {
+    position: relative;
+
+    width: 100vw;
+    height: 125vh;
+
+    z-index: 110;
+
+    @media all and (max-width: $media-width-desktop-content + 160px) {
+      padding: 0vh $media-width-desktop-content-padding;
+    }
+
+    @media all and (min-width: $media-width-desktop-content + 160px) {
+      padding: 0vh 0vw;
+    }
+
+    .content-menu-slide-inner {
+      max-width: $media-width-desktop-content;
+      margin: 0 auto;
+
+      .content-menu-slide-text-box-wrap {
+        position: absolute;
+        top: 5vh;
+        right: 15vw;
+
+        .content-menu-slide-text-box {
+          text-align: left;
+
+          margin-bottom: 10vh;
+
+          font-family: 'S-CoreDream-5';
+          font-size: 3.4em;
+          line-height: 1.46;
+
+          .highlight {
+            color: #fca800;
+          }
+
+          .sub-text {
+            margin: 0.8em 0 0 0.4em;
+            font-size: 0.32em;
+            line-height: 1.33;
+          }
+          .btn-box-wrap {
+            padding-left: 0.5vw;
+            margin-top: 5vh;
+            margin-bottom: 0;
+
+            .btn-box {
+              width: 13vw;
+              max-width: 172px;
+              min-width: 120px;
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .content-menu-slide-slider-wrap {
+        position: absolute;
+        top: 45vh;
+        right: 4vw;
+
+        .content-menu-slide-slider {
+          position: relative;
+
+          img {
+            width: 100%;
+          }
+
+          .content-menu-slide-main-box {
+            position: relative;
+
+            width: 60vw;
+            max-width: 1074px;
+            height: 60vw * 0.4692;
+            max-height: 504px;
+          }
+
+          .content-menu-slide-sub-box {
+            width: 60vw;
+            max-width: 1074px;
+            height: 60vw * 0.094;
+            max-height: 100px;
+
+            margin-top: 10px;
+
+            .slider-info-box-wrap {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+
+              .slider-info-box {
+                position: relative;
+
+                width: 20vw;
+                max-width: 342px;
+                height: 20vw * 0.4444;
+                max-height: 152px;
+
+                background-color: #1c1c1c;
+
+                .slider-button-box-wrap {
+                  position: absolute;
+                  right: 0;
+                  top: -48px;
+
+                  .slider-button-box {
+                    display: inline-block;
+
+                    .slider-button {
+                      width: 48px;
+                      max-width: 48px;
+                    }
+                  }
+                }
+              }
+            }
+
+            .sub-box-item-list {
+              height: 60vw * 0.094;
+              max-height: 100px;
+
+              overflow: hidden;
+              ul {
+                padding: 0;
+                margin: 0;
+
+                text-align: left;
+                li {
+                  display: inline-block;
+
+                  background-color: #dddddd;
+
+                  margin-right: 10px;
+
+                  width: 15%;
+                  height: 60vw * 0.094;
+                  max-height: 100px;
+
+                  .sub-box-item {
+                    position: relative;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
+  .content-menu-slide-section {
+    display: none;
+  }
+}
+
+@media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
+  .content-menu-slide-section {
+    display: none;
+  }
+}

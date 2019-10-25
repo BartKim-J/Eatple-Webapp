@@ -22,8 +22,8 @@ function TextBox() {
         <br />
         <span className="highlight">채워지는 가치</span>를 직접 경험하세요
         <div className="sub-text">지금 잇플 플러스 친구 추가하면 멤버십 비용이 무료!</div>
-        <div className="content-tale-btn-box-wrap">
-          <div className="content-tale-btn-box">
+        <div className="btn-box-wrap">
+          <div className="btn-box">
             <button type="button">
               <Link to="/">
                 <img src={ImgBtnCTA} alt="Button CTA" draggable="false" />
@@ -124,10 +124,16 @@ function BackgroundImg() {
   return (
     <div className="content-tale-background-image-box-wrap">
       <div className="content-tale-background-image-box">
-        <animated.div className="image-in-wrap" style={{ transform: radians.interpolate(interp(1)) }}>
+        <animated.div
+          className="image-in-wrap"
+          style={{ transform: radians.interpolate(interp(1)) }}
+        >
           <img src={ImgBackground} alt="Background" draggable="false" />
         </animated.div>
-        <animated.div className="image-out-wrap" style={{ transform: radians.interpolate(interp(2)) }}>
+        <animated.div
+          className="image-out-wrap"
+          style={{ transform: radians.interpolate(interp(2)) }}
+        >
           <img src={ImgBackground2} alt="Background2" draggable="false" />
         </animated.div>
       </div>
@@ -135,7 +141,7 @@ function BackgroundImg() {
   );
 }
 
-export default function Tale() {
+export default function ContentTale() {
   const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 
   const [props, set] = useSpring(() => ({
@@ -162,9 +168,9 @@ export default function Tale() {
     </div>
   );
 }
-Tale.propTypes = {
-  xy: PropTypes.object,
+ContentTale.propTypes = {
+  xy: PropTypes.array,
 };
-Tale.defaultProps = {
-  xy: {},
+ContentTale.defaultProps = {
+  xy: [0, 0],
 };

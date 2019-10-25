@@ -18,11 +18,11 @@ function TextBox() {
           <div className="sub-text">
             잇플은 한끼 식사를 5500원에 해결할 수 있는 테이크아웃 멤버십입니다.
           </div>
-          <div className="content-main-btn-box-wrap">
-            <div className="content-main-btn-box">
+          <div className="btn-box-wrap">
+            <div className="btn-box">
               <button type="button">
                 <Link to="/">
-                  <img src={ImgBtnCTA} alt="Button CTA" />
+                  <img src={ImgBtnCTA} alt="Button" />
                 </Link>
               </button>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './index.scss';
@@ -75,9 +76,9 @@ function SiteMap({ mapArray }) {
         {mapArray.map(entrySite => {
           return (
             <li key={entrySite.label}>
-              <a href={entrySite.link} target="_blank" rel="noopener noreferrer">
+              <Link to={entrySite.link} target="_blank" rel="noopener noreferrer">
                 {entrySite.label}
-              </a>
+              </Link>
             </li>
           );
         })}
@@ -96,9 +97,9 @@ function SocialMap({ mapArray }) {
         {mapArray.map(entryIcon => {
           return (
             <li key={entryIcon.label}>
-              <a href={entryIcon.link} target="_blank" rel="noopener noreferrer">
+              <Link to={entryIcon.link} target="_blank" rel="noopener noreferrer">
                 <img src={entryIcon.icon} alt={entryIcon.label} draggable="false" />
-              </a>
+              </Link>
             </li>
           );
         })}

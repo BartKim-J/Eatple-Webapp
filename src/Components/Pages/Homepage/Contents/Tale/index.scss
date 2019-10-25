@@ -89,6 +89,21 @@
                 line-height: 1.6;
               }
 
+              .btn-box-wrap {
+                margin-top: 80px;
+                margin-bottom: 10vh;
+
+                .btn-box {
+                  width: 10vw;
+                  max-width: 134px;
+                  min-width: 100px;
+
+                  img {
+                    width: 100%;
+                  }
+                }
+              }
+              
               .divider-line {
                 margin: 121px 0 34px 0;
                 width: 70%;
@@ -104,21 +119,6 @@
                 .qna-highlight {
                   font-family: 'S-CoreDream-6';
                   text-decoration: underline;
-                }
-              }
-
-              .content-tale-btn-box-wrap {
-                margin-top: 80px;
-                margin-bottom: 10vh;
-
-                .content-tale-btn-box {
-                  width: 10vw;
-                  max-width: 134px;
-                  min-width: 100px;
-
-                  img {
-                    width: 100%;
-                  }
                 }
               }
             }

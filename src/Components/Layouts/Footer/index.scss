@@ -8,7 +8,7 @@
     width: 100vw;
     height: 240px;
 
-    background-color: #f8f8fa;
+    background-color: #1c1c1c;
 
     @media all and (max-width: $media-width-desktop-content + 160px) {
       padding: 0vh $media-width-desktop-content-padding;
@@ -34,7 +34,7 @@
         .footer-copyright-box {
           font-family: 'S-CoreDream-3';
 
-          color: #1c1c1c;
+          color: #ffffff;
 
           text-align: left;
           font-size: 0.9em;
@@ -72,7 +72,12 @@
             display: inline-block;
             width: 8vw;
 
+            a {
+              color: #ffffff;
+            }
+            
             font-family: 'S-CoreDream-5';
+
             font-weight: 500;
             line-height: 1.33;
             font-size: 0.8em;

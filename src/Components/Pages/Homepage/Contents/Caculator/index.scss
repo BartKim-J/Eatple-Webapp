@@ -1,0 +1,39 @@
+@import 'configure/mediaConfig.scss';
+@import 'configure/componentsConfig.scss';
+
+@media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
+  .content-calculator-section {
+    // Debug
+    display: none;
+    
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    @media all and (max-width: $media-width-desktop-content + 160px) {
+      padding: 0vh $media-width-desktop-content-padding;
+    }
+
+    @media all and (min-width: $media-width-desktop-content + 160px) {
+      padding: 0vh 0vw;
+    }
+
+    .content-calculator-inner {
+      max-width: $media-width-desktop-content;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
+  .content-calculator-section {
+    display: none;
+  }
+}
+
+@media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
+  .content-calculator-section {
+    display: none;
+  }
+}
