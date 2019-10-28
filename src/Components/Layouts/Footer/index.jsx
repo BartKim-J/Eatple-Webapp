@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import './index.scss';
 
-import ImgWordmark from './Images/ImgWordmark@3x.png';
+import ImgWordmark from './Images/ImgWordmark.svg';
 
-import IconInstagram from './Images/IcInstagram@3x.png';
-import IconFacebook from './Images/IcFacebook@3x.png';
-import IconYoutube from './Images/IcYoutube@3x.png';
+import IconInstagram from './Images/IcInstagram.svg';
+import IconFacebook from './Images/IcFacebook.svg';
+import IconYoutube from './Images/IcYoutube.svg';
 
 const siteMap = [
   {

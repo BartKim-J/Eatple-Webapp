@@ -5,10 +5,10 @@ import './index.scss';
 
 // import useScrollPosition from 'utils/ScrollPosition';
 
-import IconTime from './Images/IcTime@3x.png';
-import IconValue from './Images/IcValue@3x.png';
-import IconVariety from './Images/IcVariety@3x.png';
-import IconEatple from './Images/ImgEatPlus@3x.png';
+import IconTime from './Images/IcTime.svg';
+import IconValue from './Images/IcValue.svg';
+import IconVariety from './Images/IcVariety.svg';
+import IconEatple from './Images/ImgEatPlus.svg';
 
 const SCROLL_ANCHOR_POINRT = window.innerHeight * 0.78;
 

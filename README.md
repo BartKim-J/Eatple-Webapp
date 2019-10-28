@@ -1,7 +1,8 @@
 
+
 # **Eat Plus Website with React.js**
 
-[![build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://bitbucket.org/xengiennering/sn3d-project)  [![platform](https://img.shields.io/badge/platform-mac-lightgrey.svg)]()
+[![build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://bitbucket.org/xengiennering/sn3d-project) [![platform](https://img.shields.io/badge/platform-mac-lightgrey.svg)]()
 
 ### **Library**
 
@@ -10,24 +11,29 @@
 - [VS Code for mac](https://code.visualstudio.com/)
 
 # **Features**
+
 ---
 
 > This README.md uses the [Markdown](http://daringfireball.net/projects/markdown/) syntax. The [MarkDownDemo tutorial](https://bitbucket.org/tutorials/markdowndemo) shows how various elements are rendered. The [Bitbucketdocumentation](https://confluence.atlassian.com/bitbucket/readme-content-221449772.html) has more information about using a README.md.
 
-
 # **Install & Compile**
+
 ---
+
 #### **_Step 1._** Clone git repository.
+
 ```
-$ git clone https://${UserName}bitbucket.org/ajust_/ajust-website.git
+$ git clone https://${UserName}@bitbucket.org/eatplus/eat-website.git
 ```
 
 #### **_Step 2._** NPM Install.
+
 ```
 $ npm install
 ```
 
 #### **_Step 3._** Web Server Starting.
+
 ```
 $ npm start
 ```
@@ -73,22 +79,34 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+
+# **Docker Scripts**
+
+### `docker build -t benkim07120/eatplus .`
+
+build docker images
+
+### `docker push benkim07120/eatplus`
+
+push docker image to on cloud server
+
 # **Reference**
+
 ---
-* ### Software
 
-* ### Hardware
+- ### Software
 
-* ###  Linux OS
+- ### Hardware
+
+- ### Linux OS
 
 #### TODO List
-- [X] Memory Test.
+
+- [x] Memory Test.
 
 #### BUG List
-- [X] Not Yet;;
 
-
-
+- [x] Not Yet;;
 
 ## Learn More
 
@@ -119,3 +137,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+\*\*

@@ -45,18 +45,38 @@
             font-size: 0.32em;
             line-height: 1.33;
           }
+
           .btn-box-wrap {
-            padding-left: 0.5vw;
-            margin-top: 5vh;
+            padding-top: 10vh;
             margin-bottom: 0;
 
             .btn-box {
-              width: 13vw;
-              max-width: 172px;
-              min-width: 120px;
+              position: relative;
+              width: 150px;
+              height: 60px;
 
               img {
                 width: 100%;
+              }
+
+              .button-image {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+
+                transition: all 0.5s;
+              }
+
+              .button-image:hover {
+                transform: translate(-5px, -5px);
+              }
+
+              .button-shadow {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+
+                z-index: -1;
               }
             }
           }
@@ -129,6 +149,14 @@
               max-height: 100px;
 
               overflow: hidden;
+              
+              .swiper {
+                display: flex;
+                overflow-x: visible;
+                transition-property: transform;
+                will-change: transform;
+              }
+
               ul {
                 padding: 0;
                 margin: 0;
@@ -136,8 +164,6 @@
                 text-align: left;
                 li {
                   display: inline-block;
-
-                  background-color: #dddddd;
 
                   margin-right: 10px;
 
@@ -147,10 +173,35 @@
 
                   .sub-box-item {
                     position: relative;
+                    opacity: 0.5;
+                  }
+
+                  .sub-box-item-selected {
                   }
                 }
               }
             }
+          }
+        }
+      }
+
+      .content-menu-slide-map-wrap {
+        position: absolute;
+        top: 5vh;
+        left: 10vw;
+
+        z-index: -1;
+        .content-menu-slide-map {
+          position: relative;
+          width: 32vw;
+          max-width: 586px;
+
+          height: 32vw * 1.1604;
+          max-height: 680px;
+
+          .map-container {
+            width: 100%;
+            height: 100%;
           }
         }
       }

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 import './index.scss';
 
-import ImgBtnCTA from 'resource/Image/Button/BtnCTA@3x.png';
+import ImgBtnGetStarted from 'resource/Image/Button/BtnGetStarted.svg';
+import ImgBtnMediumShadow from 'resource/Image/Button/BtnMediumShadow.svg';
 import ImgHero from './Images/ImgHero.png';
 
 function TextBox() {
@@ -19,13 +20,16 @@ function TextBox() {
             잇플은 한끼 식사를 5500원에 해결할 수 있는 테이크아웃 멤버십입니다.
           </div>
           <div className="btn-box-wrap">
-            <div className="btn-box">
-              <button type="button">
-                <Link to="/">
-                  <img src={ImgBtnCTA} alt="Button" />
-                </Link>
+            <Link to="/">
+              <button type="button" className="btn-box">
+                <div className="button-image">
+                  <img src={ImgBtnGetStarted} alt="Button" />
+                </div>
+                <div className="button-shadow">
+                  <img src={ImgBtnMediumShadow} alt="Button" />
+                </div>
               </button>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

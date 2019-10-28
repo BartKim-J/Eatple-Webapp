@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Navbar, Nav } from 'react-bootstrap';
 
-import Logo from 'resource/Image/ImgLogo.png';
+import Logo from 'resource/Image/ImgLogo.svg';
 
 import './index.scss';
 
-import BtnTrial from './Images/BtnNav@3x.png';
+import BtnTrial from './Images/BtnFloating.svg';
 
 export default function Menu() {
   return (

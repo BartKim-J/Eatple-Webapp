@@ -1,7 +1,7 @@
 @import 'configure/mediaConfig.scss';
 @import 'configure/componentsConfig.scss';
 
-$phone-screen-width: 22vw;
+$phone-screen-width: 24vw;
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .content-tutorial-section {
@@ -93,21 +93,20 @@ $phone-screen-width: 22vw;
                 position: relative;
 
                 width: 25%;
-                
+
                 .hover-line {
                   position: relative;
                   bottom: -4px;
-                  
-                  width: 100%;  
+
+                  width: 100%;
 
                   margin: 0 auto;
 
                   height: 1px;
-    
+
                   border-bottom: solid 4px #1c1c1c;
                 }
               }
-
             }
 
             .selected-category {
@@ -155,8 +154,7 @@ $phone-screen-width: 22vw;
           position: absolute;
           top: 0;
 
-          padding-top: 2.2vh;
-
+          padding: $phone-screen-width * 0.044;
           width: $phone-screen-width;
           max-width: 445px;
 
@@ -168,10 +166,6 @@ $phone-screen-width: 22vw;
 
             width: $phone-screen-width * 0.883146;
             max-width: 393px;
-
-            img {
-              width: 100%;
-            }
           }
         }
       }

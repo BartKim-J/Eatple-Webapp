@@ -90,20 +90,40 @@
               }
 
               .btn-box-wrap {
-                margin-top: 80px;
-                margin-bottom: 10vh;
+                padding-top: 10vh;
+                margin-bottom: 0;
 
                 .btn-box {
-                  width: 10vw;
-                  max-width: 134px;
-                  min-width: 100px;
+                  position: relative;
+                  width: 150px;
+                  height: 60px;
 
                   img {
                     width: 100%;
                   }
+
+                  .button-image {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+
+                    transition: all 0.5s;
+                  }
+
+                  .button-image:hover {
+                    transform: translate(-5px, -5px);
+                  }
+
+                  .button-shadow {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+
+                    z-index: -1;
+                  }
                 }
               }
-              
+
               .divider-line {
                 margin: 121px 0 34px 0;
                 width: 70%;
