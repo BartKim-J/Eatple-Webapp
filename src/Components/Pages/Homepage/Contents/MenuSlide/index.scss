@@ -215,6 +215,7 @@
                 transition: all 1s;
 
                 .sub-box-item {
+                  position: relative;
                   margin-right: 0.7%;
 
                   flex-grow: 0;
@@ -226,6 +227,17 @@
 
                   transition: all 0.3s;
                   opacity: 0.5;
+
+                  overflow: hidden;
+                  
+                  img {
+                    position: relative;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    
+                    height: inherit;
+                    width: inherit;
+                  }
                 }
 
                 .sub-box-item:hover {

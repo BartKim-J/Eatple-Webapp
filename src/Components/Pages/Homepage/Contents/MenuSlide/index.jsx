@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 import ImgSlideMain from './Images/imgMenu@3x.png';
-import ImgSlideSub1 from './Images/ImgMenuSub1@3x.png';
+import ImgSlideSub1 from './Images/imgMenu@2x.png';
 
 import ImgBtnPartner from './Images/BtnViewMore.svg';
 import ImgBtnMediumShadow from './Images/BtnMediumShadow.svg';
