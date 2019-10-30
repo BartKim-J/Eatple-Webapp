@@ -2,7 +2,6 @@
   "name": "eatplus.com",
   "version": "0.0.2",
   "private": true,
-  "proxy": "http://eatple.com",
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.14",
     "animated-number-react": "0.0.2",

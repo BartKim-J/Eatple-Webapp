@@ -10,7 +10,7 @@ import IconValue from './Images/IcValue.svg';
 import IconVariety from './Images/IcVariety.svg';
 import IconEatple from './Images/ImgEatPlus.svg';
 
-const SCROLL_ANCHOR_POINRT = window.innerHeight * 0.78;
+const SCROLL_ANCHOR_POINRT = window.innerHeight * 0.73;
 
 function FloatBox({ className, icon, title, subTextLine1, subTextLine2 }) {
   return (
@@ -42,9 +42,9 @@ FloatBox.propTypes = {
 };
 
 function FloatBoxList({ scrollY }) {
-  const trans1 = y => `translate3d(0,${y / 1.8}px,0)`;
+  const trans1 = y => `translate3d(0,${y * 0.6}px,0)`;
   const trans2 = y => `translate3d(0,${y * 1.4}px,0)`;
-  const trans3 = y => `translate3d(0,${y / 1}px,0)`;
+  const trans3 = y => `translate3d(0,${y * 1.0}px,0)`;
 
   return (
     <div className="content-membership-float-box-item-list">

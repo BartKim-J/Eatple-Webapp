@@ -141,6 +141,61 @@
                     }
                   }
                 }
+
+                .slider-text-box-wrap {
+                  position: relative;
+                  top: 0;
+                  left: 0;
+
+                  .slider-text-box {
+                    position: relative;
+
+                    color: #ffffff;
+
+                    .menu-info-text-box {
+                      position: absolute;
+                      top: 15px;
+                      left: 10%;
+
+                      text-align: left;
+
+                      .store-name {
+                        font-family: 'S-CoreDream-5';
+                        font-size: 0.8em;
+                        line-height: 1.67;
+                        letter-spacing: 1.09px;
+                        color: #fca800;
+
+                        margin-bottom: 5px;
+                      }
+
+                      .menu-name {
+                        font-family: 'S-CoreDream-5';
+                        font-size: 1.4em;
+
+                        line-height: 1.5;
+                        letter-spacing: -0.8px;
+                      }
+
+                      .store-address {
+                        margin-top: 15px;
+
+                        font-size: 0.8em;
+
+                        font-family: 'S-CoreDream-3';
+                        line-height: 2.17;
+                      }
+                    }
+                    .menu-index-text {
+                      position: absolute;
+                      top: 15px;
+                      right: 10%;
+
+                      font-size: 0.8em;
+                      line-height: 1.82;
+                    }
+                  }
+                }
               }
             }
 
@@ -149,35 +204,36 @@
               max-height: 100px;
 
               overflow: hidden;
-              
-              .swiper {
+
+              .item-swiper {
                 display: flex;
                 overflow-x: visible;
+
                 transition-property: transform;
                 will-change: transform;
-              }
 
-              ul {
-                padding: 0;
-                margin: 0;
+                transition: all 1s;
 
-                text-align: left;
-                li {
-                  display: inline-block;
+                .sub-box-item {
+                  margin-right: 0.7%;
 
-                  margin-right: 10px;
+                  flex-grow: 0;
+                  flex-shrink: 0;
+                  flex-basis: 12.6%;
 
-                  width: 15%;
                   height: 60vw * 0.094;
                   max-height: 100px;
 
-                  .sub-box-item {
-                    position: relative;
-                    opacity: 0.5;
-                  }
+                  transition: all 0.3s;
+                  opacity: 0.5;
+                }
 
-                  .sub-box-item-selected {
-                  }
+                .sub-box-item:hover {
+                  opacity: 1;
+                }
+
+                .sub-box-item-selected {
+                  opacity: 1;
                 }
               }
             }

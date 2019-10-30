@@ -12,6 +12,86 @@ import ImgBtnMediumShadow from './Images/BtnMediumShadow.svg';
 import ImgBtnSlideLeft from './Images/BtnLeft.svg';
 import ImgBtnSlideRight from './Images/BtnRight.svg';
 
+const slideItemList = [
+  {
+    storeName: '유부남',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국2',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국3',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국4',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국5',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국6',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국7',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국8',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국9',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+  {
+    storeName: '카레 천국10',
+    storeAddress: '주소',
+    menuName: '유부초밥 & 샐러드',
+    mainImage: ImgSlideMain,
+    subImage: ImgSlideSub1,
+  },
+];
+
 function TextBox() {
   return (
     <div className="content-menu-slide-text-box-wrap">
@@ -38,125 +118,20 @@ function TextBox() {
   );
 }
 
-const slideItemList = [
-  {
-    storeName: '유부남',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-  },
-  {
-    storeName: '카레 천국',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-  },
-  {
-    storeName: '카레 천국2',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-  },
-  {
-    storeName: '카레 천국3',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-  },
-  {
-    storeName: '카레 천국4',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-  },
-  {
-    storeName: '카레 천국5',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-  },
-  {
-    storeName: '카레 천국6',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-  },
-];
-
 function MenuSlider() {
-  // let storeName = '유부남';
-  // let storeAddress = '주소주소주소주소';
-  // let menuName = '유부초밥 & 셀러드';
+  const minImageCount = 5;
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [movement, setMovement] = useState(0);
-  const [lastTouch, setLastTouch] = useState(0);
 
-  function handleMovement(delta) {
-    const maxLength = slideItemList.length - 1;
-    let nextMovement = movement + delta;
-
-    if (nextMovement < 0) {
-      nextMovement = 0;
+  function transitionTo(pos) {
+    if (pos <= slideItemList.length - minImageCount) {
+      setMovement(pos);
+    } else {
+      setMovement(slideItemList.length - minImageCount);
     }
 
-    if (nextMovement > maxLength * 134) {
-      nextMovement = maxLength * 134;
-    }
-
-    setMovement(nextMovement);
-  }
-
-  function handleMovementEnd() {
-    const endPosition = movement / 134;
-    const endPartial = endPosition % 1;
-    const endingIndex = endPosition - endPartial;
-    const deltaInteger = endingIndex - slideIndex;
-
-    const nextIndex = endingIndex;
-  }
-
-  
-  function handleDragStart(e) {
-    setLastTouch(e.nativeEvent.clientX);
-    console.log('Touch Start');
-  }
-
-  function handleDragMove(e) {
-    console.log(e.nativeEvent);
-    const delta = lastTouch - e.nativeEvent.clientX;
-    setLastTouch(e.nativeEvent.clientX);
-
-    handleMovement(delta);
-
-    console.log('Touching...');
-  }
-
-  function handleDragEnd() {
-    handleMovementEnd();
-    setLastTouch(0);
-
-    console.log('Touch End');
-  }
-
-  function handleTouchStart(e) {
-    setLastTouch(e.nativeEvent.touches[0].clientX);
-    console.log('Touch Start');
-  }
-
-  function handleTouchMove(e) {
-    console.log(e.nativeEvent);
-    const delta = lastTouch - e.nativeEvent.touches[0].clientX;
-    setLastTouch(e.nativeEvent.touches[0].clientX);
-
-    handleMovement(delta);
-
-    console.log('Touching...');
-  }
-
-  function handleTouchEnd() {
-    handleMovementEnd();
-    setLastTouch(0);
-
-    console.log('Touch End');
-  }
-
-  function handleWheel(e) {
-    console.log('Wheel...');
-    handleMovement(e.deltaX);
+    setSlideIndex(pos);
   }
 
   function prevSlide() {
@@ -166,64 +141,57 @@ function MenuSlider() {
       nextSlideIndex = slideItemList.length - 1;
     }
 
-    setSlideIndex(nextSlideIndex);
+    transitionTo(nextSlideIndex);
   }
 
   function nextSlide() {
     let nextSlideIndex = slideIndex + 1;
-    if (slideIndex >= slideItemList.length) {
+
+    if (slideIndex >= slideItemList.length - 1) {
       nextSlideIndex = 0;
     }
-    setSlideIndex(nextSlideIndex);
+
+    transitionTo(nextSlideIndex);
   }
 
   return (
     <div className="content-menu-slide-slider-wrap">
       <div className="content-menu-slide-slider">
         <div className="content-menu-slide-main-box">
-          <img src={ImgSlideMain} alt="Button" draggable="false" />
+          <img src={slideItemList[slideIndex].mainImage} alt="Button" draggable="false" />
         </div>
 
         <div className="content-menu-slide-sub-box">
           <div className="sub-box-item-list">
             <div
               role="button"
-              className="swiper"
+              className="item-swiper"
               style={{
-                transform: `translateX(${movement * -1}px)`,
+                transform: `translateX(${13.3 * movement * -1}%)`,
+                width: `${slideItemList.length} * 15%`,
               }}
-              onWheel={handleWheel}
-              onMouseDown={handleDragStart}
-              onMouseMove={handleDragMove}
-              onMouseUp={handleDragEnd}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              
               tabIndex={0}
             >
-              <ul>
-                {slideItemList.map((slideItem, index) => {
-                  let className = 'sub-box-item';
+              {slideItemList.map((slideItem, index) => {
+                let className = 'sub-box-item';
 
-                  if (index === slideIndex) {
-                    className += 'selected-slide';
-                  }
-                  return (
-                    <li key={slideItem.storeName}>
-                      <button
-                        type="button"
-                        className={className}
-                        onClick={() => {
-                          setSlideIndex(index);
-                        }}
-                      >
-                        <img src={ImgSlideSub1} alt="Sub" draggable="false" />
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
+                if (index === slideIndex) {
+                  className += ' sub-box-item-selected';
+                }
+
+                return (
+                  <button
+                    type="button"
+                    key={slideItem.storeName}
+                    className={className}
+                    onClick={() => {
+                      transitionTo(index);
+                    }}
+                  >
+                    <img src={slideItem.subImage} alt="Sub" draggable="false" />
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -238,6 +206,19 @@ function MenuSlider() {
                   <button type="button" className="slider-button" onClick={nextSlide}>
                     <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
                   </button>
+                </div>
+              </div>
+
+              <div className="slider-text-box-wrap">
+                <div className="slider-text-box">
+                  <div className="menu-info-text-box">
+                    <div className="store-name">{slideItemList[slideIndex].storeName}</div>
+                    <div className="menu-name">{slideItemList[slideIndex].menuName}</div>
+                    <div className="store-address">{slideItemList[slideIndex].storeAddress}</div>
+                  </div>
+                  <div className="menu-index-text">
+                    {`${slideIndex + 1}/${slideItemList.length}`}
+                  </div>
                 </div>
               </div>
             </div>
