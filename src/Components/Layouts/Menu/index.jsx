@@ -1,17 +1,17 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import { Navbar, Nav } from 'react-bootstrap';
 
 import Logo from 'resource/Image/ImgLogo.svg';
 
-import './index.scss';
+import mediaConf from 'configure/mediaConfig';
 
 import BtnTrial from './Images/BtnFloating.svg';
 
 export default function Menu() {
   return (
-    <div className="menu-section">
-      <div className="menu-inner">
+    <Styled.Section>
+      <Styled.Container>
         <div className="menu-wrap">
           <Navbar className="menu-bar">
             <Navbar.Brand href="/">
@@ -34,7 +34,59 @@ export default function Menu() {
             </Nav>
           </Navbar>
         </div>
-      </div>
-    </div>
+      </Styled.Container>
+    </Styled.Section>
   );
 }
+
+const Styled = {};
+const MENU_Z_INDEX = 999;
+
+Styled.Section = styled.section`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+Styled.Container = styled.div`
+  width: 100vw;
+
+  .menu-wrap {
+    margin: 0 auto;
+
+    .menu-bar {
+      position: relative;
+
+      z-index: ${MENU_Z_INDEX};
+
+      width: 100vw;
+      height: 8vh;
+
+      padding: 2vh 3vw 0vh 3vw;
+      margin: 0 auto;
+
+      .menu-bar-brand {
+        float: left;
+      }
+
+      .menu-bar-logo {
+        width: 88px;
+      }
+
+      .menu-bar-btn-trial {
+        width: 128px;
+      }
+
+      .menu-bar-items {
+        display: flex;
+
+        float: right;
+        vertical-align: middle;
+
+        .menu-bar-item {
+          margin-left: 5vw;
+        }
+      }
+    }
+  }
+`;

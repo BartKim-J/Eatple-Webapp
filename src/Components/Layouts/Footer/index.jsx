@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import './index.scss';
+import mediaConf from 'configure/mediaConfig';
 
 import ImgWordmark from './Images/ImgWordmark.svg';
 
@@ -113,13 +114,117 @@ SocialMap.propTypes = {
 
 export default function Footer() {
   return (
-    <div className="footer-section">
-      <div className="footer-inner">
+    <Styled.Section>
+      <Styled.Container>
         <Wordmark />
         <CopyrightBox />
         <SiteMap mapArray={siteMap} />
         <SocialMap mapArray={socialMap} />
-      </div>
-    </div>
+      </Styled.Container>
+    </Styled.Section>
   );
 }
+
+const Styled = {};
+
+Styled.Section = styled.section`
+  position: relative;
+
+  width: 100vw;
+  height: 240px;
+
+  background-color: #1c1c1c;
+
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
+  }
+`;
+
+Styled.Container = styled.div`
+  position: relative;
+
+  height: 240px;
+
+  max-width: $media-width-desktop-content;
+  margin: 0 auto;
+
+  .footer-copyright-box-wrap {
+    position: absolute;
+    left: 0px;
+    bottom: 34px;
+
+    .footer-copyright-box {
+      font-family: 'S-CoreDream-3';
+
+      color: #ffffff;
+
+      text-align: left;
+      font-size: 0.9em;
+      line-height: 1.54;
+    }
+  }
+
+  .footer-wordmark-wrap {
+    position: absolute;
+
+    top: 58px;
+    left: 0px;
+
+    .footer-wordmark {
+      width: 86px;
+    }
+  }
+
+  .footer-site-map-wrap {
+    position: absolute;
+
+    top: 58px;
+    right: 15vw;
+
+    .footer-site-map {
+      width: 20vw;
+
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        width: 8vw;
+
+        a {
+          color: #ffffff;
+        }
+
+        font-family: 'S-CoreDream-5';
+
+        font-weight: 500;
+        line-height: 1.33;
+        font-size: 0.8em;
+      }
+
+      li:nth-child(odd) {
+        margin-right: 4vw;
+      }
+    }
+  }
+
+  .footer-social-map-wrap {
+    position: absolute;
+
+    top: 58px;
+    right: 5vw;
+
+    .footer-social-map {
+      li {
+        display: inline-block;
+        width: 1.6em;
+
+        margin-right: 15px;
+      }
+
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+`;

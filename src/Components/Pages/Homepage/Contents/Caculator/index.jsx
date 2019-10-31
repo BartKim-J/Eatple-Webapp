@@ -6,46 +6,7 @@ import { Stickyroll } from '@stickyroll/stickyroll';
 import { Pagers, Skip } from '@stickyroll/pagers';
 import { Inner, Content } from '@stickyroll/inner';
 
-import './index.scss';
 
-const section = styled.section`
-  @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
-    position: relative;
-
-    width: 100vw;
-    height: 718px;
-
-    overflow-x: hidden;
-  }
-  @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
-    .content-tale-section {
-      display: none;
-    }
-  }
-
-  @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
-    .content-tale-section {
-      display: none;
-    }
-  }
-`;
-
-const inner = styled.div`
-  position: relative;
-
-  width: 100vw;
-  height: 718px;
-
-  overflow-x: hidden;
-
-  @media all and (max-width: $media-width-desktop-content + 160px) {
-    padding: 0vh $media-width-desktop-content-padding;
-  }
-
-  @media all and (min-width: $media-width-desktop-content + 160px) {
-    padding: 0vh 0vw;
-  }
-`;
 
 const headlines = [
   'Hello World!',
@@ -73,8 +34,8 @@ export default function CotentCalculator() {
     <Stickyroll pages={headlines} factor={2} throttle={250} anchors="!/headline">
       {({ pageIndex, progress }) => {
         return (
-          <section>
-            <inner>
+          <Styled.Section>
+            <Styled.Container>
               <Inner withPagers="left">
                 <Pagers useContext={true} />
 
@@ -83,10 +44,50 @@ export default function CotentCalculator() {
                   <Skip useContext={true} />
                 </div>
               </Inner>
-            </inner>
-          </section>
+            </Styled.Container>
+          </Styled.Section>
         );
       }}
     </Stickyroll>
   );
 }
+const Styled = {};
+
+Styled.Section = styled.section`
+  @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
+    position: relative;
+
+    width: 100vw;
+    height: 718px;
+
+    overflow-x: hidden;
+  }
+  @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
+    .content-tale-section {
+      display: none;
+    }
+  }
+
+  @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
+    .content-tale-section {
+      display: none;
+    }
+  }
+`;
+
+Styled.Container = styled.div`
+  position: relative;
+
+  width: 100vw;
+  height: 718px;
+
+  overflow-x: hidden;
+
+  @media all and (max-width: $media-width-desktop-content + 160px) {
+    padding: 0vh $media-width-desktop-content-padding;
+  }
+
+  @media all and (min-width: $media-width-desktop-content + 160px) {
+    padding: 0vh 0vw;
+  }
+`;

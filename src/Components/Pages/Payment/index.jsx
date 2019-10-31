@@ -16,7 +16,6 @@ import { getMethods, getQuotas } from './utils';
 
 import btnPayment from './Images/BtnPayment@3x.png';
 import 'antd/dist/antd.css';
-import './index.scss';
 
 function PGPayment({ history, form }) {
   const [methods, setMethods] = useState(METHODS_FOR_INICIS);
@@ -452,24 +451,4 @@ const PayButtonBox = styled.div`
 
 const PaymentForm = Form.create({ name: 'payment' })(PGPayment);
 
-const propTypes = {};
-
-const defaultProps = {};
-
-class Payment extends PureComponent {
-  render() {
-    const { history } = this.props;
-    return (
-      <div className="payment-section">
-        <div className="payment-container">
-          <PaymentForm history={history} />
-        </div>
-      </div>
-    );
-  }
-}
-
-Payment.propTypes = propTypes;
-Payment.defaultProps = defaultProps;
-
-export default withUserAgent(withRouter(Payment));
+export default withUserAgent(withRouter(PaymentForm));
