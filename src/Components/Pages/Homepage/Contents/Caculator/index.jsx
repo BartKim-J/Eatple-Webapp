@@ -1,28 +1,9 @@
 /* eslint-disable react/jsx-boolean-value */
 import React from 'react';
 
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { Stickyroll } from '@stickyroll/stickyroll';
-import { Pagers } from '@stickyroll/pagers';
-import { Inner, Content } from '@stickyroll/inner';
-import {
-  dark,
-  indigo,
-  yellow,
-  deepOrange,
-  teal,
-  pink,
-  blue,
-  green,
-  light,
-  red,
-  deepPurple,
-  cyan,
-  lime,
-  purple,
-  orange,
-  amber,
-} from '@stickyroll/themes';
+import { Inner } from '@stickyroll/inner';
 
 import mediaConf from 'configure/mediaConfig';
 
@@ -30,8 +11,6 @@ import BackgroundImgBox from './Components/BackgroundImgBox';
 import CategorySelectBox from './Components/CategorySelectBox';
 
 import ResultViewBox from './Components/ResultViewBox';
-
-const headlines = ['1', '2', '3', '4'];
 
 export default function CotentCalculator() {
   return (
@@ -41,21 +20,17 @@ export default function CotentCalculator() {
           <Styled.Section>
             <BackgroundImgBox />
             <Styled.Container>
-              <ThemeProvider theme={dark}>
-                <Inner withPagers="right" className="stickyroll-inner">
-                  <Pagers useContext={true} className="stickyroll-pagers" />
+              <Inner withPagers="right" className="stickyroll-inner">
+                <CategorySelectBox />
 
-                  <CategorySelectBox />
-
-                  <ResultViewBox
-                    anchor={anchors}
-                    page={page}
-                    pageIndex={pageIndex}
-                    progress={progress}
-                    pages={pages}
-                  />
-                </Inner>
-              </ThemeProvider>
+                <ResultViewBox
+                  anchor={anchors}
+                  page={page}
+                  pageIndex={pageIndex}
+                  progress={progress}
+                  pages={pages}
+                />
+              </Inner>
             </Styled.Container>
           </Styled.Section>
         );

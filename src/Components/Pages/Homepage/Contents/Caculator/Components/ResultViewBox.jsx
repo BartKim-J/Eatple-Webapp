@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
+import AnimatedNumber from 'react-animated-number';
+
+function usePrevious(value) {
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current = value;
+  });
+
+  return ref.current;
+}
 
 export default function ResultViewBox({ pageIndex, progress, pages }) {
-  const countInit = 4;
+  const countInit = 5;
   const menuPrice = 5500;
 
-  const count = countInit + (pageIndex * 10) + (10 * progress);
-  const won = count.toFixed(0) * menuPrice;
+  const [count, setCount] = useState(countInit + pageIndex * 10 + progress * 10);
+  const [won, setWon] = useState(count.toFixed(0) * menuPrice);
+
+  const prevProgress = usePrevious({ pageIndex, progress, pages });
+
+  useEffect(() => {
+    if (prevProgress !== progress) {
+      setCount(countInit + pageIndex * 10 + 10 * progress);
+      setWon(count.toFixed(2) * menuPrice);
+    }
+  }, [pageIndex, progress, pages, count, prevProgress]);
+
+  const animationDuration = 300; // ms
 
   return (
     <Styled.Wrap>
@@ -16,11 +38,38 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
           <Styled.TextBox>
             한달에
             <br />
-            <Styled.TextHighlight>{count.toFixed(0)}번</Styled.TextHighlight>
+            <Styled.TextHighlight>
+              <AnimatedNumber
+                style={{
+                  transition: '0.8s ease-out',
+                  transitionProperty: 'background-color, color',
+                }}
+                key={count}
+                value={count}
+                initialValue={count * 1.0}
+                stepPrecision={0}
+                formatValue={n => `${parseFloat(n).toFixed(1)}번`}
+                duration={100}
+              />
+            </Styled.TextHighlight>
             <br />
             잇플로 식사하고
             <br />
-            <Styled.TextHighlight>{won.toFixed(2)}원</Styled.TextHighlight>의
+            <Styled.TextHighlight>
+              <AnimatedNumber
+                style={{
+                  transition: '0.8s ease-out',
+                  transitionProperty: 'background-color, color',
+                }}
+                key={won}
+                value={won}
+                initialValue={won * 1.1}
+                stepPrecision={0}
+                formatValue={n => `${parseFloat(n).toFixed(0)}원`}
+                duration={animationDuration}
+              />
+            </Styled.TextHighlight>
+            의
             <br />
             더해지는 가치를 경험하세요.
           </Styled.TextBox>
@@ -30,9 +79,14 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
   );
 }
 ResultViewBox.propTypes = {
-  pageIndex: PropType.number.isRequired,
-  progress: PropType.number.isRequired,
-  pages: PropType.array.isRequired,
+  pageIndex: PropType.number,
+  progress: PropType.number,
+  pages: PropType.number,
+};
+ResultViewBox.defaultProps = {
+  pageIndex: 0,
+  progress: 0,
+  pages: 0,
 };
 
 const Styled = {};
