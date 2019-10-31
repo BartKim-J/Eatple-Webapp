@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import './index.scss';
+import mediaConf from 'configure/mediaConfig';
 
 import ImgSlideMain from './Images/imgMenu@3x.png';
 import ImgSlideSub1 from './Images/imgMenu@2x.png';
@@ -94,8 +95,8 @@ const slideItemList = [
 
 function TextBox() {
   return (
-    <div className="content-menu-slide-text-box-wrap">
-      <div className="content-menu-slide-text-box">
+    <Styled.TextBoxWrap>
+      <Styled.TextBox>
         <div className="title">
           잇플의 1차 서비스 지역은
           <br />
@@ -113,8 +114,8 @@ function TextBox() {
             </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </Styled.TextBox>
+    </Styled.TextBoxWrap>
   );
 }
 
@@ -155,8 +156,8 @@ function MenuSlider() {
   }
 
   return (
-    <div className="content-menu-slide-slider-wrap">
-      <div className="content-menu-slide-slider">
+    <Styled.MenuSliderWrap>
+      <Styled.MenuSlider>
         <div className="content-menu-slide-main-box">
           <img src={slideItemList[slideIndex].mainImage} alt="Button" draggable="false" />
         </div>
@@ -224,16 +225,18 @@ function MenuSlider() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </Styled.MenuSlider>
+    </Styled.MenuSliderWrap>
   );
 }
 
-function EatplusMap() {
+function PartnersMap() {
   const KakaoMapAPI = window.kakao.maps;
-  let partnerMap = {};
 
   useEffect(() => {
+    // eslint-disable-next-line no-unused-vars
+    let partnersMap = {};
+
     const container = document.getElementById('kakao-map');
 
     const options = {
@@ -241,27 +244,289 @@ function EatplusMap() {
       level: 4,
     };
 
-    partnerMap = new KakaoMapAPI.Map(container, options);
+    partnersMap = new KakaoMapAPI.Map(container, options);
   });
 
   return (
-    <div className="content-menu-slide-map-wrap">
-      <div className="content-menu-slide-map">
-        <div key={partnerMap} id="kakao-map" className="map-container" />
-      </div>
-    </div>
+    <Styled.PartnersMapWrap>
+      <Styled.PartnersMap>
+        <div id="kakao-map" className="map-container" />
+      </Styled.PartnersMap>
+    </Styled.PartnersMapWrap>
   );
 }
 
 export default function CotentMenuSlider() {
   return (
-    <div className="content-menu-slide-section">
-      <div className="content-menu-slide-inner">
+    <Styled.Section>
+      <Styled.Container>
         <TextBox />
         <MenuSlider />
-        <div id="partner" />
-        <EatplusMap />
-      </div>
-    </div>
+        <PartnersMap />
+      </Styled.Container>
+    </Styled.Section>
   );
 }
+
+const Styled = {};
+
+Styled.Section = styled.section`
+  position: relative;
+
+  width: 100vw;
+  min-height: 80vw;
+
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
+  }
+`;
+
+Styled.Container = styled.div`
+  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
+  margin: 0 auto;
+`;
+
+Styled.PartnersMapWrap = styled.div`
+  position: absolute;
+  top: 5vh;
+  left: 10vw;
+
+  z-index: -1;
+`;
+
+Styled.PartnersMap = styled.div`
+  position: relative;
+  width: 32vw;
+  max-width: 586px;
+
+  height: calc(32vw * 1.1604);
+  max-height: 680px;
+
+  .map-container {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+Styled.TextBoxWrap = styled.div`
+  position: absolute;
+  top: 5vh;
+  right: 15vw;
+`;
+
+Styled.TextBox = styled.div`
+  text-align: left;
+
+  margin-bottom: 10vh;
+
+  font-family: 'S-CoreDream-5';
+  font-size: 3.4em;
+  line-height: 1.46;
+
+  .highlight {
+    color: #fca800;
+  }
+
+  .sub-text {
+    margin: 0.8em 0 0 0.4em;
+    font-size: 0.32em;
+    line-height: 1.33;
+  }
+
+  .btn-box-wrap {
+    padding-top: 10vh;
+    margin-bottom: 0;
+
+    .btn-box {
+      position: relative;
+      width: 150px;
+      height: 60px;
+
+      .button-image {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        transition: all 0.5s;
+      }
+
+      .button-image:hover {
+        transform: translate(-5px, -5px);
+      }
+
+      .button-shadow {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        z-index: -1;
+      }
+    }
+  }
+`;
+
+Styled.MenuSliderWrap = styled.div`
+  position: absolute;
+  top: 45vh;
+  right: 4vw;
+`;
+
+Styled.MenuSlider = styled.div`
+  position: relative;
+
+  .content-menu-slide-main-box {
+    position: relative;
+
+    width: 60vw;
+    max-width: 1074px;
+    height: calc(60vw * 0.4692);
+    max-height: 504px;
+  }
+
+  .content-menu-slide-sub-box {
+    width: 60vw;
+    max-width: 1074px;
+    height: calc(60vw * 0.094);
+    max-height: 100px;
+
+    margin-top: 10px;
+
+    .slider-info-box-wrap {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      .slider-info-box {
+        position: relative;
+
+        width: 20vw;
+        max-width: 342px;
+        height: calc(20vw * 0.4444);
+        max-height: 152px;
+
+        background-color: #1c1c1c;
+
+        .slider-button-box-wrap {
+          position: absolute;
+          right: 0;
+          top: -48px;
+
+          .slider-button-box {
+            display: inline-block;
+
+            .slider-button {
+              width: 48px;
+              max-width: 48px;
+            }
+          }
+        }
+
+        .slider-text-box-wrap {
+          position: relative;
+          top: 0;
+          left: 0;
+
+          .slider-text-box {
+            position: relative;
+
+            color: #ffffff;
+
+            .menu-info-text-box {
+              position: absolute;
+              top: 15px;
+              left: 10%;
+
+              text-align: left;
+
+              .store-name {
+                font-family: 'S-CoreDream-5';
+                font-size: 0.8em;
+                line-height: 1.67;
+                letter-spacing: 1.09px;
+                color: #fca800;
+
+                margin-bottom: 5px;
+              }
+
+              .menu-name {
+                font-family: 'S-CoreDream-5';
+                font-size: 1.4em;
+
+                line-height: 1.5;
+                letter-spacing: -0.8px;
+              }
+
+              .store-address {
+                margin-top: 15px;
+
+                font-size: 0.8em;
+
+                font-family: 'S-CoreDream-3';
+                line-height: 2.17;
+              }
+            }
+            .menu-index-text {
+              position: absolute;
+              top: 15px;
+              right: 10%;
+
+              font-size: 0.8em;
+              line-height: 1.82;
+            }
+          }
+        }
+      }
+    }
+
+    .sub-box-item-list {
+      height: calc(60vw * 0.094);
+      max-height: 100px;
+
+      overflow: hidden;
+
+      .item-swiper {
+        display: flex;
+        overflow-x: visible;
+
+        transition-property: transform;
+        will-change: transform;
+
+        transition: all 1s;
+
+        .sub-box-item {
+          position: relative;
+          margin-right: 0.7%;
+
+          flex-grow: 0;
+          flex-shrink: 0;
+          flex-basis: 12.6%;
+
+          height: calc(60vw * 0.094);
+          max-height: 100px;
+
+          transition: all 0.3s;
+          opacity: 0.5;
+
+          overflow: hidden;
+
+          img {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+            height: inherit;
+            width: inherit;
+          }
+        }
+
+        .sub-box-item:hover {
+          opacity: 1;
+        }
+
+        .sub-box-item-selected {
+          opacity: 1;
+        }
+      }
+    }
+  }
+`;

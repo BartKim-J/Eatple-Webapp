@@ -443,11 +443,6 @@ const FormContainer = styled(Form)`
       color: black;
       line-height: 54px;
     }
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
   }
 `;
 

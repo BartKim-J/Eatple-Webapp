@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clamp from 'lodash-es/clamp';
+import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-with-gesture';
 
-import './index.scss';
+import mediaConf from 'configure/mediaConfig';
 
 import ImgPhone from './Images/ImgPhone@3x.png';
 import ImgScreen from './Images/ImgScreen@3x.png';
@@ -12,13 +13,13 @@ import ImgBackground from './Images/BgHowto@3x.png';
 
 function BackgroundImg() {
   return (
-    <div className="content-tutorial-background-image-box-wrap">
-      <div className="content-tutorial-background-image-box-mask">
-        <div className="content-tutorial-background-image-box">
+    <Styled.PhoneBackgroundImageBoxWrap>
+      <Styled.PhoneBackgroundImageBox>
+        <div className="background-image">
           <img src={ImgBackground} alt="Background" draggable="false" />
         </div>
-      </div>
-    </div>
+      </Styled.PhoneBackgroundImageBox>
+    </Styled.PhoneBackgroundImageBoxWrap>
   );
 }
 
@@ -34,33 +35,33 @@ function PhoneBox() {
   });
 
   return (
-    <div className="content-tutorial-phone-box-wrap">
+    <Styled.PhoneBoxWrap>
       <animated.div
-        className="content-tutorial-phone-box"
+        className="phone-box"
         {...bind()}
         style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }}
       >
         <img src={ImgPhone} alt="Phone" draggable="false" />
 
-        <div className="content-tutorial-screen-box-wrap">
-          <div className="content-tutorial-screen-box">
+        <div className="screen-box-wrap">
+          <div className="screen-box">
             <img src={ImgScreen} alt="Screen" draggable="false" />
           </div>
         </div>
       </animated.div>
-    </div>
+    </Styled.PhoneBoxWrap>
   );
 }
 
 function TextBox() {
   return (
-    <div className="content-tutorial-text-box-wrap">
-      <div className="content-tutorial-text-box">
+    <Styled.TextBoxWrap>
+      <Styled.TextBox>
         바쁘실 땐, 여유있게
         <br />
         <span className="highlight">잇플</span>을 사용하세요
-      </div>
-    </div>
+      </Styled.TextBox>
+    </Styled.TextBoxWrap>
   );
 }
 
@@ -96,8 +97,8 @@ function SelectCategoryBox({ mapArray, selected, selectHandler }) {
   set({ position: selected });
 
   return (
-    <div className="content-tutorial-select-category-box-wrap">
-      <div className="content-tutorial-select-category-box">
+    <Styled.SelectCategoryBoxWrap>
+      <Styled.SelectCategoryBox>
         <div className="category-box">
           <ul>
             {mapArray.map((entryCategory, i) => {
@@ -134,8 +135,8 @@ function SelectCategoryBox({ mapArray, selected, selectHandler }) {
         <div className="sub-text-box-wrap">
           <div className="sub-text-box">{mapArray[selected].subText}</div>
         </div>
-      </div>
-    </div>
+      </Styled.SelectCategoryBox>
+    </Styled.SelectCategoryBoxWrap>
   );
 }
 SelectCategoryBox.propTypes = {
@@ -152,7 +153,7 @@ export default function ContentTutorial() {
   const [selected, setSelected] = useState(0);
 
   return (
-    <div className="content-tutorial-section">
+    <Styled.Section>
       <BackgroundImg />
       <PhoneBox selected={selected} />
       <div className="content-tutorial-inner">
@@ -167,6 +168,180 @@ export default function ContentTutorial() {
           </div>
         </div>
       </div>
-    </div>
+    </Styled.Section>
   );
 }
+
+const Styled = {};
+Styled.PhoneScreenWidth = '24vw';
+
+Styled.Section = styled.div`
+  position: relative;
+
+  width: 100vw;
+  height: 70vw;
+
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
+  }
+`;
+
+Styled.Container = styled.div`
+  position: relative;
+
+  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
+  margin: 0 auto;
+`;
+
+Styled.PhoneBoxWrap = styled.div`
+  position: absolute;
+  top: 10vh;
+  right: 15.4em;
+
+  z-index: 100;
+
+  .phone-box {
+    width: ${Styled.PhoneScreenWidth};
+    max-width: 445px;
+
+    cursor: -webkit-grab;
+
+    .screen-box-wrap {
+      position: absolute;
+      top: 0;
+
+      padding: calc(24vw * 0.044);
+      width: ${Styled.PhoneScreenWidth};
+      max-width: 445px;
+
+      text-align: center;
+
+      .screen-box {
+        position: relative;
+        display: inline-block;
+
+        width: calc(${Styled.PhoneScreenWidth} * 0.883146);
+        max-width: 393px;
+      }
+    }
+  }
+`;
+
+Styled.PhoneBackgroundImageBoxWrap = styled.div`
+  position: absolute;
+  top: 0vh;
+  right: 0vw;
+`;
+
+Styled.PhoneBackgroundImageBox = styled.div`
+  height: 38vh;
+  overflow: hidden;
+
+  .background-image {
+    width: 35vw;
+  }
+`;
+
+Styled.TextBoxWrap = styled.div`
+  position: relative;
+  top: 36vh;
+`;
+Styled.TextBox = styled.div`
+  text-align: left;
+  font-family: 'S-CoreDream-5';
+  font-size: 3em;
+  line-height: 1.46;
+
+  .highlight {
+    color: #fca800;
+  }
+`;
+
+Styled.SelectCategoryBoxWrap = styled.div`
+  position: relative;
+  top: 45vh;
+`;
+
+Styled.SelectCategoryBox = styled.div`
+  width: 30em;
+  text-align: left;
+
+  .category-box {
+    display: inline-block;
+
+    ul {
+      li {
+        display: inline-block;
+
+        margin: 2vh 1.2em 0vh 0em;
+        color: #aaaaaa;
+
+        font-size: 1.4em;
+        font-family: 'S-CoreDream-5';
+        letter-spacing: -0.93px;
+        line-height: 1.29;
+
+        transition: all ease 0.6s 0s;
+      }
+
+      li:last-child {
+        margin: 2vh 0vw 0vh 0vw;
+      }
+
+      li:hover {
+        color: #222222;
+      }
+    }
+
+    .line-box {
+      width: 100%;
+      margin: 0 auto;
+
+      .divider-line {
+        width: 100%;
+        height: 1px;
+        border: solid 1px #ececed;
+      }
+
+      .hover-line-wrap {
+        position: relative;
+        top: -1px;
+
+        width: 25%;
+
+        .hover-line {
+          position: relative;
+          bottom: -4px;
+
+          width: 100%;
+
+          margin: 0 auto;
+
+          height: 1px;
+
+          border-bottom: solid 4px #1c1c1c;
+        }
+      }
+    }
+
+    .selected-category {
+      color: #222222;
+
+      button {
+        padding-bottom: 14px;
+      }
+    }
+  }
+
+  .sub-text-box-wrap {
+    position: relative;
+    top: 2vh;
+
+    .sub-text-box {
+      font-size: 1.2em;
+      font-family: 'S-CoreDream-3';
+      line-height: 2.67;
+      color: #1c1c1c;
+    }
+  }
+`;

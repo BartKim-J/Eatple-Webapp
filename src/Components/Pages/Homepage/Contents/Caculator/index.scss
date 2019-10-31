@@ -1,11 +1,7 @@
 @import 'configure/mediaConfig.scss';
-@import 'configure/componentsConfig.scss';
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
-  .content-calculator-section {
-    // Debug
-    display: none;
-    
+  .content-calculator-section {    
     position: relative;
 
     width: 100vw;

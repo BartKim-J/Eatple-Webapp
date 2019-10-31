@@ -4,6 +4,12 @@
   "private": true,
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.14",
+    "@stickyroll/decorators": "^1.1.6",
+    "@stickyroll/inner": "^1.1.6",
+    "@stickyroll/pagers": "^1.1.6",
+    "@stickyroll/stickyroll": "^1.1.6",
+    "@stickyroll/themes": "^1.1.6",
+    "@stickyroll/utils": "^1.1.6",
     "animated-number-react": "0.0.2",
     "antd": "^3.23.6",
     "bootstrap": "^4.3.1",

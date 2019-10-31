@@ -1,5 +1,4 @@
 @import 'configure/mediaConfig.scss';
-@import 'configure/componentsConfig.scss';
 
 @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
   .footer-section {
@@ -50,9 +49,7 @@
 
         .footer-wordmark {
           width: 86px;
-          img {
-            width: 100%;
-          }
+
         }
       }
 
@@ -99,10 +96,6 @@
           li {
             display: inline-block;
             width: 1.6em;
-
-            img {
-              width: 100%;
-            }
 
             margin-right: 15px;
           }

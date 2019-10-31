@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 
 import ImgBtnGetStarted from 'resource/Image/Button/BtnGetStarted.svg';
 import ImgBtnMediumShadow from 'resource/Image/Button/BtnMediumShadow.svg';
 
-import './index.scss';
+import mediaConf from 'configure/mediaConfig';
 
 import ImgCubeJoy from './Images/ImgCubeJoy.svg';
 import ImgCubePlus from './Images/ImgCubePlus.svg';
@@ -22,8 +23,8 @@ import ImgBackground2 from './Images/BgParallex2.svg';
 
 function TextBox() {
   return (
-    <div className="content-tale-text-box-wrap">
-      <div className="content-tale-text-box">
+    <Styled.TextBoxWrap>
+      <Styled.TextBox>
         <span className="highlight">잇플</span>을 사용할 수록
         <br />
         <span className="highlight">채워지는 가치</span>를 직접 경험하세요
@@ -49,8 +50,8 @@ function TextBox() {
           </Link>
           을 확인하세요!
         </div>
-      </div>
-    </div>
+      </Styled.TextBox>
+    </Styled.TextBoxWrap>
   );
 }
 
@@ -79,8 +80,8 @@ function BoxAnimationBox({ xy }) {
   });
 
   return (
-    <div className="content-tale-box-animation-box-wrap">
-      <div className="content-tale-box-animation-box">
+    <Styled.BoxAnimationBoxWrap>
+      <Styled.BoxAnimationBox>
         <animated.div className="cube-wrap" style={{ transform: radians.interpolate(interp(1)) }}>
           <animated.div className="cube-plus" style={{ transform: xy.interpolate(trans1) }}>
             <img src={ImgCubePlus} alt="Cube Plus" draggable="false" />
@@ -104,8 +105,8 @@ function BoxAnimationBox({ xy }) {
             <img src={ImgCubeQuestion} alt="Cube Question" draggable="false" />
           </animated.div>
         </animated.div>
-      </div>
-    </div>
+      </Styled.BoxAnimationBox>
+    </Styled.BoxAnimationBoxWrap>
   );
 }
 BoxAnimationBox.propTypes = {
@@ -132,8 +133,8 @@ function BackgroundImg() {
   });
 
   return (
-    <div className="content-tale-background-image-box-wrap">
-      <div className="content-tale-background-image-box">
+    <Styled.BackgroundImgWrap>
+      <Styled.BackgroundImg>
         <animated.div
           className="image-in-wrap"
           style={{ transform: radians.interpolate(interp(1)) }}
@@ -146,8 +147,8 @@ function BackgroundImg() {
         >
           <img src={ImgBackground2} alt="Background2" draggable="false" />
         </animated.div>
-      </div>
-    </div>
+      </Styled.BackgroundImg>
+    </Styled.BackgroundImgWrap>
   );
 }
 
@@ -162,20 +163,17 @@ export default function ContentTale() {
   const { xy } = props;
 
   return (
-    <div className="content-tale-section">
-      <div className="content-tale-inner">
+    <Styled.Section>
+      <Styled.Container>
         <BackgroundImg />
-        <div className="content-tale-head-box-wrap">
-          <div
-            className="content-tale-head-box"
-            onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-          >
+        <Styled.HeadBoxWrap>
+          <Styled.HeadBox onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
             <BoxAnimationBox xy={xy} />
             <TextBox />
-          </div>
-        </div>
-      </div>
-    </div>
+          </Styled.HeadBox>
+        </Styled.HeadBoxWrap>
+      </Styled.Container>
+    </Styled.Section>
   );
 }
 ContentTale.propTypes = {
@@ -184,3 +182,179 @@ ContentTale.propTypes = {
 ContentTale.defaultProps = {
   xy: [0, 0],
 };
+
+const Styled = {};
+
+Styled.Section = styled.section`
+  position: relative;
+
+  width: 100vw;
+  height: 718px;
+
+  overflow: hidden;
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
+  }
+`;
+
+Styled.Container = styled.div`
+  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
+  margin: 0 auto;
+`;
+
+Styled.HeadBoxWrap = styled.div`
+  position: relative;
+`;
+Styled.HeadBox = styled.div`
+  height: 718px;
+`;
+
+Styled.BackgroundImgWrap = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+`;
+
+Styled.BackgroundImg = styled.div`
+  width: 80vw;
+
+  .image-in-wrap {
+    position: absolute;
+    bottom: -2vh;
+    left: 0;
+
+    width: 100%;
+  }
+
+  .image-out-wrap {
+    position: absolute;
+    bottom: -2vh;
+    left: 0;
+
+    width: 100%;
+  }
+`;
+
+Styled.TextBoxWrap = styled.div`
+  position: absolute;
+  left: 0;
+  width: 55%;
+`;
+
+Styled.TextBox = styled.div`
+  padding: 117px 0;
+
+  text-align: left;
+
+  font-family: 'S-CoreDream-5';
+  font-size: 2.8em;
+  line-height: 1.46;
+
+  color: #1c1c1c;
+
+  .highlight {
+    color: #fca800;
+  }
+
+  .sub-text {
+    margin-top: 16px;
+
+    font-family: 'S-CoreDream-3';
+    font-size: 0.36em;
+    line-height: 1.6;
+  }
+
+  .btn-box-wrap {
+    padding-top: 10vh;
+    margin-bottom: 0;
+
+    .btn-box {
+      position: relative;
+      width: 150px;
+      height: 60px;
+
+      .button-image {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        transition: all 0.5s;
+      }
+
+      .button-image:hover {
+        transform: translate(-5px, -5px);
+      }
+
+      .button-shadow {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        z-index: -1;
+      }
+    }
+  }
+
+  .divider-line {
+    margin: 121px 0 34px 0;
+    width: 70%;
+    height: 1px;
+    border: solid 1px #ececed;
+  }
+
+  .qna-text-box {
+    font-family: 'S-CoreDream-3';
+    font-size: 0.5em;
+    line-height: 1.44;
+
+    .qna-highlight {
+      font-family: 'S-CoreDream-6';
+      text-decoration: underline;
+    }
+  }
+`;
+
+Styled.BoxAnimationBoxWrap = styled.div`
+  position: absolute;
+  right: 0;
+
+  width: 100%;
+  height: 718px;
+`;
+Styled.BoxAnimationBox = styled.div`
+  position: absolute;
+  right: 0;
+
+  width: 45%;
+
+  height: 718px;
+
+  .cube-plus {
+    position: absolute;
+    top: 0;
+    width: 9vw;
+    max-width: 93px;
+  }
+  .cube-joy {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 9vw;
+    max-width: 158px;
+  }
+  .cube-won {
+    position: absolute;
+    top: 0;
+
+    width: 12vw;
+    max-width: 216px;
+  }
+  .cube-question {
+    position: absolute;
+    top: 0;
+
+    width: 24vw;
+    max-width: 432px;
+  }
+`;
