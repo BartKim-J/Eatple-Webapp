@@ -1,49 +1,61 @@
 /* eslint-disable react/jsx-boolean-value */
 import React from 'react';
-import PropType from 'prop-types';
-import styled from 'styled-components';
+
+import styled, { ThemeProvider } from 'styled-components';
 import { Stickyroll } from '@stickyroll/stickyroll';
-import { Pagers, Skip } from '@stickyroll/pagers';
+import { Pagers } from '@stickyroll/pagers';
 import { Inner, Content } from '@stickyroll/inner';
+import {
+  dark,
+  indigo,
+  yellow,
+  deepOrange,
+  teal,
+  pink,
+  blue,
+  green,
+  light,
+  red,
+  deepPurple,
+  cyan,
+  lime,
+  purple,
+  orange,
+  amber,
+} from '@stickyroll/themes';
 
+import mediaConf from 'configure/mediaConfig';
 
+import BackgroundImgBox from './Components/BackgroundImgBox';
+import CategorySelectBox from './Components/CategorySelectBox';
 
-const headlines = [
-  'Hello World!',
-  'Hello React!',
-  'Hello Stickyroll!',
-  "Let's continue with the next lesson!",
-];
+import ResultViewBox from './Components/ResultViewBox';
 
-function CalculatorResultView({ pageIndex, progress }) {
-  return (
-    <div>
-      {headlines[pageIndex]}
-      <br />
-      {progress}
-    </div>
-  );
-}
-CalculatorResultView.propTypes = {
-  pageIndex: PropType.number.isRequired,
-  progress: PropType.number.isRequired,
-};
+const headlines = ['1', '2', '3', '4'];
 
 export default function CotentCalculator() {
   return (
-    <Stickyroll pages={headlines} factor={2} throttle={250} anchors="!/headline">
-      {({ pageIndex, progress }) => {
+    <Stickyroll pages={6} factor={2} throttle={250} anchors="!/calculator">
+      {({ anchors, page, pageIndex, pages, progress }) => {
         return (
           <Styled.Section>
+            <BackgroundImgBox />
             <Styled.Container>
-              <Inner withPagers="left">
-                <Pagers useContext={true} />
+              <ThemeProvider theme={dark}>
+                <Inner withPagers="right" className="stickyroll-inner">
+                  <Pagers useContext={true} className="stickyroll-pagers" />
 
-                <CalculatorResultView pageIndex={pageIndex} progress={progress} />
-                <div className="">
-                  <Skip useContext={true} />
-                </div>
-              </Inner>
+                  <CategorySelectBox />
+
+                  <ResultViewBox
+                    anchor={anchors}
+                    page={page}
+                    pageIndex={pageIndex}
+                    progress={progress}
+                    pages={pages}
+                  />
+                </Inner>
+              </ThemeProvider>
             </Styled.Container>
           </Styled.Section>
         );
@@ -51,43 +63,32 @@ export default function CotentCalculator() {
     </Stickyroll>
   );
 }
+
 const Styled = {};
 
 Styled.Section = styled.section`
-  @media all and (min-width: $media-width-desktop-min) and (max-width: $media-width-desktop) {
-    position: relative;
+  position: relative;
 
-    width: 100vw;
-    height: 718px;
+  width: 100vw;
+  height: 100vh;
 
-    overflow-x: hidden;
-  }
-  @media all and (min-width: $media-width-tablet-min) and (max-width: $media-width-tablet) {
-    .content-tale-section {
-      display: none;
-    }
-  }
-
-  @media all and (min-width: $media-width-mobile-min) and (max-width: $media-width-mobile) {
-    .content-tale-section {
-      display: none;
-    }
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
   }
 `;
 
 Styled.Container = styled.div`
   position: relative;
 
-  width: 100vw;
-  height: 718px;
+  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
+  margin: 0 auto;
 
-  overflow-x: hidden;
+  min-height: 100vh;
 
-  @media all and (max-width: $media-width-desktop-content + 160px) {
-    padding: 0vh $media-width-desktop-content-padding;
-  }
+  .stickyroll-inner {
+    background-color: unset;
 
-  @media all and (min-width: $media-width-desktop-content + 160px) {
-    padding: 0vh 0vw;
+    .stickyroll-pagers {
+    }
   }
 `;

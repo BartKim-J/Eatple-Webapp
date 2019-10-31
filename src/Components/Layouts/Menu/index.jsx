@@ -4,8 +4,6 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 import Logo from 'resource/Image/ImgLogo.svg';
 
-import mediaConf from 'configure/mediaConfig';
-
 import BtnTrial from './Images/BtnFloating.svg';
 
 export default function Menu() {

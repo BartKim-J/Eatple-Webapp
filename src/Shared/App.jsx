@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Homepage, Payment, PaymentResult, Error } from 'components/Pages/PageIndex';

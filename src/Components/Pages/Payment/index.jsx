@@ -2,7 +2,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
-import React, { useState, PureComponent } from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
