@@ -19,25 +19,25 @@ export default function PartnersMap() {
   });
 
   return (
-    <Styled.PartnersMapWrap>
-      <Styled.PartnersMap>
+    <Styled.Wrap>
+      <Styled.Container>
         <div id="kakao-map" className="map-container" />
-      </Styled.PartnersMap>
-    </Styled.PartnersMapWrap>
+      </Styled.Container>
+    </Styled.Wrap>
   );
 }
 
 const Styled = {};
 
-Styled.PartnersMapWrap = styled.div`
+Styled.Wrap = styled.div`
   position: absolute;
-  top: 5vh;
+  top: 10vh;
   left: 10vw;
 
   z-index: -1;
 `;
 
-Styled.PartnersMap = styled.div`
+Styled.Container = styled.div`
   position: relative;
   width: 32vw;
   max-width: 586px;

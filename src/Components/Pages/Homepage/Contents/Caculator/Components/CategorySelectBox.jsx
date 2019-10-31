@@ -8,7 +8,7 @@ export default function CategorySelectBox() {
         당신이
         <br />
         <Styled.DropDownBoxWrap>
-          <Styled.DropDownBox>맛집탕방러</Styled.DropDownBox>
+          <Styled.DropDownBox>맛집탐방러 </Styled.DropDownBox>
           라면?
         </Styled.DropDownBoxWrap>
       </Styled.Container>

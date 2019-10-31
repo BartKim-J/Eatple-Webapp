@@ -156,18 +156,10 @@ export default function ContentTutorial() {
     <Styled.Section>
       <BackgroundImg />
       <PhoneBox selected={selected} />
-      <div className="content-tutorial-inner">
-        <div className="content-tutorial-box-wrap">
-          <div className="content-tutorial-box">
-            <TextBox />
-            <SelectCategoryBox
-              mapArray={categoryMap}
-              selected={selected}
-              selectHandler={setSelected}
-            />
-          </div>
-        </div>
-      </div>
+      <Styled.Container>
+        <TextBox />
+        <SelectCategoryBox mapArray={categoryMap} selected={selected} selectHandler={setSelected} />
+      </Styled.Container>
     </Styled.Section>
   );
 }
@@ -246,6 +238,7 @@ Styled.TextBoxWrap = styled.div`
   position: relative;
   top: 36vh;
 `;
+
 Styled.TextBox = styled.div`
   text-align: left;
   font-family: 'S-CoreDream-5';

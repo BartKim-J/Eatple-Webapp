@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Navbar, Nav } from 'react-bootstrap';
 
+import mediaConf from 'configure/mediaConfig';
+
 import Logo from 'resource/Image/ImgLogo.svg';
 
 import BtnTrial from './Images/BtnFloating.svg';
@@ -38,7 +40,6 @@ export default function Menu() {
 }
 
 const Styled = {};
-const MENU_Z_INDEX = 999;
 
 Styled.Section = styled.section`
   position: absolute;
@@ -55,7 +56,7 @@ Styled.Container = styled.div`
     .menu-bar {
       position: relative;
 
-      z-index: ${MENU_Z_INDEX};
+      z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
 
       width: 100vw;
       height: 8vh;

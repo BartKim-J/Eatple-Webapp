@@ -13,6 +13,10 @@ const mediaConf = {
 
   MEDIA_WIDTH_DESKTOP_CONTENT: `1440px`,
   MEDIA_WIDTH_DESKTOP_CONTENT_PADDING: `6vw`,
+
+
+  LAYOUT_DEFAULT_Z_INDEX: `999`,
+  COMPONENT_DEFAULT_Z_INDEX: `100`,
 };
 
 export default mediaConf;

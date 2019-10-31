@@ -134,6 +134,8 @@ Styled.Section = styled.section`
   height: 240px;
 
   background-color: #1c1c1c;
+  
+  z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};

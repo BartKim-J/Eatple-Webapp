@@ -7,29 +7,29 @@ import ImgBtnMediumShadow from '../Images/BtnMediumShadow.svg';
 
 export default function ButtonBox() {
   return (
-    <Styled.ButtonBoxWrap>
+    <Styled.Wrap>
       <Link to="/">
-        <Styled.ButtonBox type="button" className="btn-box">
+        <Styled.Container type="button" className="btn-box">
           <div className="button-image">
             <img src={ImgBtnPartner} alt="Button" />
           </div>
           <div className="button-shadow">
             <img src={ImgBtnMediumShadow} alt="Button" />
           </div>
-        </Styled.ButtonBox>
+        </Styled.Container>
       </Link>
-    </Styled.ButtonBoxWrap>
+    </Styled.Wrap>
   );
 }
 
 const Styled = {};
 
-Styled.ButtonBoxWrap = styled.div`
+Styled.Wrap = styled.div`
   padding-top: 5vh;
   margin-bottom: 0;
 `;
 
-Styled.ButtonBox = styled.button`
+Styled.Container = styled.button`
   position: relative;
   width: 180px;
   height: 60px;

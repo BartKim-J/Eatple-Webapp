@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import PropType from 'prop-types';
 import styled from 'styled-components';
 
 import ImgSlideMain from '../Images/imgMenu@3x.png';
@@ -88,6 +88,100 @@ const slideItemList = [
   },
 ];
 
+function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
+  return (
+    <Styled.MenuInfoBoxWrap>
+      <Styled.MenuInfoBox>
+        <div className="slider-button-box-wrap">
+          <div className="slider-button-box">
+            <button type="button" className="slider-button" onClick={prevSlide}>
+              <img src={ImgBtnSlideLeft} alt="Button" draggable="false" />
+            </button>
+
+            <button type="button" className="slider-button" onClick={nextSlide}>
+              <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
+            </button>
+          </div>
+        </div>
+
+        <div className="slider-text-box-wrap">
+          <div className="slider-text-box">
+            <div className="menu-info-text-box">
+              <div className="store-name">{slideItemList[slideIndex].storeName}</div>
+              <div className="menu-name">{slideItemList[slideIndex].menuName}</div>
+              <div className="store-address">{slideItemList[slideIndex].storeAddress}</div>
+            </div>
+            <div className="menu-index-text">{`${slideIndex + 1}/${slideItemList.length}`}</div>
+          </div>
+        </div>
+      </Styled.MenuInfoBox>
+    </Styled.MenuInfoBoxWrap>
+  );
+}
+MenuInfoBox.propTypes = {
+  slideIndex: PropType.number.isRequired,
+  prevSlide: PropType.func.isRequired,
+  nextSlide: PropType.func.isRequired,
+};
+
+function MainImageSlideBox({ slideIndex }) {
+  return (
+    <Styled.MainImageSlideBox>
+      <img src={slideItemList[slideIndex].mainImage} alt="Button" draggable="false" />
+    </Styled.MainImageSlideBox>
+  );
+}
+MainImageSlideBox.propTypes = {
+  slideIndex: PropType.number.isRequired,
+};
+
+function SubImageSlideBox({ slideIndex, movement, transitionTo, prevSlide, nextSlide }) {
+  return (
+    <Styled.SubImageSlideBox>
+      <div className="sub-box-item-list">
+        <div
+          role="button"
+          className="item-swiper"
+          style={{
+            transform: `translateX(${13.3 * movement * -1}%)`,
+            width: `${slideItemList.length} * 15%`,
+          }}
+          tabIndex={0}
+        >
+          {slideItemList.map((slideItem, index) => {
+            let className = 'sub-box-item';
+
+            if (index === slideIndex) {
+              className += ' sub-box-item-selected';
+            }
+
+            return (
+              <button
+                type="button"
+                key={slideItem.storeName}
+                className={className}
+                onClick={() => {
+                  transitionTo(index);
+                }}
+              >
+                <img src={slideItem.subImage} alt="Sub" draggable="false" />
+              </button>
+            );
+          })}
+        </div>
+        <MenuInfoBox slideIndex={slideIndex} nextSlide={nextSlide} prevSlide={prevSlide} />
+      </div>
+    </Styled.SubImageSlideBox>
+  );
+}
+SubImageSlideBox.propTypes = {
+  slideIndex: PropType.number.isRequired,
+  movement: PropType.number.isRequired,
+  transitionTo: PropType.func.isRequired,
+  prevSlide: PropType.func.isRequired,
+  nextSlide: PropType.func.isRequired,
+};
+
 export default function MenuSlider() {
   const minImageCount = 5;
 
@@ -124,244 +218,201 @@ export default function MenuSlider() {
     transitionTo(nextSlideIndex);
   }
 
+  useEffect(() => {
+    const autoSlideMover = setInterval(() => {
+      let nextSlideIndex = slideIndex + 1;
+
+      if (slideIndex >= slideItemList.length - 1) {
+        nextSlideIndex = 0;
+      }
+
+      transitionTo(nextSlideIndex);
+    }, 5000);
+
+    return () => {
+      clearInterval(autoSlideMover);
+    };
+  }, [slideIndex]);
+
   return (
-    <Styled.MenuSliderWrap>
-      <Styled.MenuSlider>
-        <div className="content-menu-slide-main-box">
-          <img src={slideItemList[slideIndex].mainImage} alt="Button" draggable="false" />
-        </div>
-
-        <div className="content-menu-slide-sub-box">
-          <div className="sub-box-item-list">
-            <div
-              role="button"
-              className="item-swiper"
-              style={{
-                transform: `translateX(${13.3 * movement * -1}%)`,
-                width: `${slideItemList.length} * 15%`,
-              }}
-              tabIndex={0}
-            >
-              {slideItemList.map((slideItem, index) => {
-                let className = 'sub-box-item';
-
-                if (index === slideIndex) {
-                  className += ' sub-box-item-selected';
-                }
-
-                return (
-                  <button
-                    type="button"
-                    key={slideItem.storeName}
-                    className={className}
-                    onClick={() => {
-                      transitionTo(index);
-                    }}
-                  >
-                    <img src={slideItem.subImage} alt="Sub" draggable="false" />
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="slider-info-box-wrap">
-            <div className="slider-info-box">
-              <div className="slider-button-box-wrap">
-                <div className="slider-button-box">
-                  <button type="button" className="slider-button" onClick={prevSlide}>
-                    <img src={ImgBtnSlideLeft} alt="Button" draggable="false" />
-                  </button>
-
-                  <button type="button" className="slider-button" onClick={nextSlide}>
-                    <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="slider-text-box-wrap">
-                <div className="slider-text-box">
-                  <div className="menu-info-text-box">
-                    <div className="store-name">{slideItemList[slideIndex].storeName}</div>
-                    <div className="menu-name">{slideItemList[slideIndex].menuName}</div>
-                    <div className="store-address">{slideItemList[slideIndex].storeAddress}</div>
-                  </div>
-                  <div className="menu-index-text">
-                    {`${slideIndex + 1}/${slideItemList.length}`}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Styled.MenuSlider>
-    </Styled.MenuSliderWrap>
+    <Styled.Wrap>
+      <Styled.Container>
+        <MainImageSlideBox slideIndex={slideIndex} />
+        <SubImageSlideBox
+          slideIndex={slideIndex}
+          prevSlide={prevSlide}
+          nextSlide={nextSlide}
+          movement={movement}
+          transitionTo={transitionTo}
+        />
+      </Styled.Container>
+    </Styled.Wrap>
   );
 }
 
 const Styled = {};
 
-Styled.MenuSliderWrap = styled.div`
+Styled.Wrap = styled.div`
   position: absolute;
   top: 45vh;
-  right: 4vw;
+  right: 15vw;
 `;
 
-Styled.MenuSlider = styled.div`
+Styled.Container = styled.div`
+  position: relative;
+`;
+
+Styled.MainImageSlideBox = styled.div`
   position: relative;
 
-  .content-menu-slide-main-box {
-    position: relative;
+  width: 60vw;
+  max-width: 1074px;
+  height: calc(60vw * 0.4692);
+  max-height: 504px;
+`;
 
-    width: 60vw;
-    max-width: 1074px;
-    height: calc(60vw * 0.4692);
-    max-height: 504px;
-  }
+Styled.SubImageSlideBox = styled.div`
+  width: 60vw;
+  max-width: 1074px;
+  height: calc(60vw * 0.094);
+  max-height: 100px;
 
-  .content-menu-slide-sub-box {
-    width: 60vw;
-    max-width: 1074px;
+  margin-top: 10px;
+
+  .sub-box-item-list {
     height: calc(60vw * 0.094);
     max-height: 100px;
 
-    margin-top: 10px;
+    overflow: hidden;
 
-    .slider-info-box-wrap {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+    .item-swiper {
+      display: flex;
+      overflow-x: visible;
 
-      .slider-info-box {
+      transition-property: transform;
+      will-change: transform;
+
+      transition: all 1s;
+
+      .sub-box-item {
         position: relative;
+        margin-right: 0.7%;
 
-        width: 20vw;
-        max-width: 342px;
-        height: calc(20vw * 0.4444);
-        max-height: 152px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 12.6%;
 
-        background-color: #1c1c1c;
+        height: calc(60vw * 0.094);
+        max-height: 100px;
 
-        .slider-button-box-wrap {
-          position: absolute;
-          right: 0;
-          top: -48px;
+        transition: all 0.3s;
+        opacity: 0.5;
 
-          .slider-button-box {
-            display: inline-block;
+        overflow: hidden;
 
-            .slider-button {
-              width: 48px;
-              max-width: 48px;
-            }
-          }
-        }
-
-        .slider-text-box-wrap {
+        img {
           position: relative;
-          top: 0;
-          left: 0;
+          left: 50%;
+          transform: translate(-50%, 0);
 
-          .slider-text-box {
-            position: relative;
-
-            color: #ffffff;
-
-            .menu-info-text-box {
-              position: absolute;
-              top: 15px;
-              left: 10%;
-
-              text-align: left;
-
-              .store-name {
-                font-family: 'S-CoreDream-5';
-                font-size: 0.8em;
-                line-height: 1.67;
-                letter-spacing: 1.09px;
-                color: #fca800;
-
-                margin-bottom: 5px;
-              }
-
-              .menu-name {
-                font-family: 'S-CoreDream-5';
-                font-size: 1.4em;
-
-                line-height: 1.5;
-                letter-spacing: -0.8px;
-              }
-
-              .store-address {
-                margin-top: 15px;
-
-                font-size: 0.8em;
-
-                font-family: 'S-CoreDream-3';
-                line-height: 2.17;
-              }
-            }
-            .menu-index-text {
-              position: absolute;
-              top: 15px;
-              right: 10%;
-
-              font-size: 0.8em;
-              line-height: 1.82;
-            }
-          }
+          height: inherit;
+          width: inherit;
         }
       }
+
+      .sub-box-item:hover {
+        opacity: 1;
+      }
+
+      .sub-box-item-selected {
+        opacity: 1;
+      }
     }
+  }
+`;
 
-    .sub-box-item-list {
-      height: calc(60vw * 0.094);
-      max-height: 100px;
+Styled.MenuInfoBoxWrap = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+`;
 
-      overflow: hidden;
+Styled.MenuInfoBox = styled.div`
+  position: relative;
 
-      .item-swiper {
-        display: flex;
-        overflow-x: visible;
+  width: 20vw;
+  max-width: 342px;
+  height: calc(20vw * 0.4444);
+  max-height: 152px;
 
-        transition-property: transform;
-        will-change: transform;
+  background-color: #1c1c1c;
 
-        transition: all 1s;
+  .slider-button-box-wrap {
+    position: absolute;
+    right: 0;
+    top: -48px;
 
-        .sub-box-item {
-          position: relative;
-          margin-right: 0.7%;
+    .slider-button-box {
+      display: inline-block;
 
-          flex-grow: 0;
-          flex-shrink: 0;
-          flex-basis: 12.6%;
+      .slider-button {
+        width: 48px;
+        max-width: 48px;
+      }
+    }
+  }
 
-          height: calc(60vw * 0.094);
-          max-height: 100px;
+  .slider-text-box-wrap {
+    position: relative;
+    top: 0;
+    left: 0;
 
-          transition: all 0.3s;
-          opacity: 0.5;
+    .slider-text-box {
+      position: relative;
 
-          overflow: hidden;
+      color: #ffffff;
 
-          img {
-            position: relative;
-            left: 50%;
-            transform: translate(-50%, 0);
+      .menu-info-text-box {
+        position: absolute;
+        top: 15px;
+        left: 10%;
 
-            height: inherit;
-            width: inherit;
-          }
+        text-align: left;
+
+        .store-name {
+          font-family: 'S-CoreDream-5';
+          font-size: 0.8em;
+          line-height: 1.67;
+          letter-spacing: 1.09px;
+          color: #fca800;
+
+          margin-bottom: 5px;
         }
 
-        .sub-box-item:hover {
-          opacity: 1;
+        .menu-name {
+          font-family: 'S-CoreDream-5';
+          font-size: 1.4em;
+
+          line-height: 1.5;
+          letter-spacing: -0.8px;
         }
 
-        .sub-box-item-selected {
-          opacity: 1;
+        .store-address {
+          margin-top: 15px;
+
+          font-size: 0.8em;
+
+          font-family: 'S-CoreDream-3';
+          line-height: 2.17;
         }
+      }
+      .menu-index-text {
+        position: absolute;
+        top: 15px;
+        right: 10%;
+
+        font-size: 0.8em;
+        line-height: 1.82;
       }
     }
   }
