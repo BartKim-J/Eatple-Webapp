@@ -147,7 +147,7 @@ Styled.Container = styled.div`
 
   height: 240px;
 
-  max-width: $media-width-desktop-content;
+  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   margin: 0 auto;
 
   .footer-copyright-box-wrap {

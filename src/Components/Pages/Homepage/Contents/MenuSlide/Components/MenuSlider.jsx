@@ -256,6 +256,8 @@ Styled.Wrap = styled.div`
   position: absolute;
   top: 45vh;
   right: 15vw;
+
+  overflow-x: hidden;
 `;
 
 Styled.Container = styled.div`
