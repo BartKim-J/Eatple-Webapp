@@ -22,13 +22,13 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  top: 10vh;
-  left: 45vw;
+  top: 10%;
+  left: 45%;
 `;
 
 Styled.Container = styled.div`
   text-align: left;
-  margin-bottom: 10vh;
+  margin-bottom: 5%;
 
   font-family: 'S-CoreDream-5';
   font-size: 3vw;

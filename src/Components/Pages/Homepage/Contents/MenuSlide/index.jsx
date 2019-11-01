@@ -25,7 +25,7 @@ Styled.Section = styled.section`
   position: relative;
 
   width: 100vw;
-  min-height: calc(100vw * 0.8);
+  height: calc(100vw * 0.8);
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
@@ -38,9 +38,7 @@ Styled.Section = styled.section`
 
 Styled.Container = styled.div`
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  margin: 0 auto;
+  height: 100%;
 
-  @media (max-aspect-ratio: 1/1) {
-    max-height: ${mediaConf.MEDIA_WIDTH_16_9_ASPECT};
-  }
+  margin: 0 auto;
 `;

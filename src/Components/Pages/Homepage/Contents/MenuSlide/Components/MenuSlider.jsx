@@ -169,8 +169,8 @@ function SubImageSlideBox({ slideIndex, movement, transitionTo, prevSlide, nextS
             );
           })}
         </div>
-        <MenuInfoBox slideIndex={slideIndex} nextSlide={nextSlide} prevSlide={prevSlide} />
       </div>
+      <MenuInfoBox slideIndex={slideIndex} nextSlide={nextSlide} prevSlide={prevSlide} />
     </Styled.SubImageSlideBox>
   );
 }
@@ -254,23 +254,31 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  top: 45vh;
-  right: 15vw;
+  top: 32%;
+  right: 15%;
 
-  overflow-x: hidden;
   z-index: 100;
+
+  width: 60%;
 `;
 
 Styled.Container = styled.div`
   position: relative;
+  top: 0;
+  right: 0;
+
+  width: 100%;
 `;
 
 Styled.MainImageSlideBox = styled.div`
   position: relative;
 
-  width: 60vw;
+  display: inline-block;
+
+  width: 100%;
   max-width: 1074px;
-  height: calc(60vw * 0.4692);
+
+  height: 100%;
   max-height: 504px;
 
   img {
@@ -279,20 +287,29 @@ Styled.MainImageSlideBox = styled.div`
 `;
 
 Styled.SubImageSlideBox = styled.div`
-  width: 60vw;
+  position: relative;
+
+  display: inline-block;
+
+  width: 100%;
   max-width: 1074px;
+
   height: calc(60vw * 0.094);
   max-height: 100px;
 
   margin-top: 10px;
 
   .sub-box-item-list {
-    height: calc(60vw * 0.094);
+    width: 100%;
+    height: 100%;
     max-height: 100px;
 
     overflow: hidden;
 
     .item-swiper {
+      height: 100%;
+      max-height: 100px;
+
       display: flex;
       overflow-x: visible;
 
@@ -303,17 +320,20 @@ Styled.SubImageSlideBox = styled.div`
 
       .sub-box-item {
         position: relative;
+
+        height: 100%;
+        max-height: 100px;
+
         margin-right: 0.7%;
 
         flex-grow: 0;
         flex-shrink: 0;
         flex-basis: 12.6%;
 
-        height: calc(60vw * 0.094);
-        max-height: 100px;
-
         transition: all 0.3s;
         opacity: 0.5;
+
+        border-radius: 2%;
 
         overflow: hidden;
 
@@ -322,8 +342,9 @@ Styled.SubImageSlideBox = styled.div`
           left: 50%;
           transform: translate(-50%, 0);
 
-          height: inherit;
           width: inherit;
+          height: 100%;
+          max-height: 100px;
         }
       }
 
@@ -388,7 +409,7 @@ Styled.MenuInfoBox = styled.div`
 
         .store-name {
           font-family: 'S-CoreDream-5';
-          font-size: 0.8em;
+          font-size: 0.8vw;
           line-height: 1.67;
           letter-spacing: 1.09px;
           color: #fca800;
@@ -398,7 +419,7 @@ Styled.MenuInfoBox = styled.div`
 
         .menu-name {
           font-family: 'S-CoreDream-5';
-          font-size: 1.4em;
+          font-size: 1.4vw;
 
           line-height: 1.5;
           letter-spacing: -0.8px;
@@ -407,7 +428,7 @@ Styled.MenuInfoBox = styled.div`
         .store-address {
           margin-top: 15px;
 
-          font-size: 0.8em;
+          font-size: 0.8vw;
 
           font-family: 'S-CoreDream-3';
           line-height: 2.17;
@@ -418,7 +439,7 @@ Styled.MenuInfoBox = styled.div`
         top: 15px;
         right: 10%;
 
-        font-size: 0.8em;
+        font-size: 0.8vw;
         line-height: 1.82;
       }
     }

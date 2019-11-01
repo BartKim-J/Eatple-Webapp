@@ -7,7 +7,9 @@ export default function BackgroundImg() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <img src={ImgHero} alt="Hero" />
+        <Styled.ImageBox>
+          <img src={ImgHero} alt="Hero" />
+        </Styled.ImageBox>
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -27,13 +29,18 @@ Styled.Wrap = styled.div`
 `;
 
 Styled.Container = styled.div`
-  overflow: hidden;
+  float: right;
 
   width: 100%;
   height: 100%;
 
+  overflow: hidden;
+`;
+Styled.ImageBox = styled.div`
+  height: 100%;
+
   img {
-    width: unset;
+    width: 100%;
     height: 100%;
   }
 `;

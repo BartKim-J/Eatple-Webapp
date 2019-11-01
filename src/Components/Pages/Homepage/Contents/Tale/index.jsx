@@ -57,8 +57,4 @@ Styled.Container = styled.div`
   height: 100%;
 
   margin: 0 auto;
-
-  @media (max-aspect-ratio: 1/1) {
-    max-height: ${mediaConf.MEDIA_WIDTH_16_9_ASPECT};
-  }
 `;

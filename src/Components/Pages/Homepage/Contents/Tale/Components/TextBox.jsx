@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import ImgBtnGetStarted from 'resource/Image/Button/BtnGetStarted.svg';
-import ImgBtnMediumShadow from 'resource/Image/Button/BtnMediumShadow.svg';
+import TrialButtonBox from './TrialButtonBox';
 
 export default function TextBox() {
   return (
@@ -14,18 +13,7 @@ export default function TextBox() {
         <br />
         <span className="highlight">채워지는 가치</span>를 직접 경험하세요
         <div className="sub-text">지금 잇플 플러스 친구 추가하면 멤버십 비용이 무료!</div>
-        <div className="btn-box-wrap">
-          <Link to="/">
-            <button type="button" className="btn-box">
-              <div className="button-image">
-                <img src={ImgBtnGetStarted} alt="Button" />
-              </div>
-              <div className="button-shadow">
-                <img src={ImgBtnMediumShadow} alt="Button" />
-              </div>
-            </button>
-          </Link>
-        </div>
+        <TrialButtonBox />
         <div className="divider-line" />
         <div className="qna-text-box">
           아직 잇플에 대해 더 궁금하다면?
@@ -74,39 +62,8 @@ Styled.Container = styled.div`
     line-height: 1.6;
   }
 
-  .btn-box-wrap {
-    padding-top: 10vh;
-    margin-bottom: 0;
-
-    .btn-box {
-      position: relative;
-      width: 150px;
-      height: 60px;
-
-      .button-image {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-
-        transition: all 0.5s;
-      }
-
-      .button-image:hover {
-        transform: translate(-5px, -5px);
-      }
-
-      .button-shadow {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-
-        z-index: -1;
-      }
-    }
-  }
-
   .divider-line {
-    margin: 121px 0 34px 0;
+    margin: 10% 0 5% 0;
     width: 100%;
     height: 1px;
     border: solid 1px #ececed;
@@ -114,7 +71,7 @@ Styled.Container = styled.div`
 
   .qna-text-box {
     font-family: 'S-CoreDream-3';
-    font-size: 1.0vw;
+    font-size: 1vw;
     line-height: 1.44;
 
     .qna-highlight {

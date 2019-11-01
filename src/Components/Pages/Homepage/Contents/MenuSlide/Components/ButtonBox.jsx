@@ -25,14 +25,22 @@ export default function ButtonBox() {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-  padding-top: 5vh;
+  padding: 5% 4%;
   margin-bottom: 0;
 `;
 
 Styled.Container = styled.button`
   position: relative;
-  width: 180px;
-  height: 60px;
+
+  width: 15vw;
+  max-width: 180px;
+  height: calc(16vw * 0.33);
+  min-height: 60px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 
   .button-image {
     position: absolute;

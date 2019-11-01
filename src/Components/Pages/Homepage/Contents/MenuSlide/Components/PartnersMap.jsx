@@ -31,8 +31,8 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  top: 10vh;
-  left: 10vw;
+  top: 10%;
+  left: 10%;
 `;
 
 Styled.Container = styled.div`
