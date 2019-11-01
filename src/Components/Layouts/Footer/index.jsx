@@ -62,7 +62,7 @@ function CopyrightBox() {
   return (
     <div className="footer-copyright-box-wrap">
       <div className="footer-copyright-box">
-        서울특별시 서초구 서초동 서초대로 398 패스트파이브 강남 3호점 611호
+        hey@eatple.com
         <br />
         ©2019 Astera Inc. All rights reserved.
       </div>
@@ -70,6 +70,24 @@ function CopyrightBox() {
   );
 }
 
+function InfoBox() {
+  return (
+    <div className="footer-info-box-wrap">
+      <div className="footer-info-box">
+        (주)아스테라
+        <br />
+        사업자번호: 255-87-01463
+        <br />
+        통신판매업: 서울서초-2929
+        <br />
+        서울특별시 서초구 서초대로 398,플래티넘타워 6층(서초동)
+        <br />
+        대표전화 : 02-2135-1670
+        <br />
+      </div>
+    </div>
+  );
+}
 function SiteMap({ mapArray }) {
   return (
     <div className="footer-site-map-wrap">
@@ -118,6 +136,7 @@ export default function Footer() {
       <Styled.Container>
         <Wordmark />
         <CopyrightBox />
+        <InfoBox />
         <SiteMap mapArray={siteMap} />
         <SocialMap mapArray={socialMap} />
       </Styled.Container>
@@ -131,10 +150,10 @@ Styled.Section = styled.section`
   position: relative;
 
   width: 100vw;
-  height: 240px;
+  height: 300px;
 
   background-color: #1c1c1c;
-  
+
   z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
@@ -145,14 +164,14 @@ Styled.Section = styled.section`
 Styled.Container = styled.div`
   position: relative;
 
-  height: 240px;
+  height: 100%;
 
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   margin: 0 auto;
 
   .footer-copyright-box-wrap {
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 34px;
 
     .footer-copyright-box {
@@ -160,8 +179,24 @@ Styled.Container = styled.div`
 
       color: #ffffff;
 
+      text-align: right;
+      font-size: 0.72em;
+      line-height: 1.54;
+    }
+  }
+
+  .footer-info-box-wrap {
+    position: absolute;
+    left: 0px;
+    bottom: 34px;
+
+    .footer-info-box {
+      font-family: 'S-CoreDream-3';
+
+      color: #ffffff;
+
       text-align: left;
-      font-size: 0.9em;
+      font-size: 0.72em;
       line-height: 1.54;
     }
   }

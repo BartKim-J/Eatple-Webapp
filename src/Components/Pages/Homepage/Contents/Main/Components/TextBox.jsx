@@ -26,12 +26,18 @@ const Styled = {};
 
 Styled.TextBoxWrap = styled.div`
   position: relative;
+  top: 0;
+  left: 0;
+
+  text-align: left;
 `;
 
 Styled.TextBox = styled.div`
+  display: inline-block;
+
   text-align: left;
   font-family: 'S-CoreDream-3';
-  font-size: 4em;
+  font-size: 3vw;
   line-height: 1.33;
 
   .title {

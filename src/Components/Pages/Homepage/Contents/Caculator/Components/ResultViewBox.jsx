@@ -106,6 +106,10 @@ Styled.Container = styled.div`
   max-height: 424px;
 
   background-color: #1c1c1c;
+
+  img {
+    width: 100%;
+  }
 `;
 
 Styled.TextBoxWrap = styled.div`

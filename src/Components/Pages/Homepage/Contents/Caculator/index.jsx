@@ -14,7 +14,7 @@ import ResultViewBox from './Components/ResultViewBox';
 
 export default function CotentCalculator() {
   return (
-    <Stickyroll pages={6} factor={2} throttle={250} anchors="!/calculator">
+    <Stickyroll pages={3} factor={2} throttle={250} anchors="!/calculator">
       {({ anchors, page, pageIndex, pages, progress }) => {
         return (
           <Styled.Section>
@@ -58,7 +58,7 @@ Styled.Container = styled.div`
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   margin: 0 auto;
 
-  min-height: 100vh;
+  height: 100%;
 
   .stickyroll-inner {
     background-color: unset;

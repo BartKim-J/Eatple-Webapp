@@ -20,11 +20,16 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  top: 10vh;
-  left: 0vw;
+  top: 0;
+  left: 0;
+
+  height: 100%;
 `;
 
 Styled.Container = styled.div`
+  position: relative;
+  top: 10%;
+
   text-align: left;
 
   font-size: 3.4em;

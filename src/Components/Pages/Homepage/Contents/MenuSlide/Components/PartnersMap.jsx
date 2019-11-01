@@ -33,8 +33,6 @@ Styled.Wrap = styled.div`
   position: absolute;
   top: 10vh;
   left: 10vw;
-
-  z-index: -1;
 `;
 
 Styled.Container = styled.div`

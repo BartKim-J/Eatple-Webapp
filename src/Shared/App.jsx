@@ -101,7 +101,4 @@ const GlobalStyle = styled.div`
     list-style-type: none;
   }
 
-  img {
-    width: 100%;
-  }
 `;

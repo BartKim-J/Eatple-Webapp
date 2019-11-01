@@ -25,7 +25,7 @@ export default function TrialButtonBox() {
 const Styled = {};
 
 Styled.TrialButtonBoxWrap = styled.div`
-  padding-top: 10vh;
+  padding-top: 10%;
   margin-bottom: 0;
 
   .button-box {

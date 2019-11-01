@@ -1,0 +1,35 @@
+import React from 'react';
+import styled from 'styled-components';
+
+export default function TextBox() {
+  return (
+    <Styled.Wrap>
+      <Styled.Container>
+        바쁘실 땐, 여유있게
+        <br />
+        <span className="highlight">잇플</span>을 사용하세요
+      </Styled.Container>
+    </Styled.Wrap>
+  );
+}
+
+const Styled = {};
+
+Styled.Wrap = styled.div`
+  position: absolute;
+  top: 25%;
+  left: 0;
+`;
+
+Styled.Container = styled.div`
+  display: inline-block;
+
+  text-align: left;
+  font-family: 'S-CoreDream-5';
+  font-size: 3vw;
+  line-height: 1.46;
+
+  .highlight {
+    color: #fca800;
+  }
+`;

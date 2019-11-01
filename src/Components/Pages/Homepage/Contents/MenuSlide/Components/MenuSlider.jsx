@@ -258,6 +258,7 @@ Styled.Wrap = styled.div`
   right: 15vw;
 
   overflow-x: hidden;
+  z-index: 100;
 `;
 
 Styled.Container = styled.div`
@@ -271,6 +272,10 @@ Styled.MainImageSlideBox = styled.div`
   max-width: 1074px;
   height: calc(60vw * 0.4692);
   max-height: 504px;
+
+  img {
+    width: 100%;
+  }
 `;
 
 Styled.SubImageSlideBox = styled.div`
