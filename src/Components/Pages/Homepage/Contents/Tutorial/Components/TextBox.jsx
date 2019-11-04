@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 export default function TextBox() {
   return (
     <Styled.Wrap>
@@ -28,6 +30,10 @@ Styled.Container = styled.div`
   font-family: 'S-CoreDream-5';
   font-size: 3vw;
   line-height: 1.46;
+
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 52px;
+  }
 
   .highlight {
     color: #fca800;

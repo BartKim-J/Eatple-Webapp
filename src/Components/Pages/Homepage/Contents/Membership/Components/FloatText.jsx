@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 export default function FloatText() {
   return (
     <Styled.FloatTextBoxWrap>
@@ -35,10 +37,14 @@ Styled.FloatTextBox = styled.div`
   max-width: 495px;
   text-align: left;
 
-  font-size: 2.4vw;
+  font-size: 2.8vw;
   font-family: 'S-CoreDream-5';
   line-height: 1.46;
   color: #222222;
+
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 52px;
+  }
 
   .highlight {
     color: #fca800;

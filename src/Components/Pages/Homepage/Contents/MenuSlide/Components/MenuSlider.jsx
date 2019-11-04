@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 import ImgSlideMain from '../Images/imgMenu@3x.png';
 import ImgSlideSub1 from '../Images/imgMenu@2x.png';
 
@@ -89,31 +91,58 @@ const slideItemList = [
 ];
 
 function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
+  const StyledMenuInfoBox = {};
+
+  StyledMenuInfoBox.ButtonBoxWrap = styled.div`
+    position: absolute;
+    right: 0;
+    top: -48px;
+  `;
+  StyledMenuInfoBox.ButtonBox = styled.div`
+    display: inline-block;
+
+    .button {
+      width: 5vw;
+      max-width: 48px;
+
+      img {
+        width: 100%;
+      }
+    }
+  `;
+
+  function SliderButtonBox() {
+    return (
+      <StyledMenuInfoBox.ButtonBoxWrap>
+        <StyledMenuInfoBox.ButtonBox>
+          <button type="button" className="button" onClick={prevSlide}>
+            <img src={ImgBtnSlideLeft} alt="Button" draggable="false" />
+          </button>
+          <button type="button" className="button" onClick={nextSlide}>
+            <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
+          </button>
+        </StyledMenuInfoBox.ButtonBox>
+      </StyledMenuInfoBox.ButtonBoxWrap>
+    );
+  }
+
+  function InfoTextBox() {
+    return (
+      <div className="slider-text-box-wrap">
+        <div className="slider-text-box">
+          <div className="store-name">{slideItemList[slideIndex].storeName}</div>
+          <div className="menu-name">{slideItemList[slideIndex].menuName}</div>
+          <div className="store-address">{slideItemList[slideIndex].storeAddress}</div>
+          <div className="menu-index-text">{`${slideIndex + 1}/${slideItemList.length}`}</div>
+        </div>
+      </div>
+    );
+  }
   return (
     <Styled.MenuInfoBoxWrap>
       <Styled.MenuInfoBox>
-        <div className="slider-button-box-wrap">
-          <div className="slider-button-box">
-            <button type="button" className="slider-button" onClick={prevSlide}>
-              <img src={ImgBtnSlideLeft} alt="Button" draggable="false" />
-            </button>
-
-            <button type="button" className="slider-button" onClick={nextSlide}>
-              <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
-            </button>
-          </div>
-        </div>
-
-        <div className="slider-text-box-wrap">
-          <div className="slider-text-box">
-            <div className="menu-info-text-box">
-              <div className="store-name">{slideItemList[slideIndex].storeName}</div>
-              <div className="menu-name">{slideItemList[slideIndex].menuName}</div>
-              <div className="store-address">{slideItemList[slideIndex].storeAddress}</div>
-            </div>
-            <div className="menu-index-text">{`${slideIndex + 1}/${slideItemList.length}`}</div>
-          </div>
-        </div>
+        <SliderButtonBox />
+        <InfoTextBox />
       </Styled.MenuInfoBox>
     </Styled.MenuInfoBoxWrap>
   );
@@ -375,72 +404,77 @@ Styled.MenuInfoBox = styled.div`
 
   background-color: #1c1c1c;
 
-  .slider-button-box-wrap {
-    position: absolute;
-    right: 0;
-    top: -48px;
-
-    .slider-button-box {
-      display: inline-block;
-
-      .slider-button {
-        width: 48px;
-        max-width: 48px;
-      }
-    }
-  }
-
   .slider-text-box-wrap {
     position: relative;
     top: 0;
     left: 0;
 
+    width: 100%;
+    height: 100%;
+
     .slider-text-box {
       position: relative;
 
+      width: 100%;
+      height: 100%;
+
       color: #ffffff;
 
-      .menu-info-text-box {
-        position: absolute;
-        top: 15px;
-        left: 10%;
+      text-align: left;
 
-        text-align: left;
+      padding: 5% 10%;
 
-        .store-name {
-          font-family: 'S-CoreDream-5';
-          font-size: 0.8vw;
-          line-height: 1.67;
-          letter-spacing: 1.09px;
-          color: #fca800;
+      .store-name {
+        margin-bottom: 5px;
 
-          margin-bottom: 5px;
-        }
+        font-family: 'S-CoreDream-5';
+        font-size: 0.8vw;
+        line-height: 1.67;
+        letter-spacing: 1.09px;
+        color: #fca800;
 
-        .menu-name {
-          font-family: 'S-CoreDream-5';
-          font-size: 1.4vw;
-
-          line-height: 1.5;
-          letter-spacing: -0.8px;
-        }
-
-        .store-address {
-          margin-top: 15px;
-
-          font-size: 0.8vw;
-
-          font-family: 'S-CoreDream-3';
-          line-height: 2.17;
+        @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+          font-size: 12px;
         }
       }
+
+      .menu-name {
+        font-family: 'S-CoreDream-5';
+        font-size: 1.4vw;
+        line-height: 1.5;
+        letter-spacing: -0.8px;
+
+        @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+          font-size: 24px;
+        }
+      }
+
+      .store-address {
+        position: absolute;
+        bottom: 15%;
+        left: 10%;
+
+        font-size: 0.8vw;
+        font-family: 'S-CoreDream-3';
+        line-height: 2.17;
+        color: #ffffff;
+
+        @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+          font-size: 13px;
+        }
+      }
+
       .menu-index-text {
         position: absolute;
-        top: 15px;
+        top: 10%;
         right: 10%;
 
         font-size: 0.8vw;
         line-height: 1.82;
+
+        @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+          font-size: 11px;
+        }
       }
     }
   }

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 import { useSpring, animated } from 'react-spring';
 
 export default function TutorialBox({ mapArray, selected, selectHandler }) {
@@ -79,7 +81,7 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  bottom: 35%;
+  top: 48%;
   left: 0;
 `;
 
@@ -103,12 +105,15 @@ Styled.ItemListBox = styled.div`
       display: inline-block;
 
       margin: 2vh 1.2em 0vh 0em;
-      color: #aaaaaa;
 
       font-size: 1.8vw;
       font-family: 'S-CoreDream-5';
-      letter-spacing: -0.93;
       line-height: 1.29;
+      color: #aaaaaa;
+
+      @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+        font-size: 28px;
+      }
 
       transition: all ease 0.6s 0s;
     }
@@ -144,10 +149,9 @@ Styled.HoverLineBox = styled.div`
       bottom: -4px;
 
       width: 100%;
+      height: 1px;
 
       margin: 0 auto;
-
-      height: 1px;
 
       border-bottom: solid 4px #1c1c1c;
     }
@@ -165,4 +169,8 @@ Styled.TutorialText = styled.div`
   font-family: 'S-CoreDream-3';
   line-height: 2.67;
   color: #1c1c1c;
+
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 24px;
+  }
 `;

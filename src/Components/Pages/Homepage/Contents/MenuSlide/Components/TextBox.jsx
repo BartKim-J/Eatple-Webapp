@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 import ButtonBox from './ButtonBox';
 
 export default function TextBox() {
@@ -33,6 +35,11 @@ Styled.Container = styled.div`
   font-family: 'S-CoreDream-5';
   font-size: 3vw;
   line-height: 1.46;
+  color: #222222;
+
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 52px;
+  }
 
   .highlight {
     color: #fca800;

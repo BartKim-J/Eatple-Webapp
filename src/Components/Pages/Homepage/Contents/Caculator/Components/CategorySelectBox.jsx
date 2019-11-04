@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 export default function CategorySelectBox() {
   return (
     <Styled.Wrap>
@@ -32,8 +34,12 @@ Styled.Container = styled.div`
 
   text-align: left;
 
-  font-size: 3.4em;
+  font-size: 3.4vw;
   font-family: 'S-CoreDream-5';
+
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 42px;
+  }
 `;
 
 Styled.DropDownBoxWrap = styled.div``;

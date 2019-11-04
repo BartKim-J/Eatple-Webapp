@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 import TrialButtonBox from './TrialButtonBox';
 
 export default function TextBox() {
@@ -37,8 +39,12 @@ Styled.TextBox = styled.div`
 
   text-align: left;
   font-family: 'S-CoreDream-3';
-  font-size: 3vw;
+  font-size: 4vw;
   line-height: 1.33;
+
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 60px;
+  }
 
   .title {
   }
@@ -48,6 +54,12 @@ Styled.TextBox = styled.div`
   }
 
   .sub-text {
-    font-size: 0.3em;
+    margin-top: 23px;
+
+    font-size: 1vw;
+
+    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+      font-size: 18px;
+    }
   }
 `;

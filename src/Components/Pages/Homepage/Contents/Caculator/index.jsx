@@ -18,8 +18,8 @@ export default function CotentCalculator() {
       {({ anchors, page, pageIndex, pages, progress }) => {
         return (
           <Styled.Section>
-            <BackgroundImgBox />
             <Styled.Container>
+              <BackgroundImgBox />s
               <Inner withPagers="right" className="stickyroll-inner">
                 <CategorySelectBox />
 

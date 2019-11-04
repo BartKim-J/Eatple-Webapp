@@ -3,6 +3,8 @@ import PropType from 'prop-types';
 import styled from 'styled-components';
 import AnimatedNumber from 'react-animated-number';
 
+import mediaConf from 'configure/mediaConfig';
+
 function usePrevious(value) {
   const ref = useRef();
 
@@ -25,7 +27,7 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
   useEffect(() => {
     if (prevProgress !== progress) {
       setCount(countInit + pageIndex * 10 + 10 * progress);
-      setWon(count.toFixed(2) * menuPrice);
+      setWon(count.toFixed(0) * menuPrice);
     }
   }, [pageIndex, progress, pages, count, prevProgress]);
 
@@ -48,7 +50,7 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
                 value={count}
                 initialValue={count * 1.0}
                 stepPrecision={0}
-                formatValue={n => `${parseFloat(n).toFixed(1)}번`}
+                formatValue={n => `${parseFloat(n).toFixed(0)}번`}
                 duration={100}
               />
             </Styled.TextHighlight>
@@ -65,7 +67,7 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
                 value={won}
                 initialValue={won * 1.1}
                 stepPrecision={0}
-                formatValue={n => `${parseFloat(n).toFixed(0)}원`}
+                formatValue={n => `${parseFloat(n).toLocaleString()}원`}
                 duration={animationDuration}
               />
             </Styled.TextHighlight>
@@ -124,13 +126,18 @@ Styled.TextBox = styled.div`
   display: table-cell;
   vertical-align: middle;
 
+  text-align: left;
+
   font-size: 1.8vw;
+  font-family: 'S-CoreDream-5';
   line-height: 1.72;
   color: #ffffff;
 
-  font-family: 'S-CoreDream-5';
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 36px;
+  }
 
-  text-align: left;
+
 `;
 
 Styled.TextHighlight = styled.span`

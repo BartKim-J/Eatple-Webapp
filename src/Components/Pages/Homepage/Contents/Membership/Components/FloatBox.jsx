@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 export default function FloatBox({ className, icon, title, subTextLine1, subTextLine2 }) {
   return (
     <Styled.Wrap>
@@ -52,7 +54,7 @@ Styled.Icon = styled.div`
     position: absolute;
     top: 0;
     left: -0.8%;
-    
+
     height: 100%;
     width: 2%;
 
@@ -73,18 +75,26 @@ Styled.TextBoxWrap = styled.div`
 `;
 
 Styled.TextBox = styled.div`
-  padding: 13% 5% 0 5%;
+  padding: 22% 5% 0 5%;
 
   .title {
-    font-size: 1.2em;
-    line-height: 0.86;
+    font-size: 1.4vw;
     font-family: 'S-CoreDream-6';
+    line-height: 0.86;
+    
+    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+      font-size: 24px;
+    }
   }
 
   .sub-text {
-    margin-top: 1vh;
-    font-size: 0.9em;
-    line-height: 1.44;
+    margin-top: 6%;
+
+    font-size: 1.1vw;
     font-family: 'S-CoreDream-3';
+    line-height: 1.44;
+    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+      font-size: 18px;
+    }
   }
 `;
