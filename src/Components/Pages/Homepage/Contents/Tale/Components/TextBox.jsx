@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import TrialButtonBox from './TrialButtonBox';
+import mediaConf from 'configure/mediaConfig';
+
+import TrialButtonBox from '../../Main/Components/TrialButtonBox';
 
 export default function TextBox() {
   return (
@@ -50,6 +52,10 @@ Styled.Container = styled.div`
 
   color: #1c1c1c;
 
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 52px;
+  }
+
   .highlight {
     color: #fca800;
   }
@@ -60,6 +66,10 @@ Styled.Container = styled.div`
     font-family: 'S-CoreDream-3';
     font-size: 1vw;
     line-height: 1.6;
+
+    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+      font-size: 18px;
+    }
   }
 
   .divider-line {
@@ -77,6 +87,10 @@ Styled.Container = styled.div`
     .qna-highlight {
       font-family: 'S-CoreDream-6';
       text-decoration: underline;
+    }
+
+    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+      font-size: 18px;
     }
   }
 `;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ButtonBox from './ButtonBox';
+import ButtonBox from './ViewMoreButtonBox';
 
 export default function TextBox() {
   return (

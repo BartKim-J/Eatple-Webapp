@@ -30,10 +30,6 @@ Styled.Section = styled.section`
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
   }
-
-  @media (max-aspect-ratio: 1/1) {
-    max-height: ${mediaConf.MEDIA_WIDTH_16_9_ASPECT};
-  }
 `;
 
 Styled.Container = styled.div`

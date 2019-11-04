@@ -31,7 +31,7 @@ Styled.TrialButtonBoxWrap = styled.div`
   .button-box {
     position: relative;
 
-    width: 11vw;
+    width: 9vw;
     max-width: 150px;
     height: calc(11vw * 0.4);
     min-height: 60px;

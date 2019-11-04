@@ -12,28 +12,26 @@ export default function Menu() {
   return (
     <Styled.Section>
       <Styled.Container>
-        <div className="menu-wrap">
-          <Navbar className="menu-bar">
-            <Navbar.Brand href="/">
+        <Navbar>
+          <Navbar.Brand href="/">
+            <img
+              alt="Logo"
+              src={Logo}
+              className="d-inline-block align-top menu-bar-logo"
+              draggable="false"
+            />
+          </Navbar.Brand>
+          <Nav className="mr-auto menu-bar-items">
+            <Nav.Link className="menu-bar-item" href="/">
               <img
-                alt="Logo"
-                src={Logo}
-                className="d-inline-block align-top menu-bar-logo"
+                alt="Button Trial"
+                src={BtnTrial}
+                className="menu-bar-btn-trial"
                 draggable="false"
               />
-            </Navbar.Brand>
-            <Nav className="mr-auto menu-bar-items">
-              <Nav.Link className="menu-bar-item" href="/">
-                <img
-                  alt="Button Trial"
-                  src={BtnTrial}
-                  className="menu-bar-btn-trial"
-                  draggable="false"
-                />
-              </Nav.Link>
-            </Nav>
-          </Navbar>
-        </div>
+            </Nav.Link>
+          </Nav>
+        </Navbar>
       </Styled.Container>
     </Styled.Section>
   );
@@ -45,47 +43,48 @@ Styled.Section = styled.section`
   position: absolute;
   top: 0;
   left: 0;
+
+  width: 100vw;
+  height: 8vh;
+
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    padding: 0 ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
+  }
+
+  z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
 `;
 
 Styled.Container = styled.div`
-  width: 100vw;
+  position: relative;
 
-  .menu-wrap {
-    margin: 0 auto;
+  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
+  height: 100%;
 
-    .menu-bar {
-      position: relative;
+  margin: 0 auto;
+  padding: 2% 0;
 
-      z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
+  img {
+    width: 100%;
+  }
 
-      width: 100vw;
-      height: 8vh;
+  .menu-bar-logo {
+    width: 6vw;
+    max-width: 88px;
+  }
 
-      padding: 2vh 3vw 0vh 3vw;
-      margin: 0 auto;
+  .menu-bar-btn-trial {
+    width: 8vw;
+    max-width: 128px;
+  }
 
-      .menu-bar-brand {
-        float: left;
-      }
+  .menu-bar-items {
+    display: flex;
 
-      .menu-bar-logo {
-        width: 88px;
-      }
+    float: right;
+    vertical-align: middle;
 
-      .menu-bar-btn-trial {
-        width: 128px;
-      }
-
-      .menu-bar-items {
-        display: flex;
-
-        float: right;
-        vertical-align: middle;
-
-        .menu-bar-item {
-          margin-left: 5vw;
-        }
-      }
+    .menu-bar-item {
+      margin-left: 5vw;
     }
   }
 `;

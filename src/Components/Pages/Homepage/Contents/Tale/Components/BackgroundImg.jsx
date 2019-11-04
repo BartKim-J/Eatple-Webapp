@@ -58,16 +58,17 @@ Styled.BackgroundImgWrap = styled.div`
 
 Styled.BackgroundImg = styled.div`
   width: 100%;
-  height: 100%;
+  height: 70%;
 
   .image-wrap {
     position: absolute;
-    bottom: -2%;
+    bottom: -5%;
     right: 0;
 
     width: 100%;
 
     img {
+      height: 100%;
       width: 100%;
     }
   }

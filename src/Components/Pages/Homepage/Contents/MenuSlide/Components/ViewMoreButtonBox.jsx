@@ -25,14 +25,14 @@ export default function ButtonBox() {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-  padding: 5% 4%;
+  padding: 7% 1%;
   margin-bottom: 0;
 `;
 
 Styled.Container = styled.button`
   position: relative;
 
-  width: 15vw;
+  width: 12vw;
   max-width: 180px;
   height: calc(16vw * 0.33);
   min-height: 60px;

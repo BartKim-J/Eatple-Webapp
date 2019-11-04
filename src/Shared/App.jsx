@@ -75,11 +75,11 @@ const GlobalStyle = styled.div`
   }
 
   a:hover {
-    color: #222222;
+    color: inherit;
   }
 
   a:active {
-    color: #222222;
+    color: inherit;
   }
 
   button {

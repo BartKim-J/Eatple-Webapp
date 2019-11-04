@@ -14,32 +14,38 @@ import ResultViewBox from './Components/ResultViewBox';
 
 export default function CotentCalculator() {
   return (
-    <Stickyroll pages={3} factor={2} throttle={250} anchors="!/calculator">
-      {({ anchors, page, pageIndex, pages, progress }) => {
-        return (
-          <Styled.Section>
-            <Styled.Container>
-              <BackgroundImgBox />s
-              <Inner withPagers="right" className="stickyroll-inner">
-                <CategorySelectBox />
+    <Styled.Stickyroll>
+      <Stickyroll pages={3} factor={2} throttle={250} anchors="!/calculator">
+        {({ anchors, page, pageIndex, pages, progress }) => {
+          return (
+            <Styled.Section>
+              <Styled.Container>
+                <BackgroundImgBox />
+                <Inner withPagers="right" className="stickyroll-inner">
+                  <CategorySelectBox />
 
-                <ResultViewBox
-                  anchor={anchors}
-                  page={page}
-                  pageIndex={pageIndex}
-                  progress={progress}
-                  pages={pages}
-                />
-              </Inner>
-            </Styled.Container>
-          </Styled.Section>
-        );
-      }}
-    </Stickyroll>
+                  <ResultViewBox
+                    anchor={anchors}
+                    page={page}
+                    pageIndex={pageIndex}
+                    progress={progress}
+                    pages={pages}
+                  />
+                </Inner>
+              </Styled.Container>
+            </Styled.Section>
+          );
+        }}
+      </Stickyroll>
+    </Styled.Stickyroll>
   );
 }
 
 const Styled = {};
+
+Styled.Stickyroll = styled.div`
+
+`;
 
 Styled.Section = styled.section`
   position: relative;
