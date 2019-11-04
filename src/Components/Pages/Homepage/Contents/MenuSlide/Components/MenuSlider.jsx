@@ -96,15 +96,18 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
   StyledMenuInfoBox.ButtonBoxWrap = styled.div`
     position: absolute;
     right: 0;
-    top: -48px;
+    top: 0;
   `;
+
   StyledMenuInfoBox.ButtonBox = styled.div`
     display: inline-block;
 
     .button {
-      width: 5vw;
+      width: 4vw;
       max-width: 48px;
 
+      transform: translate(0, -100%);
+      
       img {
         width: 100%;
       }
@@ -326,7 +329,7 @@ Styled.SubImageSlideBox = styled.div`
   height: calc(60vw * 0.094);
   max-height: 100px;
 
-  margin-top: 10px;
+  margin-top: 0.8%;
 
   .sub-box-item-list {
     width: 100%;
@@ -353,7 +356,7 @@ Styled.SubImageSlideBox = styled.div`
         height: 100%;
         max-height: 100px;
 
-        margin-right: 0.7%;
+        margin-right: 0.8%;
 
         flex-grow: 0;
         flex-shrink: 0;
@@ -425,8 +428,6 @@ Styled.MenuInfoBox = styled.div`
       padding: 5% 10%;
 
       .store-name {
-        margin-bottom: 5px;
-
         font-family: 'S-CoreDream-5';
         font-size: 0.8vw;
         line-height: 1.67;
