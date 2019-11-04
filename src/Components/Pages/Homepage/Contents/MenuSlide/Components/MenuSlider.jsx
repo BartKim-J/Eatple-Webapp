@@ -98,6 +98,7 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
     right: 0;
     top: 0;
   `;
+  
 
   StyledMenuInfoBox.ButtonBox = styled.div`
     display: inline-block;
