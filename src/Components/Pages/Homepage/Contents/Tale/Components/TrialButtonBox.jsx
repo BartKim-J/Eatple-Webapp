@@ -50,7 +50,7 @@ Styled.TrialButtonBoxWrap = styled.div`
     }
 
     .button-image:hover {
-      transform: translate(-5%, -9%);
+      transform: translate(-4%, -10%);
     }
 
     .button-shadow {

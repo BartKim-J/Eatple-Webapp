@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import mediaConf from 'configure/mediaConfig';
 
-import TrialButtonBox from '../../Main/Components/TrialButtonBox';
+import TrialButtonBox from './TrialButtonBox';
 
 export default function TextBox() {
   return (

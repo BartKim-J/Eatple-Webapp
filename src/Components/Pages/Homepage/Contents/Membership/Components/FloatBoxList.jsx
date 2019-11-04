@@ -10,9 +10,56 @@ import IconVariety from '../Images/IcVariety.svg';
 import FloatBox from './FloatBox';
 
 export default function FloatBoxList({ scrollY }) {
-  const trans1 = y => `translate3d(0,${y * 0.7 - 200}px,0)`;
-  const trans2 = y => `translate3d(0,${y * 1.5 - 200}px,0)`;
-  const trans3 = y => `translate3d(0,${y * 1.1 - 200}px,0)`;
+  function trans1(y) {
+    const movement = 0.4;
+    const anchor = 0.3;
+    let pos = y * movement;
+    let screenHeight = window.innerHeight;
+
+    if (screenHeight >= window.innerWidth) {
+      screenHeight = window.innerWidth * 0.5625;
+    }
+
+    if (pos >= screenHeight * anchor) {
+      pos = screenHeight * anchor;
+    }
+
+    return `translate3d(0,${pos}px,0)`;
+  }
+
+  function trans2(y) {
+    const movement = 1;
+    const anchor = 0.9;
+    let pos = y * movement;
+    let screenHeight = window.innerHeight;
+
+    if (screenHeight >= window.innerWidth) {
+      screenHeight = window.innerWidth * 0.5625;
+    }
+
+    if (pos >= screenHeight * anchor) {
+      pos = screenHeight * anchor;
+    }
+
+    return `translate3d(0,${pos}px,0)`;
+  }
+
+  function trans3(y) {
+    const movement = 0.7;
+    const anchor = 0.6;
+    let pos = y * movement;
+    let screenHeight = window.innerHeight;
+
+    if (screenHeight >= window.innerWidth) {
+      screenHeight = window.innerWidth * 0.5625;
+    }
+
+    if (pos >= screenHeight * anchor) {
+      pos = screenHeight * anchor;
+    }
+
+    return `translate3d(0,${pos}px,0)`;
+  }
 
   return (
     <Styled.Wrap>
@@ -79,7 +126,7 @@ Styled.Container = styled.ul`
   text-align: left;
 
   width: 100%;
-  height: 120%;
+  height: 100%;
 
   overflow: hidden;
 
@@ -92,8 +139,10 @@ Styled.Container = styled.ul`
 
     .float-box {
       position: absolute;
-      top: 0%;
+      top: 0;
       left: 0;
+
+      transform: translate(0px, -100%);
     }
   }
 `;
@@ -108,7 +157,7 @@ Styled.Item = styled.li`
 
     width: 1px;
 
-    height: 120%;
+    height: 100%;
     border: solid 0.5px #e0e0e0;
   }
 `;

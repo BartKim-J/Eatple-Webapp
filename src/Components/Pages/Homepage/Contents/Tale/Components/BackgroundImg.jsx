@@ -28,16 +28,10 @@ export default function BackgroundImg() {
   return (
     <Styled.BackgroundImgWrap>
       <Styled.BackgroundImg>
-        <animated.div
-          className="image-wrap"
-          style={{ transform: radians.interpolate(interp(1)) }}
-        >
+        <animated.div className="image-wrap" style={{ transform: radians.interpolate(interp(1)) }}>
           <img src={ImgBackground} alt="Background" draggable="false" />
         </animated.div>
-        <animated.div
-          className="image-wrap"
-          style={{ transform: radians.interpolate(interp(6)) }}
-        >
+        <animated.div className="image-wrap" style={{ transform: radians.interpolate(interp(6)) }}>
           <img src={ImgBackground2} alt="Background2" draggable="false" />
         </animated.div>
       </Styled.BackgroundImg>
@@ -64,6 +58,10 @@ Styled.BackgroundImg = styled.div`
     position: absolute;
     bottom: -5%;
     right: 0;
+
+    @media (max-aspect-ratio: 1/1) {
+      bottom: -10%;
+    }
 
     width: 100%;
 

@@ -97,14 +97,14 @@ Styled.ItemListBox = styled.div`
       color: #222222 !important;
 
       button {
-        padding-bottom: 14px;
+        padding-bottom: 5%;
       }
     }
 
     .item {
       display: inline-block;
 
-      margin: 2vh 1.2em 0vh 0em;
+      margin: 5% 1.2em 0 0;
 
       font-size: 1.8vw;
       font-family: 'S-CoreDream-5';
@@ -119,7 +119,7 @@ Styled.ItemListBox = styled.div`
     }
 
     li:last-child {
-      margin: 2vh 0vw 0vh 0vw;
+      margin: 5% 0 0 0;
     }
 
     li:hover {
@@ -149,17 +149,17 @@ Styled.HoverLineBox = styled.div`
       bottom: -4px;
 
       width: 100%;
-      height: 1px;
+      height: 0.46vw;
+      max-height: 4px;
 
       margin: 0 auto;
-
-      border-bottom: solid 4px #1c1c1c;
+      background-color: #1c1c1c;
     }
   }
 `;
 
 Styled.TutorialTextWrap = styled.div`
-  margin-top: 25px;
+  margin-top: 5%;
 `;
 
 Styled.TutorialText = styled.div`

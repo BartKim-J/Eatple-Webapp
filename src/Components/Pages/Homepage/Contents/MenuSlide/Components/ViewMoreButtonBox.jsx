@@ -51,7 +51,7 @@ Styled.Container = styled.button`
   }
 
   .button-image:hover {
-    transform: translate(-5px, -5px);
+    transform: translate(-4.6%, -13%);
   }
 
   .button-shadow {

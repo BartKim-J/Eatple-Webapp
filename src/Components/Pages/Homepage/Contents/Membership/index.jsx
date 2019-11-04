@@ -9,8 +9,6 @@ import FloatBoxList from './Components/FloatBoxList';
 import FloatImageBox from './Components/FloatImageBox';
 import FloatText from './Components/FloatText';
 
-const SCROLL_ANCHOR_POINRT = window.innerHeight * 0.73;
-
 function BackgroundBox() {
   return (
     <Styled.BackgroundBoxWrap>
@@ -21,12 +19,7 @@ function BackgroundBox() {
 
 export default function CotentMembership() {
   const calc = scrollY => {
-    let retValue = scrollY - window.scrollY / 4;
-
-    if (retValue >= SCROLL_ANCHOR_POINRT) {
-      retValue = SCROLL_ANCHOR_POINRT;
-    }
-    return retValue;
+    return scrollY;
   };
 
   const [props, set] = useSpring(() => ({
@@ -109,7 +102,7 @@ Styled.BackgroundBox = styled.div`
   bottom: 0;
 
   width: 70%;
-  height: 120%;
+  height: 100%;
 
   background-color: #f8f8fa;
 `;
