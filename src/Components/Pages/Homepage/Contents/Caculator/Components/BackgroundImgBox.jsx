@@ -19,18 +19,21 @@ const Styled = {};
 
 Styled.BackgroundImageBoxWrap = styled.div`
   position: absolute;
-  bottom: 6.4%;
-  left: -5%;
+  bottom: 15%;
+  left: 0;
+
+  transform: translate(-14%, 20%);
 
   width: 100%;
 `;
 
 Styled.BackgroundImageBox = styled.div`
-  width: 35%;
-
+  width: 30%;
+  max-width: 460px;
+  
   .background-image {
     width: 100%;
-    
+
     img {
       width: 100%;
     }

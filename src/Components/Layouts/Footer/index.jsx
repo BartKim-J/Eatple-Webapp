@@ -81,6 +81,7 @@ Styled.Section = styled.section`
     ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
 
   @media (max-aspect-ratio: 1/1) {
+    height: calc(100vw * 0.3);
     max-height: ${mediaConf.MEDIA_WIDTH_16_9_ASPECT};
   }
 `;

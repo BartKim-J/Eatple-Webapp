@@ -3,16 +3,28 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
+import ImgArrowDown from '../Images/IcArrowDown.svg';
+import ImgArrowUp from '../Images/IcArrowUp.svg';
+
 export default function CategorySelectBox() {
+  let imgArrow = ImgArrowDown;
+  const category = '맛집탐방러';
+
+  imgArrow = ImgArrowUp;
+
   return (
     <Styled.Wrap>
       <Styled.Container>
         당신이
         <br />
-        <Styled.DropDownBoxWrap>
-          <Styled.DropDownBox>맛집탐방러 </Styled.DropDownBox>
-          라면?
-        </Styled.DropDownBoxWrap>
+        <Styled.CategoryBoxWrap>
+          <Styled.CategoryBox>
+            <Styled.CategoryText>
+              {category} <Styled.ArrowImg src={imgArrow} alt="Arrow" />
+            </Styled.CategoryText>
+            라면?
+          </Styled.CategoryBox>
+        </Styled.CategoryBoxWrap>
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -22,28 +34,47 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  top: 0;
+  top: 10%;
   left: 0;
-
-  height: 100%;
 `;
 
 Styled.Container = styled.div`
-  position: relative;
-  top: 10%;
+  width: 120%;
 
   text-align: left;
 
   font-size: 3.4vw;
   font-family: 'S-CoreDream-5';
+  line-height: 1.46;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     font-size: 42px;
   }
+
+  vertical-align: middle;
 `;
 
-Styled.DropDownBoxWrap = styled.div``;
+Styled.CategoryBoxWrap = styled.div``;
 
-Styled.DropDownBox = styled.span`
+Styled.CategoryBox = styled.div`
+  text-align: left;
+
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+`;
+
+Styled.CategoryText = styled.span`
   color: #fca800;
+
+  padding: 2% 0%;
+
+  border-bottom: solid 0.2vw black;
+`;
+
+Styled.ArrowImg = styled.img`
+  padding-right: 2%;
+
+  width: 2.8vw;
+  max-width: 48px;
 `;

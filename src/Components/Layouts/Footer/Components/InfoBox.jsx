@@ -31,15 +31,20 @@ Styled.Wrap = styled.div`
 `;
 
 Styled.Container = styled.div`
-  font-family: 'S-CoreDream-2';
+  font-family: 'S-CoreDream-3';
 
   color: #ffffff;
 
   text-align: left;
-  font-size: 0.46vw;
-  line-height: 1.4;
+  font-size: 0.8vw;
+  line-height: 1.54;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 11px;
+    font-size: 13px;
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    font-size: 1.2vw;
+    line-height: 1.68;
   }
 `;

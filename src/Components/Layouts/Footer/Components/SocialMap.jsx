@@ -34,19 +34,21 @@ Styled.Wrap = styled.div`
   right: 0;
 `;
 
-Styled.Container = styled.ul`    li {
-  display: inline-block;
+Styled.Container = styled.ul`
+  li {
+    display: inline-block;
 
-  width: 1.8vw;
-  max-width: 32px;
-  
-  margin-right: 22px;
+    width: 1.8vw;
+    max-width: 32px;
 
-  img {
-    width: 100%;
+    margin-right: 22px;
+
+    img {
+      width: 100%;
+    }
   }
-}
 
-li:last-child {
-  margin-right: 0;
-}`;
+  li:last-child {
+    margin-right: 0;
+  }
+`;

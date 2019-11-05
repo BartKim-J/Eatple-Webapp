@@ -100,5 +100,4 @@ const GlobalStyle = styled.div`
   li {
     list-style-type: none;
   }
-
 `;

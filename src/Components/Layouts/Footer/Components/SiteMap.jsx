@@ -45,12 +45,16 @@ Styled.Container = styled.ul`
     width: 40%;
     max-width: 160px;
 
-    font-size: 0.6vw;
+    font-size: 0.8vw;
     font-family: 'S-CoreDream-5';
     line-height: 1.33;
 
     @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
       font-size: 15px;
+    }
+
+    @media (max-aspect-ratio: 1/1) {
+      font-size: 1.2vw;
     }
 
     a {

@@ -9,18 +9,24 @@ import mediaConf from 'configure/mediaConfig';
 
 import BackgroundImgBox from './Components/BackgroundImgBox';
 import CategorySelectBox from './Components/CategorySelectBox';
-
 import ResultViewBox from './Components/ResultViewBox';
 
 export default function CotentCalculator() {
+  const pageCount = 7;
+  const factor = 2;
+  const thorottle = 1;
+
+  const anchorsName = '!/calculator';
+
   return (
     <Styled.Stickyroll>
-      <Stickyroll pages={3} factor={2} throttle={250} anchors="!/calculator">
+      <Stickyroll pages={pageCount} factor={factor} throttle={thorottle} anchors={anchorsName}>
         {({ anchors, page, pageIndex, pages, progress }) => {
           return (
             <Styled.Section>
               <Styled.Container>
                 <BackgroundImgBox />
+
                 <Inner withPagers="right" className="stickyroll-inner">
                   <CategorySelectBox />
 
@@ -43,9 +49,7 @@ export default function CotentCalculator() {
 
 const Styled = {};
 
-Styled.Stickyroll = styled.div`
-
-`;
+Styled.Stickyroll = styled.div``;
 
 Styled.Section = styled.section`
   position: relative;

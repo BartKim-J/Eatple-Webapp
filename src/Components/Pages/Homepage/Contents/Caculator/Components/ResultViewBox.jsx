@@ -5,6 +5,10 @@ import AnimatedNumber from 'react-animated-number';
 
 import mediaConf from 'configure/mediaConfig';
 
+import ImgContainer from '../Images/ImgContainer.svg';
+
+import FloatBoxList from './FloatBoxList';
+
 function usePrevious(value) {
   const ref = useRef();
 
@@ -16,26 +20,38 @@ function usePrevious(value) {
 }
 
 export default function ResultViewBox({ pageIndex, progress, pages }) {
-  const countInit = 5;
-  const menuPrice = 5500;
+  const countInit = 3;
+  const eatplePrice = 5500;
+  const seoulPrice = 9030;
 
   const [count, setCount] = useState(countInit + pageIndex * 10 + progress * 10);
-  const [won, setWon] = useState(count.toFixed(0) * menuPrice);
+  const [won, setWon] = useState(count.toFixed(0) * seoulPrice - count.toFixed(0) * eatplePrice);
 
   const prevProgress = usePrevious({ pageIndex, progress, pages });
 
   useEffect(() => {
     if (prevProgress !== progress) {
-      setCount(countInit + pageIndex * 10 + 10 * progress);
-      setWon(count.toFixed(0) * menuPrice);
+      setCount(countInit + pageIndex * 10 + progress * 10);
+      setWon(count.toFixed(0) * seoulPrice - count.toFixed(0) * eatplePrice);
     }
   }, [pageIndex, progress, pages, count, prevProgress]);
 
   const animationDuration = 300; // ms
 
+  function BackgroundImg() {
+    return (
+      <Styled.BackgroundImgWrap>
+        <img src={ImgContainer} alt="Container" />
+      </Styled.BackgroundImgWrap>
+    );
+  }
+
   return (
     <Styled.Wrap>
+      <FloatBoxList pageIndex={pageIndex} progress={progress} pages={pages} count={count} won={won} />
+
       <Styled.Container>
+        <BackgroundImg />
         <Styled.TextBoxWrap>
           <Styled.TextBox>
             한달에
@@ -96,8 +112,10 @@ const ResultViewBoxWidth = '34vw';
 
 Styled.Wrap = styled.div`
   position: absolute;
-  bottom: 12vh;
+  bottom: 15%;
   left: 0;
+
+  width: 100%;
 `;
 
 Styled.Container = styled.div`
@@ -107,14 +125,18 @@ Styled.Container = styled.div`
   height: calc(${ResultViewBoxWidth} * 0.6827);
   max-height: 424px;
 
-  background-color: #1c1c1c;
-
   img {
     width: 100%;
   }
 `;
 
 Styled.TextBoxWrap = styled.div`
+  position: relative;
+  top: 0;
+  left: 0;
+
+  z-index: 110;
+
   display: table;
   height: calc(${ResultViewBoxWidth} * 0.6827);
   max-height: 424px;
@@ -128,19 +150,32 @@ Styled.TextBox = styled.div`
 
   text-align: left;
 
-  font-size: 1.8vw;
+  font-size: 1.6vw;
   font-family: 'S-CoreDream-5';
   line-height: 1.72;
   color: #ffffff;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 36px;
+    font-size: 34px;
   }
-
-
 `;
 
 Styled.TextHighlight = styled.span`
   color: #fca800;
   font-family: 'S-CoreDream-7';
+`;
+
+Styled.BackgroundImgWrap = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+
+  width: 40%;
+  max-width: 621px;
+
+  img {
+    width: 100%;
+  }
 `;
