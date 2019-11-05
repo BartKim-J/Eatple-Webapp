@@ -2,6 +2,8 @@ import React from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
 
+import mediaConf from 'configure/mediaConfig';
+
 export default function FloatBox({ src, menuPrice, menuName }) {
   return (
     <Styled.Wrap>
@@ -45,4 +47,8 @@ Styled.MenuInfo = styled.div`
   font-size: 1vw;
   line-height: 1.5;
   color: #222222;
+
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    font-size: 13px;
+  }
 `;

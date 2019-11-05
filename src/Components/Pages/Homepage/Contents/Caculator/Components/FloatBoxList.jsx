@@ -46,7 +46,7 @@ const CategoryMap = [
     image: ImgMenu6,
   },
   {
-    menuPrice: 248000,
+    menuPrice: 214000,
     menuName: '롯데타워 시그니엘 코스요리',
     image: ImgMenu7,
   },

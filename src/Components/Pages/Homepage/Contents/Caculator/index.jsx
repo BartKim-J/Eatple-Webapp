@@ -12,8 +12,8 @@ import CategorySelectBox from './Components/CategorySelectBox';
 import ResultViewBox from './Components/ResultViewBox';
 
 export default function CotentCalculator() {
-  const pageCount = 7;
-  const factor = 2;
+  const pageCount = 6;
+  const factor = 1;
   const thorottle = 1;
 
   const anchorsName = '!/calculator';
