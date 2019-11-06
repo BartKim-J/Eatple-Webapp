@@ -3,7 +3,6 @@
   "version": "0.0.2",
   "private": true,
   "dependencies": {
-    "@fullpage/react-fullpage": "^0.1.14",
     "@stickyroll/decorators": "^1.1.6",
     "@stickyroll/inner": "^1.1.6",
     "@stickyroll/pagers": "^1.1.6",
@@ -21,10 +20,8 @@
     "react": "^16.8.6",
     "react-animated-number": "^0.4.4",
     "react-bootstrap": "^1.0.0-beta.9",
-    "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
     "react-kakao-maps": "github:Musma/react-kakao-maps#0.0.1",
-    "react-naver-map": "0.0.23",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",

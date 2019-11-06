@@ -46,7 +46,7 @@ http://localhost:3000
 
 In the project directory, you can run:
 
-### `npm start`
+### `$ npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -54,12 +54,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+### `$ npm test`
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `$ npm run build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -69,7 +69,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `$ npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -82,23 +82,38 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 # **Docker Scripts**
 
-### `docker build -t benkim07120/eatplus .`
+### `$ docker build -t benkim07120/eatplus .`
 
 build docker images
 
-### `docker push benkim07120/eatplus`
+### `$ docker push benkim07120/eatplus`
 
 push docker image to on cloud server
+
+### `$ sh docker_build.sh`
+this script file for docker build and docker push to remote server(docker hub)
+
 
 # **Reference**
 
 ---
 
-- ### Software
+- ### **Shard React**
 
-- ### Hardware
+- ### **Chart.js**
 
-- ### Linux OS
+- ### **React Hook**
+  
+- ### **React Spring**
+
+- ### **Styled Components**
+
+- ### **ESLint**
+
+- ### **Prettier**
+
+- ### **React Animated Number**
+
 
 #### TODO List
 

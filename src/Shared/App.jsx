@@ -44,10 +44,10 @@ Styled.AppSection = styled.div`
     position: relative;
   }
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_TABLET_MIN}) and (max-width: ${mediaConf.MEDIA_WIDTH_TABLET_MAX}) {
-    display: none;
+    position: relative;
   }
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MIN}) and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
+    position: relative;
   }
 `;
 
