@@ -48,7 +48,13 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
 
   return (
     <Styled.Wrap>
-      <FloatBoxList pageIndex={pageIndex} progress={progress} pages={pages} count={count} won={won} />
+      <FloatBoxList
+        pageIndex={pageIndex}
+        progress={progress}
+        pages={pages}
+        count={count}
+        won={won}
+      />
 
       <Styled.Container>
         <BackgroundImg />
@@ -108,7 +114,6 @@ ResultViewBox.defaultProps = {
 };
 
 const Styled = {};
-const ResultViewBoxWidth = '34vw';
 
 Styled.Wrap = styled.div`
   position: absolute;
@@ -119,11 +124,13 @@ Styled.Wrap = styled.div`
 `;
 
 Styled.Container = styled.div`
-  width: ${ResultViewBoxWidth};
-  max-width: 621px;
+  position: relative;
+  
+  width: 33vw;
+  max-width: 474px;
 
-  height: calc(${ResultViewBoxWidth} * 0.6827);
-  max-height: 424px;
+  height: calc(33vw * 0.6827);
+  max-height: 359px;
 
   img {
     width: 100%;
@@ -138,8 +145,8 @@ Styled.TextBoxWrap = styled.div`
   z-index: 110;
 
   display: table;
-  height: calc(${ResultViewBoxWidth} * 0.6827);
-  max-height: 424px;
+  width: 100%;
+  height: 100%;
 
   padding-left: 10%;
 `;
@@ -156,7 +163,7 @@ Styled.TextBox = styled.div`
   color: #ffffff;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 34px;
+    font-size: 28px;
   }
 `;
 
@@ -172,10 +179,11 @@ Styled.BackgroundImgWrap = styled.div`
 
   z-index: 100;
 
-  width: 40%;
-  max-width: 621px;
+  width: 100%;
+  height: 100%;
 
   img {
     width: 100%;
+    height: 100%;
   }
 `;
