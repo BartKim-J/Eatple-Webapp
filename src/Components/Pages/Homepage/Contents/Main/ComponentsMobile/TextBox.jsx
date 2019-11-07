@@ -39,7 +39,7 @@ Styled.TextBox = styled.div`
   font-size: 8vw;
   line-height: 1.33;
 
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
     font-size: 34px;
   }
 
@@ -55,7 +55,7 @@ Styled.TextBox = styled.div`
 
     font-size: 4vw;
 
-    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+    @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
       font-size: 15px;
     }
   }

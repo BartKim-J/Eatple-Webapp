@@ -32,7 +32,7 @@ Styled.FloatTextBox = styled.div`
   max-width: 495px;
   text-align: left;
 
-  font-size: 8vw;
+  font-size: 6.4vw;
   font-family: 'S-CoreDream-5';
   line-height: 1.46;
   color: #222222;

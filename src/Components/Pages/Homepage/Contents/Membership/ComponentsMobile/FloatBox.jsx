@@ -78,20 +78,20 @@ Styled.TextBox = styled.div`
     font-family: 'S-CoreDream-6';
     line-height: 0.86;
 
-    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-      font-size: 24px;
+    @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+      font-size: 16px;
     }
   }
 
   .sub-text {
     margin-top: 6%;
 
-    font-size: 3.4vw;
+    font-size: 3vw;
     font-family: 'S-CoreDream-3';
     line-height: 1.44;
 
-    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-      font-size: 18px;
+    @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+      font-size: 12px;
     }
   }
 `;

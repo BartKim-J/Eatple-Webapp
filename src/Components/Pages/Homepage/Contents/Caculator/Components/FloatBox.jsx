@@ -22,7 +22,9 @@ FloatBox.propTypes = {
 
 const Styled = {};
 
-Styled.Wrap = styled.div``;
+Styled.Wrap = styled.div`
+  position: relative;
+`;
 
 Styled.Container = styled.div`
   width: 32vw;

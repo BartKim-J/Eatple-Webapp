@@ -23,7 +23,7 @@ FloatBox.propTypes = {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-    padding: 5%;
+  padding: 5%;
 `;
 
 Styled.Container = styled.div`
@@ -43,12 +43,14 @@ Styled.MenuImage = styled.img`
 Styled.MenuInfo = styled.div`
   text-align: right;
 
+  margin-top: 4%;
+
   font-family: 'S-CoreDream-6';
   font-size: 3vw;
   line-height: 1.5;
   color: #222222;
 
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 13px;
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+    font-size: 12px;
   }
 `;
