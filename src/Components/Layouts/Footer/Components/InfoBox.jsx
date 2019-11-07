@@ -13,10 +13,10 @@ export default function InfoBox() {
         <br />
         통신판매업: 서울서초-2929
         <br />
-        서울특별시 서초구 서초대로 398,플래티넘타워 6층(서초동)
-        <br />
         대표전화 : 02-2135-1670
         <br />
+        <br />
+        서울특별시 서초구 서초대로 398 플래티넘타워 6층
       </Styled.Container>
     </Styled.Wrap>
   );

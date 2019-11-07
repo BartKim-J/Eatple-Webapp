@@ -10,6 +10,12 @@ import SiteMap from './Components/SiteMap';
 import SocialMap from './Components/SocialMap';
 import Wordmark from './Components/Wordmark';
 
+import MobileCopyrightBox from './ComponentsMobile/CopyrightBox';
+import MobileInfoBox from './ComponentsMobile/InfoBox';
+import MobileSiteMap from './ComponentsMobile/SiteMap';
+import MobileSocialMap from './ComponentsMobile/SocialMap';
+import MobileWordmark from './ComponentsMobile/Wordmark';
+
 import IconInstagram from './Images/IcInstagram.svg';
 import IconFacebook from './Images/IcFacebook.svg';
 import IconYoutube from './Images/IcYoutube.svg';
@@ -51,7 +57,7 @@ const socialMap = [
   },
 ];
 
-export default function Footer() {
+function Content() {
   return (
     <Styled.Section>
       <Styled.Container>
@@ -62,6 +68,28 @@ export default function Footer() {
         <SocialMap mapArray={socialMap} />
       </Styled.Container>
     </Styled.Section>
+  );
+}
+
+function ContentMobile() {
+  return (
+    <MobileStyled.Section>
+      <MobileStyled.Container>
+        <MobileWordmark />
+        <MobileCopyrightBox />
+        <MobileInfoBox />
+        <MobileSiteMap mapArray={siteMap} />
+        <MobileSocialMap mapArray={socialMap} />
+      </MobileStyled.Container>
+    </MobileStyled.Section>
+  );
+}
+
+export default function Footer() {
+  return (
+    <>
+      <Content /> <ContentMobile />
+    </>
   );
 }
 
@@ -77,6 +105,10 @@ Styled.Section = styled.section`
 
   z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
 
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
+    display: none;
+  }
+
   padding: 5% ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING} 3%
     ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
 
@@ -87,6 +119,37 @@ Styled.Section = styled.section`
 `;
 
 Styled.Container = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0 auto;
+
+  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
+`;
+
+const MobileStyled = {};
+
+MobileStyled.Section = styled.section`
+  position: relative;
+
+  width: 100vw;
+  height: 35vh;
+
+  background-color: #1c1c1c;
+
+  z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
+
+  padding: 5% ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING} 3%
+    ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
+
+  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
+    display: none;
+  }
+`;
+
+MobileStyled.Container = styled.div`
   position: relative;
 
   width: 100%;
