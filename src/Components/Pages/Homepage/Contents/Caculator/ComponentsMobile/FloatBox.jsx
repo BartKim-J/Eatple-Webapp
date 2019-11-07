@@ -23,7 +23,8 @@ FloatBox.propTypes = {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-  padding: 5%;
+  position: relative;
+  padding: 0 5%;
 `;
 
 Styled.Container = styled.div`

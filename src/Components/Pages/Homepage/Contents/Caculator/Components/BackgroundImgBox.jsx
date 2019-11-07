@@ -7,9 +7,7 @@ export default function BackgroundImgBox() {
   return (
     <Styled.BackgroundImageBoxWrap>
       <Styled.BackgroundImageBox>
-        <div className="background-image">
-          <img src={ImgBackground} alt="Background" draggable="false" />
-        </div>
+        <img src={ImgBackground} alt="Background" draggable="false" />
       </Styled.BackgroundImageBox>
     </Styled.BackgroundImageBoxWrap>
   );
@@ -30,12 +28,8 @@ Styled.BackgroundImageBoxWrap = styled.div`
 Styled.BackgroundImageBox = styled.div`
   width: 30%;
   max-width: 460px;
-  
-  .background-image {
-    width: 100%;
 
-    img {
-      width: 100%;
-    }
+  img {
+    width: 100%;
   }
 `;

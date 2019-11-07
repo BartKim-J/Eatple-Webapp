@@ -11,7 +11,6 @@ import BackgroundImgBox from './Components/BackgroundImgBox';
 import CategorySelectBox from './Components/CategorySelectBox';
 import ResultViewBox from './Components/ResultViewBox';
 
-
 import MobileBackgroundImgBox from './ComponentsMobile/BackgroundImgBox';
 import MobileCategorySelectBox from './ComponentsMobile/CategorySelectBox';
 import MobileResultViewBox from './ComponentsMobile/ResultViewBox';
@@ -28,11 +27,11 @@ function Content() {
       <Stickyroll pages={pageCount} factor={factor} throttle={thorottle} anchors={anchorsName}>
         {({ anchors, page, pageIndex, pages, progress }) => {
           return (
-            <Styled.Section>
-              <Styled.Container>
-                <BackgroundImgBox />
+            <Inner className="stickyroll-inner">
+              <Styled.Section>
+                <Styled.Container>
+                  <BackgroundImgBox />
 
-                <Inner withPagers="right" className="stickyroll-inner">
                   <CategorySelectBox />
 
                   <ResultViewBox
@@ -42,9 +41,9 @@ function Content() {
                     progress={progress}
                     pages={pages}
                   />
-                </Inner>
-              </Styled.Container>
-            </Styled.Section>
+                </Styled.Container>
+              </Styled.Section>
+            </Inner>
           );
         }}
       </Stickyroll>
@@ -64,11 +63,10 @@ function MobileContent() {
       <Stickyroll pages={pageCount} factor={factor} throttle={thorottle} anchors={anchorsName}>
         {({ anchors, page, pageIndex, pages, progress }) => {
           return (
-            <StyledMobile.Section>
-              <StyledMobile.Container>
-                <MobileBackgroundImgBox />
-
-                <Inner withPagers="right" className="stickyroll-inner">
+            <Inner className="stickyroll-inner">
+              <StyledMobile.Section>
+                <StyledMobile.Container>
+                  <MobileBackgroundImgBox />
                   <MobileCategorySelectBox />
 
                   <MobileResultViewBox
@@ -78,9 +76,9 @@ function MobileContent() {
                     progress={progress}
                     pages={pages}
                   />
-                </Inner>
-              </StyledMobile.Container>
-            </StyledMobile.Section>
+                </StyledMobile.Container>
+              </StyledMobile.Section>
+            </Inner>
           );
         }}
       </Stickyroll>
@@ -103,6 +101,12 @@ Styled.Stickyroll = styled.div`
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
   }
+
+  .stickyroll-inner {
+    padding: 0 !important;
+    margin: 0;
+    background-color: unset;
+  }
 `;
 
 Styled.Section = styled.section`
@@ -123,13 +127,6 @@ Styled.Container = styled.div`
   margin: 0 auto;
 
   height: 100%;
-
-  .stickyroll-inner {
-    background-color: unset;
-
-    .stickyroll-pagers {
-    }
-  }
 `;
 
 const StyledMobile = {};
@@ -137,6 +134,12 @@ const StyledMobile = {};
 StyledMobile.Stickyroll = styled.div`
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
+  }
+
+  .stickyroll-inner {
+    padding: 0 !important;
+    margin: 0;
+    background-color: unset;
   }
 `;
 
@@ -156,11 +159,4 @@ StyledMobile.Container = styled.div`
   margin: 0 auto;
 
   height: 100%;
-
-  .stickyroll-inner {
-    background-color: unset;
-
-    .stickyroll-pagers {
-    }
-  }
 `;

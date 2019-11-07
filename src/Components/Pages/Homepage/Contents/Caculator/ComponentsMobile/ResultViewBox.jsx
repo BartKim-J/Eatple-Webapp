@@ -117,7 +117,7 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  bottom: 0%;
+  bottom: 1%;
   left: 0;
 
   width: 100%;
@@ -128,10 +128,10 @@ Styled.Wrap = styled.div`
 Styled.Container = styled.div`
   display: inline-block;
   
-  width: 80vw;
+  width: 92vw;
   max-width: 474px;
 
-  height: calc(90vw * 0.6827);
+  height: calc(92vw * 0.6827);
   max-height: 359px;
 
   img {
