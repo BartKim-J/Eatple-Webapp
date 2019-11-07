@@ -38,14 +38,6 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
 
   const animationDuration = 300; // ms
 
-  function BackgroundImg() {
-    return (
-      <Styled.BackgroundImgWrap>
-        <img src={ImgContainer} alt="Container" />
-      </Styled.BackgroundImgWrap>
-    );
-  }
-
   return (
     <Styled.Wrap>
       <FloatBoxList
@@ -57,7 +49,9 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
       />
 
       <Styled.Container>
-        <BackgroundImg />
+        <Styled.BackgroundImgWrap>
+          <img src={ImgContainer} alt="Container" />
+        </Styled.BackgroundImgWrap>
         <Styled.TextBoxWrap>
           <Styled.TextBox>
             한달에
@@ -123,11 +117,13 @@ Styled.Wrap = styled.div`
   width: 100%;
 
   margin: 0 auto;
+
+  z-index: 999;
 `;
 
 Styled.Container = styled.div`
   display: inline-block;
-  
+
   width: 92vw;
   max-width: 474px;
 

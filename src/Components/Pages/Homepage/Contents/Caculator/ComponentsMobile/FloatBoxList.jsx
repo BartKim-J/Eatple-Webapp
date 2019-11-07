@@ -82,7 +82,9 @@ export default function FloatBoxList({ pageIndex, progress, pages, won, count })
         }
       }
 
-      setIndex(nextIndex);
+      if (index !== nextIndex) {
+        setIndex(nextIndex);
+      }
     }
   }, [index, pageIndex, progress, pages, count, prevProgress, countMax, won]);
 
@@ -92,7 +94,7 @@ export default function FloatBoxList({ pageIndex, progress, pages, won, count })
         <animated.div
           style={{
             transform: `${trans()}`,
-            transition: `all 1.4s`,
+            transition: `all 0.4s ease 0s`,
           }}
         >
           <Styled.Swriper menuCnt={CategoryMap.length}>
@@ -172,7 +174,7 @@ Styled.Item = styled.div`
 
   width: ${props => {
     return `${100 / props.menuCnt}%`;
-}};
-  
+  }};
+
   height: 100%;
 `;

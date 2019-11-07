@@ -18,7 +18,7 @@ import MobileResultViewBox from './ComponentsMobile/ResultViewBox';
 function Content() {
   const pageCount = 6;
   const factor = 1;
-  const thorottle = 1;
+  const thorottle = 250;
 
   const anchorsName = '!/calculator';
 
@@ -54,7 +54,7 @@ function Content() {
 function MobileContent() {
   const pageCount = 6;
   const factor = 1;
-  const thorottle = 1;
+  const thorottle = 250;
 
   const anchorsName = '!/calculator';
 
