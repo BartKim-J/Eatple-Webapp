@@ -29,7 +29,7 @@ Styled.Container = styled.div`
   color: #f8f8fa;
 
   text-align: left;
-  font-size: 0.8vw;
+  font-size: 1.8vw;
   line-height: 1.54;
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {

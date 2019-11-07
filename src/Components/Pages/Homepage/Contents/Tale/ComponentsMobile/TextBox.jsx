@@ -45,7 +45,7 @@ Styled.Container = styled.div`
   text-align: left;
 
   font-family: 'S-CoreDream-5';
-  font-size: calc(2.6vw * 0.8);
+  font-size: 5vw;
   line-height: 1.46;
 
   color: #1c1c1c;
@@ -62,7 +62,7 @@ Styled.Container = styled.div`
     margin-top: 16px;
 
     font-family: 'S-CoreDream-3';
-    font-size: 1vw;
+    font-size: 3vw;
     line-height: 1.6;
 
     @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
@@ -79,7 +79,7 @@ Styled.Container = styled.div`
 
   .qna-text-box {
     font-family: 'S-CoreDream-3';
-    font-size: 1vw;
+    font-size: 3vw;
     line-height: 1.44;
 
     .qna-highlight {

@@ -3,9 +3,9 @@ const mediaConf = {
   MEDIA_WIDTH_MAX: `9999px`,
 
   MEDIA_WIDTH_MOBILE_MIN: `0px`,
-  MEDIA_WIDTH_MOBILE_MAX: `calc(768px - 1px)`,
+  MEDIA_WIDTH_MOBILE_MAX: `calc(568px - 1px)`,
 
-  MEDIA_WIDTH_TABLET_MIN: `calc(768px - 1px)`,
+  MEDIA_WIDTH_TABLET_MIN: `calc(568px - 1px)`,
   MEDIA_WIDTH_TABLET_MAX: `calc(1025px - 1px)`,
 
   MEDIA_WIDTH_DESKTOP: `calc(1025px - 1px)`,
@@ -17,7 +17,6 @@ const mediaConf = {
   MEDIA_WIDTH_DESKTOP_CONTENT: `1440px`,
   MEDIA_WIDTH_DESKTOP_CONTENT_PADDING: `6%`,
 
-  // MEDIA_WIDTH_MOBILE_CONTENT: `calc(0px + 1px)`,
   MEDIA_WIDTH_MOBILE_CONTENT: `calc(414px + 1px)`,
   MEDIA_WIDTH_MOBILE_CONTENT_PADDING: `6%`,
 

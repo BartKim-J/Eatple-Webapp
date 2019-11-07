@@ -41,7 +41,7 @@ Styled.Container = styled.ul`
     width: 100%;
     max-width: 160px;
 
-    font-size: 0.8vw;
+    font-size: 2.6vw;
     font-family: 'S-CoreDream-5';
     line-height: 1.84;
 

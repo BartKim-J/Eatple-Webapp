@@ -47,7 +47,7 @@ Styled.Container = styled.div`
   text-align: left;
 
   font-family: 'S-CoreDream-5';
-  font-size: calc(2.6vw * 0.8);
+  font-size: 2.4vw;
   line-height: 1.46;
 
   color: #1c1c1c;
