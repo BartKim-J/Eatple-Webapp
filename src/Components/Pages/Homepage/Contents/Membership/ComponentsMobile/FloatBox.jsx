@@ -37,11 +37,13 @@ FloatBox.propTypes = {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-  position: relative;
+  position: absolute;
+  right: 0;
+
+  width: 70%;
+  transform: translate(-19%, 0);
 
   z-index: 100;
-
-  width: 100%;
 `;
 
 Styled.Container = styled.div`
@@ -52,8 +54,6 @@ Styled.Container = styled.div`
 
 Styled.Icon = styled.div`
   position: relative;
-
-  padding-left: 10%;
 
   img {
     width: 15%;
@@ -74,7 +74,7 @@ Styled.TextBox = styled.div`
   padding: 3% 0 0 32%;
 
   .title {
-    font-size: 4.4vw;
+    font-size: 4vw;
     font-family: 'S-CoreDream-6';
     line-height: 0.86;
 
@@ -84,9 +84,9 @@ Styled.TextBox = styled.div`
   }
 
   .sub-text {
-    margin-top: 6%;
+    margin-top: 3%;
 
-    font-size: 3vw;
+    font-size: 2.7vw;
     font-family: 'S-CoreDream-3';
     line-height: 1.44;
 

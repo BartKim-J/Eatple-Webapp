@@ -136,20 +136,7 @@ MainImageSlideBox.propTypes = {
 };
 
 export default function MenuSlider() {
-  const minImageCount = 5;
-
   const [slideIndex, setSlideIndex] = useState(0);
-  const [movement, setMovement] = useState(0);
-
-  function transitionTo(pos) {
-    if (pos <= slideItemList.length - minImageCount) {
-      setMovement(pos);
-    } else {
-      setMovement(slideItemList.length - minImageCount);
-    }
-
-    setSlideIndex(pos);
-  }
 
   function prevSlide() {
     let nextSlideIndex = slideIndex - 1;
@@ -158,7 +145,7 @@ export default function MenuSlider() {
       nextSlideIndex = slideItemList.length - 1;
     }
 
-    transitionTo(nextSlideIndex);
+    setSlideIndex(nextSlideIndex);
   }
 
   function nextSlide() {
@@ -167,8 +154,7 @@ export default function MenuSlider() {
     if (slideIndex >= slideItemList.length - 1) {
       nextSlideIndex = 0;
     }
-
-    transitionTo(nextSlideIndex);
+    setSlideIndex(nextSlideIndex);
   }
 
   useEffect(() => {
@@ -179,7 +165,7 @@ export default function MenuSlider() {
         nextSlideIndex = 0;
       }
 
-      transitionTo(nextSlideIndex);
+      setSlideIndex(nextSlideIndex);
     }, 5000);
 
     return () => {

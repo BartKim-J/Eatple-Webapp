@@ -122,25 +122,20 @@ Styled.Container = styled.ul`
   height: 100%;
 
   overflow: hidden;
-
-  li {
-    position: relative;
-    display: inline-block;
-
-    width: 100%;
-    height: 100%;
-
-    .float-box {
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      transform: translate(0px, -100%);
-    }
-  }
 `;
 
 Styled.Item = styled.li`
   position: relative;
+  display: inline-block;
+
+  width: 100%;
   height: 100%;
+
+  .float-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: translate(0px, -100%);
+  }
 `;

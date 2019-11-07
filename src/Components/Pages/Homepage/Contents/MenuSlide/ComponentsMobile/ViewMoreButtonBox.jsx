@@ -25,15 +25,15 @@ export default function ButtonBox() {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-  padding-top: 5%;
+  padding: 8% 2%;
 `;
 
 Styled.Container = styled.button`
   position: relative;
 
-  width: 12vw;
+  width: 25vw;
   max-width: 180px;
-  height: calc(16vw * 0.33);
+  height: calc(25vw * 0.33);
   min-height: 60px;
 
   img {
