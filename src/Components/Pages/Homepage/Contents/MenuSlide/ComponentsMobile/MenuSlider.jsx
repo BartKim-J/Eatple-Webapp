@@ -69,13 +69,15 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
     position: absolute;
     right: 0;
     bottom: 0;
+
+    z-index: 100;
   `;
 
   StyledMenuInfoBox.ButtonBox = styled.div`
     display: inline-block;
 
     .button {
-      width: 8vw;
+      width: 10vw;
       max-width: 48px;
 
       img {
@@ -189,8 +191,6 @@ Styled.Wrap = styled.div`
   position: absolute;
   top: 60%;
   left: 0;
-
-  z-index: 100;
 
   width: 100%;
   height: 35%;
