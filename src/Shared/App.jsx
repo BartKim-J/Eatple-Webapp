@@ -22,10 +22,6 @@ export default function App() {
                 <Route exact path="/" component={Homepage} />
                 <Route exact path="/payment" component={Payment} />
                 <Route exact path="/payment/result" component={PaymentResult} />
-                {/*
-                <Route exact path="/certification" component={Certification} />
-                <Route exact path="/certification/result" component={CertificationResult} />
-              */}
                 <Route component={Error} />
               </Switch>
               <Footer />

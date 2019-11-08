@@ -57,7 +57,7 @@ const socialMap = [
   },
 ];
 
-function Content() {
+function DesktopFooter() {
   return (
     <Styled.Section>
       <Styled.Container>
@@ -71,7 +71,7 @@ function Content() {
   );
 }
 
-function ContentMobile() {
+function MobileFooter() {
   return (
     <MobileStyled.Section>
       <MobileStyled.Container>
@@ -88,7 +88,8 @@ function ContentMobile() {
 export default function Footer() {
   return (
     <>
-      <Content /> <ContentMobile />
+      <DesktopFooter />
+      <MobileFooter />
     </>
   );
 }

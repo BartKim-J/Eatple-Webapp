@@ -8,7 +8,7 @@ import Logo from 'resource/Image/ImgLogo.svg';
 
 import BtnTrial from './Images/BtnFloating.svg';
 
-function MenuBar() {
+function DesktopMenu() {
   return (
     <Styled.Section>
       <Styled.Container>
@@ -41,7 +41,7 @@ function MenuBar() {
   );
 }
 
-function MobileMenuBar() {
+function MobileMenu() {
   return (
     <StyledMobile.Section>
       <StyledMobile.Container>
@@ -66,8 +66,8 @@ function MobileMenuBar() {
 export default function Menu() {
   return (
     <>
-      <MenuBar />
-      <MobileMenuBar />
+      <DesktopMenu />
+      <MobileMenu />
     </>
   );
 }
@@ -80,7 +80,7 @@ Styled.Section = styled.section`
   left: 0;
 
   width: 100vw;
-  height: 8vh;
+  height: 50px;
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
@@ -94,6 +94,9 @@ Styled.Section = styled.section`
 `;
 
 Styled.Container = styled.div`
+  position: relative;
+  top: 50%;
+
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   height: 100%;
 
@@ -113,20 +116,18 @@ Styled.MenuBar = styled.div`
 
 Styled.Logo = styled.div`
   position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
+  bottom: 0;
 
   display: flex;
   float: left;
 
-  width: 6vw;
+  width: 18%;
   max-width: 88px;
 `;
 
 Styled.ItemList = styled.div`
   position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
+  bottom: 0;
 
   display: flex;
   float: right;
@@ -136,7 +137,7 @@ Styled.Item = styled.div`
   margin-left: 5vw;
 
   .menu-bar-btn-trial {
-    width: 8vw;
+    width: 100%;
     max-width: 128px;
   }
 `;
