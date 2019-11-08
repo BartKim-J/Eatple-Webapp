@@ -5,6 +5,7 @@ import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import { Homepage, Payment, PaymentResult, Error } from 'components/Pages/PageIndex';
 
 import mediaConf from 'configure/mediaConfig';
+import urlConf from 'configure/urlConfig';
 
 import Menu from 'components/Layouts/Menu';
 import Footer from 'components/Layouts/Footer';
@@ -19,9 +20,9 @@ export default function App() {
           <Styled.AppInner>
             <Styled.AppContent>
               <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route exact path="/payment" component={Payment} />
-                <Route exact path="/payment/result" component={PaymentResult} />
+                <Route exact path={urlConf.Homepage} component={Homepage} />
+                <Route exact path={urlConf.Payment} component={Payment} />
+                <Route exact path={urlConf.PaymentResult} component={PaymentResult} />
                 <Route component={Error} />
               </Switch>
               <Footer />

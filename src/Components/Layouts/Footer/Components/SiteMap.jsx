@@ -13,9 +13,7 @@ export default function SiteMap({ mapArray }) {
         {mapArray.map(entrySite => {
           return (
             <li key={entrySite.label}>
-              <Link to={entrySite.link} target="_blank" rel="noopener noreferrer">
-                {entrySite.label}
-              </Link>
+              <Link to={entrySite.link}>{entrySite.label}</Link>
             </li>
           );
         })}

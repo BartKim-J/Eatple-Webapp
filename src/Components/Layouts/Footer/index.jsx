@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
+import urlConf from 'configure/urlConfig';
 
 import CopyrightBox from './Components/CopyrightBox';
 import InfoBox from './Components/InfoBox';
@@ -43,17 +44,17 @@ const socialMap = [
   {
     label: 'Facebook',
     icon: IconFacebook,
-    link: 'https://www.facebook.com/',
+    link: urlConf.facebook,
   },
   {
     label: 'Youtube',
     icon: IconYoutube,
-    link: 'https://www.youtube.com/',
+    link: urlConf.youtube,
   },
   {
     label: 'Instagram',
     icon: IconInstagram,
-    link: 'https://www.instagram.com/',
+    link: urlConf.instagram,
   },
 ];
 

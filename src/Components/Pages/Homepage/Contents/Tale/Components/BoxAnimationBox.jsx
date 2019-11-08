@@ -81,8 +81,6 @@ Styled.BoxAnimationBoxWrap = styled.div`
   height: 120%;
 
   overflow: hidden;
-
-  z-index: 100;
 `;
 
 Styled.BoxAnimationBox = styled.div`

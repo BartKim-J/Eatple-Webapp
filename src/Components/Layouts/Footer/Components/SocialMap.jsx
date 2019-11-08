@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-
 export default function SocialMap({ mapArray }) {
   return (
     <Styled.Wrap>
@@ -11,9 +9,9 @@ export default function SocialMap({ mapArray }) {
         {mapArray.map(entryIcon => {
           return (
             <li key={entryIcon.label}>
-              <Link to={entryIcon.link} target="_blank" rel="noopener noreferrer">
+              <a href={entryIcon.link} target="_blank" rel="noopener noreferrer">
                 <img src={entryIcon.icon} alt={entryIcon.label} draggable="false" />
-              </Link>
+              </a>
             </li>
           );
         })}

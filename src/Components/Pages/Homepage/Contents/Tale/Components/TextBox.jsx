@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import mediaConf from 'configure/mediaConfig';
+import urlConf from 'configure/urlConfig';
 
 import TrialButtonBox from './TrialButtonBox';
 
@@ -20,7 +21,7 @@ export default function TextBox() {
         <div className="qna-text-box">
           아직 잇플에 대해 더 궁금하다면?
           <br />
-          <Link to="/">
+          <Link to={urlConf.FAQ}>
             <span className="qna-highlight">자주 묻는 질문</span>
           </Link>
           을 확인하세요!

@@ -1,0 +1,13 @@
+const urls = {
+  Homepage: '/',
+  FAQ: '/faq',
+  Payment: '/payment',
+  PaymentResult: '/payment/result',
+
+  KakaoChatbot: 'http://pf.kakao.com/_xaxlptT/chat',
+  Facebook: 'https://www.facebook.com/',
+  Instagram: 'https://www.instagram.com/',
+  Youtube: 'https://www.youtube.com/',
+};
+
+export default urls;

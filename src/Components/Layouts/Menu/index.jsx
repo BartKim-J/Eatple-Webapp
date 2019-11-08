@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import urlConf from 'configure/urlConfig';
 import mediaConf from 'configure/mediaConfig';
 
 import Logo from 'resource/Image/ImgLogo.svg';
@@ -14,7 +15,7 @@ function DesktopMenu() {
       <Styled.Container>
         <Styled.MenuBar>
           <Styled.Logo>
-            <Link to="/">
+            <Link to={urlConf.Homepage}>
               <img
                 alt="Logo"
                 src={Logo}
@@ -25,14 +26,14 @@ function DesktopMenu() {
           </Styled.Logo>
           <Styled.ItemList>
             <Styled.Item>
-              <Link to="/">
+              <a href={urlConf.KakaoChatbot}>
                 <img
                   alt="Button Trial"
                   src={BtnTrial}
                   className="menu-bar-btn-trial"
                   draggable="false"
                 />
-              </Link>
+              </a>
             </Styled.Item>
           </Styled.ItemList>
         </Styled.MenuBar>
@@ -47,7 +48,7 @@ function MobileMenu() {
       <StyledMobile.Container>
         <StyledMobile.MenuBar>
           <StyledMobile.Logo>
-            <Link to="/">
+            <Link to={urlConf.Homepage}>
               <img
                 alt="Logo"
                 src={Logo}

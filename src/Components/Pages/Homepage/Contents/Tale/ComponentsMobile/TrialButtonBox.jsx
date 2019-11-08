@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+
+import urlConf from 'configure/urlConfig';
 
 import ImgBtnGetStarted from 'resource/Image/Button/BtnGetStarted.svg';
 import ImgBtnMediumShadow from 'resource/Image/Button/BtnMediumShadow.svg';
@@ -8,7 +9,7 @@ import ImgBtnMediumShadow from 'resource/Image/Button/BtnMediumShadow.svg';
 export default function TrialButtonBox() {
   return (
     <Styled.TrialButtonBoxWrap>
-      <Link to="/">
+      <a href={urlConf.KakaoChatbot}>
         <button type="button" className="button-box">
           <div className="button-image">
             <img src={ImgBtnGetStarted} alt="Button" />
@@ -17,7 +18,7 @@ export default function TrialButtonBox() {
             <img src={ImgBtnMediumShadow} alt="Button" />
           </div>
         </button>
-      </Link>
+      </a>
     </Styled.TrialButtonBoxWrap>
   );
 }
