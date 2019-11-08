@@ -67,9 +67,9 @@ Styled.CategoryBox = styled.div`
 Styled.CategoryText = styled.span`
   color: #fca800;
 
-  padding: 2% 0%;
+  padding: 3% 0%;
 
-  border-bottom: solid 0.2vw black;
+  border-bottom: solid 0.65vw black;
 `;
 
 Styled.ArrowImg = styled.img`

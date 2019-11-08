@@ -56,7 +56,9 @@ export default function FloatBoxList({ scrollY }) {
           <animated.div
             style={{
               transform: scrollY.interpolate(trans1),
-              opacity: scrollY.interpolate(y => `${((y * 1.8) / window.innerHeight) * 0.56}`),
+              opacity: scrollY.interpolate(
+                y => `${(((y - 400) * 4.6) / window.innerHeight) * 0.56}`,
+              ),
             }}
           >
             <FloatBox
@@ -70,7 +72,9 @@ export default function FloatBoxList({ scrollY }) {
           <animated.div
             style={{
               transform: scrollY.interpolate(trans2),
-              opacity: scrollY.interpolate(y => `${((y * 1.6) / window.innerHeight) * 0.68}`),
+              opacity: scrollY.interpolate(
+                y => `${(((y - 380) * 3.6) / window.innerHeight) * 0.68}`,
+              ),
             }}
           >
             <FloatBox
@@ -84,7 +88,9 @@ export default function FloatBoxList({ scrollY }) {
           <animated.div
             style={{
               transform: scrollY.interpolate(trans3),
-              opacity: scrollY.interpolate(y => `${((y * 1.4) / window.innerHeight) * 0.8}`),
+              opacity: scrollY.interpolate(
+                y => `${(((y - 350) * 3.4) / window.innerHeight) * 0.8}`,
+              ),
             }}
           >
             <FloatBox
@@ -113,29 +119,26 @@ Styled.Wrap = styled.div`
 
 Styled.Container = styled.ul`
   position: absolute;
-  left: 0;
+  right: 0;
   bottom: 0;
 
   text-align: left;
 
-  width: 100%;
+  width: 80%;
   height: 100%;
-
-  overflow: hidden;
 `;
 
 Styled.Item = styled.li`
-  position: relative;
   display: inline-block;
 
   width: 100%;
   height: 100%;
 
   .float-box {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
 
-    transform: translate(0px, -100%);
+    transform: translate(-8%, -100%);
   }
 `;

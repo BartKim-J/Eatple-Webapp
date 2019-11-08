@@ -40,8 +40,7 @@ Styled.Wrap = styled.div`
   position: absolute;
   right: 0;
 
-  width: 70%;
-  transform: translate(-19%, 0);
+  width: 100%;
 
   z-index: 100;
 `;

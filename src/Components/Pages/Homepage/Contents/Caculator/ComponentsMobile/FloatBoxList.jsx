@@ -100,7 +100,7 @@ export default function FloatBoxList({ pageIndex, progress, pages, won, count })
           <Styled.Swriper menuCnt={CategoryMap.length}>
             {CategoryMap.map(entryCategory => {
               return (
-                <Styled.Item menuCnt={CategoryMap.length}>
+                <Styled.Item key={entryCategory.menuName} menuCnt={CategoryMap.length}>
                   <FloatBox
                     src={entryCategory.image}
                     menuPrice={entryCategory.menuPrice}

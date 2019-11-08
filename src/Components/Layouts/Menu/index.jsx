@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import mediaConf from 'configure/mediaConfig';
 
@@ -12,26 +12,30 @@ function MenuBar() {
   return (
     <Styled.Section>
       <Styled.Container>
-        <Navbar>
-          <Navbar.Brand href="/">
-            <img
-              alt="Logo"
-              src={Logo}
-              className="d-inline-block align-top menu-bar-logo"
-              draggable="false"
-            />
-          </Navbar.Brand>
-          <Nav className="mr-auto menu-bar-items">
-            <Nav.Link className="menu-bar-item" href="/">
+        <Styled.MenuBar>
+          <Styled.Logo>
+            <Link to="/">
               <img
-                alt="Button Trial"
-                src={BtnTrial}
-                className="menu-bar-btn-trial"
+                alt="Logo"
+                src={Logo}
+                className="d-inline-block align-top menu-bar-logo"
                 draggable="false"
               />
-            </Nav.Link>
-          </Nav>
-        </Navbar>
+            </Link>
+          </Styled.Logo>
+          <Styled.ItemList>
+            <Styled.Item>
+              <Link to="/">
+                <img
+                  alt="Button Trial"
+                  src={BtnTrial}
+                  className="menu-bar-btn-trial"
+                  draggable="false"
+                />
+              </Link>
+            </Styled.Item>
+          </Styled.ItemList>
+        </Styled.MenuBar>
       </Styled.Container>
     </Styled.Section>
   );
@@ -41,16 +45,19 @@ function MobileMenuBar() {
   return (
     <StyledMobile.Section>
       <StyledMobile.Container>
-        <Navbar>
-          <Navbar.Brand href="/">
-            <img
-              alt="Logo"
-              src={Logo}
-              className="d-inline-block align-top menu-bar-logo"
-              draggable="false"
-            />
-          </Navbar.Brand>
-        </Navbar>
+        <StyledMobile.MenuBar>
+          <StyledMobile.Logo>
+            <Link to="/">
+              <img
+                alt="Logo"
+                src={Logo}
+                className="d-inline-block align-top menu-bar-logo"
+                draggable="false"
+              />
+            </Link>
+          </StyledMobile.Logo>
+          <Styled.ItemList></Styled.ItemList>
+        </StyledMobile.MenuBar>
       </StyledMobile.Container>
     </StyledMobile.Section>
   );
@@ -87,37 +94,50 @@ Styled.Section = styled.section`
 `;
 
 Styled.Container = styled.div`
-  position: relative;
-
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   height: 100%;
 
   margin: 0 auto;
-  padding: 2% 0;
 
   img {
     width: 100%;
   }
+`;
 
-  .menu-bar-logo {
-    width: 6vw;
-    max-width: 88px;
-  }
+Styled.MenuBar = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+`;
+
+Styled.Logo = styled.div`
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  display: flex;
+  float: left;
+
+  width: 6vw;
+  max-width: 88px;
+`;
+
+Styled.ItemList = styled.div`
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  display: flex;
+  float: right;
+`;
+
+Styled.Item = styled.div`
+  margin-left: 5vw;
 
   .menu-bar-btn-trial {
     width: 8vw;
     max-width: 128px;
-  }
-
-  .menu-bar-items {
-    display: flex;
-
-    float: right;
-    vertical-align: middle;
-
-    .menu-bar-item {
-      margin-left: 5vw;
-    }
   }
 `;
 
@@ -153,25 +173,36 @@ StyledMobile.Container = styled.div`
   img {
     width: 100%;
   }
+`;
 
-  .menu-bar-logo {
-    width: 13vw;
-    max-width: 68px;
-  }
+StyledMobile.MenuBar = styled.div`
+  position: relative;
 
-  .menu-bar-btn-trial {
-    width: 8vw;
-    max-width: 128px;
-  }
+  width: 100%;
+  height: 100%;
+`;
 
-  .menu-bar-items {
-    display: flex;
+StyledMobile.Logo = styled.div`
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
 
-    float: right;
-    vertical-align: middle;
+  display: flex;
+  float: left;
 
-    .menu-bar-item {
-      margin-left: 5vw;
-    }
-  }
+  width: 14vw;
+  max-width: 88px;
+`;
+
+StyledMobile.ItemList = styled.div`
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  display: flex;
+  float: right;
+`;
+
+StyledMobile.Item = styled.div`
+  margin-left: 5vw;
 `;

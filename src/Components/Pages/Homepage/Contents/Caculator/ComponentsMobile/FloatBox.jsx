@@ -24,7 +24,7 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: relative;
-  padding: 0 5%;
+  padding: 10% 10%;
 `;
 
 Styled.Container = styled.div`
@@ -33,8 +33,6 @@ Styled.Container = styled.div`
 
   height: 100%;
   max-height: 350px;
-
-  object-fit: contain;
 `;
 
 Styled.MenuImage = styled.img`
