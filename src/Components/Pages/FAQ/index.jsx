@@ -3,14 +3,13 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ErrorResultBox from './Components/ErrorResultBox';
-import MobileErrorResultBox from './ComponentsMobile/ErrorResultBox';
+import FAQBox from './Components/FAQBox';
 
 function DesktopError() {
   return (
     <Styled.Section>
       <Styled.Container>
-        <ErrorResultBox />
+        <FAQBox />
       </Styled.Container>
     </Styled.Section>
   );
@@ -19,9 +18,7 @@ function DesktopError() {
 function MobileError() {
   return (
     <StyledMobile.Section>
-      <StyledMobile.Container>
-        <MobileErrorResultBox />
-      </StyledMobile.Container>
+      <StyledMobile.Container></StyledMobile.Container>
     </StyledMobile.Section>
   );
 }
@@ -43,8 +40,6 @@ Styled.Section = styled.section`
   width: 100vw;
   min-height: 100vh;
 
-  background-color: #f8f8fa;
-
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
   }
@@ -55,8 +50,7 @@ Styled.Section = styled.section`
 `;
 
 Styled.Container = styled.div`
-  width: 100%;
-  height: 100%;
+  position: relative;
 
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   margin: 0 auto;
@@ -70,7 +64,7 @@ StyledMobile.Section = styled.section`
   width: 100vw;
   min-height: 100vh;
 
-  background-color: #f8f8fa;
+  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
@@ -78,9 +72,10 @@ StyledMobile.Section = styled.section`
 `;
 
 StyledMobile.Container = styled.div`
+  position: relative;
+
   width: 100%;
   height: 100%;
 
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   margin: 0 auto;
 `;

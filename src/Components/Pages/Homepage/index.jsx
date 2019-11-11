@@ -26,11 +26,13 @@ export default function Homepage() {
 const Styled = {};
 
 Styled.Section = styled.section`
-  max-width: 100%;
-
-  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
 `;
 
 Styled.Container = styled.div`
   position: relative;
+  width: 100%;
+  height: 100%;
 `;
