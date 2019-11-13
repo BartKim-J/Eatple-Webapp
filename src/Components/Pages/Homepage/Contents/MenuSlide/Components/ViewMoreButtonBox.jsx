@@ -25,7 +25,6 @@ export default function ButtonBox() {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-  padding: 7% 1%;
   margin-bottom: 0;
 `;
 

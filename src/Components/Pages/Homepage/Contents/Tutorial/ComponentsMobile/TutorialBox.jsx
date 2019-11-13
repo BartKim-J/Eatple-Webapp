@@ -91,9 +91,17 @@ Styled.Wrap = styled.div`
 
 Styled.Container = styled.div`
   position: relative;
+
+  width: 100%;
+
+  margin: 0 auto;
 `;
 
 Styled.ItemListBox = styled.div`
+  position: relative;
+  left: 50%;
+
+  transform: translate(-50%, 0);
   display: inline-block;
 
   ul {
