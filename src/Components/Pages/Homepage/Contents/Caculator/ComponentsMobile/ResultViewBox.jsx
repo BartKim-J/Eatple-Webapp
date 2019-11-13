@@ -5,7 +5,7 @@ import AnimatedNumber from 'react-animated-number';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ImgContainer from '../Images/ImgContainer.svg';
+import ImgContainer from '../ImagesMobile/ImgContainer.svg';
 
 import FloatBoxList from './FloatBoxList';
 
@@ -137,7 +137,7 @@ Styled.Container = styled.div`
 
 Styled.TextBoxWrap = styled.div`
   position: relative;
-  top: 0;
+  bottom: 2%;
   left: 0;
 
   z-index: 110;
@@ -172,7 +172,7 @@ Styled.TextHighlight = styled.span`
 
 Styled.BackgroundImgWrap = styled.div`
   position: absolute;
-  top: 0;
+  bottom: 10%;
   left: 0;
 
   z-index: 100;
