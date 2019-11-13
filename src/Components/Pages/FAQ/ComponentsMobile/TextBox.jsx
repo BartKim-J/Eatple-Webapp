@@ -72,12 +72,8 @@ Styled.Container = styled.div`
 `;
 
 Styled.QnAListWrap = styled.div`
-  width: 75%;
+  width: 100%;
   height: 100%;
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_TABLET_MIN}) and (max-width: ${mediaConf.MEDIA_WIDTH_TABLET_MAX}) {
-    width: 100%;
-  }
 
   margin: 0 auto;
 `;
@@ -85,8 +81,8 @@ Styled.QnAListWrap = styled.div`
 Styled.QnAList = styled.div`
   display: flex;
   flex-flow: row wrap;
-  align-content: center;
-  justify-content: center;
+  align-content: space-around;
+  justify-content: space-around;
 
   width: 100%;
   height: 100%;
@@ -95,56 +91,43 @@ Styled.QnAList = styled.div`
 `;
 
 Styled.QnAItem = styled.div`
-  width: 48%;
-  min-height: 30%;
+  width: 100%;
+  height: 23%;
 
   border-top: solid 4px #fca800;
   background-color: #ffffff;
 
-  padding: 2% 2%;
-  margin: 1%;
+  padding: 4% 2%;
 `;
 
 Styled.Question = styled.div`
   font-family: 'S-CoreDream-6';
-  font-size: 1.1vw;
+  font-size: 3.8vw;
 
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_TABLET_MIN}) and (max-width: ${mediaConf.MEDIA_WIDTH_TABLET_MAX}) {
-    font-size: 2vw;
-  }
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 18px;
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+    font-size: 13px;
   }
 `;
 
 Styled.Answer = styled.div`
   font-family: 'S-CoreDream-4';
-  font-size: 1vw;
+  font-size: 3.4vw;
 
-  padding: 2% 5%;
+  padding: 5% 10%;
 
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_TABLET_MIN}) and (max-width: ${mediaConf.MEDIA_WIDTH_TABLET_MAX}) {
-    font-size: 1.8vw;
-  }
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 16px;
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+    font-size: 11px;
   }
 `;
 
 Styled.QuestionIcon = styled.img`
   padding: 0 2% 2% 0%;
 
-  transform: translate(0, 6%);
+  transform: translate(0, 5%);
 
-  width: 1.8vw;
+  width: 5vw;
 
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_TABLET_MIN}) and (max-width: ${mediaConf.MEDIA_WIDTH_TABLET_MAX}) {
-    font-size: 2vw;
-  }
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    width: 28px;
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+    width: 18px;
   }
 `;

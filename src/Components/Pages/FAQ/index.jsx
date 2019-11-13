@@ -6,6 +6,9 @@ import mediaConf from 'configure/mediaConfig';
 import HeadBox from './Components/HeadBox';
 import TextBox from './Components/TextBox';
 
+import MobileHeadBox from './ComponentsMobile/HeadBox';
+import MobileTextBox from './ComponentsMobile/TextBox';
+
 function DesktopFAQ() {
   return (
     <Styled.Section>
@@ -23,9 +26,13 @@ function DesktopFAQ() {
 function MobileFAQ() {
   return (
     <StyledMobile.Section>
-      <StyledMobile.Container>
-        <HeadBox />
-      </StyledMobile.Container>
+      <Styled.ContainerTop>
+        <MobileHeadBox />
+      </Styled.ContainerTop>
+
+      <Styled.ContainerBottom>
+        <MobileTextBox />
+      </Styled.ContainerBottom>
     </StyledMobile.Section>
   );
 }
@@ -56,7 +63,7 @@ Styled.ContainerTop = styled.div`
   position: relative;
 
   width: 100%;
-  height: 35%;
+  height: 25%;
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
@@ -67,7 +74,7 @@ Styled.ContainerBottom = styled.div`
   position: relative;
 
   width: 100%;
-  height: 65%;
+  height: 75%;
 
   background-color: #f8f8fa;
 
@@ -83,8 +90,6 @@ StyledMobile.Section = styled.section`
 
   width: 100vw;
   height: 100vh;
-
-  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
