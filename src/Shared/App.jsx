@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { Homepage, Payment, PaymentResult, Error } from 'components/Pages/PageIndex';
+import { Homepage, FAQ, Payment, PaymentResult, Error } from 'components/Pages/PageIndex';
 
 import mediaConf from 'configure/mediaConfig';
 import urlConf from 'configure/urlConfig';
@@ -21,6 +21,7 @@ export default function App() {
             <Styled.AppContent>
               <Switch>
                 <Route exact path={urlConf.Homepage} component={Homepage} />
+                <Route exact path={urlConf.FAQ} component={FAQ} />
                 <Route exact path={urlConf.Payment} component={Payment} />
                 <Route exact path={urlConf.PaymentResult} component={PaymentResult} />
                 <Route component={Error} />

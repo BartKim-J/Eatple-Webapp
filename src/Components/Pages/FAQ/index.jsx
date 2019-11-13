@@ -3,31 +3,38 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import FAQBox from './Components/FAQBox';
+import HeadBox from './Components/HeadBox';
+import TextBox from './Components/TextBox';
 
-function DesktopError() {
+function DesktopFAQ() {
   return (
     <Styled.Section>
-      <Styled.Container>
-        <FAQBox />
-      </Styled.Container>
+      <Styled.ContainerTop>
+        <HeadBox />
+      </Styled.ContainerTop>
+
+      <Styled.ContainerBottom>
+        <TextBox />
+      </Styled.ContainerBottom>
     </Styled.Section>
   );
 }
 
-function MobileError() {
+function MobileFAQ() {
   return (
     <StyledMobile.Section>
-      <StyledMobile.Container></StyledMobile.Container>
+      <StyledMobile.Container>
+        <HeadBox />
+      </StyledMobile.Container>
     </StyledMobile.Section>
   );
 }
 
-export default function Error() {
+export default function FAQ() {
   return (
     <>
-      <DesktopError />
-      <MobileError />
+      <DesktopFAQ />
+      <MobileFAQ />
     </>
   );
 }
@@ -38,22 +45,35 @@ Styled.Section = styled.section`
   position: relative;
 
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
   }
+`;
+
+Styled.ContainerTop = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: 35%;
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
   }
 `;
 
-Styled.Container = styled.div`
+Styled.ContainerBottom = styled.div`
   position: relative;
 
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  margin: 0 auto;
+  width: 100%;
+  height: 65%;
+
+  background-color: #f8f8fa;
+
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
+  }
 `;
 
 const StyledMobile = {};
@@ -62,7 +82,7 @@ StyledMobile.Section = styled.section`
   position: relative;
 
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
 
   padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
 

@@ -41,7 +41,7 @@ Styled.Section = styled.section`
   position: relative;
 
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
 
   background-color: #f8f8fa;
 
