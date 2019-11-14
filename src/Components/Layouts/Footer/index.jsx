@@ -28,15 +28,15 @@ const siteMap = [
   },
   {
     label: '이용약관',
-    link: '/',
+    link: urlConf.TOS,
   },
   {
     label: '자주 묻는 질문',
-    link: '/',
+    link: urlConf.FAQ,
   },
   {
     label: '개인정보취급방침',
-    link: '/',
+    link: urlConf.PP,
   },
 ];
 

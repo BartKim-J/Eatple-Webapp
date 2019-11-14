@@ -4,6 +4,9 @@ const urls = {
   Payment: '/payment',
   PaymentResult: '/payment/result',
 
+  TOS: '/tos',
+  PP: '/pp',
+
   KakaoChatbot: 'http://pf.kakao.com/_xaxlptT/chat',
   Facebook: 'https://www.facebook.com/',
   Instagram: 'https://www.instagram.com/',
