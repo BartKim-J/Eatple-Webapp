@@ -57,7 +57,7 @@ Styled.TextBox = styled.div`
 `;
 
 Styled.Highlight = styled.span`
-  font-family: 'S-CoreDream-6';
+    font-family: 'S-CoreDream-6';
   font-weight: bold;
 `;
 
