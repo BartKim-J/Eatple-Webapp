@@ -20,7 +20,7 @@ function usePrevious(value) {
 }
 
 export default function ResultViewBox({ pageIndex, progress, pages }) {
-  const countInit = 3;
+  const countInit = 2;
   const eatplePrice = 5500;
   const seoulPrice = 9030;
 

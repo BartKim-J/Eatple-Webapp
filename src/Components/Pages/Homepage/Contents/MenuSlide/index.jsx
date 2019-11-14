@@ -11,13 +11,15 @@ import MobileTextBox from './ComponentsMobile/TextBox';
 import MobileMenuSlider from './ComponentsMobile/MenuSlider';
 import MobilePartnersMap from './ComponentsMobile/PartnersMap';
 
+import partnersInfo from './partnersInfo';
+
 function Content() {
   return (
     <Styled.Section>
       <Styled.Container>
         <TextBox />
-        <MenuSlider />
-        <PartnersMap />
+        <MenuSlider partnersInfo={partnersInfo} />
+        <PartnersMap partnersInfo={partnersInfo} />
       </Styled.Container>
     </Styled.Section>
   );
@@ -26,10 +28,10 @@ function Content() {
 function ContentMobile() {
   return (
     <StyledMobile.Section>
-      <MobilePartnersMap />
+      <MobilePartnersMap partnersInfo={partnersInfo} />
       <StyledMobile.Container>
         <MobileTextBox />
-        <MobileMenuSlider />
+        <MobileMenuSlider partnersInfo={partnersInfo} />
       </StyledMobile.Container>
     </StyledMobile.Section>
   );
@@ -75,8 +77,6 @@ StyledMobile.Section = styled.section`
 
   width: 100vw;
   height: 150vh;
-
-  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;

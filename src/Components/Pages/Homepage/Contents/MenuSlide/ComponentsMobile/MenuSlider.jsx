@@ -4,71 +4,16 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ImgSlideMain from '../Images/imgMenu@3x.png';
-import ImgSlideSub1 from '../Images/imgMenu@2x.png';
-
 import ImgBtnSlideLeft from '../Images/BtnLeft.svg';
 import ImgBtnSlideRight from '../Images/BtnRight.svg';
 
-const slideItemList = [
-  {
-    storeName: '유부남',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '카레 천국',
-    storeAddress: '주소',
-    menuName: '버섯 카레',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '햄킹',
-    storeAddress: '주소',
-    menuName: '햄주먹밥',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '영삼이 떡볶이',
-    storeAddress: '주소',
-    menuName: '간단 분식세트',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '네츄럴 띵크',
-    storeAddress: '주소',
-    menuName: '다이어트 셀러드',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '돈상부리',
-    storeAddress: '주소',
-    menuName: '돈카츠 덮밥',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '로봇김밥',
-    storeAddress: '주소',
-    menuName: '참치김밥 세트',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-];
-
-function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
+function MenuInfoBox({ partnersInfo, prevSlide, nextSlide, slideIndex }) {
   const StyledMenuInfoBox = {};
 
   StyledMenuInfoBox.ButtonBoxWrap = styled.div`
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 0;
 
     z-index: 100;
   `;
@@ -105,8 +50,8 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
     return (
       <div className="slider-text-box-wrap">
         <div className="slider-text-box">
-          <div className="store-name">{slideItemList[slideIndex].storeName}</div>
-          <div className="menu-name">{slideItemList[slideIndex].menuName}</div>
+          <div className="store-name">{partnersInfo[slideIndex].storeName}</div>
+          <div className="menu-name">{partnersInfo[slideIndex].menuName}</div>
         </div>
       </div>
     );
@@ -121,30 +66,32 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
   );
 }
 MenuInfoBox.propTypes = {
+  partnersInfo: PropType.array.isRequired,
   slideIndex: PropType.number.isRequired,
   prevSlide: PropType.func.isRequired,
   nextSlide: PropType.func.isRequired,
 };
 
-function MainImageSlideBox({ slideIndex }) {
+function MainImageSlideBox({ partnersInfo, slideIndex }) {
   return (
     <Styled.MainImageSlideBox>
-      <img src={slideItemList[slideIndex].mainImage} alt="Button" draggable="false" />
+      <img src={partnersInfo[slideIndex].mainImage} alt="Button" draggable="false" />
     </Styled.MainImageSlideBox>
   );
 }
 MainImageSlideBox.propTypes = {
+  partnersInfo: PropType.array.isRequired,
   slideIndex: PropType.number.isRequired,
 };
 
-export default function MenuSlider() {
+export default function MenuSlider({ partnersInfo }) {
   const [slideIndex, setSlideIndex] = useState(0);
 
   function prevSlide() {
     let nextSlideIndex = slideIndex - 1;
 
     if (nextSlideIndex < 0) {
-      nextSlideIndex = slideItemList.length - 1;
+      nextSlideIndex = partnersInfo.length - 1;
     }
 
     setSlideIndex(nextSlideIndex);
@@ -153,7 +100,7 @@ export default function MenuSlider() {
   function nextSlide() {
     let nextSlideIndex = slideIndex + 1;
 
-    if (slideIndex >= slideItemList.length - 1) {
+    if (slideIndex >= partnersInfo.length - 1) {
       nextSlideIndex = 0;
     }
     setSlideIndex(nextSlideIndex);
@@ -163,7 +110,7 @@ export default function MenuSlider() {
     const autoSlideMover = setInterval(() => {
       let nextSlideIndex = slideIndex + 1;
 
-      if (slideIndex >= slideItemList.length - 1) {
+      if (slideIndex >= partnersInfo.length - 1) {
         nextSlideIndex = 0;
       }
 
@@ -173,17 +120,25 @@ export default function MenuSlider() {
     return () => {
       clearInterval(autoSlideMover);
     };
-  }, [slideIndex]);
+  }, [partnersInfo, slideIndex]);
 
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <MenuInfoBox slideIndex={slideIndex} prevSlide={prevSlide} nextSlide={nextSlide} />
-        <MainImageSlideBox slideIndex={slideIndex} />
+        <MenuInfoBox
+          partnersInfo={partnersInfo}
+          slideIndex={slideIndex}
+          prevSlide={prevSlide}
+          nextSlide={nextSlide}
+        />
+        <MainImageSlideBox partnersInfo={partnersInfo} slideIndex={slideIndex} />
       </Styled.Container>
     </Styled.Wrap>
   );
 }
+MenuSlider.propTypes = {
+  partnersInfo: PropType.array.isRequired,
+};
 
 const Styled = {};
 
@@ -194,6 +149,10 @@ Styled.Wrap = styled.div`
 
   width: 100%;
   height: 35%;
+
+  background-color: #f8f8fa;
+
+  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
 `;
 
 Styled.Container = styled.div`
@@ -209,7 +168,7 @@ Styled.MainImageSlideBox = styled.div`
   position: relative;
 
   width: 100%;
-  height: 75%;
+  height: 68%;
 
   overflow: hidden;
 

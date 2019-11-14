@@ -54,7 +54,7 @@ Styled.Container = styled.div`
   color: #1c1c1c;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 52px;
+    font-size: 44px;
   }
 
   .highlight {

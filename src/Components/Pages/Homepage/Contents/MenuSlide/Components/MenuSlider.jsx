@@ -4,65 +4,10 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ImgSlideMain from '../Images/imgMenu@3x.png';
-import ImgSlideSub1 from '../Images/imgMenu@2x.png';
-
 import ImgBtnSlideLeft from '../Images/BtnLeft.svg';
 import ImgBtnSlideRight from '../Images/BtnRight.svg';
 
-const slideItemList = [
-  {
-    storeName: '유부남',
-    storeAddress: '주소',
-    menuName: '유부초밥 & 샐러드',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '카레 천국',
-    storeAddress: '주소',
-    menuName: '버섯 카레',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '햄킹',
-    storeAddress: '주소',
-    menuName: '햄주먹밥',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '영삼이 떡볶이',
-    storeAddress: '주소',
-    menuName: '간단 분식세트',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '네츄럴 띵크',
-    storeAddress: '주소',
-    menuName: '다이어트 셀러드',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '돈상부리',
-    storeAddress: '주소',
-    menuName: '돈카츠 덮밥',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-  {
-    storeName: '로봇김밥',
-    storeAddress: '주소',
-    menuName: '참치김밥 세트',
-    mainImage: ImgSlideMain,
-    subImage: ImgSlideSub1,
-  },
-];
-
-function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
+function MenuInfoBox({ partnersInfo, prevSlide, nextSlide, slideIndex }) {
   const StyledMenuInfoBox = {};
 
   StyledMenuInfoBox.ButtonBoxWrap = styled.div`
@@ -70,7 +15,7 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
     right: 0;
     top: 0;
   `;
-  
+
   StyledMenuInfoBox.ButtonBox = styled.div`
     display: inline-block;
 
@@ -79,7 +24,7 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
       max-width: 48px;
 
       transform: translate(0, -100%);
-      
+
       img {
         width: 100%;
       }
@@ -105,10 +50,10 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
     return (
       <div className="slider-text-box-wrap">
         <div className="slider-text-box">
-          <div className="store-name">{slideItemList[slideIndex].storeName}</div>
-          <div className="menu-name">{slideItemList[slideIndex].menuName}</div>
-          <div className="store-address">{slideItemList[slideIndex].storeAddress}</div>
-          <div className="menu-index-text">{`${slideIndex + 1}/${slideItemList.length}`}</div>
+          <div className="store-name">{partnersInfo[slideIndex].storeName}</div>
+          <div className="menu-name">{partnersInfo[slideIndex].menuName}</div>
+          <div className="store-address">{partnersInfo[slideIndex].storeAddress}</div>
+          <div className="menu-index-text">{`${slideIndex + 1}/${partnersInfo.length}`}</div>
         </div>
       </div>
     );
@@ -123,23 +68,32 @@ function MenuInfoBox({ prevSlide, nextSlide, slideIndex }) {
   );
 }
 MenuInfoBox.propTypes = {
+  partnersInfo: PropType.array.isRequired,
   slideIndex: PropType.number.isRequired,
   prevSlide: PropType.func.isRequired,
   nextSlide: PropType.func.isRequired,
 };
 
-function MainImageSlideBox({ slideIndex }) {
+function MainImageSlideBox({ partnersInfo, slideIndex }) {
   return (
     <Styled.MainImageSlideBox>
-      <img src={slideItemList[slideIndex].mainImage} alt="Button" draggable="false" />
+      <img src={partnersInfo[slideIndex].mainImage} alt="Button" draggable="false" />
     </Styled.MainImageSlideBox>
   );
 }
 MainImageSlideBox.propTypes = {
+  partnersInfo: PropType.array.isRequired,
   slideIndex: PropType.number.isRequired,
 };
 
-function SubImageSlideBox({ slideIndex, movement, transitionTo, prevSlide, nextSlide }) {
+function SubImageSlideBox({
+  partnersInfo,
+  slideIndex,
+  movement,
+  transitionTo,
+  prevSlide,
+  nextSlide,
+}) {
   return (
     <Styled.SubImageSlideBox>
       <div className="sub-box-item-list">
@@ -148,11 +102,11 @@ function SubImageSlideBox({ slideIndex, movement, transitionTo, prevSlide, nextS
           className="item-swiper"
           style={{
             transform: `translateX(${13.3 * movement * -1}%)`,
-            width: `${slideItemList.length} * 15%`,
+            width: `${partnersInfo.length} * 15%`,
           }}
           tabIndex={0}
         >
-          {slideItemList.map((slideItem, index) => {
+          {partnersInfo.map((slideItem, index) => {
             let className = 'sub-box-item';
 
             if (index === slideIndex) {
@@ -174,11 +128,17 @@ function SubImageSlideBox({ slideIndex, movement, transitionTo, prevSlide, nextS
           })}
         </div>
       </div>
-      <MenuInfoBox slideIndex={slideIndex} nextSlide={nextSlide} prevSlide={prevSlide} />
+      <MenuInfoBox
+        partnersInfo={partnersInfo}
+        slideIndex={slideIndex}
+        nextSlide={nextSlide}
+        prevSlide={prevSlide}
+      />
     </Styled.SubImageSlideBox>
   );
 }
 SubImageSlideBox.propTypes = {
+  partnersInfo: PropType.array.isRequired,
   slideIndex: PropType.number.isRequired,
   movement: PropType.number.isRequired,
   transitionTo: PropType.func.isRequired,
@@ -186,17 +146,17 @@ SubImageSlideBox.propTypes = {
   nextSlide: PropType.func.isRequired,
 };
 
-export default function MenuSlider() {
+export default function MenuSlider({ partnersInfo }) {
   const minImageCount = 5;
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [movement, setMovement] = useState(0);
 
   function transitionTo(pos) {
-    if (pos <= slideItemList.length - minImageCount) {
+    if (pos <= partnersInfo.length - minImageCount) {
       setMovement(pos);
     } else {
-      setMovement(slideItemList.length - minImageCount);
+      setMovement(partnersInfo.length - minImageCount);
     }
 
     setSlideIndex(pos);
@@ -206,7 +166,7 @@ export default function MenuSlider() {
     let nextSlideIndex = slideIndex - 1;
 
     if (nextSlideIndex < 0) {
-      nextSlideIndex = slideItemList.length - 1;
+      nextSlideIndex = partnersInfo.length - 1;
     }
 
     transitionTo(nextSlideIndex);
@@ -215,7 +175,7 @@ export default function MenuSlider() {
   function nextSlide() {
     let nextSlideIndex = slideIndex + 1;
 
-    if (slideIndex >= slideItemList.length - 1) {
+    if (slideIndex >= partnersInfo.length - 1) {
       nextSlideIndex = 0;
     }
 
@@ -226,7 +186,7 @@ export default function MenuSlider() {
     const autoSlideMover = setInterval(() => {
       let nextSlideIndex = slideIndex + 1;
 
-      if (slideIndex >= slideItemList.length - 1) {
+      if (slideIndex >= partnersInfo.length - 1) {
         nextSlideIndex = 0;
       }
 
@@ -236,13 +196,14 @@ export default function MenuSlider() {
     return () => {
       clearInterval(autoSlideMover);
     };
-  }, [slideIndex]);
+  });
 
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <MainImageSlideBox slideIndex={slideIndex} />
+        <MainImageSlideBox partnersInfo={partnersInfo} slideIndex={slideIndex} />
         <SubImageSlideBox
+          partnersInfo={partnersInfo}
           slideIndex={slideIndex}
           prevSlide={prevSlide}
           nextSlide={nextSlide}
@@ -253,13 +214,16 @@ export default function MenuSlider() {
     </Styled.Wrap>
   );
 }
+MenuSlider.propTypes = {
+  partnersInfo: PropType.array.isRequired,
+};
 
 const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  top: 32%;
-  right: 15%;
+  top: 40%;
+  right: 5%;
 
   z-index: 100;
 

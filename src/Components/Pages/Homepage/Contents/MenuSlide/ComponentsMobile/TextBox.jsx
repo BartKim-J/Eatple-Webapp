@@ -28,6 +28,8 @@ Styled.Wrap = styled.div`
   left: 2%;
 
   z-index: 100;
+
+  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
 `;
 
 Styled.Container = styled.div`
