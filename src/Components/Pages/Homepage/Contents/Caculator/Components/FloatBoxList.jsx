@@ -6,13 +6,13 @@ import { animated } from 'react-spring';
 
 import FloatBox from './FloatBox';
 
-import ImgMenu1 from '../Images/photo01.png';
-import ImgMenu2 from '../Images/photo02.png';
-import ImgMenu3 from '../Images/photo03.png';
-import ImgMenu4 from '../Images/photo04.png';
-import ImgMenu5 from '../Images/photo05.png';
-import ImgMenu6 from '../Images/photo06.png';
-import ImgMenu7 from '../Images/photo07.png';
+import ImgMenu1 from '../Images/photo01.jpg';
+import ImgMenu2 from '../Images/photo02.jpg';
+import ImgMenu3 from '../Images/photo03.jpg';
+import ImgMenu4 from '../Images/photo04.jpg';
+import ImgMenu5 from '../Images/photo05.jpg';
+import ImgMenu6 from '../Images/photo06.jpg';
+import ImgMenu7 from '../Images/photo07.jpg';
 
 const CategoryMap = [
   {

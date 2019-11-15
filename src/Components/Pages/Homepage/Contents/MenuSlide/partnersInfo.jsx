@@ -1,4 +1,4 @@
-import ImgSlide from './Images/imgMenu.png';
+import ImgSlide from './Images/imgMenu.jpg';
 
 const KakaoMapAPI = window.kakao.maps;
 

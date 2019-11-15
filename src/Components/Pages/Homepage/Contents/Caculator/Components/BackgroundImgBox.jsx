@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ImgBackground from '../Images/BgCalculator.png';
+import ImgBackground from '../Images/BgCalculator.jpg';
 
 export default function BackgroundImgBox() {
   return (
