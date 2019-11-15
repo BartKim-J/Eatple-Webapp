@@ -9,7 +9,7 @@ export default function SocialMap({ mapArray }) {
         {mapArray.map(entryIcon => {
           return (
             <li key={entryIcon.label}>
-              <a href={entryIcon.link} target="_blank" rel="noopener noreferrer">
+              <a href={entryIcon.link} target="_blank">
                 <img src={entryIcon.icon} alt={entryIcon.label} draggable="false" />
               </a>
             </li>

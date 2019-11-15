@@ -8,7 +8,7 @@ export default function FloatBox({ src, menuPrice, menuName }) {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <Styled.MenuImage src={src} />
+        <Styled.MenuImage src={src} alt={menuName} />
         <Styled.MenuInfo>{`${menuName} | ${menuPrice}원`}</Styled.MenuInfo>
       </Styled.Container>
     </Styled.Wrap>

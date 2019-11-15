@@ -56,7 +56,7 @@ function MobileContent() {
   const factor = 1;
   const thorottle = 250;
 
-  const anchorsName = '!/calculator';
+  const anchorsName = '!/calculator-mobile';
 
   return (
     <StyledMobile.Stickyroll>

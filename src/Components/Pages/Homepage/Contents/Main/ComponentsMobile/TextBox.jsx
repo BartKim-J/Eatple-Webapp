@@ -34,16 +34,15 @@ Styled.TextBoxWrap = styled.div`
 Styled.TextBox = styled.div`
   display: inline-block;
 
-  text-align: left;
-  font-family: 'S-CoreDream';
-  font-size: 8vw;
-  line-height: 1.33;
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
-    font-size: 34px;
-  }
-
   .title {
+    text-align: left;
+    font-family: 'S-CoreDream';
+    font-size: 8vw;
+    line-height: 1.33;
+
+    @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
+      font-size: 34px;
+    }
   }
 
   .highlight {

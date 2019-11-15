@@ -27,6 +27,8 @@ export default function App() {
 
                 <Route exact path={urlConf.TOS} component={TOS} />
                 <Route exact path={urlConf.PP} component={PP} />
+
+                <Route exact path="robots.txt" />
                 <Route component={Error} />
               </Switch>
               <Footer />
