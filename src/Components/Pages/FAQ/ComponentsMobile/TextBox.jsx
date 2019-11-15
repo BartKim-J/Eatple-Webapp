@@ -101,7 +101,7 @@ Styled.QnAItem = styled.div`
 `;
 
 Styled.Question = styled.div`
-  font-family: 'S-CoreDream-6';
+  font-family: 'S-CoreDream-Bold';
   font-size: 3.8vw;
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
@@ -110,7 +110,7 @@ Styled.Question = styled.div`
 `;
 
 Styled.Answer = styled.div`
-  font-family: 'S-CoreDream-4';
+  font-family: 'S-CoreDream-Bold';
   font-size: 3.4vw;
 
   padding: 5% 10%;

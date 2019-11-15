@@ -45,7 +45,7 @@ Styled.Container = styled.div`
 
   text-align: left;
 
-  font-family: 'S-CoreDream-5';
+  font-family: 'S-CoreDream-Bold';
   font-size: 5vw;
   line-height: 1.46;
 
@@ -62,7 +62,7 @@ Styled.Container = styled.div`
   .sub-text {
     margin-top: 16px;
 
-    font-family: 'S-CoreDream-3';
+    font-family: 'S-CoreDream';
     font-size: 3vw;
     line-height: 1.6;
 
@@ -79,12 +79,12 @@ Styled.Container = styled.div`
   }
 
   .qna-text-box {
-    font-family: 'S-CoreDream-3';
+    font-family: 'S-CoreDream';
     font-size: 3vw;
     line-height: 1.44;
 
     .qna-highlight {
-      font-family: 'S-CoreDream-6';
+      font-family: 'S-CoreDream-Bold';
       text-decoration: underline;
     }
 

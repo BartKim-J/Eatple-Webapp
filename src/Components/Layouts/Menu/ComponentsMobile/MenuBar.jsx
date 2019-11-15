@@ -30,7 +30,6 @@ export default function MenuBar() {
           />
         </Link>
       </Styled.Logo>
-      <Styled.ItemList></Styled.ItemList>
     </Styled.MenuBar>
   );
 }
@@ -50,25 +49,10 @@ Styled.MenuBar = styled(animated.div)`
 
 Styled.Logo = styled.div`
   position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
 
   display: flex;
   float: left;
 
   width: 14vw;
   max-width: 88px;
-`;
-
-Styled.ItemList = styled.div`
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
-
-  display: flex;
-  float: right;
-`;
-
-Styled.Item = styled.div`
-  margin-left: 5vw;
 `;

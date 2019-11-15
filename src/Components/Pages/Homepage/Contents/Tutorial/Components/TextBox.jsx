@@ -27,7 +27,7 @@ Styled.Container = styled.div`
   display: inline-block;
 
   text-align: left;
-  font-family: 'S-CoreDream-5';
+  font-family: 'S-CoreDream-Bold';
   font-size: 3vw;
   line-height: 1.46;
 

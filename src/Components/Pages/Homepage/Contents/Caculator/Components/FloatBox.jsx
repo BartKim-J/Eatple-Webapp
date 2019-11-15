@@ -45,7 +45,7 @@ Styled.MenuImage = styled.img`
 Styled.MenuInfo = styled.div`
   text-align: right;
 
-  font-family: 'S-CoreDream-6';
+  font-family: 'S-CoreDream-Bold';
   font-size: 1vw;
   line-height: 1.5;
   color: #222222;

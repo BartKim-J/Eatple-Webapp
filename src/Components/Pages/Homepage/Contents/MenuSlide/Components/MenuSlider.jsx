@@ -341,7 +341,7 @@ Styled.MenuInfoBox = styled.div`
       padding: 5% 10%;
 
       .store-name {
-        font-family: 'S-CoreDream-5';
+        font-family: 'S-CoreDream-Bold';
         font-size: 0.8vw;
         line-height: 1.67;
         letter-spacing: 1.09px;
@@ -353,7 +353,7 @@ Styled.MenuInfoBox = styled.div`
       }
 
       .menu-name {
-        font-family: 'S-CoreDream-5';
+        font-family: 'S-CoreDream-Bold';
         font-size: 1.4vw;
         line-height: 1.5;
         letter-spacing: -0.8px;
@@ -369,7 +369,7 @@ Styled.MenuInfoBox = styled.div`
         left: 10%;
 
         font-size: 0.8vw;
-        font-family: 'S-CoreDream-3';
+        font-family: 'S-CoreDream';
         line-height: 2.17;
         color: #ffffff;
 

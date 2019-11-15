@@ -35,7 +35,7 @@ Styled.TextBox = styled.div`
   display: inline-block;
 
   text-align: left;
-  font-family: 'S-CoreDream-3';
+  font-family: 'S-CoreDream';
   font-size: 8vw;
   line-height: 1.33;
 
@@ -47,7 +47,7 @@ Styled.TextBox = styled.div`
   }
 
   .highlight {
-    font-family: 'S-CoreDream-6';
+    font-family: 'S-CoreDream-Bold';
   }
 
   .sub-text {

@@ -140,7 +140,7 @@ Styled.Container = styled.div`
 `;
 
 Styled.HeaderText = styled.div`
-  font-family: 'S-CoreDream-5';
+  font-family: 'S-CoreDream-Bold';
   font-size: 2vw;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
@@ -151,7 +151,7 @@ Styled.HeaderText = styled.div`
 `;
 
 Styled.InnerText = styled.div`
-  font-family: 'S-CoreDream-3';
+  font-family: 'S-CoreDream';
   font-size: 1.2vw;
   text-align: left;
 
@@ -178,7 +178,7 @@ Styled.ListItem = styled.div`
 Styled.FooterTextHeader = styled.div`
   margin-top: 10%;
 
-  font-family: 'S-CoreDream-6';
+  font-family: 'S-CoreDream-Bold';
   font-size: 1vw;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
@@ -187,7 +187,7 @@ Styled.FooterTextHeader = styled.div`
 `;
 
 Styled.FooterTextInner = styled.div`
-  font-family: 'S-CoreDream-4';
+  font-family: 'S-CoreDream-Bold';
   font-size: 0.8vw;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {

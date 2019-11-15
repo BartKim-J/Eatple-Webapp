@@ -32,7 +32,7 @@ Styled.Container = styled.div`
   text-align: left;
   margin-bottom: 5%;
 
-  font-family: 'S-CoreDream-5';
+  font-family: 'S-CoreDream-Bold';
   font-size: 3vw;
   line-height: 1.46;
   color: #222222;

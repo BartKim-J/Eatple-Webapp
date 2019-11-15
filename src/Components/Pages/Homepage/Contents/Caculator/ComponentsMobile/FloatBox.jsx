@@ -44,7 +44,7 @@ Styled.MenuInfo = styled.div`
 
   margin-top: 4%;
 
-  font-family: 'S-CoreDream-6';
+  font-family: 'S-CoreDream-Bold';
   font-size: 3vw;
   line-height: 1.5;
   color: #222222;

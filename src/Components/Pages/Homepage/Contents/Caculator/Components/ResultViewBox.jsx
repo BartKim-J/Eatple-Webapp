@@ -152,7 +152,7 @@ Styled.TextBox = styled.div`
   text-align: left;
 
   font-size: 1.6vw;
-  font-family: 'S-CoreDream-5';
+  font-family: 'S-CoreDream-Bold';
   line-height: 1.72;
   color: #ffffff;
 
@@ -163,7 +163,7 @@ Styled.TextBox = styled.div`
 
 Styled.TextHighlight = styled.span`
   color: #fca800;
-  font-family: 'S-CoreDream-7';
+  font-family: 'S-CoreDream-Bold';
 `;
 
 Styled.BackgroundImgWrap = styled.div`

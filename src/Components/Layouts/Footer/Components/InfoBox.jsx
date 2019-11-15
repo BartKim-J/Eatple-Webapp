@@ -31,7 +31,7 @@ Styled.Wrap = styled.div`
 `;
 
 Styled.Container = styled.div`
-  font-family: 'S-CoreDream-3';
+  font-family: 'S-CoreDream';
 
   color: #ffffff;
 

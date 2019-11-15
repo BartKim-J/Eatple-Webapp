@@ -188,7 +188,7 @@ Styled.MenuInfoBox = styled.div`
       width: 100%;
       height: 100%;
 
-      font-family: 'S-CoreDream-5';
+      font-family: 'S-CoreDream-Bold';
       color: #000000;
       text-align: left;
 

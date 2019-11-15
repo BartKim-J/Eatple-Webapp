@@ -74,7 +74,7 @@ Styled.TextBox = styled.div`
 
   .title {
     font-size: 4vw;
-    font-family: 'S-CoreDream-6';
+    font-family: 'S-CoreDream-Bold';
     line-height: 0.86;
 
     @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {
@@ -86,7 +86,7 @@ Styled.TextBox = styled.div`
     margin-top: 3%;
 
     font-size: 2.7vw;
-    font-family: 'S-CoreDream-3';
+    font-family: 'S-CoreDream';
     line-height: 1.44;
 
     @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT}) {

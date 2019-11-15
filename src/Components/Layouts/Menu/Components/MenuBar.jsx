@@ -8,8 +8,6 @@ import urlConf from 'configure/urlConfig';
 import Logo from 'resource/Image/ImgLogo.svg';
 import BtnTrial from '../Images/BtnFloating.svg';
 
-const Styled = {};
-
 export default function MenuBar() {
   const styleMenu = useSpring({
     from: { top: '-200%' },
@@ -48,6 +46,9 @@ export default function MenuBar() {
     </Styled.MenuBar>
   );
 }
+
+const Styled = {};
+
 Styled.MenuBar = styled(animated.div)`
   position: relative;
 

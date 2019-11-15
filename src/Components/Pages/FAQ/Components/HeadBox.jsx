@@ -44,14 +44,14 @@ Styled.TextBoxWrap = styled.div`
 `;
 
 Styled.TextBox = styled.div`
-  font-family: 'S-CoreDream-3';
+  font-family: 'S-CoreDream';
   font-size: 4.4vw;
   line-height: 1.33;
   color: #222222;
 `;
 
 Styled.Highlight = styled.span`
-  font-family: 'S-CoreDream-6';
+  font-family: 'S-CoreDream-Bold';
   font-weight: bold;
 `;
 
