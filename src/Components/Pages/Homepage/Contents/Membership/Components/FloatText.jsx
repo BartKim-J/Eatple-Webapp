@@ -43,7 +43,7 @@ Styled.FloatTextBox = styled.div`
   color: #222222;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 52px;
+    font-size: 46px;
   }
 
   .highlight {

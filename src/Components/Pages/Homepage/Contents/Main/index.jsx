@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
 
 import mediaConf from 'configure/mediaConfig';
 
@@ -10,11 +11,22 @@ import MobileBackgroundImg from './ComponentsMobile/BackgroundImg';
 import MobileTextBox from './ComponentsMobile/TextBox';
 
 function Content() {
+  const styleHeadBox = useSpring({
+    config: { mass: 1, tension: 35, friction: 9 },
+    from: { left: '-100%', top: '0%' },
+    to: async next => {
+      await next({
+        left: '0%',
+      });
+    },
+    delay: 1000,
+  });
+
   return (
     <Styled.Section>
       <BackgroundImg />
       <Styled.Container>
-        <Styled.HeadBoxWrap>
+        <Styled.HeadBoxWrap style={styleHeadBox}>
           <Styled.HeadBox>
             <TextBox />
           </Styled.HeadBox>
@@ -25,11 +37,22 @@ function Content() {
 }
 
 function ContentMobile() {
+  const styleHeadBox = useSpring({
+    config: { mass: 1, tension: 35, friction: 12 },
+    from: { left: '0%', top: '-50%' },
+    to: async next => {
+      await next({
+        top: '0%',
+      });
+    },
+    delay: 1000,
+  });
+
   return (
     <StyledMobile.Section>
       <MobileBackgroundImg />
       <StyledMobile.Container>
-        <StyledMobile.HeadBoxWrap>
+        <StyledMobile.HeadBoxWrap style={styleHeadBox}>
           <StyledMobile.HeadBox>
             <MobileTextBox />
           </StyledMobile.HeadBox>
@@ -76,9 +99,12 @@ Styled.Container = styled.div`
   height: 100%;
 
   margin: 0 auto;
+
+  z-index: 101;
 `;
 
-Styled.HeadBoxWrap = styled.div`
+Styled.HeadBoxWrap = styled(animated.div)`
+  position: absolute;
   display: table;
 
   width: 50%;
@@ -114,7 +140,8 @@ StyledMobile.Container = styled.div`
   margin: 0 auto;
 `;
 
-StyledMobile.HeadBoxWrap = styled.div`
+StyledMobile.HeadBoxWrap = styled(animated.div)`
+  position: absolute;
   display: table;
 
   width: 100%;

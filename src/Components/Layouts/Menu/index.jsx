@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
 
 import urlConf from 'configure/urlConfig';
 import mediaConf from 'configure/mediaConfig';
@@ -10,10 +11,20 @@ import Logo from 'resource/Image/ImgLogo.svg';
 import BtnTrial from './Images/BtnFloating.svg';
 
 function DesktopMenu() {
+  const styleMenu = useSpring({
+    from: { left: '0%', top: '-200%' },
+    to: async next => {
+      await next({
+        top: '0%',
+      });
+    },
+    delay: 2000,
+  });
+
   return (
     <Styled.Section>
       <Styled.Container>
-        <Styled.MenuBar>
+        <Styled.MenuBar style={styleMenu}>
           <Styled.Logo>
             <Link to={urlConf.Homepage}>
               <img
@@ -76,7 +87,7 @@ export default function Menu() {
 const Styled = {};
 
 Styled.Section = styled.section`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -108,7 +119,7 @@ Styled.Container = styled.div`
   }
 `;
 
-Styled.MenuBar = styled.div`
+Styled.MenuBar = styled(animated.div)`
   position: relative;
 
   width: 100%;

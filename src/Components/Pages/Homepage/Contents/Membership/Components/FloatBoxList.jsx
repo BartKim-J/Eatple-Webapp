@@ -66,7 +66,14 @@ export default function FloatBoxList({ scrollY }) {
       <Styled.Container>
         <Styled.Item>
           <div className="vertical-line" />
-          <animated.div style={{ transform: scrollY.interpolate(trans1) }}>
+          <animated.div
+            style={{
+              transform: scrollY.interpolate(trans1),
+              opacity: scrollY.interpolate(
+                y => `${(((y - 180) * 3.6) / window.innerHeight) * 0.56}`,
+              ),
+            }}
+          >
             <FloatBox
               className="float-box"
               icon={IconValue}
@@ -75,7 +82,14 @@ export default function FloatBoxList({ scrollY }) {
               subTextLine2="5,500원에 즐길 수 있어요!"
             />
           </animated.div>
-          <animated.div style={{ transform: scrollY.interpolate(trans2) }}>
+          <animated.div
+            style={{
+              transform: scrollY.interpolate(trans2),
+              opacity: scrollY.interpolate(
+                y => `${(((y - 380) * 3.6) / window.innerHeight) * 0.68}`,
+              ),
+            }}
+          >
             <FloatBox
               className="float-box"
               icon={IconTime}
@@ -88,7 +102,14 @@ export default function FloatBoxList({ scrollY }) {
 
         <Styled.Item>
           <div className="vertical-line" />
-          <animated.div style={{ transform: scrollY.interpolate(trans3) }}>
+          <animated.div
+            style={{
+              transform: scrollY.interpolate(trans3),
+              opacity: scrollY.interpolate(
+                y => `${(((y - 280) * 3.6) / window.innerHeight) * 0.8}`,
+              ),
+            }}
+          >
             <FloatBox
               className="float-box"
               icon={IconVariety}
