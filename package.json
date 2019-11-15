@@ -14,7 +14,6 @@
     "eslint-config-prettier": "^6.4.0",
     "jquery": "^3.4.1",
     "lodash-es": "^4.17.15",
-    "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.3",
     "react": "^16.8.6",
@@ -29,9 +28,7 @@
     "react-useragent": "^1.1.2",
     "react-with-gesture": "^4.0.8",
     "redux": "^4.0.1",
-    "sass-loader": "^7.1.0",
-    "slick-carousel": "^1.8.1",
-    "styled-components": "^4.4.0",
+    "styled-components": "^4.4.1",
     "typescript": "^3.5.3"
   },
   "scripts": {

@@ -32,7 +32,7 @@ Styled.Container = styled.div`
   line-height: 1.46;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 52px;
+    font-size: 46px;
   }
 
   .highlight {

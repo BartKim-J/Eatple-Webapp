@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ImgBackground from '../Images/BgHowto@3x.png';
+import ImgBackground from '../Images/BgHowto.png';
 
 export default function BackgroundImg() {
   return (

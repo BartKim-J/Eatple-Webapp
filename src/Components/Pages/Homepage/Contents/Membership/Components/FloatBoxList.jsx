@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { animated } from 'react-spring';
@@ -10,9 +10,9 @@ import IconVariety from '../Images/IcVariety.svg';
 import FloatBox from './FloatBox';
 
 export default function FloatBoxList({ scrollY }) {
-  function trans1(y) {
-    const movement = 0.4;
-    const anchor = 0.3;
+  const [fixTriger, setFixTriger] = useState(false);
+
+  function trans(y, movement, anchor) {
     let pos = y * movement;
     let screenHeight = window.innerHeight;
 
@@ -20,45 +20,23 @@ export default function FloatBoxList({ scrollY }) {
       screenHeight = window.innerWidth * 0.5625;
     }
 
-    if (pos >= screenHeight * anchor) {
+    if (pos >= screenHeight * anchor || fixTriger === true) {
       pos = screenHeight * anchor;
+    }
+
+    if (y * 1 >= screenHeight * 0.9) {
+      setFixTriger(true);
     }
 
     return `translate3d(0,${pos}px,0)`;
   }
 
-  function trans2(y) {
-    const movement = 1;
-    const anchor = 0.9;
-    let pos = y * movement;
-    let screenHeight = window.innerHeight;
-
-    if (screenHeight >= window.innerWidth) {
-      screenHeight = window.innerWidth * 0.5625;
+  function opac(y, mass, offset, anchor) {
+    if (fixTriger === true) {
+      return '1';
     }
 
-    if (pos >= screenHeight * anchor) {
-      pos = screenHeight * anchor;
-    }
-
-    return `translate3d(0,${pos}px,0)`;
-  }
-
-  function trans3(y) {
-    const movement = 0.7;
-    const anchor = 0.6;
-    let pos = y * movement;
-    let screenHeight = window.innerHeight;
-
-    if (screenHeight >= window.innerWidth) {
-      screenHeight = window.innerWidth * 0.5625;
-    }
-
-    if (pos >= screenHeight * anchor) {
-      pos = screenHeight * anchor;
-    }
-
-    return `translate3d(0,${pos}px,0)`;
+    return `${(((y - offset) * mass) / window.innerHeight) * anchor}`;
   }
 
   return (
@@ -68,10 +46,8 @@ export default function FloatBoxList({ scrollY }) {
           <div className="vertical-line" />
           <animated.div
             style={{
-              transform: scrollY.interpolate(trans1),
-              opacity: scrollY.interpolate(
-                y => `${(((y - 180) * 3.6) / window.innerHeight) * 0.56}`,
-              ),
+              transform: scrollY.interpolate(y => `${trans(y, 0.4, 0.3)}`),
+              opacity: scrollY.interpolate(y => `${opac(y, 3.6, 180, 0.56)}`),
             }}
           >
             <FloatBox
@@ -84,10 +60,8 @@ export default function FloatBoxList({ scrollY }) {
           </animated.div>
           <animated.div
             style={{
-              transform: scrollY.interpolate(trans2),
-              opacity: scrollY.interpolate(
-                y => `${(((y - 380) * 3.6) / window.innerHeight) * 0.68}`,
-              ),
+              transform: scrollY.interpolate(y => `${trans(y, 1, 0.9)}`),
+              opacity: scrollY.interpolate(y => `${opac(y, 3.6, 380, 0.68)}`),
             }}
           >
             <FloatBox
@@ -104,10 +78,8 @@ export default function FloatBoxList({ scrollY }) {
           <div className="vertical-line" />
           <animated.div
             style={{
-              transform: scrollY.interpolate(trans3),
-              opacity: scrollY.interpolate(
-                y => `${(((y - 280) * 3.6) / window.innerHeight) * 0.8}`,
-              ),
+              transform: scrollY.interpolate(y => `${trans(y, 0.7, 0.6)}`),
+              opacity: scrollY.interpolate(y => `${opac(y, 3.6, 280, 0.8)}`),
             }}
           >
             <FloatBox
@@ -148,8 +120,6 @@ Styled.Container = styled.ul`
 
   width: 100%;
   height: 100%;
-
-  overflow: hidden;
 `;
 
 Styled.Item = styled.li`

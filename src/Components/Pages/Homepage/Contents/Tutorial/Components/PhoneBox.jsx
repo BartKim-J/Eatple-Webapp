@@ -5,8 +5,8 @@ import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-with-gesture';
 import clamp from 'lodash-es/clamp';
 
-import ImgPhone from '../Images/ImgPhone@3x.png';
-import ImgScreen from '../Images/ImgScreen@3x.png';
+import ImgPhone from '../Images/ImgPhone.png';
+import ImgScreen from '../Images/ImgScreen.png';
 
 export default function PhoneBox() {
   const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }));

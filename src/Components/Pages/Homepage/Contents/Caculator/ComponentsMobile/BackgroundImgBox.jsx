@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ImgBackground from '../ImagesMobile/BgCalculator@3x.png';
+import ImgBackground from '../ImagesMobile/BgCalculator.png';
 
 export default function BackgroundImgBox() {
   return (

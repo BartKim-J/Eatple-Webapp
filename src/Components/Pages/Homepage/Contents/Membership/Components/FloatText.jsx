@@ -30,20 +30,20 @@ Styled.FloatTextBoxWrap = styled.div`
 
 Styled.FloatTextBox = styled.div`
   position: relative;
-  right: 50%;
+  right: 35%;
 
   margin-bottom: 26%;
 
   max-width: 495px;
   text-align: left;
 
-  font-size: 2.8vw;
+  font-size: 2.6vw;
   font-family: 'S-CoreDream-5';
   line-height: 1.46;
   color: #222222;
 
   @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 46px;
+    font-size: 42px;
   }
 
   .highlight {

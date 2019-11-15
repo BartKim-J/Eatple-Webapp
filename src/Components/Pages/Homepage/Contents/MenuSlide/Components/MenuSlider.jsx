@@ -8,29 +8,6 @@ import ImgBtnSlideLeft from '../Images/BtnLeft.svg';
 import ImgBtnSlideRight from '../Images/BtnRight.svg';
 
 function MenuInfoBox({ partnersInfo, prevSlide, nextSlide, slideIndex }) {
-  const StyledMenuInfoBox = {};
-
-  StyledMenuInfoBox.ButtonBoxWrap = styled.div`
-    position: absolute;
-    right: 0;
-    top: 0;
-  `;
-
-  StyledMenuInfoBox.ButtonBox = styled.div`
-    display: inline-block;
-
-    .button {
-      width: 4vw;
-      max-width: 48px;
-
-      transform: translate(0, -100%);
-
-      img {
-        width: 100%;
-      }
-    }
-  `;
-
   function SliderButtonBox() {
     return (
       <StyledMenuInfoBox.ButtonBoxWrap>
@@ -413,6 +390,29 @@ Styled.MenuInfoBox = styled.div`
           font-size: 11px;
         }
       }
+    }
+  }
+`;
+
+const StyledMenuInfoBox = {};
+
+StyledMenuInfoBox.ButtonBoxWrap = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+`;
+
+StyledMenuInfoBox.ButtonBox = styled.div`
+  display: inline-block;
+
+  .button {
+    width: 4vw;
+    max-width: 48px;
+
+    transform: translate(0, -100%);
+
+    img {
+      width: 100%;
     }
   }
 `;

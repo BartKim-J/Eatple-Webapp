@@ -14,7 +14,7 @@ import queryString from 'query-string';
 import { PGS, METHODS_FOR_INICIS, QUOTAS_FOR_INICIS_AND_KCP } from './constants';
 import { getMethods, getQuotas } from './utils';
 
-import btnPayment from './Images/BtnPayment@3x.png';
+import btnPayment from './Images/BtnPayment.png';
 import 'antd/dist/antd.css';
 
 function PGPayment({ history, form }) {

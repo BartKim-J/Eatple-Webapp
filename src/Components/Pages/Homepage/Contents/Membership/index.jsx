@@ -101,7 +101,7 @@ Styled.Section = styled.section`
   width: 100vw;
   height: 100vh;
 
-  overflow-y: visible;
+  overflow: hidden;
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
