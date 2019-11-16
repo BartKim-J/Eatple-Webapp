@@ -15,8 +15,8 @@ import MobileTextBox from './ComponentsMobile/TextBox';
 function ContentBrowser() {
   return (
     <Styled.Section>
-      <BackgroundImg />
       <Styled.Container>
+        <BackgroundImg />
         <TextBox />
       </Styled.Container>
     </Styled.Section>

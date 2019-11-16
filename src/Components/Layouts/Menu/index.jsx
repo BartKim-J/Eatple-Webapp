@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+
 import mediaConf from 'configure/mediaConfig';
 
 import MenuBar from './Components/MenuBar';
 import MobileMenuBar from './ComponentsMobile/MenuBar';
 
-function DesktopMenu() {
+function ContentBrowser() {
   return (
     <Styled.Section>
       <Styled.Container>
@@ -16,7 +19,7 @@ function DesktopMenu() {
   );
 }
 
-function MobileMenu() {
+function ContentMobile() {
   return (
     <StyledMobile.Section>
       <StyledMobile.Container>
@@ -27,11 +30,25 @@ function MobileMenu() {
 }
 
 export default function Menu() {
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <DesktopMenu />
-      <MobileMenu />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 

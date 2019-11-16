@@ -83,6 +83,7 @@ Styled.Section = styled.div`
 
   width: 100vw;
   height: calc(100vw * 0.7);
+  max-height: ${mediaConf.MEDIA_HEIGHT_DESKTOP_CONTENT};
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;

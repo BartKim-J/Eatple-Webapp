@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+
 import mediaConf from 'configure/mediaConfig';
 
 import HeadBox from './Components/HeadBox';
@@ -9,7 +12,7 @@ import TextBox from './Components/TextBox';
 import MobileHeadBox from './ComponentsMobile/HeadBox';
 import MobileTextBox from './ComponentsMobile/TextBox';
 
-function DesktopFAQ() {
+function ContentBrowser() {
   return (
     <Styled.Section>
       <Styled.ContainerTop>
@@ -23,7 +26,7 @@ function DesktopFAQ() {
   );
 }
 
-function MobileFAQ() {
+function ContentMobile() {
   return (
     <StyledMobile.Section>
       <Styled.ContainerTop>
@@ -38,11 +41,25 @@ function MobileFAQ() {
 }
 
 export default function FAQ() {
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <DesktopFAQ />
-      <MobileFAQ />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 

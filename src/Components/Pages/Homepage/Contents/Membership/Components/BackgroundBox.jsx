@@ -25,7 +25,7 @@ Styled.BackgroundBox = styled.div`
   left: 0;
   bottom: 0;
 
-  width: 70%;
+  width: 60%;
   height: 100%;
 
   background-color: #f8f8fa;

@@ -1,18 +1,45 @@
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-await-in-loop */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
 
 import ImgBtnPartner from '../Images/BtnViewMore.svg';
 import ImgBtnMediumShadow from '../Images/BtnMediumShadow.svg';
 
 export default function ButtonBox() {
+  const animationButtonBox = useSpring({
+    config: { mass: 3, tension: 35, friction: 9 },
+    from: { value: 0 },
+    to: async next => {
+      while (true) {
+        await next({
+          value: 0.2,
+        });
+
+        await next({
+          value: 0,
+        });
+      }
+    },
+    delay: 1000,
+  });
+
+  function trans(value) {
+    return `translate3d(-${value}vw, -${value}vw, 0)`;
+  }
+
   return (
     <Styled.Wrap>
       <Link to="/">
         <Styled.Container type="button" className="btn-box">
-          <div className="button-image">
+          <Styled.ButtonAnimationWrap
+            className="button-image"
+            style={{ transform: animationButtonBox.value.interpolate(value => `${trans(value)}`) }}
+          >
             <img src={ImgBtnPartner} alt="Button" />
-          </div>
+          </Styled.ButtonAnimationWrap>
           <div className="button-shadow">
             <img src={ImgBtnMediumShadow} alt="Button" />
           </div>
@@ -50,7 +77,7 @@ Styled.Container = styled.button`
   }
 
   .button-image:hover {
-    transform: translate(-4.6%, -13%);
+    transform: translate(-0.4vw, -0.4vw) !important;
   }
 
   .button-shadow {
@@ -61,3 +88,5 @@ Styled.Container = styled.button`
     z-index: -1;
   }
 `;
+
+Styled.ButtonAnimationWrap = styled(animated.div)``;

@@ -20,9 +20,8 @@ import MobileFloatText from './ComponentsMobile/FloatText';
 function ContentBrowser({ scrollY }) {
   return (
     <Styled.Section>
+      <BackgroundBox />
       <Styled.Container>
-        <BackgroundBox />
-
         <FloatBoxList scrollY={scrollY} />
 
         <FloatImageBox />
@@ -104,6 +103,8 @@ Styled.Section = styled.section`
 `;
 
 Styled.Container = styled.div`
+  position: relative;
+
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   height: 100%;
 

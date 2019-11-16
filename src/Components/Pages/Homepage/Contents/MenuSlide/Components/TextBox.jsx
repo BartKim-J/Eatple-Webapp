@@ -13,8 +13,9 @@ export default function TextBox() {
           잇플의 1차 서비스 지역은
           <br />
           <span className="highlight">강남 / 역삼</span> 부근입니다
-          <ButtonBox />
         </div>
+
+        <ButtonBox />
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -25,20 +26,23 @@ const Styled = {};
 Styled.Wrap = styled.div`
   position: absolute;
   top: 10%;
-  left: 45%;
+  right: 10%;
 `;
 
 Styled.Container = styled.div`
   text-align: left;
-  margin-bottom: 5%;
 
-  font-family: 'S-CoreDream-Bold';
-  font-size: 3vw;
-  line-height: 1.46;
-  color: #222222;
+  .title {
+    font-family: 'S-CoreDream-Bold';
+    font-size: 3vw;
+    line-height: 1.46;
+    color: #222222;
 
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    font-size: 52px;
+    @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+      font-size: 46px;
+    }
+
+    margin-bottom: 5%;
   }
 
   .highlight {

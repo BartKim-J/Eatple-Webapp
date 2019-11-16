@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+
 import mediaConf from 'configure/mediaConfig';
 
 import TextBox from './Components/TextBox';
 import MobileTextBox from './ComponentsMobile/TextBox';
 
-function DesktopPP() {
+function ContentBrowser() {
   return (
     <Styled.Section>
       <Styled.Container>
@@ -16,7 +19,7 @@ function DesktopPP() {
   );
 }
 
-function MobilePP() {
+function ContentMobile() {
   return (
     <StyledMobile.Section>
       <Styled.Container>
@@ -27,11 +30,25 @@ function MobilePP() {
 }
 
 export default function PP() {
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <DesktopPP />
-      <MobilePP />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 

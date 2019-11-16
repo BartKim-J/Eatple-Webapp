@@ -1,6 +1,8 @@
 import React from 'react';
-
 import styled from 'styled-components';
+
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
 import mediaConf from 'configure/mediaConfig';
 import urlConf from 'configure/urlConfig';
@@ -58,7 +60,7 @@ const socialMap = [
   },
 ];
 
-function DesktopFooter() {
+function ContentBrowser() {
   return (
     <Styled.Section>
       <Styled.Container>
@@ -72,7 +74,7 @@ function DesktopFooter() {
   );
 }
 
-function MobileFooter() {
+function ContentMobile() {
   return (
     <MobileStyled.Section>
       <MobileStyled.Container>
@@ -87,11 +89,25 @@ function MobileFooter() {
 }
 
 export default function Footer() {
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <DesktopFooter />
-      <MobileFooter />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 
@@ -102,6 +118,7 @@ Styled.Section = styled.section`
 
   width: 100vw;
   height: calc(100vw * 0.2);
+  max-height: 420px;
 
   background-color: #1c1c1c;
 

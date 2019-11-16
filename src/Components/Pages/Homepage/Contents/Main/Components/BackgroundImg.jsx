@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ImgHero from '../Images/imgHero@3x.jpg';
+import ImgHero from '../Images/imgHero@2x.jpg';
 
 export default function BackgroundImg() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <Styled.ImageBox src={ImgHero} alt="Hero" />
+        <Styled.ImageBox />
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -20,10 +20,10 @@ Styled.Wrap = styled.div`
   top: 0;
   right: 0;
 
-  width: 45%;
+  width: 65%;
   height: 100%;
 
-  z-index: 100;
+  z-index: -1;
 `;
 
 Styled.Container = styled.div`
@@ -34,7 +34,10 @@ Styled.Container = styled.div`
 
   overflow: hidden;
 `;
-Styled.ImageBox = styled.img`
+Styled.ImageBox = styled.div`
   min-width: 100%;
   height: 100%;
+
+  background-image: url(${ImgHero});
+  background-size: cover;
 `;

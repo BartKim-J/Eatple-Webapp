@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+
 import mediaConf from 'configure/mediaConfig';
 
 import TextBox from './Components/TextBox';
@@ -13,7 +16,7 @@ import MobilePartnersMap from './ComponentsMobile/PartnersMap';
 
 import partnersInfo from './partnersInfo';
 
-function Content() {
+function ContentBrowser() {
   return (
     <Styled.Section>
       <Styled.Container>
@@ -38,11 +41,25 @@ function ContentMobile() {
 }
 
 export default function CotentMenuSlider() {
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <Content />
-      <ContentMobile />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 
@@ -53,6 +70,7 @@ Styled.Section = styled.section`
 
   width: 100vw;
   height: calc(100vw * 0.8);
+  max-height: ${mediaConf.MEDIA_HEIGHT_DESKTOP_CONTENT};
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
     display: none;
@@ -64,6 +82,8 @@ Styled.Section = styled.section`
 `;
 
 Styled.Container = styled.div`
+  position: relative;
+
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   height: 100%;
 

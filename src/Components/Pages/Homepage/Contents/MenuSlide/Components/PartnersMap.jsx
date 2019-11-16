@@ -62,6 +62,7 @@ Styled.Wrap = styled.div`
 
 Styled.Container = styled.div`
   position: relative;
+
   width: 38vw;
   max-width: 586px;
 
@@ -71,5 +72,7 @@ Styled.Container = styled.div`
   .map-container {
     width: 100%;
     height: 100%;
+
+    border-radius: 0.6vw;
   }
 `;

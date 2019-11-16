@@ -228,6 +228,8 @@ Styled.MainImageSlideBox = styled.div`
 
   img {
     width: 100%;
+
+    border-radius: 0.6vw 0.6vw 0 0;
   }
 `;
 

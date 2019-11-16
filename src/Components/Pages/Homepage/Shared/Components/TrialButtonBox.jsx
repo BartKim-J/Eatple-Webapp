@@ -74,6 +74,8 @@ Styled.TrialButtonBoxWrap = styled.div`
       left: 0px;
 
       transition: all 0.5s;
+
+      z-index: 2;
     }
 
     .button-image:hover {
@@ -85,7 +87,7 @@ Styled.TrialButtonBoxWrap = styled.div`
       top: 0px;
       left: 0px;
 
-      z-index: -1;
+      z-index: 1;
     }
   }
 `;

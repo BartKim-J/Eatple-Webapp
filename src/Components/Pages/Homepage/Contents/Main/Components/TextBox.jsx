@@ -8,19 +8,29 @@ import TrialButtonBox from '../../../Shared/Components/TrialButtonBox';
 
 export default function TextBox() {
   const animatedTextBox = useSpring({
+    config: { mass: 1, tension: 45, friction: 9 },
+    from: { width: '100%' },
+    to: async next => {
+      await next({
+        width: '50%',
+      });
+    },
+  });
+
+  const animatedText = useSpring({
     config: { mass: 1, tension: 35, friction: 9 },
-    from: { left: '-100%', top: '0%' },
+    from: { left: '-200%' },
     to: async next => {
       await next({
         left: '0%',
       });
     },
-    delay: 1000,
+    delay: 800,
   });
 
   return (
     <Styled.TextBoxWrap style={animatedTextBox}>
-      <Styled.TextBox>
+      <Styled.TextBox style={animatedText}>
         <div className="title">
           한끼 식사에
           <br />
@@ -49,9 +59,13 @@ Styled.TextBoxWrap = styled(animated.div)`
   justify-content: center;
 
   text-align: left;
+
+  background-color: #ffffff;
 `;
 
-Styled.TextBox = styled.div`
+Styled.TextBox = styled(animated.div)`
+  position: absolute;
+
   display: inline-block;
 
   .title {
