@@ -124,10 +124,6 @@ Styled.Section = styled.section`
 
   z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
 
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
-
   padding: 5% ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING} 3%
     ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
 
@@ -162,10 +158,6 @@ MobileStyled.Section = styled.section`
 
   padding: 5% ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING} 3%
     ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 MobileStyled.Container = styled.div`

@@ -72,10 +72,6 @@ Styled.Section = styled.section`
   height: calc(100vw * 0.8);
   max-height: ${mediaConf.MEDIA_HEIGHT_DESKTOP_CONTENT};
 
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
-
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
   }
@@ -97,10 +93,6 @@ StyledMobile.Section = styled.section`
 
   width: 100vw;
   height: 150vh;
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 StyledMobile.Container = styled.div`

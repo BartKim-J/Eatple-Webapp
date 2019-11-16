@@ -114,10 +114,6 @@ export default function CotentCalculator() {
 const Styled = {};
 
 Styled.Stickyroll = styled.div`
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
-
   .stickyroll-inner {
     padding: 0 !important;
     margin: 0;
@@ -148,10 +144,6 @@ Styled.Container = styled.div`
 const StyledMobile = {};
 
 StyledMobile.Stickyroll = styled.div`
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
-
   .stickyroll-inner {
     padding: 0 !important;
     margin: 0;

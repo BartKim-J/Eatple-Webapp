@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Stickyroll } from '@stickyroll/stickyroll';
+import { Inner } from '@stickyroll/inner';
 
 import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
 import DeviceOrientation, { Orientation } from 'react-screen-orientation';
@@ -13,13 +15,29 @@ import MobileBackgroundImg from './ComponentsMobile/BackgroundImg';
 import MobileTextBox from './ComponentsMobile/TextBox';
 
 function ContentBrowser() {
+  const pageCount = 1;
+  const factor = 1;
+  const thorottle = 1;
+
+  const anchorsName = '!/main';
+
   return (
-    <Styled.Section>
-      <Styled.Container>
-        <BackgroundImg />
-        <TextBox />
-      </Styled.Container>
-    </Styled.Section>
+    <Styled.Stickyroll>
+      <Stickyroll pages={pageCount} factor={factor} throttle={thorottle} anchors={anchorsName}>
+        {({ anchors, page, pageIndex, pages, progress }) => {
+          return (
+            <Inner className="stickyroll-inner">
+              <Styled.Section>
+                <Styled.Container>
+                  <BackgroundImg />
+                  <TextBox progress={progress} />
+                </Styled.Container>
+              </Styled.Section>
+            </Inner>
+          );
+        }}
+      </Stickyroll>
+    </Styled.Stickyroll>
   );
 }
 
@@ -58,6 +76,14 @@ export default function CotentMain() {
 }
 
 const Styled = {};
+
+Styled.Stickyroll = styled.div`
+  .stickyroll-inner {
+    padding: 0 !important;
+    margin: 0;
+    background-color: unset;
+  }
+`;
 
 Styled.Section = styled.section`
   position: relative;

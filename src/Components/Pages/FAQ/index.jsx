@@ -70,10 +70,6 @@ Styled.Section = styled.section`
 
   width: 100vw;
   height: 100vh;
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 Styled.ContainerTop = styled.div`
@@ -107,10 +103,6 @@ StyledMobile.Section = styled.section`
 
   width: 100vw;
   height: 100vh;
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 StyledMobile.Container = styled.div`

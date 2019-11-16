@@ -8,37 +8,13 @@ import ImgBtnPartner from '../Images/BtnViewMore.svg';
 import ImgBtnMediumShadow from '../Images/BtnMediumShadow.svg';
 
 export default function ButtonBox() {
-  const animationButtonBox = useSpring({
-    config: { mass: 3, tension: 35, friction: 9 },
-    from: { value: 0 },
-    to: async next => {
-      while (true) {
-        await next({
-          value: 0.2,
-        });
-
-        await next({
-          value: 0,
-        });
-      }
-    },
-    delay: 1000,
-  });
-
-  function trans(value) {
-    return `translate3d(-${value}vw, -${value}vw, 0)`;
-  }
-
   return (
     <Styled.Wrap>
       <a href="/">
         <Styled.Container type="button" className="btn-box">
-          <Styled.ButtonAnimationWrap
-            className="button-image"
-            style={{ transform: animationButtonBox.value.interpolate(value => `${trans(value)}`) }}
-          >
+          <div className="button-image">
             <img src={ImgBtnPartner} alt="Button" />
-          </Styled.ButtonAnimationWrap>
+          </div>
           <div className="button-shadow">
             <img src={ImgBtnMediumShadow} alt="Button" />
           </div>
@@ -87,5 +63,3 @@ Styled.Container = styled.button`
     z-index: -1;
   }
 `;
-
-Styled.ButtonAnimationWrap = styled(animated.div)``;

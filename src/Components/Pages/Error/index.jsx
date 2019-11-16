@@ -62,10 +62,6 @@ Styled.Section = styled.section`
 
   background-color: #f8f8fa;
 
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
-
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
   }
@@ -88,10 +84,6 @@ StyledMobile.Section = styled.section`
   min-height: 100vh;
 
   background-color: #f8f8fa;
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 StyledMobile.Container = styled.div`

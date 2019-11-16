@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+
 import { useSpring } from 'react-spring';
 
 import mediaConf from 'configure/mediaConfig';
@@ -12,7 +15,7 @@ import BoxAnimationBox from './Components/BoxAnimationBox';
 import MobileTextBox from './ComponentsMobile/TextBox';
 import MobileBoxAnimationBox from './ComponentsMobile/BoxAnimationBox';
 
-function Content() {
+function ContentBrowser() {
   const calc = (x, y) => [x - window.innerWidth * 0.6, y - window.innerHeight * 0.5];
 
   const [props, set] = useSpring(() => ({
@@ -31,10 +34,10 @@ function Content() {
     </Styled.Section>
   );
 }
-Content.propTypes = {
+ContentBrowser.propTypes = {
   xy: PropTypes.array,
 };
-Content.defaultProps = {
+ContentBrowser.defaultProps = {
   xy: [0, 0],
 };
 
@@ -64,11 +67,25 @@ ContentMobile.defaultProps = {
   xy: [0, 0],
 };
 export default function ContentTale() {
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <Content />
-      <ContentMobile />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 
@@ -81,10 +98,6 @@ Styled.Section = styled.section`
   height: calc(100vw * 0.48);
 
   z-index: 100;
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
@@ -111,10 +124,6 @@ MobileStyled.Section = styled.section`
   z-index: 100;
 
   padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 MobileStyled.Container = styled.div`

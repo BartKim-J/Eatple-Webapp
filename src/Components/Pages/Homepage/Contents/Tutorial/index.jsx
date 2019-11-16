@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+
 import mediaConf from 'configure/mediaConfig';
 
 import BackgroundImg from './Components/BackgroundImg';
@@ -32,7 +35,7 @@ const categoryMap = [
   },
 ];
 
-function Content({ selected, setSelected }) {
+function ContentBrowser({ selected, setSelected }) {
   return (
     <Styled.Section>
       <BackgroundImg />
@@ -44,7 +47,7 @@ function Content({ selected, setSelected }) {
     </Styled.Section>
   );
 }
-Content.propTypes = {
+ContentBrowser.propTypes = {
   selected: PropTypes.number.isRequired,
   setSelected: PropTypes.func.isRequired,
 };
@@ -68,11 +71,25 @@ ContentMobile.propTypes = {
 export default function ContentTutorial() {
   const [selected, setSelected] = useState(0);
 
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser selected={selected} setSelected={setSelected} />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <Content selected={selected} setSelected={setSelected} />
-      <ContentMobile selected={selected} setSelected={setSelected} />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser selected={selected} setSelected={setSelected} />
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile selected={selected} setSelected={setSelected} />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 
@@ -84,10 +101,6 @@ Styled.Section = styled.div`
   width: 100vw;
   height: calc(100vw * 0.7);
   max-height: ${mediaConf.MEDIA_HEIGHT_DESKTOP_CONTENT};
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
@@ -116,10 +129,6 @@ StyledMobile.Section = styled.div`
   height: 100vh;
 
   padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 StyledMobile.Container = styled.div`

@@ -61,10 +61,6 @@ Styled.Section = styled.section`
   min-height: 100vh;
 
   overflow: visible;
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 Styled.Container = styled.div`
@@ -85,10 +81,6 @@ StyledMobile.Section = styled.section`
 
   width: 100vw;
   min-height: 100vh;
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 StyledMobile.Container = styled.div`

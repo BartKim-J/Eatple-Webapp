@@ -62,10 +62,6 @@ Styled.Section = styled.section`
   width: 100vw;
   height: 50px;
 
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
-
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0 ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
   }
@@ -98,10 +94,6 @@ StyledMobile.Section = styled.section`
   height: 8vh;
 
   padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 
   z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
 `;

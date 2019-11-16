@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropType from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 
 import mediaConf from 'configure/mediaConfig';
 
 import TrialButtonBox from '../../../Shared/Components/TrialButtonBox';
 
-export default function TextBox() {
+export default function TextBox({ progress }) {
   const animatedTextBox = useSpring({
     config: { mass: 1, tension: 45, friction: 9 },
     from: { width: '100%' },
     to: async next => {
       await next({
-        width: '50%',
+        width: `${50 + 50 * 2 * progress}%`,
       });
     },
   });
@@ -22,10 +23,9 @@ export default function TextBox() {
     from: { left: '-200%' },
     to: async next => {
       await next({
-        left: '0%',
+        left: `${22 * progress}%`,
       });
     },
-    delay: 800,
   });
 
   return (
@@ -45,6 +45,9 @@ export default function TextBox() {
     </Styled.TextBoxWrap>
   );
 }
+TextBox.propTypes = {
+  progress: PropType.number.isRequired,
+};
 
 const Styled = {};
 
