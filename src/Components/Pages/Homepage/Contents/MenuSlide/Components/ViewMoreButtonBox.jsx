@@ -1,7 +1,6 @@
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-await-in-loop */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 
@@ -32,7 +31,7 @@ export default function ButtonBox() {
 
   return (
     <Styled.Wrap>
-      <Link to="/">
+      <a href="/">
         <Styled.Container type="button" className="btn-box">
           <Styled.ButtonAnimationWrap
             className="button-image"
@@ -44,7 +43,7 @@ export default function ButtonBox() {
             <img src={ImgBtnMediumShadow} alt="Button" />
           </div>
         </Styled.Container>
-      </Link>
+      </a>
     </Styled.Wrap>
   );
 }

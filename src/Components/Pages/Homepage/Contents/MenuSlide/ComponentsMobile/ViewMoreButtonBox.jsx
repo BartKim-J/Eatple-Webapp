@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ImgBtnPartner from '../Images/BtnViewMore.svg';
@@ -8,7 +7,7 @@ import ImgBtnMediumShadow from '../Images/BtnMediumShadow.svg';
 export default function ButtonBox() {
   return (
     <Styled.Wrap>
-      <Link to="/">
+      <a href="/">
         <Styled.Container type="button" className="btn-box">
           <div className="button-image">
             <img src={ImgBtnPartner} alt="Button" />
@@ -17,7 +16,7 @@ export default function ButtonBox() {
             <img src={ImgBtnMediumShadow} alt="Button" />
           </div>
         </Styled.Container>
-      </Link>
+      </a>
     </Styled.Wrap>
   );
 }

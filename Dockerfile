@@ -8,20 +8,17 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN npm install
 
-RUN npm run build --production
+#RUN npm run build --production
 
-# Build for production.
-RUN npm run build --production
-
-# Install `serve` to run the application.
+# In your Dockerfile.
 RUN npm install -g serve
 
-# Set the command to start the node server.
-CMD serve -s build
+# Run serve when the image is run.
+#CMD serve -s build
 
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 5000
-
+EXPOSE 3000
+CMD [ "npm", "start" ]
 

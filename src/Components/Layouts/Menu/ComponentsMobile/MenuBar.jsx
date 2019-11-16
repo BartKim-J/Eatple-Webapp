@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 
 import urlConf from 'configure/urlConfig';
@@ -21,14 +20,14 @@ export default function MenuBar() {
   return (
     <Styled.MenuBar style={styleMenu}>
       <Styled.Logo>
-        <Link to={urlConf.Homepage}>
+        <a href={urlConf.Homepage}>
           <img
             alt="Logo"
             src={Logo}
             className="d-inline-block align-top menu-bar-logo"
             draggable="false"
           />
-        </Link>
+        </a>
       </Styled.Logo>
     </Styled.MenuBar>
   );
