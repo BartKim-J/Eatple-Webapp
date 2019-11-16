@@ -1,9 +1,11 @@
 /* eslint-disable react/jsx-boolean-value */
 import React from 'react';
-
 import styled from 'styled-components';
 import { Stickyroll } from '@stickyroll/stickyroll';
 import { Inner } from '@stickyroll/inner';
+
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
 import mediaConf from 'configure/mediaConfig';
 
@@ -15,7 +17,7 @@ import MobileBackgroundImgBox from './ComponentsMobile/BackgroundImgBox';
 import MobileCategorySelectBox from './ComponentsMobile/CategorySelectBox';
 import MobileResultViewBox from './ComponentsMobile/ResultViewBox';
 
-function Content() {
+function ContentBrowser() {
   const pageCount = 6;
   const factor = 1;
   const thorottle = 250;
@@ -51,7 +53,7 @@ function Content() {
   );
 }
 
-function MobileContent() {
+function ContentMobile() {
   const pageCount = 6;
   const factor = 1;
   const thorottle = 250;
@@ -87,11 +89,25 @@ function MobileContent() {
 }
 
 export default function CotentCalculator() {
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <Content />
-      <MobileContent />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 

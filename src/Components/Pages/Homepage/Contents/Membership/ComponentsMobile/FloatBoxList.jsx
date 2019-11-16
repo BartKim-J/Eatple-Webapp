@@ -1,7 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
+
+import useScroll from 'components/utils/useScroll';
 
 import IconTime from '../Images/IcTime.svg';
 import IconValue from '../Images/IcValue.svg';
@@ -9,44 +10,41 @@ import IconVariety from '../Images/IcVariety.svg';
 
 import FloatBox from './FloatBox';
 
-export default function FloatBoxList({ scrollY }) {
-  function trans1(y) {
-    const movement = 0.6;
-    const anchor = 0.56;
+export default function FloatBoxList() {
+  const { scrollY } = useScroll();
+
+  const [fixTriger, setFixTriger] = useState(false);
+
+  const [scrollAnimation, set] = useSpring(() => ({
+    value: 0,
+    config: { mass: 10, tension: 550, friction: 140 },
+  }));
+
+  set({ value: scrollY });
+
+  const { value } = scrollAnimation;
+
+  function trans(y, movement, anchor) {
     let pos = y * movement;
     const screenHeight = window.innerHeight;
 
-    if (pos >= screenHeight * anchor) {
+    if (pos >= screenHeight * anchor || fixTriger === true) {
       pos = screenHeight * anchor;
+    }
+
+    if (y * 1 >= screenHeight * 0.9) {
+      setFixTriger(true);
     }
 
     return `translate3d(0,${pos}px,0)`;
   }
 
-  function trans2(y) {
-    const movement = 0.82;
-    const anchor = 0.68;
-    let pos = y * movement;
-    const screenHeight = window.innerHeight;
-
-    if (pos >= screenHeight * anchor) {
-      pos = screenHeight * anchor;
+  function opac(y, mass, offset, anchor) {
+    if (fixTriger === true) {
+      return '1';
     }
 
-    return `translate3d(0,${pos}px,0)`;
-  }
-
-  function trans3(y) {
-    const movement = 1.04;
-    const anchor = 0.8;
-    let pos = y * movement;
-    const screenHeight = window.innerHeight;
-
-    if (pos >= screenHeight * anchor) {
-      pos = screenHeight * anchor;
-    }
-
-    return `translate3d(0,${pos}px,0)`;
+    return `${(((y - offset) * mass) / window.innerHeight) * anchor}`;
   }
 
   return (
@@ -55,10 +53,8 @@ export default function FloatBoxList({ scrollY }) {
         <Styled.Item>
           <animated.div
             style={{
-              transform: scrollY.interpolate(trans1),
-              opacity: scrollY.interpolate(
-                y => `${(((y - 400) * 4.6) / window.innerHeight) * 0.56}`,
-              ),
+              transform: value.interpolate(y => `${trans(y, 0.6, 0.56)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 400, 0.56)}`),
             }}
           >
             <FloatBox
@@ -71,10 +67,8 @@ export default function FloatBoxList({ scrollY }) {
           </animated.div>
           <animated.div
             style={{
-              transform: scrollY.interpolate(trans2),
-              opacity: scrollY.interpolate(
-                y => `${(((y - 380) * 3.6) / window.innerHeight) * 0.68}`,
-              ),
+              transform: value.interpolate(y => `${trans(y, 0.82, 0.68)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 290, 0.56)}`),
             }}
           >
             <FloatBox
@@ -87,10 +81,8 @@ export default function FloatBoxList({ scrollY }) {
           </animated.div>
           <animated.div
             style={{
-              transform: scrollY.interpolate(trans3),
-              opacity: scrollY.interpolate(
-                y => `${(((y - 350) * 3.4) / window.innerHeight) * 0.8}`,
-              ),
+              transform: value.interpolate(y => `${trans(y, 1.04, 0.8)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 280, 0.56)}`),
             }}
           >
             <FloatBox
@@ -106,9 +98,6 @@ export default function FloatBoxList({ scrollY }) {
     </Styled.Wrap>
   );
 }
-FloatBoxList.propTypes = {
-  scrollY: PropTypes.object.isRequired,
-};
 
 const Styled = {};
 

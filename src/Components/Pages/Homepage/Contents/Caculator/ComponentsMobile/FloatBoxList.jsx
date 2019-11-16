@@ -1,56 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
 
-import { animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 
 import FloatBox from './FloatBox';
 
-import ImgMenu1 from '../Images/photo01.jpg';
-import ImgMenu2 from '../Images/photo02.jpg';
-import ImgMenu3 from '../Images/photo03.jpg';
-import ImgMenu4 from '../Images/photo04.jpg';
-import ImgMenu5 from '../Images/photo05.jpg';
-import ImgMenu6 from '../Images/photo06.jpg';
-import ImgMenu7 from '../Images/photo07.jpg';
-
-const CategoryMap = [
-  {
-    menuPrice: 10000,
-    menuName: '연어덮밥',
-    image: ImgMenu1,
-  },
-  {
-    menuPrice: 26000,
-    menuName: '유린기',
-    image: ImgMenu2,
-  },
-  {
-    menuPrice: 38000,
-    menuName: '한우등심',
-    image: ImgMenu3,
-  },
-  {
-    menuPrice: 50000,
-    menuName: '모듬 사시미',
-    image: ImgMenu4,
-  },
-  {
-    menuPrice: 80000,
-    menuName: '스시 오마카세',
-    image: ImgMenu5,
-  },
-  {
-    menuPrice: 139000,
-    menuName: '한우 오마카세 시그니처 코스',
-    image: ImgMenu6,
-  },
-  {
-    menuPrice: 214000,
-    menuName: '롯데타워 시그니엘 코스요리',
-    image: ImgMenu7,
-  },
-];
+import FoodCategoryMap from '../FoodCategoryMap';
 
 function usePrevious(value) {
   const ref = useRef();
@@ -64,43 +20,48 @@ function usePrevious(value) {
 
 export default function FloatBoxList({ pageIndex, progress, pages, won, count }) {
   const countMax = pages * 10;
-  const [index, setIndex] = useState((CategoryMap.length * (count / countMax)).toFixed(0));
 
-  function trans() {
-    return `translate3d(-${index * 100}%, 0, 0)`;
-  }
+  const [floatAnimation, set] = useSpring(() => ({
+    value: 0,
+    config: { mass: 1, tension: 55, friction: 11 },
+    delay: 0,
+    duration: 0,
+  }));
+
+  const { value } = floatAnimation;
 
   const prevProgress = usePrevious({ pageIndex, progress, pages });
+
+  function trans(idx) {
+    return `translate3d(-${idx * 100}%, 0, 0)`;
+  }
 
   useEffect(() => {
     let nextIndex = 0;
 
     if (prevProgress !== progress) {
-      for (let i = 0; i < CategoryMap.length; i += 1) {
-        if (won >= CategoryMap[i].menuPrice) {
+      for (let i = 0; i < FoodCategoryMap.length; i += 1) {
+        if (won >= FoodCategoryMap[i].menuPrice) {
           nextIndex = i;
         }
       }
 
-      if (index !== nextIndex) {
-        setIndex(nextIndex);
-      }
+      set({ value: nextIndex });
     }
-  }, [index, pageIndex, progress, pages, count, prevProgress, countMax, won]);
+  }, [pageIndex, progress, pages, count, prevProgress, countMax, won, set]);
 
   return (
     <Styled.Wrap>
       <Styled.Container>
         <animated.div
           style={{
-            transform: `${trans()}`,
-            transition: `all 0.4s ease 0s`,
+            transform: value.interpolate(idx => `${trans(idx)}`),
           }}
         >
-          <Styled.Swriper menuCnt={CategoryMap.length}>
-            {CategoryMap.map(entryCategory => {
+          <Styled.Swriper menuCnt={FoodCategoryMap.length}>
+            {FoodCategoryMap.map(entryCategory => {
               return (
-                <Styled.Item key={entryCategory.menuName} menuCnt={CategoryMap.length}>
+                <Styled.Item key={entryCategory.menuName} menuCnt={FoodCategoryMap.length}>
                   <FloatBox
                     src={entryCategory.image}
                     menuPrice={entryCategory.menuPrice}

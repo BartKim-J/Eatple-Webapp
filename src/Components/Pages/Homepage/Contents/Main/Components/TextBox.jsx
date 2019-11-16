@@ -1,13 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
 
 import mediaConf from 'configure/mediaConfig';
 
-import TrialButtonBox from './TrialButtonBox';
+import TrialButtonBox from '../../../Shared/Components/TrialButtonBox';
 
 export default function TextBox() {
+  const animatedTextBox = useSpring({
+    config: { mass: 1, tension: 35, friction: 9 },
+    from: { left: '-100%', top: '0%' },
+    to: async next => {
+      await next({
+        left: '0%',
+      });
+    },
+    delay: 1000,
+  });
+
   return (
-    <Styled.TextBoxWrap>
+    <Styled.TextBoxWrap style={animatedTextBox}>
       <Styled.TextBox>
         <div className="title">
           한끼 식사에
@@ -26,10 +38,15 @@ export default function TextBox() {
 
 const Styled = {};
 
-Styled.TextBoxWrap = styled.div`
+Styled.TextBoxWrap = styled(animated.div)`
   position: relative;
-  top: 0;
-  left: 0;
+
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   text-align: left;
 `;

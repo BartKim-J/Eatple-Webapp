@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
+
+import useScroll from 'components/utils/useScroll';
 
 import IconTime from '../Images/IcTime.svg';
 import IconValue from '../Images/IcValue.svg';
@@ -9,8 +10,19 @@ import IconVariety from '../Images/IcVariety.svg';
 
 import FloatBox from './FloatBox';
 
-export default function FloatBoxList({ scrollY }) {
+export default function FloatBoxList() {
+  const { scrollY } = useScroll();
+
   const [fixTriger, setFixTriger] = useState(false);
+
+  const [scrollAnimation, set] = useSpring(() => ({
+    value: 0,
+    config: { mass: 10, tension: 550, friction: 140 },
+  }));
+
+  set({ value: scrollY });
+
+  const { value } = scrollAnimation;
 
   function trans(y, movement, anchor) {
     let pos = y * movement;
@@ -46,8 +58,8 @@ export default function FloatBoxList({ scrollY }) {
           <div className="vertical-line" />
           <animated.div
             style={{
-              transform: scrollY.interpolate(y => `${trans(y, 0.4, 0.3)}`),
-              opacity: scrollY.interpolate(y => `${opac(y, 3.6, 180, 0.56)}`),
+              transform: value.interpolate(y => `${trans(y, 0.4, 0.3)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 180, 0.56)}`),
             }}
           >
             <FloatBox
@@ -60,8 +72,8 @@ export default function FloatBoxList({ scrollY }) {
           </animated.div>
           <animated.div
             style={{
-              transform: scrollY.interpolate(y => `${trans(y, 1, 0.9)}`),
-              opacity: scrollY.interpolate(y => `${opac(y, 3.6, 380, 0.68)}`),
+              transform: value.interpolate(y => `${trans(y, 1, 0.9)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 380, 0.68)}`),
             }}
           >
             <FloatBox
@@ -78,8 +90,8 @@ export default function FloatBoxList({ scrollY }) {
           <div className="vertical-line" />
           <animated.div
             style={{
-              transform: scrollY.interpolate(y => `${trans(y, 0.7, 0.6)}`),
-              opacity: scrollY.interpolate(y => `${opac(y, 3.6, 280, 0.8)}`),
+              transform: value.interpolate(y => `${trans(y, 0.7, 0.6)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 280, 0.8)}`),
             }}
           >
             <FloatBox
@@ -99,9 +111,6 @@ export default function FloatBoxList({ scrollY }) {
     </Styled.Wrap>
   );
 }
-FloatBoxList.propTypes = {
-  scrollY: PropTypes.object.isRequired,
-};
 
 const Styled = {};
 

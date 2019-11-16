@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useSpring } from 'react-spring';
+
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
 import mediaConf from 'configure/mediaConfig';
 
@@ -15,7 +17,7 @@ import MobileFloatBoxList from './ComponentsMobile/FloatBoxList';
 import MobileFloatImageBox from './ComponentsMobile/FloatImageBox';
 import MobileFloatText from './ComponentsMobile/FloatText';
 
-function Content({ scrollY }) {
+function ContentBrowser({ scrollY }) {
   return (
     <Styled.Section>
       <Styled.Container>
@@ -29,10 +31,10 @@ function Content({ scrollY }) {
     </Styled.Section>
   );
 }
-Content.propTypes = {
-  scrollY: PropTypes.object,
+ContentBrowser.propTypes = {
+  scrollY: PropTypes.number,
 };
-Content.defaultProps = {
+ContentBrowser.defaultProps = {
   scrollY: 0,
 };
 
@@ -49,49 +51,34 @@ function ContentMobile({ scrollY }) {
   );
 }
 ContentMobile.propTypes = {
-  scrollY: PropTypes.object,
+  scrollY: PropTypes.number,
 };
 ContentMobile.defaultProps = {
   scrollY: 0,
 };
 
 export default function CotentMembership() {
-  const calc = scrollY => {
-    return scrollY;
-  };
-
-  const [props, set] = useSpring(() => ({
-    scrollY: 0,
-    config: { mass: 10, tension: 550, friction: 140 },
-  }));
-
-  const { scrollY } = props;
-
-  function scrollHandler() {
-    set({ scrollY: calc(window.scrollY) });
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollHandler);
-
-    return () => {
-      window.removeEventListener('scroll', scrollHandler);
-    };
-  });
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
 
   return (
-    <>
-      <Content scrollY={scrollY} />
-      <ContentMobile scrollY={scrollY} />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
-CotentMembership.propTypes = {
-  scrollY: PropTypes.number,
-};
-CotentMembership.defaultProps = {
-  scrollY: 0,
-};
 
 const Styled = {};
 

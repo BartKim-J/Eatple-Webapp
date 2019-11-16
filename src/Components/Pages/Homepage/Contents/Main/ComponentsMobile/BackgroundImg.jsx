@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ImgHero from '../Images/ImgHero.jpg';
+import ImgHero from '../Images/imgHero.jpg';
 
 export default function BackgroundImg() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <Styled.ImageBox>
-          <img src={ImgHero} alt="Hero" />
-        </Styled.ImageBox>
+        <Styled.ImageBox src={ImgHero} alt="Hero" />
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -26,6 +24,8 @@ Styled.Wrap = styled.div`
   height: 50%;
 
   z-index: 100;
+
+  overflow: hidden;
 `;
 
 Styled.Container = styled.div`
@@ -33,22 +33,13 @@ Styled.Container = styled.div`
   height: 100%;
 `;
 
-Styled.ImageBox = styled.div`
-  position: relative;
+Styled.ImageBox = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 
   width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-
-  img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 100%;
-    min-height: 100%;
-  }
+  min-height: 100%;
 `;

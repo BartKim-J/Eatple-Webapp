@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
+
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
 import mediaConf from 'configure/mediaConfig';
 
@@ -10,64 +12,48 @@ import TextBox from './Components/TextBox';
 import MobileBackgroundImg from './ComponentsMobile/BackgroundImg';
 import MobileTextBox from './ComponentsMobile/TextBox';
 
-function Content() {
-  const styleHeadBox = useSpring({
-    config: { mass: 1, tension: 35, friction: 9 },
-    from: { left: '-100%', top: '0%' },
-    to: async next => {
-      await next({
-        left: '0%',
-      });
-    },
-    delay: 1000,
-  });
-
+function ContentBrowser() {
   return (
     <Styled.Section>
       <BackgroundImg />
       <Styled.Container>
-        <Styled.HeadBoxWrap style={styleHeadBox}>
-          <Styled.HeadBox>
-            <TextBox />
-          </Styled.HeadBox>
-        </Styled.HeadBoxWrap>
+        <TextBox />
       </Styled.Container>
     </Styled.Section>
   );
 }
 
 function ContentMobile() {
-  const styleHeadBox = useSpring({
-    config: { mass: 1, tension: 35, friction: 12 },
-    from: { left: '0%', top: '-50%' },
-    to: async next => {
-      await next({
-        top: '0%',
-      });
-    },
-    delay: 1000,
-  });
-
   return (
     <StyledMobile.Section>
       <MobileBackgroundImg />
       <StyledMobile.Container>
-        <StyledMobile.HeadBoxWrap style={styleHeadBox}>
-          <StyledMobile.HeadBox>
-            <MobileTextBox />
-          </StyledMobile.HeadBox>
-        </StyledMobile.HeadBoxWrap>
+        <MobileTextBox />
       </StyledMobile.Container>
     </StyledMobile.Section>
   );
 }
 
 export default function CotentMain() {
+  if (isBrowser)
+    return (
+      <BrowserView>
+        <ContentBrowser />
+      </BrowserView>
+    );
+
   return (
-    <>
-      <Content />
-      <ContentMobile />
-    </>
+    <MobileView>
+      <DeviceOrientation>
+        <Orientation orientation="landscape" alwaysRender={false}>
+          <ContentBrowser />;
+        </Orientation>
+
+        <Orientation orientation="portrait" alwaysRender={false}>
+          <ContentMobile />
+        </Orientation>
+      </DeviceOrientation>
+    </MobileView>
   );
 }
 
@@ -78,10 +64,6 @@ Styled.Section = styled.section`
 
   width: 100vw;
   height: 100vh;
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 
   @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
     padding: 0 ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
@@ -103,19 +85,6 @@ Styled.Container = styled.div`
   z-index: 101;
 `;
 
-Styled.HeadBoxWrap = styled(animated.div)`
-  position: absolute;
-  display: table;
-
-  width: 50%;
-  height: 100%;
-`;
-
-Styled.HeadBox = styled.div`
-  display: table-cell;
-  vertical-align: middle;
-`;
-
 const StyledMobile = {};
 
 StyledMobile.Section = styled.section`
@@ -125,10 +94,6 @@ StyledMobile.Section = styled.section`
   height: 100vh;
 
   padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-
-  @media all and (min-width: ${mediaConf.MEDIA_WIDTH_MOBILE_MAX}) {
-    display: none;
-  }
 `;
 
 StyledMobile.Container = styled.div`
@@ -138,17 +103,4 @@ StyledMobile.Container = styled.div`
   height: 100%;
 
   margin: 0 auto;
-`;
-
-StyledMobile.HeadBoxWrap = styled(animated.div)`
-  position: absolute;
-  display: table;
-
-  width: 100%;
-  height: 50%;
-`;
-
-StyledMobile.HeadBox = styled.div`
-  display: table-cell;
-  vertical-align: middle;
 `;

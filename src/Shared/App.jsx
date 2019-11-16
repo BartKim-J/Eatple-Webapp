@@ -31,9 +31,9 @@ export default function App() {
                 <Route exact path="robots.txt" />
                 <Route component={Error} />
               </Switch>
-              <Footer />
             </Styled.AppContent>
           </Styled.AppInner>
+          <Footer />
         </Styled.AppSection>
       </GlobalStyle>
     </Router>
