@@ -4,8 +4,6 @@ import PropType from 'prop-types';
 import styled from 'styled-components';
 
 export default function PartnersMap({ partnersInfo }) {
-  const KakaoMapAPI = window.kakao.maps;
-
   const [draggable, setDraggable] = useState(false);
   const [zoomable, setZoomable] = useState(true);
 
@@ -17,21 +15,21 @@ export default function PartnersMap({ partnersInfo }) {
     const imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
 
     const options = {
-      center: new KakaoMapAPI.LatLng(37.496015, 127.029574),
+      center: new window.kakao.maps.LatLng(37.496015, 127.029574),
       level: 4,
     };
 
-    partnersMap = new KakaoMapAPI.Map(container, options);
+    partnersMap = new window.kakao.maps.Map(container, options);
 
     partnersMap.setDraggable(draggable);
     partnersMap.setZoomable(zoomable);
 
     for (let i = 0; i < partnersInfo.length; i += 1) {
-      const imageSize = new KakaoMapAPI.Size(24, 35);
+      const imageSize = new window.kakao.maps.Size(24, 35);
 
-      const markerImage = new KakaoMapAPI.MarkerImage(imageSrc, imageSize);
+      const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize);
 
-      const marker = new KakaoMapAPI.Marker({
+      const marker = new window.kakao.maps.Marker({
         map: partnersMap,
         position: partnersInfo[i].latlng,
         title: partnersInfo[i].storeName,
