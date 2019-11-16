@@ -6,7 +6,7 @@ import urlConf from 'configure/urlConfig';
 
 import mediaConf from 'configure/mediaConfig';
 
-import TrialButtonBox from '../../../Shared/Components/TrialButtonBox';
+import TrialButtonBox from '../../../Shared/ComponentsMobile/TrialButtonBox';
 
 export default function TextBox() {
   return (

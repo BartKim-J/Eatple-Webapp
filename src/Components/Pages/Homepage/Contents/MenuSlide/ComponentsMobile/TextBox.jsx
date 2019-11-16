@@ -24,7 +24,7 @@ const Styled = {};
 
 Styled.Wrap = styled.div`
   position: absolute;
-  top: 47%;
+  top: 44%;
   left: 2%;
 
   z-index: 100;

@@ -1,40 +1,42 @@
-/* eslint-disable no-constant-condition */
 /* eslint-disable no-await-in-loop */
 import React from 'react';
 import styled from 'styled-components';
 
-import ImgBtnPartner from '../Images/BtnViewMore.svg';
-import ImgBtnMediumShadow from '../Images/BtnMediumShadow.svg';
+import urlConf from 'configure/urlConfig';
 
-export default function ButtonBox() {
+import ImgBtnGetStarted from 'resource/Image/Button/BtnGetStarted.svg';
+import ImgBtnMediumShadow from 'resource/Image/Button/BtnMediumShadow.svg';
+
+export default function TrialButtonBox() {
   return (
-    <Styled.Wrap>
+    <Styled.TrialButtonBoxWrap>
       <Styled.Container type="button" className="btn-box">
-        <a href="/">
+        <a href={urlConf.KakaoChatbot}>
           <div className="button-image">
-            <img src={ImgBtnPartner} alt="Button" />
+            <img src={ImgBtnGetStarted} alt="Button" />
           </div>
           <div className="button-shadow">
             <img src={ImgBtnMediumShadow} alt="Button" />
           </div>
         </a>
       </Styled.Container>
-    </Styled.Wrap>
+    </Styled.TrialButtonBoxWrap>
   );
 }
 
 const Styled = {};
 
-Styled.Wrap = styled.div`
+Styled.TrialButtonBoxWrap = styled.div`
+  padding-top: 10%;
   margin-bottom: 0;
 `;
 
 Styled.Container = styled.button`
   position: relative;
 
-  width: 12vw;
-  max-width: 180px;
-  height: calc(16vw * 0.33);
+  width: 23vw;
+  max-width: 150px;
+  height: calc(11vw * 0.4);
   min-height: 60px;
 
   img {
@@ -48,6 +50,8 @@ Styled.Container = styled.button`
     left: 0px;
 
     transition: all 0.5s;
+
+    z-index: 2;
   }
 
   .button-image:hover {
@@ -59,6 +63,6 @@ Styled.Container = styled.button`
     top: 0px;
     left: 0px;
 
-    z-index: -1;
+    z-index: 1;
   }
 `;
