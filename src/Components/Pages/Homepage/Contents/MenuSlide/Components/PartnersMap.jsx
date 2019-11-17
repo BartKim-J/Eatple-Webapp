@@ -3,11 +3,8 @@ import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
 
-export default function PartnersMap({ partnersInfo }) {
-  const [draggable, setDraggable] = useState(false);
-  const [zoomable, setZoomable] = useState(true);
-
-  useEffect(() => {
+function kakaoMap(partnersInfo, draggable, zoomable) {
+  window.kakao.maps.load(() => {
     // eslint-disable-next-line no-unused-vars
     let partnersMap = {};
 
@@ -31,11 +28,20 @@ export default function PartnersMap({ partnersInfo }) {
 
       const marker = new window.kakao.maps.Marker({
         map: partnersMap,
-        position: partnersInfo[i].latlng,
+        position: new window.kakao.maps.LatLng(partnersInfo[i].latlng.x, partnersInfo[i].latlng.y),
         title: partnersInfo[i].storeName,
         image: markerImage,
       });
     }
+  });
+}
+
+export default function PartnersMap({ partnersInfo }) {
+  const [draggable, setDraggable] = useState(false);
+  const [zoomable, setZoomable] = useState(true);
+
+  useEffect(() => {
+    kakaoMap(partnersInfo, draggable, zoomable);
   });
 
   return (

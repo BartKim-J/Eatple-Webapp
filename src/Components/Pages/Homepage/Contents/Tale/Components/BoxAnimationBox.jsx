@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-await-in-loop */
 import React, { useEffect } from 'react';

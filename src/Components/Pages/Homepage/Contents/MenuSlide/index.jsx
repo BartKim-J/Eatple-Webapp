@@ -14,7 +14,7 @@ import MobileTextBox from './ComponentsMobile/TextBox';
 import MobileMenuSlider from './ComponentsMobile/MenuSlider';
 import MobilePartnersMap from './ComponentsMobile/PartnersMap';
 
-import partnersInfo from './partnersInfo';
+import { partnersInfo } from './constants';
 
 function ContentBrowser() {
   return (

@@ -1,13 +1,17 @@
 import ImgSlide from './Images/imgMenu.jpg';
 
-const partnersInfo = [
+function toLatlng(x, y) {
+  return { x, y };
+}
+
+export const partnersInfo = [
   {
     storeName: '고레카레',
     storeAddress: '사임당로 175 101호',
     menuName: '부타돈 & 가츠돈',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49294, 127.02866),
+    latlng: toLatlng(37.49294, 127.02866),
   },
   {
     storeName: '곤들애',
@@ -15,7 +19,7 @@ const partnersInfo = [
     menuName: '곤드레 비빔밥',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49358, 127.02859),
+    latlng: toLatlng(37.49358, 127.02859),
   },
   {
     storeName: '나주가',
@@ -23,7 +27,7 @@ const partnersInfo = [
     menuName: '곰탕',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49708, 127.03149),
+    latlng: toLatlng(37.49708, 127.03149),
   },
   {
     storeName: '노리 테이블',
@@ -31,7 +35,7 @@ const partnersInfo = [
     menuName: '가라아게 덮밥',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49968, 127.03492),
+    latlng: toLatlng(37.49968, 127.03492),
   },
   {
     storeName: '더샾샐러드',
@@ -39,7 +43,7 @@ const partnersInfo = [
     menuName: '닭가슴살 샐러드',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.4954, 127.03041),
+    latlng: toLatlng(37.4954, 127.03041),
   },
   {
     storeName: '딥커리',
@@ -47,7 +51,7 @@ const partnersInfo = [
     menuName: '고로케커리',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.4954, 127.03041),
+    latlng: toLatlng(37.4954, 127.03041),
   },
   {
     storeName: '바니커피',
@@ -55,7 +59,7 @@ const partnersInfo = [
     menuName: '와플&커피',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.4954, 127.03041),
+    latlng: toLatlng(37.4954, 127.03041),
   },
   {
     storeName: '반랑',
@@ -63,7 +67,7 @@ const partnersInfo = [
     menuName: '반미샌드위치',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49708, 127.03149),
+    latlng: toLatlng(37.49708, 127.03149),
   },
   {
     storeName: '봉된장',
@@ -71,7 +75,7 @@ const partnersInfo = [
     menuName: '된장찌개',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49755, 127.03296),
+    latlng: toLatlng(37.49755, 127.03296),
   },
   {
     storeName: '심플한식',
@@ -79,7 +83,7 @@ const partnersInfo = [
     menuName: '제육도시락',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49775, 127.0534),
+    latlng: toLatlng(37.49775, 127.0534),
   },
   {
     storeName: '양대창',
@@ -87,7 +91,7 @@ const partnersInfo = [
     menuName: '대창덮밥',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49318, 127.02868),
+    latlng: toLatlng(37.49318, 127.02868),
   },
   {
     storeName: '예그리나',
@@ -95,7 +99,7 @@ const partnersInfo = [
     menuName: '샌드위치&커피',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49337, 127.02812),
+    latlng: toLatlng(37.49337, 127.02812),
   },
   {
     storeName: '와플엘리',
@@ -103,7 +107,7 @@ const partnersInfo = [
     menuName: '와플2p+커피',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49533, 127.03037),
+    latlng: toLatlng(37.49533, 127.03037),
   },
   {
     storeName: '유부남',
@@ -111,7 +115,7 @@ const partnersInfo = [
     menuName: '유부남 초밥2p+샐러드',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.4954, 127.03041),
+    latlng: toLatlng(37.4954, 127.03041),
   },
   {
     storeName: '질할브로스',
@@ -119,7 +123,7 @@ const partnersInfo = [
     menuName: '치킨오버라이스',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.50094, 127.03612),
+    latlng: toLatlng(37.50094, 127.03612),
   },
   {
     storeName: '청담 돈가스',
@@ -127,7 +131,7 @@ const partnersInfo = [
     menuName: '치킨마요',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.4954, 127.03041),
+    latlng: toLatlng(37.4954, 127.03041),
   },
   {
     storeName: '한돈애',
@@ -135,8 +139,8 @@ const partnersInfo = [
     menuName: '제육덮밥',
     mainImage: ImgSlide,
     subImage: ImgSlide,
-    latlng: new window.kakao.maps.LatLng(37.49492, 127.02739),
+    latlng: toLatlng(37.49492, 127.02739),
   },
 ];
 
-export default partnersInfo;
+export default { partnersInfo };

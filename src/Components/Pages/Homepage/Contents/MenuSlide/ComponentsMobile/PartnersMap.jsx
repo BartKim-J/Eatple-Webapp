@@ -3,21 +3,17 @@ import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
 
-const imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
-
-export default function PartnersMap({ partnersInfo }) {
-  const [draggable, setDraggable] = useState(false);
-  const [zoomable, setZoomable] = useState(true);
-
-  useEffect(() => {
+function kakaoMap(partnersInfo, draggable, zoomable) {
+  window.kakao.maps.load(() => {
     // eslint-disable-next-line no-unused-vars
     let partnersMap = {};
 
-    const container = document.getElementById('kakao-map-mobile');
+    const container = document.getElementById('kakao-map');
+    const imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
 
     const options = {
-      center: new window.kakao.maps.LatLng(37.496815, 127.029974),
-      level: 5,
+      center: new window.kakao.maps.LatLng(37.496015, 127.029574),
+      level: 4,
     };
 
     partnersMap = new window.kakao.maps.Map(container, options);
@@ -32,17 +28,26 @@ export default function PartnersMap({ partnersInfo }) {
 
       const marker = new window.kakao.maps.Marker({
         map: partnersMap,
-        position: partnersInfo[i].latlng,
-        title: partnersInfo[i].partner,
+        position: new window.kakao.maps.LatLng(partnersInfo[i].latlng.x, partnersInfo[i].latlng.y),
+        title: partnersInfo[i].storeName,
         image: markerImage,
       });
     }
+  });
+}
+
+export default function PartnersMap({ partnersInfo }) {
+  const [draggable, setDraggable] = useState(false);
+  const [zoomable, setZoomable] = useState(true);
+
+  useEffect(() => {
+    kakaoMap(partnersInfo, draggable, zoomable);
   });
 
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <div id="kakao-map-mobile" className="map-container" />
+        <div id="kakao-map" className="map-container" />
       </Styled.Container>
     </Styled.Wrap>
   );
