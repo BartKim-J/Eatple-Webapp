@@ -19,8 +19,6 @@ function usePrevious(value) {
 }
 
 export default function FloatBoxList({ pageIndex, progress, pages, won, count }) {
-  const countMax = pages * 10;
-
   const [floatAnimation, set] = useSpring(() => ({
     value: 0,
     config: { mass: 1, tension: 55, friction: 11 },
@@ -48,7 +46,7 @@ export default function FloatBoxList({ pageIndex, progress, pages, won, count })
 
       set({ value: nextIndex });
     }
-  }, [pageIndex, progress, pages, count, prevProgress, countMax, won, set]);
+  }, [pageIndex, progress, pages, count, prevProgress, won, set]);
 
   return (
     <Styled.Wrap>

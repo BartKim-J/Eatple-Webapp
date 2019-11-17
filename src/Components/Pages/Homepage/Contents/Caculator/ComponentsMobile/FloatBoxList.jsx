@@ -52,26 +52,24 @@ export default function FloatBoxList({ pageIndex, progress, pages, won, count })
 
   return (
     <Styled.Wrap>
-      <Styled.Container>
-        <animated.div
-          style={{
-            transform: value.interpolate(idx => `${trans(idx)}`),
-          }}
-        >
-          <Styled.Swriper menuCnt={FoodCategoryMap.length}>
-            {FoodCategoryMap.map(entryCategory => {
-              return (
-                <Styled.Item key={entryCategory.menuName} menuCnt={FoodCategoryMap.length}>
-                  <FloatBox
-                    src={entryCategory.image}
-                    menuPrice={entryCategory.menuPrice}
-                    menuName={entryCategory.menuName}
-                  />
-                </Styled.Item>
-              );
-            })}
-          </Styled.Swriper>
-        </animated.div>
+      <Styled.Container
+        style={{
+          transform: value.interpolate(idx => `${trans(idx)}`),
+        }}
+      >
+        <Styled.Swriper menuCnt={FoodCategoryMap.length}>
+          {FoodCategoryMap.map(entryCategory => {
+            return (
+              <Styled.Item key={entryCategory.menuName} menuCnt={FoodCategoryMap.length}>
+                <FloatBox
+                  src={entryCategory.image}
+                  menuPrice={entryCategory.menuPrice}
+                  menuName={entryCategory.menuName}
+                />
+              </Styled.Item>
+            );
+          })}
+        </Styled.Swriper>
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -104,7 +102,7 @@ Styled.Wrap = styled.div`
   transform: translate(-0%, -100%);
 `;
 
-Styled.Container = styled.div`
+Styled.Container = styled(animated.div)`
   position: absolute;
   top: 0;
   left: 0;
