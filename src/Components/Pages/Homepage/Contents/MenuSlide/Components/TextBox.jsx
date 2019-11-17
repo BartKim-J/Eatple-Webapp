@@ -3,19 +3,23 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
+import ScrollAnimation from 'react-animate-on-scroll';
+
 import ButtonBox from './ViewMoreButtonBox';
 
 export default function TextBox() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <div className="title">
-          잇플의 1차 서비스 지역은
-          <br />
-          <span className="highlight">강남 / 역삼</span> 부근입니다
-        </div>
+        <ScrollAnimation animateIn="fadeInUp">
+          <div className="title">
+            잇플의 1차 서비스 지역은
+            <br />
+            <span className="highlight">강남 / 역삼</span> 부근입니다
+          </div>
 
-        <ButtonBox />
+          <ButtonBox />
+        </ScrollAnimation>
       </Styled.Container>
     </Styled.Wrap>
   );

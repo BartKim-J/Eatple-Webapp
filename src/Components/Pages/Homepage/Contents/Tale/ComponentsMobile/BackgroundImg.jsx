@@ -16,13 +16,14 @@ export default function BackgroundImg() {
     `translate3d(0, ${verticalMovement * Math.sin(r + (i * 2 * Math.PI) / 1.8)}px, 0)`;
 
   const [{ radians }, set, stop] = useSpring(() => ({
+    from: { radians: 0 },
     to: async next => {
       while (true) {
         await next({ radians: 4 * Math.PI });
       }
     },
-    from: { radians: 0 },
     config: { duration: 6000 },
+    reset: true,
   }));
 
   useEffect(() => {

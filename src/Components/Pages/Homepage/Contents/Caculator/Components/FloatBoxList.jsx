@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
 
+import ScrollAnimation from 'react-animate-on-scroll';
+
 import { useSpring, animated } from 'react-spring';
 
 import FloatBox from './FloatBox';
@@ -51,23 +53,25 @@ export default function FloatBoxList({ pageIndex, progress, pages, won, count })
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <animated.div
-          style={{
-            transform: value.interpolate(idx => `${trans(idx, FoodCategoryMap.length)}`),
-          }}
-        >
-          {FoodCategoryMap.map(entryCategory => {
-            return (
-              <Styled.FloatBoxWrap key={entryCategory.menuName}>
-                <FloatBox
-                  src={entryCategory.image}
-                  menuPrice={entryCategory.menuPrice}
-                  menuName={entryCategory.menuName}
-                />
-              </Styled.FloatBoxWrap>
-            );
-          })}
-        </animated.div>
+        <ScrollAnimation animateIn="fadeInRight" animateOut="fadeOutRight">
+          <animated.div
+            style={{
+              transform: value.interpolate(idx => `${trans(idx, FoodCategoryMap.length)}`),
+            }}
+          >
+            {FoodCategoryMap.map(entryCategory => {
+              return (
+                <Styled.FloatBoxWrap key={entryCategory.menuName}>
+                  <FloatBox
+                    src={entryCategory.image}
+                    menuPrice={entryCategory.menuPrice}
+                    menuName={entryCategory.menuName}
+                  />
+                </Styled.FloatBoxWrap>
+              );
+            })}
+          </animated.div>
+        </ScrollAnimation>
       </Styled.Container>
     </Styled.Wrap>
   );

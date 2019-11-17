@@ -26,13 +26,14 @@ export default function BoxAnimationBox({ xy }) {
   const trans4 = (x, y) => `translate3d(${x / 21 + 80}%,${y / 21 + 220}%,0)`;
 
   const [{ radians }, set, stop] = useSpring(() => ({
+    from: { radians: 0 },
     to: async next => {
       while (true) {
         await next({ radians: 2 * Math.PI });
       }
     },
-    from: { radians: 0 },
     config: { duration: 3000 },
+    reset: true,
   }));
 
   useEffect(() => {

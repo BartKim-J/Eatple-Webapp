@@ -1,5 +1,8 @@
+/* eslint-disable react/jsx-boolean-value */
 import React from 'react';
 import styled from 'styled-components';
+
+import ScrollAnimation from 'react-animate-on-scroll';
 
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-with-gesture';
@@ -22,19 +25,21 @@ export default function PhoneBox() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <animated.div
-          className="animated-phone-box"
-          {...bind()}
-          style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }}
-        >
-          <img src={ImgPhone} alt="Phone" draggable="false" />
+        <ScrollAnimation animateIn="wobble" delay={1200} initiallyVisible={true}>
+          <animated.div
+            className="animated-phone-box"
+            {...bind()}
+            style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }}
+          >
+            <img src={ImgPhone} alt="Phone" draggable="false" />
 
-          <Styled.ScreenBoxWrap>
-            <Styled.ScreenBox>
-              <img src={ImgScreen} alt="Screen" draggable="false" />
-            </Styled.ScreenBox>
-          </Styled.ScreenBoxWrap>
-        </animated.div>
+            <Styled.ScreenBoxWrap>
+              <Styled.ScreenBox>
+                <img src={ImgScreen} alt="Screen" draggable="false" />
+              </Styled.ScreenBox>
+            </Styled.ScreenBoxWrap>
+          </animated.div>
+        </ScrollAnimation>
       </Styled.Container>
     </Styled.Wrap>
   );

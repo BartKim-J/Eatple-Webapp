@@ -1,9 +1,12 @@
+/* eslint-disable react/jsx-boolean-value */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
 import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+
+import ScrollAnimation from 'react-animate-on-scroll';
 
 import mediaConf from 'configure/mediaConfig';
 
@@ -25,7 +28,9 @@ function ContentBrowser({ scrollY }) {
         <FloatBoxList scrollY={scrollY} />
 
         <FloatImageBox />
-        <FloatText />
+        <ScrollAnimation animateIn="bounceInRight" animateOnce={true}>
+          <FloatText />
+        </ScrollAnimation>
       </Styled.Container>
     </Styled.Section>
   );
