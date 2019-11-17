@@ -1,4 +1,6 @@
-import React from 'react';
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-await-in-loop */
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -22,18 +24,23 @@ export default function BoxAnimationBox({ xy }) {
   const trans3 = (x, y) => `translate3d(${x / 6 + 25}%,${y / 5 + 220}%,0)`;
   const trans4 = (x, y) => `translate3d(${x / 21 + 80}%,${y / 21 + 150}%,0)`;
 
-  const { radians } = useSpring({
+  const [{ radians }, set, stop] = useSpring(() => ({
     to: async next => {
-      // eslint-disable-next-line no-constant-condition
       while (true) {
-        // eslint-disable-next-line no-await-in-loop
         await next({ radians: 2 * Math.PI });
       }
     },
     from: { radians: 0 },
     config: { duration: 3000 },
-    reset: true,
-  });
+  }));
+
+  useEffect(() => {
+    const cleanUp = () => {
+      stop();
+    };
+
+    return cleanUp;
+  }, [stop]);
 
   return (
     <Styled.BoxAnimationBoxWrap>

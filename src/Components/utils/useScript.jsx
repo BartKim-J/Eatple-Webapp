@@ -1,7 +1,9 @@
+/* eslint-disable prefer-const */
 /* eslint-disable consistent-return */
+/* eslint-disable-next-line prefer-const */
 import { useState, useEffect } from 'react';
 
-const cachedScripts = [];
+let cachedScripts = [];
 
 export default function useScript(src) {
   // Keeping track of script loaded and error state
@@ -23,7 +25,7 @@ export default function useScript(src) {
         cachedScripts.push(src);
 
         // Create script
-        const script = document.createElement('script');
+        let script = document.createElement('script');
         script.src = src;
         script.async = true;
 

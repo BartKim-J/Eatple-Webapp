@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-await-in-loop */
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { useSpring, animated } from 'react-spring';
@@ -12,18 +15,23 @@ export default function BackgroundImg() {
   const interp = i => r =>
     `translate3d(0, ${verticalMovement * Math.sin(r + (i * 2 * Math.PI) / 1.8)}px, 0)`;
 
-  const { radians } = useSpring({
+  const [{ radians }, set, stop] = useSpring(() => ({
     to: async next => {
-      // eslint-disable-next-line no-constant-condition
       while (true) {
-        // eslint-disable-next-line no-await-in-loop
         await next({ radians: 4 * Math.PI });
       }
     },
     from: { radians: 0 },
     config: { duration: 6000 },
-    reset: true,
-  });
+  }));
+
+  useEffect(() => {
+    const cleanUp = () => {
+      stop();
+    };
+
+    return cleanUp;
+  }, [stop]);
 
   return (
     <Styled.BackgroundImgWrap>

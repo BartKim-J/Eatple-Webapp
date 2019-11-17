@@ -2,6 +2,9 @@
 /* eslint-disable no-await-in-loop */
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import urlConf from 'configure/urlConfig';
 
 import ImgBtnPartner from '../Images/BtnViewMore.svg';
 import ImgBtnMediumShadow from '../Images/BtnMediumShadow.svg';
@@ -10,14 +13,14 @@ export default function ButtonBox() {
   return (
     <Styled.Wrap>
       <Styled.Container type="button" className="btn-box">
-        <a href="/">
+        <Link to={urlConf.Homepage}>
           <div className="button-image">
             <img src={ImgBtnPartner} alt="Button" />
           </div>
           <div className="button-shadow">
             <img src={ImgBtnMediumShadow} alt="Button" />
           </div>
-        </a>
+        </Link>
       </Styled.Container>
     </Styled.Wrap>
   );
