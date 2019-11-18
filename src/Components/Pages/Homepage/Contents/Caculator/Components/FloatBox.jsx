@@ -8,7 +8,7 @@ export default function FloatBox({ src, menuPrice, menuName }) {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <Styled.MenuImage src={src} alt={menuName} />
+        <Styled.ImageBox src={src} />
         <Styled.MenuInfo>{`${menuName} | ${menuPrice}원`}</Styled.MenuInfo>
       </Styled.Container>
     </Styled.Wrap>
@@ -38,8 +38,15 @@ Styled.Container = styled.div`
   object-fit: contain;
 `;
 
-Styled.MenuImage = styled.img`
+Styled.ImageBox = styled.div`
   width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+  background-position: center center;
+  background-size: cover;
 `;
 
 Styled.MenuInfo = styled.div`

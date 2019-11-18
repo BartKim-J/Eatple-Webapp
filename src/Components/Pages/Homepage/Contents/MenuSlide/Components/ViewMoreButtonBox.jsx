@@ -12,13 +12,13 @@ import ImgBtnMediumShadow from '../Images/BtnMediumShadow.svg';
 export default function ButtonBox() {
   return (
     <Styled.Wrap>
-      <Styled.Container type="button" className="btn-box">
-        <Link to={urlConf.Homepage}>
+      <Styled.Container type="button" className="btn-box" aria-label="View More Partner">
+        <Link to={urlConf.Homepage} aria-label="View More Partner">
           <div className="button-image">
-            <img src={ImgBtnPartner} alt="Button" />
+            <Styled.ImageBox src={ImgBtnPartner} />
           </div>
           <div className="button-shadow">
-            <img src={ImgBtnMediumShadow} alt="Button" />
+            <Styled.ImageBox src={ImgBtnMediumShadow} />
           </div>
         </Link>
       </Styled.Container>
@@ -37,18 +37,16 @@ Styled.Container = styled.button`
 
   width: 12vw;
   max-width: 180px;
-  height: calc(16vw * 0.33);
-  min-height: 60px;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
+  height: calc(12vw * 0.33);
+  max-height: 60px;
 
   .button-image {
     position: absolute;
     top: 0px;
     left: 0px;
+
+    width: 100%;
+    height: 100%;
 
     transition: all 0.5s;
   }
@@ -62,6 +60,20 @@ Styled.Container = styled.button`
     top: 0px;
     left: 0px;
 
+    width: 100%;
+    height: 100%;
+
     z-index: -1;
   }
+`;
+
+Styled.ImageBox = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+
+  background-size: cover;
 `;

@@ -50,7 +50,7 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
 
       <Styled.Container>
         <Styled.BackgroundImgWrap>
-          <img src={ImgContainer} alt="Container" />
+          <Styled.ImageBox src={ImgContainer} />
         </Styled.BackgroundImgWrap>
         <Styled.TextBoxWrap>
           <Styled.TextBox>
@@ -184,4 +184,15 @@ Styled.BackgroundImgWrap = styled.div`
     width: 100%;
     height: 100%;
   }
+`;
+
+Styled.ImageBox = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+  background-position: center center;
+  background-size: cover;
 `;

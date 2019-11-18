@@ -8,7 +8,7 @@ export default function FloatBox({ src, menuPrice, menuName }) {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <Styled.MenuImage src={src} alt={menuName} />
+        <Styled.ImageBox src={src} />
         <Styled.MenuInfo>{`${menuName} | ${menuPrice}원`}</Styled.MenuInfo>
       </Styled.Container>
     </Styled.Wrap>
@@ -25,6 +25,9 @@ const Styled = {};
 Styled.Wrap = styled.div`
   position: relative;
   padding: 10% 10%;
+
+  width: 100%;
+  height: 100%;
 `;
 
 Styled.Container = styled.div`
@@ -35,8 +38,15 @@ Styled.Container = styled.div`
   max-height: 350px;
 `;
 
-Styled.MenuImage = styled.img`
+Styled.ImageBox = styled.div`
   width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+  background-position: center center;
+  background-size: cover;
 `;
 
 Styled.MenuInfo = styled.div`

@@ -10,8 +10,8 @@ import ImgBtnMediumShadow from 'resource/Image/Button/BtnMediumShadow.svg';
 export default function TrialButtonBox() {
   return (
     <Styled.Wrap>
-      <Styled.Container type="button" className="btn-box">
-        <a href={urlConf.KakaoChatbot}>
+      <Styled.Container type="button" className="btn-box" aria-label="Trial Eatple">
+        <a href={urlConf.KakaoChatbot} target="_blank" aria-label="Trial Eatple" rel="noopener">
           <div className="button-image">
             <Styled.ImageBox src={ImgBtnGetStarted} />
           </div>
@@ -75,6 +75,6 @@ Styled.ImageBox = styled.div`
   background-image: ${props => {
     return `url(${props.src})`;
   }};
-
+  background-position: center center;
   background-size: cover;
 `;

@@ -54,7 +54,7 @@ MenuInfoBox.propTypes = {
 function MainImageSlideBox({ partnersInfo, slideIndex }) {
   return (
     <Styled.MainImageSlideBox>
-      <img src={partnersInfo[slideIndex].mainImage} alt="Button" draggable="false" />
+      <Styled.ImageBox src={partnersInfo[slideIndex].mainImage} />
     </Styled.MainImageSlideBox>
   );
 }
@@ -92,6 +92,8 @@ function SubImageSlideBox({
 
             return (
               <button
+                id={slideItem.storeName}
+                aria-label={slideItem.storeName}
                 type="button"
                 key={slideItem.storeName}
                 className={className}
@@ -99,7 +101,7 @@ function SubImageSlideBox({
                   transitionTo(index);
                 }}
               >
-                <img src={slideItem.subImage} alt="Sub" draggable="false" />
+                <Styled.ImageBox src={slideItem.subImage} />
               </button>
             );
           })}
@@ -205,6 +207,7 @@ Styled.Wrap = styled.div`
   z-index: 100;
 
   width: 60%;
+  height: 30%;
 `;
 
 Styled.Container = styled.div`
@@ -213,6 +216,7 @@ Styled.Container = styled.div`
   right: 0;
 
   width: 100%;
+  height: 100%;
 `;
 
 Styled.MainImageSlideBox = styled.div`
@@ -225,12 +229,6 @@ Styled.MainImageSlideBox = styled.div`
 
   height: 100%;
   max-height: 504px;
-
-  img {
-    width: 100%;
-
-    border-radius: 0.6vw 0.6svw 0 0;
-  }
 `;
 
 Styled.SubImageSlideBox = styled.div`
@@ -417,4 +415,15 @@ StyledMenuInfoBox.ButtonBox = styled.div`
       width: 100%;
     }
   }
+`;
+
+Styled.ImageBox = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+  background-position: center center;
+  background-size: cover;
 `;

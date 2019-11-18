@@ -20,7 +20,7 @@ Styled.FloatImageBoxWrap = styled.div`
   top: 15%;
   right: 0%;
 
-  width: 25%;
+  width: 30%;
 `;
 Styled.FloatImageBox = styled.div`
   width: 100%;

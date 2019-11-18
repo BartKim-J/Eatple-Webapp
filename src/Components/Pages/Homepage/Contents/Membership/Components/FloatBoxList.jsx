@@ -17,7 +17,7 @@ export default function FloatBoxList() {
 
   const [scrollAnimation, set] = useSpring(() => ({
     value: 0,
-    config: { mass: 1, tension: 55, friction: 8 },
+    config: { mass: 10, tension: 550, friction: 140 },
   }));
 
   set({ value: scrollY });
@@ -36,7 +36,7 @@ export default function FloatBoxList() {
       pos = screenHeight * anchor;
     }
 
-    if (y * 1 >= screenHeight * 2) {
+    if (y * 1 >= screenHeight * 0.8) {
       setFixTriger(true);
     }
 
@@ -58,8 +58,8 @@ export default function FloatBoxList() {
           <div className="vertical-line" />
           <animated.div
             style={{
-              transform: value.interpolate(y => `${trans(y, 0.2, 0.4)}`),
-              opacity: value.interpolate(y => `${opac(y, 0.9, 280, 0.56)}`),
+              transform: value.interpolate(y => `${trans(y, 0.4, 0.3)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 250, 0.56)}`),
             }}
           >
             <FloatBox
@@ -72,8 +72,8 @@ export default function FloatBoxList() {
           </animated.div>
           <animated.div
             style={{
-              transform: value.interpolate(y => `${trans(y, 0.45, 0.8)}`),
-              opacity: value.interpolate(y => `${opac(y, 0.85, 280, 0.68)}`),
+              transform: value.interpolate(y => `${trans(y, 1.2, 0.9)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 250, 0.56)}`),
             }}
           >
             <FloatBox
@@ -90,8 +90,8 @@ export default function FloatBoxList() {
           <div className="vertical-line" />
           <animated.div
             style={{
-              transform: value.interpolate(y => `${trans(y, 0.35, 0.6)}`),
-              opacity: value.interpolate(y => `${opac(y, 0.8, 280, 0.8)}`),
+              transform: value.interpolate(y => `${trans(y, 0.8, 0.6)}`),
+              opacity: value.interpolate(y => `${opac(y, 3.6, 250, 0.56)}`),
             }}
           >
             <FloatBox

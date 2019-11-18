@@ -81,7 +81,7 @@ Styled.TextBox = styled.div`
     font-size: 1.4vw;
     font-family: 'S-CoreDream-Bold';
     line-height: 0.86;
-    
+
     @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
       font-size: 24px;
     }

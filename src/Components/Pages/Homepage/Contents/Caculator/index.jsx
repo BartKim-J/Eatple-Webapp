@@ -13,7 +13,6 @@ import BackgroundImgBox from './Components/BackgroundImgBox';
 import CategorySelectBox from './Components/CategorySelectBox';
 import ResultViewBox from './Components/ResultViewBox';
 
-import MobileBackgroundImgBox from './ComponentsMobile/BackgroundImgBox';
 import MobileCategorySelectBox from './ComponentsMobile/CategorySelectBox';
 import MobileResultViewBox from './ComponentsMobile/ResultViewBox';
 
@@ -68,7 +67,6 @@ function ContentMobile() {
             <Inner className="stickyroll-inner">
               <StyledMobile.Section>
                 <StyledMobile.Container>
-                  <MobileBackgroundImgBox />
                   <MobileCategorySelectBox />
 
                   <MobileResultViewBox

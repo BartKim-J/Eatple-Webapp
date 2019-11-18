@@ -9,7 +9,7 @@ export default function SocialMap({ mapArray }) {
         {mapArray.map(entryIcon => {
           return (
             <li key={entryIcon.label}>
-              <a href={entryIcon.link} target="_blank">
+              <a href={entryIcon.link} target="_blank" rel="noopener">
                 <Styled.ImageBox src={entryIcon.icon} />
               </a>
             </li>
@@ -56,6 +56,6 @@ Styled.ImageBox = styled.div`
   background-image: ${props => {
     return `url(${props.src})`;
   }};
-
+  background-position: center center;
   background-size: cover;
 `;

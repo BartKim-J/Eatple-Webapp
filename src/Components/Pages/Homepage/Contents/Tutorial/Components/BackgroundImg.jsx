@@ -8,7 +8,7 @@ export default function BackgroundImg() {
     <Styled.Wrap>
       <Styled.Container>
         <Styled.ImageBox>
-          <img src={ImgBackground} alt="Background" draggable="false" />
+          <Styled.ImageBox src={ImgBackground} />
         </Styled.ImageBox>
       </Styled.Container>
     </Styled.Wrap>
@@ -41,4 +41,15 @@ Styled.ImageBox = styled.div`
   img {
     width: 100%;
   }
+`;
+
+Styled.ImageBox = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+  background-position: center center;
+  background-size: cover;
 `;
