@@ -31,11 +31,11 @@ export default function PhoneBox() {
             {...bind()}
             style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }}
           >
-            <Styled.ImageBox src={ImgPhone} />
+            <img src={ImgPhone} alt="Phone" draggable="false" />
 
             <Styled.ScreenBoxWrap>
               <Styled.ScreenBox>
-                <Styled.ImageBox src={ImgScreen} />
+                <img src={ImgScreen} alt="Screen" draggable="false" />
               </Styled.ScreenBox>
             </Styled.ScreenBoxWrap>
           </animated.div>
@@ -61,10 +61,11 @@ Styled.Container = styled.div`
     width: ${Styled.PhoneScreenWidth};
     max-width: 405px;
 
-    height: calc(${Styled.PhoneScreenWidth} * 2);
-    max-height: 892px;
-
     cursor: -webkit-grab;
+
+    img {
+      width: 100%;
+    }
   }
 `;
 
@@ -73,9 +74,8 @@ Styled.ScreenBoxWrap = styled.div`
   top: 0;
 
   padding: calc(${Styled.PhoneScreenWidth} * 0.044);
-
-  width: 100%;
-  height: 100%;
+  width: ${Styled.PhoneScreenWidth};
+  max-width: 405px;
 
   text-align: center;
 `;
@@ -83,20 +83,6 @@ Styled.ScreenBox = styled.div`
   position: relative;
   display: inline-block;
 
-  width: 100%;
-  height: 100%;
-
   width: calc(${Styled.PhoneScreenWidth} * 0.883146);
   max-width: 353px;
-`;
-
-Styled.ImageBox = styled.div`
-  width: 100%;
-  height: 100%;
-
-  background-image: ${props => {
-    return `url(${props.src})`;
-  }};
-  background-position: center center;
-  background-size: cover;
 `;
