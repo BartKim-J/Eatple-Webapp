@@ -13,7 +13,7 @@ import ContentTale from './Contents/Tale';
 
 export default function Homepage() {
   const [loaded, error] = useScript(
-    '//dapi.kakao.com/v2/maps/sdk.js?appkey=2b7052dfc89e89644677cb1be76b7a18&autoload=false',
+    'https://dapi.kakao.com/v2/maps/sdk.js?appkey=2b7052dfc89e89644677cb1be76b7a18&autoload=false',
   );
 
   if (loaded) {

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker build -t benkim07120/eatplus .
-docker push benkim07120/eatplus
+docker build -t bartkim07120/eatple-webapp .
+docker push bartkim07120/eatple-webapp
 
