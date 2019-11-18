@@ -10,7 +10,7 @@ export default function SocialMap({ mapArray }) {
           return (
             <li key={entryIcon.label}>
               <a href={entryIcon.link} target="_blank">
-                <img src={entryIcon.icon} alt={entryIcon.label} draggable="false" />
+                <Styled.ImageBox src={entryIcon.icon} />
               </a>
             </li>
           );
@@ -38,15 +38,24 @@ Styled.Container = styled.ul`
 
     width: 1.8vw;
     max-width: 32px;
+    height: 1.8vw;
+    max-height: 32px;
 
     margin-right: 22px;
-
-    img {
-      width: 100%;
-    }
   }
 
   li:last-child {
     margin-right: 0;
   }
+`;
+
+Styled.ImageBox = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+
+  background-size: cover;
 `;
