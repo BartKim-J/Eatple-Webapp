@@ -242,8 +242,6 @@ Styled.SubImageSlideBox = styled.div`
   height: calc(60vw * 0.094);
   max-height: 100px;
 
-  margin-top: 0.8%;
-
   .sub-box-item-list {
     width: 100%;
     height: 100%;

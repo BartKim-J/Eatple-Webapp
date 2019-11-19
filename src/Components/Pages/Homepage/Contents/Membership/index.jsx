@@ -6,8 +6,6 @@ import styled from 'styled-components';
 import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
 import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
-import ScrollAnimation from 'react-animate-on-scroll';
-
 import mediaConf from 'configure/mediaConfig';
 
 import BackgroundBox from './Components/BackgroundBox';
@@ -24,13 +22,11 @@ function ContentBrowser({ scrollY }) {
   return (
     <Styled.Section>
       <BackgroundBox />
+
       <Styled.Container>
         <FloatBoxList scrollY={scrollY} />
-
         <FloatImageBox />
-        <ScrollAnimation animateIn="bounceInRight" animateOnce={true}>
-          <FloatText />
-        </ScrollAnimation>
+        <FloatText />
       </Styled.Container>
     </Styled.Section>
   );
@@ -73,7 +69,7 @@ export default function CotentMembership() {
     <MobileView>
       <DeviceOrientation>
         <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser />;
+          <ContentBrowser />
         </Orientation>
 
         <Orientation orientation="portrait" alwaysRender={false}>

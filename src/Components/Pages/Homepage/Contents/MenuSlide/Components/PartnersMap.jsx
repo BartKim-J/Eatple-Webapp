@@ -67,7 +67,7 @@ Styled.Wrap = styled.div`
 Styled.Container = styled.div`
   position: relative;
 
-  width: 38vw;
+  width: 35vw;
   max-width: 586px;
 
   height: calc(38vw * 1.0604);

@@ -106,7 +106,7 @@ Styled.ItemListBox = styled.div`
 
       margin: 5% 1.2em 0 0;
 
-      font-size: 1.8vw;
+      font-size: 1.46vw;
       font-family: 'S-CoreDream-Bold';
       line-height: 1.29;
       color: #aaaaaa;
@@ -165,7 +165,7 @@ Styled.TutorialTextWrap = styled.div`
 Styled.TutorialText = styled.div`
   text-align: left;
 
-  font-size: 1.4vw;
+  font-size: 1.26vw;
   font-family: 'S-CoreDream';
   line-height: 2.67;
   color: #1c1c1c;

@@ -41,7 +41,7 @@ export default function TOS() {
     <MobileView>
       <DeviceOrientation>
         <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser />;
+          <ContentBrowser />
         </Orientation>
 
         <Orientation orientation="portrait" alwaysRender={false}>

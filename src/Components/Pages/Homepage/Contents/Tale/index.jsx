@@ -66,6 +66,7 @@ ContentMobile.propTypes = {
 ContentMobile.defaultProps = {
   xy: [0, 0],
 };
+
 export default function ContentTale() {
   if (isBrowser)
     return (
@@ -78,7 +79,7 @@ export default function ContentTale() {
     <MobileView>
       <DeviceOrientation>
         <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser />;
+          <ContentBrowser />
         </Orientation>
 
         <Orientation orientation="portrait" alwaysRender={false}>

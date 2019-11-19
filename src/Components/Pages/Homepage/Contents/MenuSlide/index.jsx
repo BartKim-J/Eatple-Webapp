@@ -52,7 +52,7 @@ export default function CotentMenuSlider() {
     <MobileView>
       <DeviceOrientation>
         <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser />;
+          <ContentBrowser />
         </Orientation>
 
         <Orientation orientation="portrait" alwaysRender={false}>
