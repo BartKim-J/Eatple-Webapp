@@ -206,8 +206,8 @@ Styled.Wrap = styled.div`
 
   z-index: 100;
 
-  width: 68%;
-  height: 30%;
+  width: 64%;
+  height: 40%;
 `;
 
 Styled.Container = styled.div`
