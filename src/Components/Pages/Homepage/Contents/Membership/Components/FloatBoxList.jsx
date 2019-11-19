@@ -103,10 +103,6 @@ export default function FloatBoxList() {
             />
           </animated.div>
         </Styled.Item>
-
-        <Styled.Item>
-          <div className="vertical-line" />
-        </Styled.Item>
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -115,13 +111,18 @@ export default function FloatBoxList() {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-  position: relative;
-  width: 75%;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 40%;
   height: 100%;
+
+  background-color: #f8f8fa;
 `;
 
 Styled.Container = styled.ul`
-  position: absolute;
+  position: relative;
   left: 0;
   bottom: 0;
 
@@ -135,7 +136,7 @@ Styled.Item = styled.li`
   position: relative;
   display: inline-block;
 
-  width: calc(100% / 3);
+  width: calc(100% / 2);
   height: 100%;
 
   .float-box {

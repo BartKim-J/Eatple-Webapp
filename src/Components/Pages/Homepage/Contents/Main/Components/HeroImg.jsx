@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 import ImgHero from '../Images/imgHero@2x.jpg';
 
-export default function BackgroundImg() {
+export default function HeroImg() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <Styled.ImageBox />
+        <Styled.ImageBox src={ImgHero} />
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -34,10 +34,14 @@ Styled.Container = styled.div`
 
   overflow: hidden;
 `;
+
 Styled.ImageBox = styled.div`
-  min-width: 100%;
+  width: 100%;
   height: 100%;
 
-  background-image: url(${ImgHero});
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+  background-position: center center;
   background-size: cover;
 `;

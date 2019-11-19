@@ -8,6 +8,7 @@ import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
 import mediaConf from 'configure/mediaConfig';
 
+import HeroImg from './Components/HeroImg';
 import BackgroundBox from './Components/BackgroundBox';
 import FloatBoxList from './Components/FloatBoxList';
 import FloatImageBox from './Components/FloatImageBox';
@@ -22,11 +23,9 @@ function ContentBrowser({ scrollY }) {
   return (
     <Styled.Section>
       <BackgroundBox />
-
+      <HeroImg />
       <Styled.Container>
-        <FloatBoxList scrollY={scrollY} />
-        <FloatImageBox />
-        <FloatText />
+        <FloatBoxList />
       </Styled.Container>
     </Styled.Section>
   );

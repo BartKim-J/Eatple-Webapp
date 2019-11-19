@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 import ImgHero from '../Images/imgHero.jpg';
 
-export default function BackgroundImg() {
+export default function HeroImg() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <Styled.ImageBox src={ImgHero} alt="Hero" />
+        <Styled.ImageBox src={ImgHero} />
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -33,13 +33,13 @@ Styled.Container = styled.div`
   height: 100%;
 `;
 
-Styled.ImageBox = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
+Styled.ImageBox = styled.div`
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+  background-position: center center;
+  background-size: cover;
 `;

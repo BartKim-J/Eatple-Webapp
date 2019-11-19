@@ -6,17 +6,17 @@ import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
 import mediaConf from 'configure/mediaConfig';
 
-import BackgroundImg from './Components/BackgroundImg';
+import HeroImg from './Components/HeroImg';
 import TextBox from './Components/TextBox';
 
-import MobileBackgroundImg from './ComponentsMobile/BackgroundImg';
+import MobileHeroImg from './ComponentsMobile/HeroImg';
 import MobileTextBox from './ComponentsMobile/TextBox';
 
 function ContentBrowser() {
   return (
     <Styled.Section>
       <Styled.Container>
-        <BackgroundImg />
+        <HeroImg />
         <TextBox />
       </Styled.Container>
     </Styled.Section>
@@ -26,7 +26,7 @@ function ContentBrowser() {
 function ContentMobile() {
   return (
     <StyledMobile.Section>
-      <MobileBackgroundImg />
+      <MobileHeroImg />
       <StyledMobile.Container>
         <MobileTextBox />
       </StyledMobile.Container>

@@ -78,23 +78,24 @@ Styled.TextBox = styled.div`
   padding: 22% 5% 0 5%;
 
   .title {
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     font-family: 'S-CoreDream-Bold';
     line-height: 0.86;
 
     @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 
   .sub-text {
     margin-top: 6%;
 
-    font-size: 1.1vw;
+    font-size: 1vw;
     font-family: 'S-CoreDream';
-    line-height: 1.44;
+    line-height: 1.46;
+
     @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-      font-size: 18px;
+      font-size: 14px;
     }
   }
 `;

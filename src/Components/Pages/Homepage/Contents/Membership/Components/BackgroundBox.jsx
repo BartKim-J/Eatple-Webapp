@@ -22,10 +22,10 @@ Styled.BackgroundBoxWrap = styled.div`
 
 Styled.BackgroundBox = styled.div`
   position: absolute;
-  left: 0;
+  right: 0;
   bottom: 0;
 
-  width: 60%;
+  width: 35%;
   height: 100%;
 
   background-color: #f8f8fa;
