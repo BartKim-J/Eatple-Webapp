@@ -78,7 +78,7 @@ function SubImageSlideBox({
           role="button"
           className="item-swiper"
           style={{
-            transform: `translateX(${13.4 * movement * -1}%)`,
+            transform: `translateX(${-19.3 * movement}%)`,
             width: `${partnersInfo.length} * 15%`,
           }}
           tabIndex={0}
@@ -126,7 +126,7 @@ SubImageSlideBox.propTypes = {
 };
 
 export default function MenuSlider({ partnersInfo }) {
-  const minImageCount = 5;
+  const minImageCount = 3;
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [movement, setMovement] = useState(0);
@@ -198,6 +198,9 @@ MenuSlider.propTypes = {
 };
 
 const Styled = {};
+const MenuSliderWidth = '52vw';
+const MenuMainBoxWidth = MenuSliderWidth;
+const MenuSubBoxWidth = MenuMainBoxWidth;
 
 Styled.Wrap = styled.div`
   position: absolute;
@@ -206,8 +209,11 @@ Styled.Wrap = styled.div`
 
   z-index: 100;
 
-  width: 64%;
-  height: 40%;
+  width: ${MenuSliderWidth};
+  max-width: 1074px;
+
+  height: calc(${MenuMainBoxWidth} * 0.5716);
+  max-height: 614px;
 `;
 
 Styled.Container = styled.div`
@@ -224,10 +230,10 @@ Styled.MainImageSlideBox = styled.div`
 
   display: inline-block;
 
-  width: 100%;
+  width: ${MenuMainBoxWidth};
   max-width: 1074px;
 
-  height: 100%;
+  height: calc(${MenuMainBoxWidth} * 0.4692);
   max-height: 504px;
 `;
 
@@ -236,22 +242,20 @@ Styled.SubImageSlideBox = styled.div`
 
   display: inline-block;
 
-  width: 100%;
+  width: ${MenuSubBoxWidth};
   max-width: 1074px;
 
-  height: calc(60vw * 0.094);
+  height: calc(${MenuSubBoxWidth} * 0.093);
   max-height: 100px;
 
   .sub-box-item-list {
     width: 100%;
     height: 100%;
-    max-height: 100px;
 
     overflow: hidden;
 
     .item-swiper {
       height: 100%;
-      max-height: 100px;
 
       display: flex;
       overflow-x: visible;
@@ -271,7 +275,7 @@ Styled.SubImageSlideBox = styled.div`
 
         flex-grow: 0;
         flex-shrink: 0;
-        flex-basis: 12.6%;
+        flex-basis: 18.6%;
 
         transition: all 0.3s;
         opacity: 0.5;
@@ -306,15 +310,16 @@ Styled.MenuInfoBoxWrap = styled.div`
   position: absolute;
   bottom: 0;
   right: 0;
+
+  width: 41.8%;
+  height: 180%;
 `;
 
 Styled.MenuInfoBox = styled.div`
   position: relative;
 
-  width: 20vw;
-  max-width: 342px;
-  height: calc(20vw * 0.4444);
-  max-height: 152px;
+  width: 100%;
+  height: 100%;
 
   background-color: #1c1c1c;
 
