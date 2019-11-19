@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
+import { useTransition, animated, config } from 'react-spring';
 
 import mediaConf from 'configure/mediaConfig';
 
@@ -52,10 +53,21 @@ MenuInfoBox.propTypes = {
 };
 
 function MainImageSlideBox({ partnersInfo, slideIndex }) {
+  const transitions = useTransition(partnersInfo[slideIndex], item => item.id, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: config.molasses,
+  });
+
   return (
-    <Styled.MainImageSlideBox>
-      <Styled.ImageBox src={partnersInfo[slideIndex].mainImage} />
-    </Styled.MainImageSlideBox>
+    <>
+      {transitions.map(({ item, props, key }) => (
+        <Styled.MainImageSlideBox key={key}>
+          <Styled.ImageBox src={partnersInfo[slideIndex].mainImage} />
+        </Styled.MainImageSlideBox>
+      ))}
+    </>
   );
 }
 MainImageSlideBox.propTypes = {
@@ -223,9 +235,12 @@ Styled.Container = styled.div`
 
   width: 100%;
   height: 100%;
+
+  border-radius: 1.6vw 1.6vw 1.6vw 0vw;
+  overflow: hidden;
 `;
 
-Styled.MainImageSlideBox = styled.div`
+Styled.MainImageSlideBox = styled(animated.div)`
   position: relative;
 
   display: inline-block;
@@ -322,6 +337,8 @@ Styled.MenuInfoBox = styled.div`
   height: 100%;
 
   background-color: #1c1c1c;
+
+  border-radius: 1vw 0 0 0;
 
   .slider-text-box-wrap {
     position: relative;
