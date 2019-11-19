@@ -236,7 +236,7 @@ Styled.Container = styled.div`
   width: 100%;
   height: 100%;
 
-  border-radius: 1.6vw 1.6vw 1.6vw 0vw;
+  border-radius: 1vw 1vw 1vw 0vw;
   overflow: hidden;
 `;
 
