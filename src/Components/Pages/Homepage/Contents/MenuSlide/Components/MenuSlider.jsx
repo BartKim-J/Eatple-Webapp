@@ -78,7 +78,7 @@ function SubImageSlideBox({
           role="button"
           className="item-swiper"
           style={{
-            transform: `translateX(${-19.3 * movement}%)`,
+            transform: `translateX(${-19.4 * movement}%)`,
             width: `${partnersInfo.length} * 15%`,
           }}
           tabIndex={0}
