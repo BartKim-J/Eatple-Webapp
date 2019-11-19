@@ -11,8 +11,8 @@ import mediaConf from 'configure/mediaConfig';
 import HeroImg from './Components/HeroImg';
 import BackgroundBox from './Components/BackgroundBox';
 import FloatBoxList from './Components/FloatBoxList';
-import FloatImageBox from './Components/FloatImageBox';
-import FloatText from './Components/FloatText';
+// import FloatImageBox from './Components/FloatImageBox';
+// import FloatText from './Components/FloatText';
 
 import MobileBackgroundBox from './ComponentsMobile/BackgroundBox';
 import MobileFloatBoxList from './ComponentsMobile/FloatBoxList';

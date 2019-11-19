@@ -38,16 +38,16 @@ Styled.Container = styled.div`
 
   overflow: hidden;
 
-  transition: 1s ease-out;
+  transition: 0.6s ease-out;
 
   filter: ${props => {
-    let value = 3;
+    let value = 100;
 
-    if (props.scrollY > props.offsetY * 0.7) {
+    if (props.scrollY > props.offsetY / 2) {
       value = 0;
     }
 
-    return `blur(${value}px)`;
+    return `grayscale(${value}%)`;
   }};
 `;
 
@@ -59,16 +59,15 @@ Styled.ImageBox = styled.div`
     return `url(${props.src})`;
   }};
 
-  transition: 1s ease-out;
-
+  transition: 0.6s ease-out;
   filter: ${props => {
-    let value = 100;
+    let value = 2;
 
-    if (props.scrollY > props.offsetY / 2) {
+    if (props.scrollY > props.offsetY * 0.7) {
       value = 0;
     }
 
-    return `grayscale(${value}%)`;
+    return `blur(${value}px)`;
   }};
 
   background-position: center right;
