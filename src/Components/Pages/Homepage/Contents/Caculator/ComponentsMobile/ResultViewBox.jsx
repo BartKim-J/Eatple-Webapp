@@ -193,6 +193,7 @@ Styled.ImageBox = styled.div`
   background-image: ${props => {
     return `url(${props.src})`;
   }};
+
   background-position: center center;
   background-size: cover;
 `;

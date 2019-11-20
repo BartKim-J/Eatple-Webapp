@@ -23,8 +23,8 @@ function ContentBrowser({ scrollY }) {
   return (
     <Styled.Section>
       <BackgroundBox />
-      <HeroImg />
       <Styled.Container>
+        <HeroImg />
         <FloatBoxList />
       </Styled.Container>
     </Styled.Section>
@@ -103,6 +103,8 @@ Styled.Container = styled.div`
 
   max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
   height: 100%;
+
+  overflow-x: visible;
 
   margin: 0 auto;
 `;

@@ -22,9 +22,9 @@ const Styled = {};
 Styled.Wrap = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
+  right: 40%;
 
-  width: 65%;
+  width: 70%;
   height: 100%;
 
   z-index: -1;
@@ -38,7 +38,7 @@ Styled.Container = styled.div`
 
   overflow: hidden;
 
-  transition: 0.6s ease-out;
+  transition: 1s ease-out;
 
   filter: ${props => {
     let value = 100;
@@ -61,7 +61,7 @@ Styled.ImageBox = styled.div`
 
   transition: 0.6s ease-out;
   filter: ${props => {
-    let value = 2;
+    let value = 5;
 
     if (props.scrollY > props.offsetY * 0.7) {
       value = 0;
