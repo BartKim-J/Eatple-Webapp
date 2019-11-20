@@ -7,12 +7,13 @@ import ImgHero from '../Images/imgHero.jpg';
 
 export default function HeroImg() {
   const { scrollY } = useScroll();
+  const offsetY = window.innerHeight;
 
   return (
     <Styled.Wrap>
-      <Styled.Container scrollY={scrollY} offsetY={window.innerHeight}>
+      <Styled.Container scrollY={scrollY} offsetY={offsetY}>
         <Styled.Mask />
-        <Styled.ImageBox src={ImgHero} scrollY={scrollY} offsetY={window.innerHeight} />
+        <Styled.ImageBox src={ImgHero} scrollY={scrollY} offsetY={offsetY} />
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -58,7 +59,7 @@ Styled.Mask = styled.div`
   left: 0;
 
   width: 100%;
-  height: 60%;
+  height: 50%;
 
   background: linear-gradient(to bottom, transparent 0%, black 100%);
 

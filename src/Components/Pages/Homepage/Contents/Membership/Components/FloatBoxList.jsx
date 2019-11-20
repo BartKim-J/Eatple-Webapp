@@ -58,7 +58,7 @@ export default function FloatBoxList() {
           <div className="vertical-line" />
           <animated.div
             style={{
-              transform: value.interpolate(y => `${trans(y, 0.4, 0.3)}`),
+              transform: value.interpolate(y => `${trans(y, 0.4, 0.35)}`),
               opacity: value.interpolate(y => `${opac(y, 3.6, 250, 0.56)}`),
             }}
           >
@@ -90,7 +90,7 @@ export default function FloatBoxList() {
           <div className="vertical-line" />
           <animated.div
             style={{
-              transform: value.interpolate(y => `${trans(y, 0.8, 0.6)}`),
+              transform: value.interpolate(y => `${trans(y, 0.8, 0.65)}`),
               opacity: value.interpolate(y => `${opac(y, 3.6, 250, 0.56)}`),
             }}
           >

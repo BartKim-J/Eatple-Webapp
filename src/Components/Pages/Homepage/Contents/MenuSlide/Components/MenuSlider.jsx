@@ -8,38 +8,27 @@ import ImgBtnSlideLeft from '../Images/BtnLeft.svg';
 import ImgBtnSlideRight from '../Images/BtnRight.svg';
 
 function MenuInfoBox({ partnersInfo, prevSlide, nextSlide, slideIndex }) {
-  function SliderButtonBox() {
-    return (
-      <StyledMenuInfoBox.ButtonBoxWrap>
-        <StyledMenuInfoBox.ButtonBox>
-          <button type="button" className="button" onClick={prevSlide}>
-            <img src={ImgBtnSlideLeft} alt="Button" draggable="false" />
-          </button>
-          <button type="button" className="button" onClick={nextSlide}>
-            <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
-          </button>
-        </StyledMenuInfoBox.ButtonBox>
-      </StyledMenuInfoBox.ButtonBoxWrap>
-    );
-  }
-
-  function InfoTextBox() {
-    return (
-      <div className="slider-text-box-wrap">
-        <div className="slider-text-box">
-          <div className="store-name">{partnersInfo[slideIndex].storeName}</div>
-          <div className="menu-name">{partnersInfo[slideIndex].menuName}</div>
-          <div className="store-address">{partnersInfo[slideIndex].storeAddress}</div>
-          <div className="menu-index-text">{`${slideIndex + 1}/${partnersInfo.length}`}</div>
-        </div>
-      </div>
-    );
-  }
   return (
     <Styled.MenuInfoBoxWrap>
       <Styled.MenuInfoBox>
-        <SliderButtonBox />
-        <InfoTextBox />
+        <StyledMenuInfoBox.ButtonBoxWrap>
+          <StyledMenuInfoBox.ButtonBox>
+            <button type="button" className="button" onClick={prevSlide}>
+              <img src={ImgBtnSlideLeft} alt="Button" draggable="false" />
+            </button>
+            <button type="button" className="button" onClick={nextSlide}>
+              <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
+            </button>
+          </StyledMenuInfoBox.ButtonBox>
+        </StyledMenuInfoBox.ButtonBoxWrap>
+        <div className="slider-text-box-wrap">
+          <div className="slider-text-box">
+            <div className="store-name">{partnersInfo[slideIndex].storeName}</div>
+            <div className="menu-name">{partnersInfo[slideIndex].menuName}</div>
+            <div className="store-address">{partnersInfo[slideIndex].storeAddress}</div>
+            <div className="menu-index-text">{`${slideIndex + 1}/${partnersInfo.length}`}</div>
+          </div>
+        </div>
       </Styled.MenuInfoBox>
     </Styled.MenuInfoBoxWrap>
   );
@@ -49,18 +38,6 @@ MenuInfoBox.propTypes = {
   slideIndex: PropType.number.isRequired,
   prevSlide: PropType.func.isRequired,
   nextSlide: PropType.func.isRequired,
-};
-
-function MainImageSlideBox({ partnersInfo, slideIndex }) {
-  return (
-    <Styled.MainImageSlideBox>
-      <Styled.ImageBox src={partnersInfo[slideIndex].mainImage} />
-    </Styled.MainImageSlideBox>
-  );
-}
-MainImageSlideBox.propTypes = {
-  partnersInfo: PropType.array.isRequired,
-  slideIndex: PropType.number.isRequired,
 };
 
 function SubImageSlideBox({
@@ -180,7 +157,9 @@ export default function MenuSlider({ partnersInfo }) {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <MainImageSlideBox partnersInfo={partnersInfo} slideIndex={slideIndex} />
+        <Styled.MainImageSlideBox>
+          <Styled.ImageBox src={partnersInfo[slideIndex].mainImage} />
+        </Styled.MainImageSlideBox>
         <SubImageSlideBox
           partnersInfo={partnersInfo}
           slideIndex={slideIndex}
