@@ -2,7 +2,16 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { Homepage, FAQ, Payment, PaymentResult, TOS, PP, Error } from 'components/Pages/PageIndex';
+import {
+  Homepage,
+  FAQ,
+  Payment,
+  PaymentResult,
+  TOS,
+  PP,
+  LOC,
+  Error,
+} from 'components/Pages/PageIndex';
 
 import mediaConf from 'configure/mediaConfig';
 import urlConf from 'configure/urlConfig';
@@ -27,6 +36,7 @@ export default function App() {
 
               <Route exact path={urlConf.TOS} component={TOS} />
               <Route exact path={urlConf.PP} component={PP} />
+              <Route exact path={urlConf.LOC} component={LOC} />
 
               <Route exact path="robots.txt" />
               <Route component={Error} />

@@ -6,6 +6,7 @@ const urls = {
 
   TOS: '/tos',
   PP: '/pp',
+  LOC: '/loc',
 
   KakaoChatbot: 'http://pf.kakao.com/_xaxlptT/chat',
   Facebook: 'https://www.facebook.com/',

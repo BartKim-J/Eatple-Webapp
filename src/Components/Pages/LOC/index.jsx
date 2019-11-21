@@ -5,14 +5,14 @@ import ReponsiveView from 'components/utils/ResponsiveView';
 
 import mediaConf from 'configure/mediaConfig';
 
-import MenuBar from './Components/MenuBar';
-import MobileMenuBar from './ComponentsMobile/MenuBar';
+import TextBox from './Components/TextBox';
+import MobileTextBox from './ComponentsMobile/TextBox';
 
 function ContentBrowser() {
   return (
     <Styled.Section>
       <Styled.Container>
-        <MenuBar />
+        <TextBox />
       </Styled.Container>
     </Styled.Section>
   );
@@ -21,61 +21,46 @@ function ContentBrowser() {
 function ContentMobile() {
   return (
     <StyledMobile.Section>
-      <StyledMobile.Container>
-        <MobileMenuBar />
-      </StyledMobile.Container>
+      <Styled.Container>
+        <MobileTextBox />
+      </Styled.Container>
     </StyledMobile.Section>
   );
 }
 
-export default function Menu() {
+export default function TOS() {
   return <ReponsiveView ContentBrowser={ContentBrowser} ContentMobile={ContentMobile} />;
 }
 
 const Styled = {};
 
 Styled.Section = styled.section`
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
 
   width: 100vw;
-  height: 50px;
+  min-height: 100vh;
 
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    padding: 0 ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
-  }
-
-  z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
+  overflow: visible;
 `;
 
 Styled.Container = styled.div`
   position: relative;
-  top: 50%;
 
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
+  width: 100%;
   height: 100%;
 
-  margin: 0 auto;
-
-  img {
-    width: 100%;
+  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
   }
 `;
 
 const StyledMobile = {};
 
 StyledMobile.Section = styled.section`
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
 
   width: 100vw;
-  height: 8vh;
-
-  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-
-  z-index: ${mediaConf.LAYOUT_DEFAULT_Z_INDEX};
+  min-height: 100vh;
 `;
 
 StyledMobile.Container = styled.div`
@@ -85,10 +70,4 @@ StyledMobile.Container = styled.div`
   height: 100%;
 
   margin: 0 auto;
-
-  padding: 4% 0;
-
-  img {
-    width: 100%;
-  }
 `;

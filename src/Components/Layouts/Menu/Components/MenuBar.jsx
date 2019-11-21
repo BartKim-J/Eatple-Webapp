@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { useSpring, animated } from 'react-spring';
-import useScroll from 'components/utils/useScroll';
 
 import urlConf from 'configure/urlConfig';
 
@@ -11,8 +10,6 @@ import Logo from 'resource/Image/ImgLogo.svg';
 import BtnTrial from '../Images/BtnFloating.svg';
 
 export default function MenuBar() {
-  const { scrollY } = useScroll();
-
   const styleMenu = useSpring({
     from: { top: '-200%' },
     to: async next => {

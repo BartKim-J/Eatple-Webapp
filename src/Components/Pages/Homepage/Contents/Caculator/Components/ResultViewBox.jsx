@@ -10,8 +10,6 @@ import ImgContainer from '../Images/ImgContainer.svg';
 import BackgroundImgBox from './BackgroundImgBox';
 import FloatBoxList from './FloatBoxList';
 
-import FoodCategoryMap from '../FoodCategoryMap';
-
 function usePrevious(value) {
   const ref = useRef();
 
@@ -35,9 +33,6 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
 
   useEffect(() => {
     if (prevProgress !== progress) {
-      const max = FoodCategoryMap.length - 1;
-      const value = won / FoodCategoryMap[max].menuPrice;
-
       setCount(countInit + ((pageIndex + progress) / pages) * countMax);
       setWon(count.toFixed(0) * seoulPrice - count.toFixed(0) * eatplePrice);
     }
