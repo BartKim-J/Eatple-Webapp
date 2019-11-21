@@ -10,6 +10,8 @@ import ImgContainer from '../Images/ImgContainer.svg';
 import BackgroundImgBox from './BackgroundImgBox';
 import FloatBoxList from './FloatBoxList';
 
+import FoodCategoryMap from '../FoodCategoryMap';
+
 function usePrevious(value) {
   const ref = useRef();
 
@@ -21,18 +23,22 @@ function usePrevious(value) {
 }
 
 export default function ResultViewBox({ pageIndex, progress, pages }) {
-  const countInit = 2;
+  const countInit = 3;
+  const countMax = 59;
   const eatplePrice = 5500;
   const seoulPrice = 9030;
 
-  const [count, setCount] = useState(countInit + pageIndex * 10 + progress * 10);
+  const [count, setCount] = useState(countInit + ((pageIndex + progress) / pages) * countMax);
   const [won, setWon] = useState(count.toFixed(0) * seoulPrice - count.toFixed(0) * eatplePrice);
 
   const prevProgress = usePrevious({ pageIndex, progress, pages });
 
   useEffect(() => {
     if (prevProgress !== progress) {
-      setCount(countInit + pageIndex * 10 + progress * 10);
+      const max = FoodCategoryMap.length - 1;
+      const value = won / FoodCategoryMap[max].menuPrice;
+
+      setCount(countInit + ((pageIndex + progress) / pages) * countMax);
       setWon(count.toFixed(0) * seoulPrice - count.toFixed(0) * eatplePrice);
     }
   }, [pageIndex, progress, pages, count, prevProgress]);

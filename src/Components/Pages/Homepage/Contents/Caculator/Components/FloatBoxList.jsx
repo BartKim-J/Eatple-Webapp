@@ -30,25 +30,17 @@ export default function FloatBoxList({ pageIndex, progress, pages, won, count })
 
   const { value } = floatAnimation;
 
-  const prevProgress = usePrevious({ pageIndex, progress, pages });
+  const prevProgress = usePrevious({ pageIndex, progress, pages, won, count });
 
   function trans(idx, idxMax) {
     return `translate3d(0, -${(idx / idxMax) * 100}%, 0)`;
   }
 
   useEffect(() => {
-    let nextIndex = 0;
-
     if (prevProgress !== progress) {
-      for (let i = 0; i < FoodCategoryMap.length; i += 1) {
-        if (won >= FoodCategoryMap[i].menuPrice) {
-          nextIndex = i;
-        }
-      }
-
-      set({ value: nextIndex });
+      set({ value: ((pageIndex + progress) / pages) * FoodCategoryMap.length - 1 });
     }
-  }, [pageIndex, progress, pages, count, prevProgress, won, set]);
+  }, [pageIndex, progress, pages, prevProgress, set]);
 
   return (
     <Styled.Wrap>
@@ -80,15 +72,15 @@ FloatBoxList.propTypes = {
   pageIndex: PropType.number,
   progress: PropType.number,
   pages: PropType.number,
-  count: PropType.number,
   won: PropType.number,
+  count: PropType.number,
 };
 FloatBoxList.defaultProps = {
   pageIndex: 0,
   progress: 0,
   pages: 0,
-  count: 0,
   won: 0,
+  count: 0,
 };
 
 const Styled = {};
