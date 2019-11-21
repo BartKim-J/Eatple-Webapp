@@ -8,36 +8,25 @@ import ImgBtnSlideLeft from '../Images/BtnLeft.svg';
 import ImgBtnSlideRight from '../Images/BtnRight.svg';
 
 function MenuInfoBox({ partnersInfo, prevSlide, nextSlide, slideIndex }) {
-  function SliderButtonBox() {
-    return (
-      <StyledMenuInfoBox.ButtonBoxWrap>
-        <StyledMenuInfoBox.ButtonBox>
-          <button type="button" className="button" onClick={prevSlide}>
-            <img src={ImgBtnSlideLeft} alt="Button" draggable="false" />
-          </button>
-          <button type="button" className="button" onClick={nextSlide}>
-            <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
-          </button>
-        </StyledMenuInfoBox.ButtonBox>
-      </StyledMenuInfoBox.ButtonBoxWrap>
-    );
-  }
-
-  function InfoTextBox() {
-    return (
-      <div className="slider-text-box-wrap">
-        <div className="slider-text-box">
-          <div className="store-name">{partnersInfo[slideIndex].storeName}</div>
-          <div className="menu-name">{partnersInfo[slideIndex].menuName}</div>
-        </div>
-      </div>
-    );
-  }
   return (
     <Styled.MenuInfoBoxWrap>
       <Styled.MenuInfoBox>
-        <SliderButtonBox />
-        <InfoTextBox />
+        <StyledMenuInfoBox.ButtonBoxWrap>
+          <StyledMenuInfoBox.ButtonBox>
+            <button type="button" className="button" onClick={prevSlide}>
+              <img src={ImgBtnSlideLeft} alt="Button" draggable="false" />
+            </button>
+            <button type="button" className="button" onClick={nextSlide}>
+              <img src={ImgBtnSlideRight} alt="Button" draggable="false" />
+            </button>
+          </StyledMenuInfoBox.ButtonBox>
+        </StyledMenuInfoBox.ButtonBoxWrap>
+        <div className="slider-text-box-wrap">
+          <div className="slider-text-box">
+            <div className="store-name">{partnersInfo[slideIndex].storeName}</div>
+            <div className="menu-name">{partnersInfo[slideIndex].menuName}</div>
+          </div>
+        </div>
       </Styled.MenuInfoBox>
     </Styled.MenuInfoBoxWrap>
   );
@@ -47,18 +36,6 @@ MenuInfoBox.propTypes = {
   slideIndex: PropType.number.isRequired,
   prevSlide: PropType.func.isRequired,
   nextSlide: PropType.func.isRequired,
-};
-
-function MainImageSlideBox({ partnersInfo, slideIndex }) {
-  return (
-    <Styled.MainImageSlideBox>
-      <img src={partnersInfo[slideIndex].mainImage} alt="Button" draggable="false" />
-    </Styled.MainImageSlideBox>
-  );
-}
-MainImageSlideBox.propTypes = {
-  partnersInfo: PropType.array.isRequired,
-  slideIndex: PropType.number.isRequired,
 };
 
 export default function MenuSlider({ partnersInfo }) {
@@ -108,7 +85,9 @@ export default function MenuSlider({ partnersInfo }) {
           prevSlide={prevSlide}
           nextSlide={nextSlide}
         />
-        <MainImageSlideBox partnersInfo={partnersInfo} slideIndex={slideIndex} />
+        <Styled.MainImageSlideBox>
+          <Styled.ImageBox src={partnersInfo[slideIndex].mainImage} />
+        </Styled.MainImageSlideBox>
       </Styled.Container>
     </Styled.Wrap>
   );
@@ -235,4 +214,16 @@ StyledMenuInfoBox.ButtonBox = styled.div`
       width: 100%;
     }
   }
+`;
+
+Styled.ImageBox = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+
+  background-position: center center;
+  background-size: cover;
 `;

@@ -10,7 +10,7 @@ export default function SocialMap({ mapArray }) {
           return (
             <li key={entryIcon.label}>
               <a href={entryIcon.link} target="_blank" rel="noopener">
-                <img src={entryIcon.icon} alt={entryIcon.label} draggable="false" />
+                <Styled.ImageBox src={entryIcon.icon} />
               </a>
             </li>
           );
@@ -49,4 +49,16 @@ Styled.Container = styled.ul`
   li:last-child {
     margin-right: 0;
   }
+`;
+
+Styled.ImageBox = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-image: ${props => {
+    return `url(${props.src})`;
+  }};
+
+  background-position: center center;
+  background-size: cover;
 `;
