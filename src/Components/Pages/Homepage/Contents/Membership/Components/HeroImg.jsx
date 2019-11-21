@@ -30,6 +30,8 @@ Styled.Wrap = styled.div`
   height: 100%;
 
   z-index: -1;
+
+  overflow: hidden;
 `;
 
 Styled.Container = styled.div`
@@ -59,7 +61,7 @@ Styled.Mask = styled.div`
   left: 0;
 
   width: 100%;
-  height: 50%;
+  height: 30%;
 
   background: linear-gradient(to bottom, transparent 0%, black 100%);
 
@@ -69,6 +71,8 @@ Styled.Mask = styled.div`
 Styled.ImageBox = styled.div`
   width: 100%;
   height: 100%;
+
+  overflow: hidden;
 
   background-image: ${props => {
     return `url(${props.src})`;
@@ -85,6 +89,6 @@ Styled.ImageBox = styled.div`
     return `blur(${value}px)`;
   }};
 
-  background-position: center right;
+  background-position: center center;
   background-size: cover;
 `;

@@ -6,7 +6,6 @@ import ReponsiveView from 'components/utils/ResponsiveView';
 import ContentsStyled from '../../Shared/Styled/ContentsStyled';
 
 import HeroImg from './Components/HeroImg';
-import BackgroundBox from './Components/BackgroundBox';
 import FloatBoxList from './Components/FloatBoxList';
 
 import MobileBackgroundBox from './ComponentsMobile/BackgroundBox';
@@ -17,7 +16,6 @@ import MobileFloatText from './ComponentsMobile/FloatText';
 function ContentBrowser({ scrollY }) {
   return (
     <ContentsStyled.Section>
-      <BackgroundBox />
       <ContentsStyled.Container>
         <HeroImg />
         <FloatBoxList />
