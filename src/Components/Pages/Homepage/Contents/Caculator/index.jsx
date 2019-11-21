@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-boolean-value */
 import React from 'react';
 import styled from 'styled-components';
+
 import { Stickyroll } from '@stickyroll/stickyroll';
 import { Inner } from '@stickyroll/inner';
 
-import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
-import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+import ReponsiveView from 'components/utils/ResponsiveView';
 
-import mediaConf from 'configure/mediaConfig';
+import ContentsStyled from '../../Shared/Styled/ContentsStyled';
 
-import BackgroundImgBox from './Components/BackgroundImgBox';
 import CategorySelectBox from './Components/CategorySelectBox';
 import ResultViewBox from './Components/ResultViewBox';
 
@@ -24,15 +23,13 @@ function ContentBrowser() {
   const anchorsName = '!/calculator';
 
   return (
-    <Styled.Stickyroll>
+    <ContentsStyled.Stickyroll>
       <Stickyroll pages={pageCount} factor={factor} throttle={thorottle} anchors={anchorsName}>
         {({ anchors, page, pageIndex, pages, progress }) => {
           return (
             <Inner className="stickyroll-inner">
-              <Styled.Section>
-                <Styled.Container>
-                  <BackgroundImgBox />
-
+              <CalculatorContentStyled.Section>
+                <ContentsStyled.Container>
                   <CategorySelectBox />
 
                   <ResultViewBox
@@ -42,13 +39,13 @@ function ContentBrowser() {
                     progress={progress}
                     pages={pages}
                   />
-                </Styled.Container>
-              </Styled.Section>
+                </ContentsStyled.Container>
+              </CalculatorContentStyled.Section>
             </Inner>
           );
         }}
       </Stickyroll>
-    </Styled.Stickyroll>
+    </ContentsStyled.Stickyroll>
   );
 }
 
@@ -60,13 +57,13 @@ function ContentMobile() {
   const anchorsName = '!/calculator-mobile';
 
   return (
-    <StyledMobile.Stickyroll>
+    <ContentsStyled.Stickyroll>
       <Stickyroll pages={pageCount} factor={factor} throttle={thorottle} anchors={anchorsName}>
         {({ anchors, page, pageIndex, pages, progress }) => {
           return (
             <Inner className="stickyroll-inner">
-              <StyledMobile.Section>
-                <StyledMobile.Container>
+              <ContentsStyled.MobileSection>
+                <ContentsStyled.MobileContainer>
                   <MobileCategorySelectBox />
 
                   <MobileResultViewBox
@@ -76,93 +73,24 @@ function ContentMobile() {
                     progress={progress}
                     pages={pages}
                   />
-                </StyledMobile.Container>
-              </StyledMobile.Section>
+                </ContentsStyled.MobileContainer>
+              </ContentsStyled.MobileSection>
             </Inner>
           );
         }}
       </Stickyroll>
-    </StyledMobile.Stickyroll>
+    </ContentsStyled.Stickyroll>
   );
 }
 
 export default function CotentCalculator() {
-  if (isBrowser)
-    return (
-      <BrowserView>
-        <ContentBrowser />
-      </BrowserView>
-    );
-
-  return (
-    <MobileView>
-      <DeviceOrientation>
-        <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser />
-        </Orientation>
-
-        <Orientation orientation="portrait" alwaysRender={false}>
-          <ContentMobile />
-        </Orientation>
-      </DeviceOrientation>
-    </MobileView>
-  );
+  return <ReponsiveView ContentBrowser={ContentBrowser} ContentMobile={ContentMobile} />;
 }
 
-const Styled = {};
+const CalculatorContentStyled = {};
 
-Styled.Stickyroll = styled.div`
-  .stickyroll-inner {
-    padding: 0 !important;
-    margin: 0;
-    background-color: unset;
+CalculatorContentStyled.Section = styled(ContentsStyled.Section)`
+  @media (max-aspect-ratio: 1/1) {
+    height: 100vh;
   }
-`;
-
-Styled.Section = styled.section`
-  position: relative;
-
-  width: 100vw;
-  height: 100vh;
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
-  }
-`;
-
-Styled.Container = styled.div`
-  position: relative;
-
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  margin: 0 auto;
-
-  height: 100%;
-`;
-
-const StyledMobile = {};
-
-StyledMobile.Stickyroll = styled.div`
-  .stickyroll-inner {
-    padding: 0 !important;
-    margin: 0;
-    background-color: unset;
-  }
-`;
-
-StyledMobile.Section = styled.section`
-  position: relative;
-
-  width: 100vw;
-  height: 100vh;
-
-  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-`;
-
-StyledMobile.Container = styled.div`
-  position: relative;
-
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  margin: 0 auto;
-
-  height: 100%;
 `;

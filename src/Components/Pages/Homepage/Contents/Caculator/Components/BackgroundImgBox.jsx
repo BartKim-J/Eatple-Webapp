@@ -17,13 +17,13 @@ const Styled = {};
 
 Styled.BackgroundImageBoxWrap = styled.div`
   position: absolute;
-  bottom: 15%;
+  bottom: 0%;
   left: 0;
 
   transform: translate(-14%, 20%);
 
   width: 100%;
-  height: 34%;
+  height: 100%;
 `;
 
 Styled.BackgroundImageBox = styled.div`

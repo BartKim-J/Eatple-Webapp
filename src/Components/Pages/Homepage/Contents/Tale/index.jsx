@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
-import DeviceOrientation, { Orientation } from 'react-screen-orientation';
-
 import { useSpring } from 'react-spring';
 
-import mediaConf from 'configure/mediaConfig';
+import ReponsiveView from 'components/utils/ResponsiveView';
+
+import ContentsStyled from '../../Shared/Styled/ContentsStyled';
 
 import TextBox from './Components/TextBox';
 import BoxAnimationBox from './Components/BoxAnimationBox';
@@ -26,12 +24,14 @@ function ContentBrowser() {
   const { xy } = props;
 
   return (
-    <Styled.Section onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+    <TaleContentStyled.Section
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+    >
       <BoxAnimationBox xy={xy} />
-      <Styled.Container>
+      <ContentsStyled.Container>
         <TextBox />
-      </Styled.Container>
-    </Styled.Section>
+      </ContentsStyled.Container>
+    </TaleContentStyled.Section>
   );
 }
 ContentBrowser.propTypes = {
@@ -52,12 +52,14 @@ function ContentMobile() {
   const { xy } = props;
 
   return (
-    <MobileStyled.Section onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+    <TaleContentStyled.MobileSection
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+    >
       <MobileBoxAnimationBox xy={xy} />
-      <MobileStyled.Container>
+      <ContentsStyled.MobileContainer>
         <MobileTextBox />
-      </MobileStyled.Container>
-    </MobileStyled.Section>
+      </ContentsStyled.MobileContainer>
+    </TaleContentStyled.MobileSection>
   );
 }
 ContentMobile.propTypes = {
@@ -68,70 +70,17 @@ ContentMobile.defaultProps = {
 };
 
 export default function ContentTale() {
-  if (isBrowser)
-    return (
-      <BrowserView>
-        <ContentBrowser />
-      </BrowserView>
-    );
-
-  return (
-    <MobileView>
-      <DeviceOrientation>
-        <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser />
-        </Orientation>
-
-        <Orientation orientation="portrait" alwaysRender={false}>
-          <ContentMobile />
-        </Orientation>
-      </DeviceOrientation>
-    </MobileView>
-  );
+  return <ReponsiveView ContentBrowser={ContentBrowser} ContentMobile={ContentMobile} />;
 }
 
-const Styled = {};
+const TaleContentStyled = {};
 
-Styled.Section = styled.section`
-  position: relative;
-
+TaleContentStyled.Section = styled(ContentsStyled.Section)`
   width: 100vw;
   height: calc(100vw * 0.48);
-
-  z-index: 100;
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
-  }
 `;
 
-Styled.Container = styled.div`
-  position: relative;
-
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  height: 100%;
-
-  margin: 0 auto;
-`;
-
-const MobileStyled = {};
-
-MobileStyled.Section = styled.section`
-  position: relative;
-
+TaleContentStyled.MobileSection = styled(ContentsStyled.MobileSection)`
   width: 100vw;
   height: 60vh;
-
-  z-index: 100;
-
-  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-`;
-
-MobileStyled.Container = styled.div`
-  position: relative;
-
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  height: 100%;
-
-  margin: 0 auto;
 `;

@@ -1,10 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
-import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+import ReponsiveView from 'components/utils/ResponsiveView';
 
-import mediaConf from 'configure/mediaConfig';
+import ContentsStyled from '../../Shared/Styled/ContentsStyled';
 
 import HeroImg from './Components/HeroImg';
 import TextBox from './Components/TextBox';
@@ -14,101 +12,26 @@ import MobileTextBox from './ComponentsMobile/TextBox';
 
 function ContentBrowser() {
   return (
-    <Styled.Section>
-      <Styled.Container>
+    <ContentsStyled.Section>
+      <ContentsStyled.Container>
         <HeroImg />
         <TextBox />
-      </Styled.Container>
-    </Styled.Section>
+      </ContentsStyled.Container>
+    </ContentsStyled.Section>
   );
 }
 
 function ContentMobile() {
   return (
-    <StyledMobile.Section>
+    <ContentsStyled.MobileSection>
       <MobileHeroImg />
-      <StyledMobile.Container>
+      <ContentsStyled.MobileContainer>
         <MobileTextBox />
-      </StyledMobile.Container>
-    </StyledMobile.Section>
+      </ContentsStyled.MobileContainer>
+    </ContentsStyled.MobileSection>
   );
 }
 
 export default function CotentMain() {
-  if (isBrowser)
-    return (
-      <BrowserView>
-        <ContentBrowser />
-      </BrowserView>
-    );
-
-  return (
-    <MobileView>
-      <DeviceOrientation>
-        <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser />
-        </Orientation>
-
-        <Orientation orientation="portrait" alwaysRender={false}>
-          <ContentMobile />
-        </Orientation>
-      </DeviceOrientation>
-    </MobileView>
-  );
+  return <ReponsiveView ContentBrowser={ContentBrowser} ContentMobile={ContentMobile} />;
 }
-
-const Styled = {};
-
-Styled.Stickyroll = styled.div`
-  .stickyroll-inner {
-    padding: 0 !important;
-    margin: 0;
-    background-color: unset;
-  }
-`;
-
-Styled.Section = styled.section`
-  position: relative;
-
-  width: 100vw;
-  height: 100vh;
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    padding: 0 ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
-  }
-
-  @media (max-aspect-ratio: 1/1) {
-    max-height: ${mediaConf.MEDIA_WIDTH_16_9_ASPECT};
-  }
-`;
-
-Styled.Container = styled.div`
-  position: relative;
-
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  height: 100%;
-
-  margin: 0 auto;
-
-  z-index: 101;
-`;
-
-const StyledMobile = {};
-
-StyledMobile.Section = styled.section`
-  position: relative;
-
-  width: 100vw;
-  height: 100vh;
-
-  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-`;
-
-StyledMobile.Container = styled.div`
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-  margin: 0 auto;
-`;

@@ -1,16 +1,6 @@
 @import 'resource/Fonts/Fonts.scss';
 
 body {
-  width: 100%;
-  height: 100%;
-
-  margin: 0 auto;
-
-  background-color: #ffffff;
-  color: #222222;
-
-  transition: all ease 1s 0s;
-
   font-family: $fontAll, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;

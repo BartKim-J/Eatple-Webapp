@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
-import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+import ReponsiveView from 'components/utils/ResponsiveView';
 
-import mediaConf from 'configure/mediaConfig';
+import ContentsStyled from '../../Shared/Styled/ContentsStyled';
 
 import TextBox from './Components/TextBox';
 import MenuSlider from './Components/MenuSlider';
@@ -18,88 +17,40 @@ import { partnersInfo } from './constants';
 
 function ContentBrowser() {
   return (
-    <Styled.Section>
-      <Styled.Container>
+    <MesuSlideContentStyled.Section>
+      <ContentsStyled.Container>
         <TextBox />
         <MenuSlider partnersInfo={partnersInfo} />
         <PartnersMap partnersInfo={partnersInfo} />
-      </Styled.Container>
-    </Styled.Section>
+      </ContentsStyled.Container>
+    </MesuSlideContentStyled.Section>
   );
 }
 
 function ContentMobile() {
   return (
-    <StyledMobile.Section>
+    <MesuSlideContentStyled.MobileSection>
       <MobilePartnersMap partnersInfo={partnersInfo} />
-      <StyledMobile.Container>
+      <ContentsStyled.MobileContainer>
         <MobileTextBox />
         <MobileMenuSlider partnersInfo={partnersInfo} />
-      </StyledMobile.Container>
-    </StyledMobile.Section>
+      </ContentsStyled.MobileContainer>
+    </MesuSlideContentStyled.MobileSection>
   );
 }
 
 export default function CotentMenuSlider() {
-  if (isBrowser)
-    return (
-      <BrowserView>
-        <ContentBrowser />
-      </BrowserView>
-    );
-
-  return (
-    <MobileView>
-      <DeviceOrientation>
-        <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser />
-        </Orientation>
-
-        <Orientation orientation="portrait" alwaysRender={false}>
-          <ContentMobile />
-        </Orientation>
-      </DeviceOrientation>
-    </MobileView>
-  );
+  return <ReponsiveView ContentBrowser={ContentBrowser} ContentMobile={ContentMobile} />;
 }
 
-const Styled = {};
+const MesuSlideContentStyled = {};
 
-Styled.Section = styled.section`
-  position: relative;
-
+MesuSlideContentStyled.Section = styled(ContentsStyled.Section)`
   width: 100vw;
-  height: calc(100vw * 0.8);
-  max-height: ${mediaConf.MEDIA_HEIGHT_DESKTOP_CONTENT};
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
-  }
+  height: calc(100vw * 0.7);
 `;
 
-Styled.Container = styled.div`
-  position: relative;
-
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  height: 100%;
-
-  margin: 0 auto;
-`;
-
-const StyledMobile = {};
-
-StyledMobile.Section = styled.section`
-  position: relative;
-
+MesuSlideContentStyled.MobileSection = styled(ContentsStyled.MobileSection)`
   width: 100vw;
   height: 150vh;
-`;
-
-StyledMobile.Container = styled.div`
-  position: relative;
-
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  height: 100%;
-
-  margin: 0 auto;
 `;

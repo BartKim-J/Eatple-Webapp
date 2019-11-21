@@ -7,6 +7,7 @@ import mediaConf from 'configure/mediaConfig';
 
 import ImgContainer from '../Images/ImgContainer.svg';
 
+import BackgroundImgBox from './BackgroundImgBox';
 import FloatBoxList from './FloatBoxList';
 
 function usePrevious(value) {
@@ -40,6 +41,8 @@ export default function ResultViewBox({ pageIndex, progress, pages }) {
 
   return (
     <Styled.Wrap>
+      <BackgroundImgBox />
+
       <FloatBoxList
         pageIndex={pageIndex}
         progress={progress}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Homepage, FAQ, Payment, PaymentResult, TOS, PP, Error } from 'components/Pages/PageIndex';
@@ -13,29 +13,28 @@ import Footer from 'components/Layouts/Footer';
 export default function App() {
   return (
     <Router>
-      <GlobalStyle>
-        <Styled.AppSection>
-          <Menu />
+      <GlobalStyle />
+      <Styled.AppSection>
+        <Menu />
 
-          <Styled.AppInner>
-            <Styled.AppContent>
-              <Switch>
-                <Route exact path={urlConf.Homepage} component={Homepage} />
-                <Route exact path={urlConf.FAQ} component={FAQ} />
-                <Route exact path={urlConf.Payment} component={Payment} />
-                <Route exact path={urlConf.PaymentResult} component={PaymentResult} />
+        <Styled.AppInner>
+          <Styled.AppContent>
+            <Switch>
+              <Route exact path={urlConf.Homepage} component={Homepage} />
+              <Route exact path={urlConf.FAQ} component={FAQ} />
+              <Route exact path={urlConf.Payment} component={Payment} />
+              <Route exact path={urlConf.PaymentResult} component={PaymentResult} />
 
-                <Route exact path={urlConf.TOS} component={TOS} />
-                <Route exact path={urlConf.PP} component={PP} />
+              <Route exact path={urlConf.TOS} component={TOS} />
+              <Route exact path={urlConf.PP} component={PP} />
 
-                <Route exact path="robots.txt" />
-                <Route component={Error} />
-              </Switch>
-            </Styled.AppContent>
-          </Styled.AppInner>
-          <Footer />
-        </Styled.AppSection>
-      </GlobalStyle>
+              <Route exact path="robots.txt" />
+              <Route component={Error} />
+            </Switch>
+          </Styled.AppContent>
+        </Styled.AppInner>
+        <Footer />
+      </Styled.AppSection>
     </Router>
   );
 }
@@ -62,7 +61,19 @@ Styled.AppContent = styled.div`
   min-height: 100vh;
 `;
 
-const GlobalStyle = styled.div`
+const GlobalStyle = createGlobalStyle`
+  body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0 auto;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    transition: all ease 1s 0s;
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   }

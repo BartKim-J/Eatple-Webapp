@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
-import DeviceOrientation, { Orientation } from 'react-screen-orientation';
+import ReponsiveView from 'components/utils/ResponsiveView';
 
-import mediaConf from 'configure/mediaConfig';
+import ContentsStyled from '../../Shared/Styled/ContentsStyled';
 
 import BackgroundImg from './Components/BackgroundImg';
 import PhoneBox from './Components/PhoneBox';
@@ -35,107 +33,41 @@ const categoryMap = [
   },
 ];
 
-function ContentBrowser({ selected, setSelected }) {
-  return (
-    <Styled.Section>
-      <BackgroundImg />
-      <PhoneBox selected={selected} />
-      <Styled.Container>
-        <TextBox />
-        <TutorialBox mapArray={categoryMap} selected={selected} selectHandler={setSelected} />
-      </Styled.Container>
-    </Styled.Section>
-  );
-}
-ContentBrowser.propTypes = {
-  selected: PropTypes.number.isRequired,
-  setSelected: PropTypes.func.isRequired,
-};
-
-function ContentMobile({ selected, setSelected }) {
-  return (
-    <StyledMobile.Section>
-      <MobilePhoneBox selected={selected} />
-      <StyledMobile.Container>
-        <MobileTextBox />
-        <MobileTutorialBox mapArray={categoryMap} selected={selected} selectHandler={setSelected} />
-      </StyledMobile.Container>
-    </StyledMobile.Section>
-  );
-}
-ContentMobile.propTypes = {
-  selected: PropTypes.number.isRequired,
-  setSelected: PropTypes.func.isRequired,
-};
-
-export default function ContentTutorial() {
+function ContentBrowser() {
   const [selected, setSelected] = useState(0);
 
-  if (isBrowser)
-    return (
-      <BrowserView>
-        <ContentBrowser selected={selected} setSelected={setSelected} />
-      </BrowserView>
-    );
-
   return (
-    <MobileView>
-      <DeviceOrientation>
-        <Orientation orientation="landscape" alwaysRender={false}>
-          <ContentBrowser selected={selected} setSelected={setSelected} />
-        </Orientation>
-
-        <Orientation orientation="portrait" alwaysRender={false}>
-          <ContentMobile selected={selected} setSelected={setSelected} />
-        </Orientation>
-      </DeviceOrientation>
-    </MobileView>
+    <TutorialContentStyled.Section>
+      <BackgroundImg />
+      <PhoneBox selected={selected} />
+      <ContentsStyled.Container>
+        <TextBox />
+        <TutorialBox mapArray={categoryMap} selected={selected} selectHandler={setSelected} />
+      </ContentsStyled.Container>
+    </TutorialContentStyled.Section>
   );
 }
 
-const Styled = {};
+function ContentMobile() {
+  const [selected, setSelected] = useState(0);
 
-Styled.Section = styled.div`
-  position: relative;
+  return (
+    <ContentsStyled.MobileSection>
+      <MobilePhoneBox selected={selected} />
+      <ContentsStyled.MobileContainer>
+        <MobileTextBox />
+        <MobileTutorialBox mapArray={categoryMap} selected={selected} selectHandler={setSelected} />
+      </ContentsStyled.MobileContainer>
+    </ContentsStyled.MobileSection>
+  );
+}
 
-  width: 100vw;
+export default function ContentTutorial() {
+  return <ReponsiveView ContentBrowser={ContentBrowser} ContentMobile={ContentMobile} />;
+}
+
+const TutorialContentStyled = {};
+
+TutorialContentStyled.Section = styled(ContentsStyled.Section)`
   height: calc(100vw * 0.7);
-  max-height: ${mediaConf.MEDIA_HEIGHT_DESKTOP_CONTENT};
-
-  @media all and (max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
-    padding: 0vh ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT_PADDING};
-  }
-
-  @media (max-aspect-ratio: 1/1) {
-    max-height: ${mediaConf.MEDIA_WIDTH_16_9_ASPECT};
-  }
-`;
-
-Styled.Container = styled.div`
-  position: relative;
-
-  max-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT};
-  margin: 0 auto;
-
-  height: 100%;
-`;
-
-const StyledMobile = {};
-
-StyledMobile.Section = styled.div`
-  position: relative;
-
-  width: 100vw;
-  height: 100vh;
-
-  padding: 0 ${mediaConf.MEDIA_WIDTH_MOBILE_CONTENT_PADDING};
-`;
-
-StyledMobile.Container = styled.div`
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-  margin: 0 auto;
 `;
