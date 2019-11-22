@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ScrollAnimation from 'react-animate-on-scroll';
-
 import ImgArrowDown from '../Images/IcArrowDown.svg';
 import ImgArrowUp from '../Images/IcArrowUp.svg';
 
@@ -17,18 +15,16 @@ export default function CategorySelectBox() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <ScrollAnimation animateIn="fadeInDown">
-          당신이
-          <br />
-          <Styled.CategoryBoxWrap>
-            <Styled.CategoryBox>
-              <Styled.CategoryText>
-                {category} <Styled.ArrowImg src={imgArrow} alt="Arrow" />
-              </Styled.CategoryText>
-              라면?
-            </Styled.CategoryBox>
-          </Styled.CategoryBoxWrap>
-        </ScrollAnimation>
+        당신이
+        <br />
+        <Styled.CategoryBoxWrap>
+          <Styled.CategoryBox>
+            <Styled.CategoryText>
+              {category} <Styled.ArrowImg src={imgArrow} alt="Arrow" />
+            </Styled.CategoryText>
+            라면?
+          </Styled.CategoryBox>
+        </Styled.CategoryBoxWrap>
       </Styled.Container>
     </Styled.Wrap>
   );
