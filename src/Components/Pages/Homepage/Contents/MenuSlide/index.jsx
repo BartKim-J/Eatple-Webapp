@@ -34,12 +34,18 @@ function ContentBrowser() {
 }
 
 function ContentMobile() {
+  const [slideIndex, setSlideIndex] = useState(0);
+
   return (
     <MesuSlideContentStyled.MobileSection>
-      <MobilePartnersMap partnersInfo={partnersInfo} />
+      <MobilePartnersMap partnersInfo={partnersInfo} slideIndex={slideIndex} />
       <ContentsStyled.MobileContainer>
         <MobileTextBox />
-        <MobileMenuSlider partnersInfo={partnersInfo} />
+        <MobileMenuSlider
+          partnersInfo={partnersInfo}
+          slideIndex={slideIndex}
+          setSlideIndex={setSlideIndex}
+        />
       </ContentsStyled.MobileContainer>
     </MesuSlideContentStyled.MobileSection>
   );

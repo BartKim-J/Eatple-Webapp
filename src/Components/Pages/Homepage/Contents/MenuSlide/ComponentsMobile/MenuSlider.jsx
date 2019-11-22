@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropType from 'prop-types';
 import styled from 'styled-components';
 
@@ -38,9 +38,7 @@ MenuInfoBox.propTypes = {
   nextSlide: PropType.func.isRequired,
 };
 
-export default function MenuSlider({ partnersInfo }) {
-  const [slideIndex, setSlideIndex] = useState(0);
-
+export default function MenuSlider({ partnersInfo, slideIndex, setSlideIndex }) {
   function prevSlide() {
     let nextSlideIndex = slideIndex - 1;
 
@@ -74,7 +72,7 @@ export default function MenuSlider({ partnersInfo }) {
     return () => {
       clearInterval(autoSlideMover);
     };
-  }, [partnersInfo, slideIndex]);
+  }, [partnersInfo, slideIndex, setSlideIndex]);
 
   return (
     <Styled.Wrap>
@@ -94,6 +92,8 @@ export default function MenuSlider({ partnersInfo }) {
 }
 MenuSlider.propTypes = {
   partnersInfo: PropType.array.isRequired,
+  slideIndex: PropType.number.isRequired,
+  setSlideIndex: PropType.func.isRequired,
 };
 
 const Styled = {};
