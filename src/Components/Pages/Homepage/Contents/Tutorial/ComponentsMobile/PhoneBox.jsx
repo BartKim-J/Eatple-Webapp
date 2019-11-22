@@ -44,8 +44,6 @@ Styled.Container = styled.div`
     width: ${Styled.PhoneScreenWidth};
     max-width: 405px;
 
-    cursor: -webkit-grab;
-
     img {
       width: 100%;
     }
