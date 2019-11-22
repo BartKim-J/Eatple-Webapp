@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import ReponsiveView from 'components/utils/ResponsiveView';
@@ -16,12 +16,18 @@ import MobilePartnersMap from './ComponentsMobile/PartnersMap';
 import { partnersInfo } from './constants';
 
 function ContentBrowser() {
+  const [slideIndex, setSlideIndex] = useState(0);
+
   return (
     <MesuSlideContentStyled.Section>
       <ContentsStyled.Container>
         <TextBox />
-        <MenuSlider partnersInfo={partnersInfo} />
-        <PartnersMap partnersInfo={partnersInfo} />
+        <MenuSlider
+          partnersInfo={partnersInfo}
+          slideIndex={slideIndex}
+          setSlideIndex={setSlideIndex}
+        />
+        <PartnersMap partnersInfo={partnersInfo} slideIndex={slideIndex} />
       </ContentsStyled.Container>
     </MesuSlideContentStyled.Section>
   );

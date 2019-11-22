@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useSpring, animated } from 'react-spring';
-import { useGesture } from 'react-with-gesture';
-import clamp from 'lodash-es/clamp';
-
 import ImgPhone from '../Images/ImgPhone.png';
 import ImgScreen from '../Images/ImgScreen.png';
 

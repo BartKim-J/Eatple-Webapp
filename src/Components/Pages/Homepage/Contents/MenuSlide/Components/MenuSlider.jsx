@@ -102,10 +102,9 @@ SubImageSlideBox.propTypes = {
   nextSlide: PropType.func.isRequired,
 };
 
-export default function MenuSlider({ partnersInfo }) {
+export default function MenuSlider({ partnersInfo, slideIndex, setSlideIndex }) {
   const minImageCount = 3;
 
-  const [slideIndex, setSlideIndex] = useState(0);
   const [movement, setMovement] = useState(0);
 
   function transitionTo(pos) {
@@ -174,6 +173,8 @@ export default function MenuSlider({ partnersInfo }) {
 }
 MenuSlider.propTypes = {
   partnersInfo: PropType.array.isRequired,
+  slideIndex: PropType.number.isRequired,
+  setSlideIndex: PropType.func.isRequired,
 };
 
 const Styled = {};
