@@ -4,17 +4,13 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ScrollAnimation from 'react-animate-on-scroll';
-
 export default function TextBox() {
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <ScrollAnimation animateIn="bounce">
-          바쁘실 땐, 여유있게
-          <br />
-          <span className="highlight">잇플</span>을 사용하세요
-        </ScrollAnimation>
+        바쁘실 땐, 여유있게
+        <br />
+        <span className="highlight">잇플</span>을 사용하세요
       </Styled.Container>
     </Styled.Wrap>
   );

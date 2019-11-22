@@ -9,24 +9,10 @@ import ImgPhone from '../Images/ImgPhone.png';
 import ImgScreen from '../Images/ImgScreen.png';
 
 export default function PhoneBox() {
-  const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }));
-  const bind = useGesture(({ down, delta, velocity }) => {
-    // eslint-disable-next-line no-param-reassign
-    velocity = clamp(velocity, 1, 8);
-    set({
-      xy: down ? delta : [0, 0],
-      config: { mass: velocity, tension: 500 * velocity, friction: 50 },
-    });
-  });
-
   return (
     <Styled.Wrap>
       <Styled.Container>
-        <animated.div
-          className="animated-phone-box"
-          {...bind()}
-          style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }}
-        >
+        <div className="animated-phone-box">
           <img src={ImgPhone} alt="Phone" draggable="false" />
 
           <Styled.ScreenBoxWrap>
@@ -34,7 +20,7 @@ export default function PhoneBox() {
               <img src={ImgScreen} alt="Screen" draggable="false" />
             </Styled.ScreenBox>
           </Styled.ScreenBoxWrap>
-        </animated.div>
+        </div>
       </Styled.Container>
     </Styled.Wrap>
   );
