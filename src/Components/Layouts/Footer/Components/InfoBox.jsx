@@ -9,6 +9,8 @@ export default function InfoBox() {
       <Styled.Container>
         (주)아스테라
         <br />
+        대표자: 정재호
+        <br />
         사업자번호: 255-87-01463
         <br />
         통신판매업: 서울서초-2929
