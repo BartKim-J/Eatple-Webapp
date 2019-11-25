@@ -31,12 +31,6 @@ function PaymentResult({ history }) {
   const resultMessage = isSuccessed ? '앱으로 돌아가 식권을 확인해주세요.' : '다시 결제해 주세요.';
   const colorType = isSuccessed ? '#52c41a' : '#f5222d';
 
-  /* 웹 환경일때 */
-  const { Kakao } = window;
-  const apiKey = '2b7052dfc89e89644677cb1be76b7a18';
-
-  Kakao.init(apiKey);
-
   return (
     <Wrapper>
       <Container colorType={colorType}>
@@ -60,9 +54,7 @@ function PaymentResult({ history }) {
             </li>
           )}
         </ul>
-        <Button
-          size="large"
-        >
+        <Button size="large">
           <Icon type="arrow-left" />
           앱으로 돌아가기
         </Button>
@@ -93,7 +85,7 @@ const Container = styled.div`
   right: 2rem;
   bottom: 2rem;
   padding: 2rem;
-  
+
   > .anticon {
     font-size: 10rem;
     text-align: center;

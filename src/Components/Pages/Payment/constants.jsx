@@ -3,6 +3,7 @@ export const PGS = [
     value: 'html5_inicis',
     label: '웹 표준 이니시스',
   },
+  /*
   {
     value: 'kcp',
     label: 'NHN KCP',
@@ -71,6 +72,7 @@ export const PGS = [
     value: 'smilepay',
     label: '스마일페이',
   },
+  */
 ];
 
 export const METHODS = [
@@ -78,6 +80,7 @@ export const METHODS = [
     value: 'card',
     label: '신용카드',
   },
+  /*
   {
     value: 'vbank',
     label: '가상계좌',
@@ -90,9 +93,11 @@ export const METHODS = [
     value: 'phone',
     label: '휴대폰 소액결제',
   },
+  */
 ];
 
 export const METHODS_FOR_INICIS = METHODS.concat([
+  /*
   {
     value: 'samsung',
     label: '삼성페이',
@@ -113,6 +118,7 @@ export const METHODS_FOR_INICIS = METHODS.concat([
     value: 'happymoney',
     label: '해피머니',
   },
+  */
 ]);
 
 export const METHODS_FOR_UPLUS = METHODS.concat([
@@ -200,10 +206,12 @@ export const QUOTAS_FOR_INICIS_AND_KCP = [
     value: 0,
     label: 'PG사 기본 제공',
   },
+
   {
     value: 1,
     label: '일시불',
   },
+  /*
   {
     value: 2,
     label: '2개월',
@@ -224,4 +232,5 @@ export const QUOTAS_FOR_INICIS_AND_KCP = [
     value: 6,
     label: '6개월',
   },
+  */
 ];

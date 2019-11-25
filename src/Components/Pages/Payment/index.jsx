@@ -253,11 +253,6 @@ function PGPayment({ history, form }) {
             })(<Switch />)}
           </Item>
         )}
-        <Item label="에스크로" className="toggle-container">
-          {getFieldDecorator('escrow', {
-            valuePropName: 'checked',
-          })(<Switch />)}
-        </Item>
         <Item>
           {getFieldDecorator('name', {
             initialValue: `${storeName} - ${menuName}`,
@@ -310,7 +305,7 @@ const { Item } = styled(Form)``;
 const { Option } = styled(Select)`
   font-size: 0em;
   font-weight: bold;
-  font-family: 'S-CoreDream';
+  font-family: 'S-CoreDream-Bold';
   color: #666666;
 `;
 
@@ -350,7 +345,7 @@ const FormContainer = styled(Form)`
   .ant-select-selection-selected-value {
     font-size: 0.68em;
     font-weight: bold;
-    font-family: 'SCoreDream';
+    font-family: 'S-CoreDream-Bold';
     color: #666666;
   }
 
@@ -396,7 +391,7 @@ const FormContainer = styled(Form)`
   .ant-input-lg {
     font-size: 0.8em;
     font-weight: bold;
-    font-family: 'S-CoreDream';
+    font-family: 'S-CoreDream-Bold';
     color: #666666;
 
     height: 30px;
@@ -446,7 +441,13 @@ const FormContainer = styled(Form)`
 `;
 
 const PayButtonBox = styled.div`
+  font-family: 'S-CoreDream-Bold';
+
   text-align: center;
+
+  img {
+    width: 100%;
+  }
 `;
 
 const PaymentForm = Form.create({ name: 'payment' })(PGPayment);
