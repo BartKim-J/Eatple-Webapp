@@ -25,7 +25,7 @@ export default function TextBox() {
           가치를 더하다,
           <span className="highlight"> 잇플</span>
           <div className="sub-text">
-            잇플은 한끼 식사를 5500원에 해결할 수 있는 테이크아웃 멤버십입니다.
+            잇플은 한끼 식사를 6000원에 해결할 수 있는 테이크아웃 멤버십입니다.
           </div>
         </div>
       </Styled.TextBox>

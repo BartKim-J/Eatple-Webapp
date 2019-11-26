@@ -23,7 +23,7 @@ function usePrevious(value) {
 export default function ResultViewBox({ pageIndex, progress, pages }) {
   const countInit = 3;
   const countMax = 59;
-  const eatplePrice = 5500;
+  const eatplePrice = 6000;
   const seoulPrice = 9030;
 
   const [count, setCount] = useState(countInit + ((pageIndex + progress) / pages) * countMax);
