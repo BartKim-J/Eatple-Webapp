@@ -7,6 +7,7 @@ const urls = {
   TOS: '/tos',
   PP: '/pp',
   LOC: '/loc',
+  Privacy: '/privacy',
 
   KakaoChatbot: 'http://pf.kakao.com/_xaxlptT/chat',
   Facebook: 'https://www.facebook.com/',

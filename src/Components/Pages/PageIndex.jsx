@@ -7,5 +7,6 @@ export { default as FAQ } from './FAQ';
 export { default as TOS } from './TOS';
 export { default as PP } from './PP';
 export { default as LOC } from './LOC';
+export { default as Privacy } from './Privacy';
 
 export { default as Error } from './Error';

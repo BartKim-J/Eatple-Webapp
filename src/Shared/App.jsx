@@ -9,6 +9,7 @@ import {
   PaymentResult,
   TOS,
   PP,
+  Privacy,
   LOC,
   Error,
 } from 'components/Pages/PageIndex';
@@ -37,6 +38,7 @@ export default function App() {
               <Route exact path={urlConf.TOS} component={TOS} />
               <Route exact path={urlConf.PP} component={PP} />
               <Route exact path={urlConf.LOC} component={LOC} />
+              <Route exact path={urlConf.Privacy} component={Privacy} />
 
               <Route exact path="robots.txt" />
               <Route component={Error} />
