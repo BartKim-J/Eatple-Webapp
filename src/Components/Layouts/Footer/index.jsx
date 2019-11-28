@@ -39,6 +39,14 @@ const siteMap = [
     label: '개인정보취급방침',
     link: urlConf.PP,
   },
+  {
+    label: '개인정보 이용동의',
+    link: urlConf.Privacy,
+  },
+  {
+    label: '위치 이용약관',
+    link: urlConf.LOC,
+  },
 ];
 
 const socialMap = [
