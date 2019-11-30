@@ -40,7 +40,7 @@ const siteMap = [
     link: urlConf.PP,
   },
   {
-    label: '개인정보 이용동의',
+    label: '개인정보 이용약관',
     link: urlConf.Privacy,
   },
   {

@@ -30,9 +30,25 @@ function PGPayment({ history, form }) {
   const { location } = history;
   const { search } = location;
   const query = queryString.parse(search);
-  const { storeName, menuName, menuPrice } = query;
+  const {
+    storeName,
+    menuName,
+    menuPrice,
+    merchant_uid,
+    buyer_name,
+    buyer_tel,
+    buyer_email,
+  } = query;
 
-  if (storeName === undefined || menuName === undefined || menuPrice === undefined) {
+  if (
+    storeName === undefined ||
+    menuName === undefined ||
+    menuPrice === undefined ||
+    buyer_name === undefined ||
+    buyer_tel === undefined ||
+    buyer_email === undefined ||
+    merchant_uid === undefined
+  ) {
     history.push(`/payment/result`);
   }
 
@@ -189,7 +205,7 @@ function PGPayment({ history, form }) {
         </Item>
         <Item label="결제수단">
           {getFieldDecorator('pay_method', {
-            initialValue: 'card',
+            initialValue: '카드',
           })(
             <Select
               size="large"
@@ -267,25 +283,25 @@ function PGPayment({ history, form }) {
         </Item>
         <Item>
           {getFieldDecorator('merchant_uid', {
-            initialValue: `eatplus_${new Date().getTime()}`,
+            initialValue: merchant_uid,
             rules: [{ required: true, message: '주문번호는 필수입력입니다' }],
           })(<Input disabled={isGetParamURL} size="large" addonBefore="주문번호" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_name', {
-            initialValue: '장윤지',
+            initialValue: buyer_name,
             rules: [{ required: true, message: '구매자 이름은 필수입력입니다' }],
           })(<Input disabled={isGetParamURL} size="large" addonBefore="이름" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_tel', {
-            initialValue: '01025486135',
+            initialValue: buyer_tel,
             rules: [{ required: true, message: '구매자 전화번호는 필수입력입니다' }],
           })(<Input disabled={isGetParamURL} size="large" type="number" addonBefore="전화번호" />)}
         </Item>
         <Item>
           {getFieldDecorator('buyer_email', {
-            initialValue: 'eatplus@gmail.com',
+            initialValue: buyer_email,
             rules: [{ required: true, message: '구매자 이메일은 필수입력입니다' }],
           })(<Input disabled={isGetParamURL} size="large" addonBefore="이메일" />)}
         </Item>
