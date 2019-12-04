@@ -75,8 +75,8 @@ export default function FloatBoxList() {
               className="float-box"
               icon={IconTime}
               title="식사시간에 여유를 더하다"
-              subTextLine1="미리 주문하고 픽업시간을 예약하여"
-              subTextLine2="기다림없이 맛있는 식사를!"
+              subTextLine1="미리 주문하고 픽업시간을 예약하여 기다림없이 맛있는 식사를!"
+              subTextLine2=""
             />
           </animated.div>
           <animated.div
