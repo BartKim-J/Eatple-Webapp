@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import mediaConf from 'configure/mediaConfig';
 
-import ButtonBox from './ViewMoreButtonBox';
+// import ButtonBox from './ViewMoreButtonBox';
 
 export default function TextBox() {
   return (
@@ -13,7 +13,6 @@ export default function TextBox() {
           잇플의 1차 서비스 지역은
           <br />
           <span className="highlight">강남 / 역삼</span> 부근입니다
-          <ButtonBox />
         </div>
       </Styled.Container>
     </Styled.Wrap>

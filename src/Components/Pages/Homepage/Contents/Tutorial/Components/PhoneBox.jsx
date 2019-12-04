@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-boolean-value */
 import React from 'react';
+import PropType from 'prop-types'
 import styled from 'styled-components';
 
 import ImgPhone from '../Images/ImgPhone.png';
-import ImgScreen from '../Images/ImgScreen.png';
 
-export default function PhoneBox() {
+export default function PhoneBox({mapArray, selected}) {
   return (
     <Styled.Wrap>
       <Styled.Container>
@@ -14,13 +14,17 @@ export default function PhoneBox() {
 
           <Styled.ScreenBoxWrap>
             <Styled.ScreenBox>
-              <img src={ImgScreen} alt="Screen" draggable="false" />
+              <img src={mapArray[selected].image} alt="Screen" draggable="false" />
             </Styled.ScreenBox>
           </Styled.ScreenBoxWrap>
         </div>
       </Styled.Container>
     </Styled.Wrap>
   );
+}
+PhoneBox.propTypes = {
+  mapArray: PropType.array.isRequired,
+  selected: PropType.number.isRequired,
 }
 
 const Styled = {};

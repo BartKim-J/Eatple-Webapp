@@ -47,7 +47,7 @@ function kakaoMap(partnersInfo, draggable, zoomable, mapFlag, setMapFlag, setMap
 
 export default function PartnersMap({ partnersInfo, slideIndex }) {
   const [draggable, setDraggable] = useState(false);
-  const [zoomable, setZoomable] = useState(true);
+  const [zoomable, setZoomable] = useState(false);
   const [mapInstance, setMapInstance] = useState(undefined);
   const [mapFlag, setMapFlag] = useState(false);
 

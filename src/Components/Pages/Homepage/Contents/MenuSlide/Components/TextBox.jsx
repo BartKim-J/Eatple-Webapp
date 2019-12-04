@@ -5,7 +5,7 @@ import mediaConf from 'configure/mediaConfig';
 
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import ButtonBox from './ViewMoreButtonBox';
+// import ButtonBox from './ViewMoreButtonBox';
 
 export default function TextBox() {
   return (
@@ -17,8 +17,6 @@ export default function TextBox() {
             <br />
             <span className="highlight">강남 / 역삼</span> 부근입니다
           </div>
-
-          <ButtonBox />
         </ScrollAnimation>
       </Styled.Container>
     </Styled.Wrap>

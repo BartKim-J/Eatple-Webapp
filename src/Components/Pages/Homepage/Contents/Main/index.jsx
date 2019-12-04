@@ -13,8 +13,8 @@ import MobileTextBox from './ComponentsMobile/TextBox';
 function ContentBrowser() {
   return (
     <ContentsStyled.Section>
+      <HeroImg />
       <ContentsStyled.Container>
-        <HeroImg />
         <TextBox />
       </ContentsStyled.Container>
     </ContentsStyled.Section>

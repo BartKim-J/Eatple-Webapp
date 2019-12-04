@@ -62,7 +62,7 @@ export default function FloatBoxList() {
               icon={IconValue}
               title="소비에 가치를 더하다"
               subTextLine1="내가 평소 자주가던 식당의 메뉴를"
-              subTextLine2="5,500원에 즐길 수 있어요!"
+              subTextLine2="6,000원에 즐길 수 있어요!"
             />
           </animated.div>
           <animated.div
