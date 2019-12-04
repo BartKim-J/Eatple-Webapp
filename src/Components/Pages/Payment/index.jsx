@@ -17,7 +17,7 @@ import { getMethods, getQuotas } from './utils';
 import btnPayment from './Images/BtnPayment.png';
 import 'antd/dist/antd.css';
 
-function PGPayment({ history, form }) {
+function PGPayment({ history, form, ua }) {
   const [methods, setMethods] = useState(METHODS_FOR_INICIS);
   const [quotas, setQuotas] = useState(QUOTAS_FOR_INICIS_AND_KCP);
   const [isQuotaRequired, setIsQuotaRequired] = useState(true);
@@ -103,7 +103,6 @@ function PGPayment({ history, form }) {
           data.digital = digital;
         }
 
-        /* 웹 환경일때 */
         const { IMP } = window;
 
         IMP.init(userCode);
@@ -115,7 +114,11 @@ function PGPayment({ history, form }) {
   function callback(response) {
     const query = queryString.stringify(response);
 
-    history.push(`/payment/result?${query}`);
+    const { merchant_uid, error_msg, imp_uid } = query;
+
+    if (merchant_uid !== undefined || error_msg !== undefined || imp_uid !== undefined) {
+      history.push(`/payment/result?${query}`);
+    }
   }
 
   function onChangePg(value) {

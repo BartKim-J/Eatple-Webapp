@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ImgHero from '../Images/ImgHero.jpg';
+import ImgHero from '../Images/imgHero.jpg';
 
 export default function HeroImg() {
   return (

@@ -4,7 +4,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import styled from 'styled-components';
-import { Icon, Button } from 'antd';
+import { Icon } from 'antd';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -13,7 +13,8 @@ function PaymentResult({ history }) {
   const { search } = location;
   const query = queryString.parse(search);
 
-  const { merchant_uid, error_msg, imp_uid } = query;
+  const { merchant_uid, imp_uid } = query;
+  let { error_msg } = query;
   const isSuccessed = getIsSuccessed();
 
   function getIsSuccessed() {
@@ -26,22 +27,38 @@ function PaymentResult({ history }) {
     return false;
   }
 
-  const iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
-  const resultType = isSuccessed ? '성공' : '실패';
-  const resultMessage = isSuccessed ? '앱으로 돌아가 식권을 확인해주세요.' : '다시 결제해 주세요.';
-  const colorType = isSuccessed ? '#52c41a' : '#f5222d';
+  let iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
+  let resultType = isSuccessed ? '결제에 성공하였습니다.' : '결제에 실패하였습니다';
+  let resultMessage = isSuccessed
+    ? '앱으로 돌아가 잇플패스를 확인해주세요.'
+    : '다시 결제해 주세요.';
+  let colorType = isSuccessed ? '#52c41a' : '#f5222d';
+
+  if (error_msg === undefined) {
+    error_msg = '식권 발급 또는 잇플패스 내역을 확인해주세요.';
+    colorType = '#FCA100';
+    iconType = 'check-circle';
+    resultMessage = '앱으로 돌아가 진행을 마무리해주세요.';
+    resultType = '';
+  }
 
   return (
     <Wrapper>
       <Container colorType={colorType}>
         <Icon type={iconType} theme="filled" />
-        <p>{`결제에 ${resultType}하였습니다`}</p>
+        <p>{`${resultType}`}</p>
         <p>{`${resultMessage}`}</p>
         <ul>
-          <li>
-            <span>주문번호</span>
-            <span>{merchant_uid}</span>
-          </li>
+          <li />
+
+          {merchant_uid !== undefined ? (
+            <li>
+              <span>주문번호</span>
+              <span>{merchant_uid}</span>
+            </li>
+          ) : (
+            <li />
+          )}
           {isSuccessed ? (
             <li>
               <span>식별 번호</span>
@@ -49,15 +66,11 @@ function PaymentResult({ history }) {
             </li>
           ) : (
             <li>
-              <span>에러 메시지</span>
+              <span>메시지</span>
               <span>{error_msg}</span>
             </li>
           )}
         </ul>
-        <Button size="large">
-          <Icon type="arrow-left" />
-          앱으로 돌아가기
-        </Button>
       </Container>
     </Wrapper>
   );
@@ -92,8 +105,9 @@ const Container = styled.div`
     margin-bottom: 2rem;
     color: ${props => props.colorType};
   }
+
   p {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 2rem;
   }
