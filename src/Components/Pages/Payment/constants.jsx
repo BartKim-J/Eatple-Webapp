@@ -76,11 +76,11 @@ export const PGS = [
 ];
 
 export const METHODS = [
-  /*
   {
     value: 'card',
     label: '신용카드',
   },
+  /*
   {
     value: 'vbank',
     label: '가상계좌',
@@ -178,12 +178,10 @@ export const METHODS_FOR_DANAL = [
 ];
 
 export const METHOD_FOR_CARD = [
-  /*
   {
     value: 'card',
     label: '신용카드',
   },
-  */
 ];
 
 export const METHOD_FOR_PHONE = [
