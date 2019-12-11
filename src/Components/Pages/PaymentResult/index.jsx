@@ -15,6 +15,7 @@ function PaymentResult({ history }) {
 
   const { merchant_uid, imp_uid } = query;
   let { error_msg } = query;
+  const { error_code } = query;
   const isSuccessed = getIsSuccessed();
 
   function getIsSuccessed() {
@@ -34,7 +35,7 @@ function PaymentResult({ history }) {
     : '다시 결제해 주세요.';
   let colorType = isSuccessed ? '#52c41a' : '#f5222d';
 
-  if (error_msg === undefined) {
+  if (error_msg === undefined || error_code === 'F1001') {
     error_msg = '식권 발급 또는 잇플패스 내역을 확인해주세요.';
     colorType = '#FCA100';
     iconType = 'check-circle';

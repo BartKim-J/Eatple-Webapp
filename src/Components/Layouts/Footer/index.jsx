@@ -53,17 +53,17 @@ const socialMap = [
   {
     label: 'Facebook',
     icon: IconFacebook,
-    link: urlConf.facebook,
+    link: urlConf.Facebook,
   },
   {
     label: 'Youtube',
     icon: IconYoutube,
-    link: urlConf.youtube,
+    link: urlConf.Youtube,
   },
   {
     label: 'Instagram',
     icon: IconInstagram,
-    link: urlConf.instagram,
+    link: urlConf.Instagram,
   },
 ];
 
