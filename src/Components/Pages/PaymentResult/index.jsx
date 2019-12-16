@@ -62,8 +62,8 @@ function PaymentResult({ history }) {
           )}
           {isSuccessed ? (
             <li>
-              <span>식별 번호</span>
-              <span>{imp_uid}</span>
+              <span>주문번호</span>
+              <span>{merchant_uid}</span>
             </li>
           ) : (
             <li>

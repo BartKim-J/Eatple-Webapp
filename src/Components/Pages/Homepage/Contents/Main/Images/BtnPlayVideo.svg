@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>BtnPlayVideo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 36 36 36 36 0 0 0"></polygon>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="eatple_desktop" transform="translate(-714.000000, -223.000000)">
+            <g id="01-Hero" transform="translate(238.000000, 1.000000)">
+                <g id="BtnPlayVideo" transform="translate(473.000000, 219.000000)">
+                    <g id="icon/IcPlayButton">
+                        <g id="Shape">
+                            <path d="M18,3.55263158 C10.0250526,3.55263158 3.55263158,10.0250526 3.55263158,18 C3.55263158,25.9749474 10.0250526,32.4473684 18,32.4473684 C25.9749474,32.4473684 32.4473684,25.9749474 32.4473684,18 C32.4473684,10.0250526 25.9749474,3.55263158 18,3.55263158" id="Fill-1" fill="#F4A515"></path>
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-4"></g>
+                            <polygon id="Stroke-3" mask="url(#mask-2)" points="0.710526316 35.2894737 35.2894737 35.2894737 35.2894737 0.710526316 0.710526316 0.710526316"></polygon>
+                            <polygon id="Fill-5" fill="#231815" mask="url(#mask-2)" points="15.1578947 24.6315789 15.1578947 11.6052632 23.6842105 18.1184211"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

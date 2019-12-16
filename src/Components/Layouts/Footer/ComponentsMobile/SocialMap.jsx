@@ -38,6 +38,8 @@ Styled.Container = styled.ul`
 
     width: 5vw;
     max-width: 32px;
+    height: 5vw;
+    max-height: 32px;
 
     margin-right: 10px;
 

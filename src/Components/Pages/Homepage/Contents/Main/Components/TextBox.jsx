@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import ModalVideo from 'react-modal-video'
 
 import { useSpring, animated } from 'react-spring';
 
 import mediaConf from 'configure/mediaConfig';
 
 import TrialButtonBox from '../../../Shared/Components/TrialButtonBox';
+import ImgPlayBtn from '../Images/BtnPlayVideo.svg'
 
 export default function TextBox() {
   const animatedTextBox = useSpring({
@@ -31,9 +33,20 @@ export default function TextBox() {
     delay: 800,
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+  
   return (
     <Styled.TextBoxWrap style={animatedTextBox}>
       <Styled.TextBox style={animatedText}>
+        <ModalVideo channel='youtube' isOpen={isOpen} videoId='SHjQAM1b9kY' onClose={() => { setIsOpen(false) }} />
+        <div role="button" tabIndex="0" className="video-box" onClick={()=> { setIsOpen(true)}} onKeyDown={()=> { setIsOpen(true)}}>
+          <span className="color-line" />
+          <span className="text">
+            한 끼 식사를 <span className="highlight">6,000원</span>에 해결하는 법 
+            <img className="play-button" src={ImgPlayBtn} alt="play" />
+          </span>
+        </div>
+
         <div className="title">
           한끼 식사에
           <br />
@@ -71,11 +84,58 @@ Styled.TextBox = styled(animated.div)`
 
   display: inline-block;
 
+  .video-box {
+    position: relative;
+    left: 5%;
+
+    outline: none;
+
+    cursor: pointer;
+
+    vertical-align: middle;
+    
+    .color-line {
+      position: absolute;
+      top: 0;
+      left: -5%;
+
+      height: 100%;
+      width: 1.2%;
+      max-width: 5px;
+
+      background: #fca800;
+    }
+    
+    .text {
+      text-align: left;
+      font-family: 'S-CoreDream';
+      font-size: 2vw;
+
+      color: #2c2c2c;
+
+      @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
+        font-size: 25px;
+      }
+    }
+
+    .play-button {
+      margin-left: 2%;
+      width: 2vw;
+      max-width: 32px;
+      height: 2vw;
+      max-height: 32px;
+    }
+
+    margin-bottom: 10%;
+  }
+
   .title {
     text-align: left;
     font-family: 'S-CoreDream';
     font-size: 4vw;
     line-height: 1.33;
+
+    color: #2c2c2c;
 
     @media all and (min-width: ${mediaConf.MEDIA_WIDTH_DESKTOP_CONTENT}) {
       font-size: 60px;

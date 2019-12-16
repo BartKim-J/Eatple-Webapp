@@ -7,6 +7,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import queryString from 'query-string';
+import axios from 'axios';
 
 import { PGS } from './constants';
 
@@ -51,19 +52,58 @@ export default function PGPayment({ history }) {
     request_id: 'req_1576041755685',
     tier_code: undefined,
   };
-  const { IMP } = window;
-
-  /* 가맹점 식별코드 */
-  const userCode = 'imp49220546';
-
-  IMP.init(userCode);
-  IMP.request_pay(data, callback);
 
   function callback(response) {
     const query = queryString.stringify(response);
 
     history.push(`/payment/result?${query}`);
   }
+  
+
+  axios
+    .get('http://eatple.com:8001/api/order_validation', {
+      params: {
+        storeName,
+        menuName,
+        menuPrice,
+        buyer_name,
+        buyer_tel,
+        buyer_email,
+        merchant_uid,
+      },
+    })
+    .then(response => {
+      console.log(response.data);
+      console.log(response.data.length);
+
+      if(response.data.length !== 0) {
+
+        const data = {
+            success: false,
+            imp_success: false,
+            imp_uid: merchant_uid,
+            merchant_uid,
+            error_msg: '이미 잇플패스를 발급했거나 오류가 발생했습니다. 처음부터 주문을 시도해주세요.',
+            error_code: 'F1002',
+        }
+        
+        const query = queryString.stringify(data);
+
+        history.push(`/payment/result?${query}`);
+      }
+      else {
+        const { IMP } = window;
+
+        /* 가맹점 식별코드 */
+        const userCode = 'imp49220546';
+
+        IMP.init(userCode);
+        IMP.request_pay(data, callback);
+      }
+    }) // SUCCESS
+    .catch(response => {
+      console.log(response);
+    }); // ERROR
 
   return <Wrapper />;
 }
