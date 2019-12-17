@@ -13,7 +13,7 @@ function PaymentResult({ history }) {
   const { search } = location;
   const query = queryString.parse(search);
 
-  const { merchant_uid, imp_uid } = query;
+  const { merchant_uid } = query;
   let { error_msg } = query;
   const { error_code } = query;
   const isSuccessed = getIsSuccessed();

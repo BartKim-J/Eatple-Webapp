@@ -58,10 +58,9 @@ export default function PGPayment({ history }) {
 
     history.push(`/payment/result?${query}`);
   }
-  
 
   axios
-    .get('http://eatple.com:8001/api/order_validation', {
+    .get('/api/order_validation', {
       params: {
         storeName,
         menuName,
@@ -73,37 +72,42 @@ export default function PGPayment({ history }) {
       },
     })
     .then(response => {
-      console.log(response.data);
-      console.log(response.data.length);
+      // console.log(response.data);
+      // console.log(response.data.length);
 
-      if(response.data.length !== 0) {
+      const order = response.data[0];
 
-        const data = {
-            success: false,
-            imp_success: false,
-            imp_uid: merchant_uid,
-            merchant_uid,
-            error_msg: '이미 잇플패스를 발급했거나 오류가 발생했습니다. 처음부터 주문을 시도해주세요.',
-            error_code: 'F1002',
-        }
-        
-        const query = queryString.stringify(data);
+      // console.log(order);
 
-        history.push(`/payment/result?${query}`);
-      }
-      else {
+      if (
+        response.data.length !== 0 &&
+        // order.payment_status === 'failed' ||
+        (order.payment_status === 'not_pushed' || order.payment_status === 'ready')
+      ) {
         const { IMP } = window;
 
-        /* 가맹점 식별코드 */
         const userCode = 'imp49220546';
 
         IMP.init(userCode);
         IMP.request_pay(data, callback);
+      } else {
+        const data = {
+          success: false,
+          imp_success: false,
+          imp_uid: merchant_uid,
+          merchant_uid,
+          error_msg: '이미 잇플패스를 발급했거나 오류가 발생했습니다. 주문을 다시 확인해주세요.',
+          error_code: 'F1002',
+        };
+
+        const query = queryString.stringify(data);
+
+        history.push(`/payment/result?${query}`);
       }
-    }) // SUCCESS
+    })
     .catch(response => {
-      console.log(response);
-    }); // ERROR
+      // console.log(response);
+    });
 
   return <Wrapper />;
 }
