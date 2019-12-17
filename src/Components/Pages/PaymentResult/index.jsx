@@ -4,7 +4,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from 'antd';
+import { Icon, Button } from 'antd';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -72,6 +72,15 @@ function PaymentResult({ history }) {
             </li>
           )}
         </ul>
+        <Button
+          size="large"
+          onClick={() => {
+            window.location.href = 'http://pf.kakao.com/_xaxlptT/chat';
+          }}
+        >
+          <Icon type="arrow-left" />
+          잇플로 돌아가기
+        </Button>
       </Container>
     </Wrapper>
   );
