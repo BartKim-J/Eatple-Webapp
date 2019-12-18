@@ -9,6 +9,8 @@ import styled from 'styled-components';
 import queryString from 'query-string';
 import axios from 'axios';
 
+import RestAPI from 'server/RestAPI';
+
 import { PGS } from './constants';
 
 import 'antd/dist/antd.css';
@@ -59,33 +61,21 @@ export default function PGPayment({ history }) {
     history.push(`/payment/result?${query}`);
   }
 
-  axios
-    .get('/api/order_validation', {
-      params: {
-        storeName,
-        menuName,
-        menuPrice,
-        buyer_name,
-        buyer_tel,
-        buyer_email,
-        merchant_uid,
-      },
-    })
+  RestAPI.get('order_validation', {
+    params: {
+      buyer_name,
+      merchant_uid,
+    },
+  })
     .then(response => {
       console.log(response);
       console.log(response.data);
-      console.log(response.data.length);
 
-      const order = response.data[0];
+      const resOrder = response.data;
 
-      console.log(order);
+      console.log(resOrder);
 
-      if (
-        response.data.length !== 0 &&
-        (order.payment_status === 'failed' ||
-          order.payment_status === 'not_pushed' ||
-          order.payment_status === 'ready')
-      ) {
+      if (resOrder.error_code === 200) {
         const { IMP } = window;
 
         const userCode = 'imp49220546';
@@ -96,10 +86,10 @@ export default function PGPayment({ history }) {
         const data = {
           success: false,
           imp_success: false,
-          imp_uid: merchant_uid,
-          merchant_uid,
-          error_msg: '이미 잇플패스를 발급했거나 오류가 발생했습니다. 주문을 다시 확인해주세요.',
-          error_code: 'F1002',
+          imp_uid: resOrder.merchant_uid,
+          merchant_uid: resOrder.merchant_uid,
+          error_msg: resOrder.error_msg,
+          error_code: resOrder.error_code,
         };
 
         const query = queryString.stringify(data);
