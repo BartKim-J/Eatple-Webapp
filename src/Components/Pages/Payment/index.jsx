@@ -72,17 +72,19 @@ export default function PGPayment({ history }) {
       },
     })
     .then(response => {
-      // console.log(response.data);
-      // console.log(response.data.length);
+      console.log(response);
+      console.log(response.data);
+      console.log(response.data.length);
 
       const order = response.data[0];
 
-      // console.log(order);
+      console.log(order);
 
       if (
         response.data.length !== 0 &&
-        // order.payment_status === 'failed' ||
-        (order.payment_status === 'not_pushed' || order.payment_status === 'ready')
+        (order.payment_status === 'failed' ||
+          order.payment_status === 'not_pushed' ||
+          order.payment_status === 'ready')
       ) {
         const { IMP } = window;
 
@@ -102,7 +104,7 @@ export default function PGPayment({ history }) {
 
         const query = queryString.stringify(data);
 
-        history.push(`/payment/result?${query}`);
+        // history.push(`/payment/result?${query}`);
       }
     })
     .catch(response => {
