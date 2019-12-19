@@ -4,7 +4,8 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import styled from 'styled-components';
-import { Icon, Button } from 'antd';
+import RestAPI from 'server/RestAPI';
+import { Icon } from 'antd';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -43,6 +44,18 @@ function PaymentResult({ history }) {
     resultType = '';
   }
 
+  RestAPI.get('order_validation', {
+    params: {
+      merchant_uid,
+    },
+  })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(response => {
+      console.log(response);
+    });
+  
   return (
     <Wrapper>
       <Container colorType={colorType}>

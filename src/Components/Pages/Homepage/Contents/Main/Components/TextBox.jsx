@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import ModalVideo from 'react-modal-video'
 
 import { useSpring, animated } from 'react-spring';
 
 import mediaConf from 'configure/mediaConfig';
 
-import TrialButtonBox from '../../../Shared/Components/TrialButtonBox';
-import ImgPlayBtn from '../Images/BtnPlayVideo.svg'
+import YoutubeButtonBox from './YoutubeButtonBox';
 
 export default function TextBox() {
   const animatedTextBox = useSpring({
@@ -32,21 +30,10 @@ export default function TextBox() {
 
     delay: 800,
   });
-
-  const [isOpen, setIsOpen] = useState(false);
   
   return (
     <Styled.TextBoxWrap style={animatedTextBox}>
       <Styled.TextBox style={animatedText}>
-        <ModalVideo channel='youtube' isOpen={isOpen} videoId='SHjQAM1b9kY' onClose={() => { setIsOpen(false) }} />
-        <div role="button" tabIndex="0" className="video-box" onClick={()=> { setIsOpen(true)}} onKeyDown={()=> { setIsOpen(true)}}>
-          <span className="color-line" />
-          <span className="text">
-            한 끼 식사를 <span className="highlight">6,000원</span>에 해결하는 법 
-            <img className="play-button" src={ImgPlayBtn} alt="play" />
-          </span>
-        </div>
-
         <div className="title">
           한끼 식사에
           <br />
@@ -56,7 +43,7 @@ export default function TextBox() {
             잇플은 한끼 식사를 6,000원에 해결할 수 있는 테이크아웃 서비스입니다.
           </div>
         </div>
-        <TrialButtonBox />
+        <YoutubeButtonBox />
       </Styled.TextBox>
     </Styled.TextBoxWrap>
   );

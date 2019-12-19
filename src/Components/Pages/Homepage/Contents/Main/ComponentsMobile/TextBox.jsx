@@ -4,10 +4,12 @@ import { useSpring, animated } from 'react-spring';
 
 import mediaConf from 'configure/mediaConfig';
 
+import YoutubeButtonBox from './YoutubeButtonBox';
+
 export default function TextBox() {
   const animatedTextBox = useSpring({
     config: { mass: 1, tension: 35, friction: 12 },
-    from: { left: '0%', top: '-50%' },
+    from: { left: '0%', top: '0%' },
     to: async next => {
       await next({
         top: '0%',
@@ -28,6 +30,7 @@ export default function TextBox() {
             잇플은 한끼 식사를 6,000원에 해결할 수 있는 테이크아웃 멤버십입니다.
           </div>
         </div>
+        <YoutubeButtonBox />
       </Styled.TextBox>
     </Styled.TextBoxWrap>
   );
@@ -52,8 +55,7 @@ Styled.TextBox = styled.div`
   display: inline-block;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 
   .title {
     text-align: left;

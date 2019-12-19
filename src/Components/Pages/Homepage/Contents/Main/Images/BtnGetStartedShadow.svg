@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="199px" height="60px" viewBox="0 0 199 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>BtnGetStartedShadow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="eatple_desktop" transform="translate(-248.000000, -610.000000)" fill="#222222">
+            <g id="01-Hero" transform="translate(239.000000, 0.000000)">
+                <g id="BtnViewVideo" transform="translate(1.000000, 604.000000)">
+                    <g id="btn/BtnMediumShadow" transform="translate(8.000000, 6.000000)">
+                        <path d="M199,60 L10,60 L0,50 L0,0 L189,0 L199,10 L199,60 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

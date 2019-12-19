@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const RestAPI = axios.create({
-  baseURL: 'http://eatple.com:8001/api/',
+  baseURL: 'http://eatple.com:8000/api/',
   timeout: 1000,
 });
 

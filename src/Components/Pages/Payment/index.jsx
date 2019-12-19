@@ -7,7 +7,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import queryString from 'query-string';
-import axios from 'axios';
 
 import RestAPI from 'server/RestAPI';
 
@@ -66,40 +65,33 @@ export default function PGPayment({ history }) {
       buyer_name,
       merchant_uid,
     },
-  })
-    .then(response => {
-      console.log(response);
-      console.log(response.data);
+  }).then(response => {
+    const resOrder = response.data;
 
-      const resOrder = response.data;
+    if (resOrder.error_code === 200) {
+      const { IMP } = window;
 
-      console.log(resOrder);
+      const userCode = 'imp49220546';
 
-      if (resOrder.error_code === 200) {
-        const { IMP } = window;
+      IMP.init(userCode);
+      IMP.request_pay(data, callback);
+    } else {
+      const data = {
+        success: false,
+        imp_success: false,
+        imp_uid: resOrder.merchant_uid,
+        merchant_uid: resOrder.merchant_uid,
+        error_msg: resOrder.error_msg,
+        error_code: resOrder.error_code,
+      };
 
-        const userCode = 'imp49220546';
+      const query = queryString.stringify(data);
 
-        IMP.init(userCode);
-        IMP.request_pay(data, callback);
-      } else {
-        const data = {
-          success: false,
-          imp_success: false,
-          imp_uid: resOrder.merchant_uid,
-          merchant_uid: resOrder.merchant_uid,
-          error_msg: resOrder.error_msg,
-          error_code: resOrder.error_code,
-        };
-
-        const query = queryString.stringify(data);
-
-        // history.push(`/payment/result?${query}`);
-      }
-    })
-    .catch(response => {
-      // console.log(response);
-    });
+      history.push(`/payment/result?${query}`);
+    }
+  }).catch(response => {
+    console.log(response);
+  });
 
   return <Wrapper />;
 }
