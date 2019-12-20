@@ -83,6 +83,7 @@ export default function PGPayment({ history }) {
         merchant_uid: resOrder.merchant_uid,
         error_msg: resOrder.error_msg,
         error_code: resOrder.error_code,
+        buyer_name
       };
 
       const query = queryString.stringify(data);

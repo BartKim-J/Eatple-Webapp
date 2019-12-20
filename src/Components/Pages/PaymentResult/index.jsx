@@ -14,7 +14,7 @@ function PaymentResult({ history }) {
   const { search } = location;
   const query = queryString.parse(search);
 
-  const { merchant_uid } = query;
+  const { merchant_uid, buyer_name } = query;
   let { error_msg } = query;
   const { error_code } = query;
   const isSuccessed = getIsSuccessed();
@@ -32,12 +32,12 @@ function PaymentResult({ history }) {
   let iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
   let resultType = isSuccessed ? '결제에 성공하였습니다.' : '결제에 실패하였습니다';
   let resultMessage = isSuccessed
-    ? '앱으로 돌아가 잇플패스를 확인해주세요.'
+    ? '챗봇으로 돌아가 잇플패스를 확인해주세요.'
     : '다시 결제해 주세요.';
   let colorType = isSuccessed ? '#52c41a' : '#f5222d';
 
-  if (error_msg === undefined || error_code === 'F1001') {
-    error_msg = '식권 발급 또는 잇플패스 내역을 확인해주세요.';
+  if (error_msg === undefined || error_code === 'F1001' || error_code === 204) {
+    error_msg = '잇플패스 발급 또는 잇플패스 내역을 확인해주세요.';
     colorType = '#FCA100';
     iconType = 'check-circle';
     resultMessage = '앱으로 돌아가 진행을 마무리해주세요.';
@@ -47,6 +47,7 @@ function PaymentResult({ history }) {
   RestAPI.get('order_validation', {
     params: {
       merchant_uid,
+      buyer_name,
     },
   })
     .then(response => {
@@ -55,7 +56,7 @@ function PaymentResult({ history }) {
     .catch(response => {
       console.log(response);
     });
-  
+
   return (
     <Wrapper>
       <Container colorType={colorType}>
@@ -74,10 +75,7 @@ function PaymentResult({ history }) {
             <li />
           )}
           {isSuccessed ? (
-            <li>
-              <span>주문번호</span>
-              <span>{merchant_uid}</span>
-            </li>
+            <li />
           ) : (
             <li>
               <span>메시지</span>

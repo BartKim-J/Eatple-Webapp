@@ -42,7 +42,7 @@ export default function YoutubeButtonBox() {
 const Styled = {};
 
 Styled.Wrap = styled.div`
-  padding-top: 10%;
+  padding-top: 8%;
   margin-bottom: 0;
 `;
 
@@ -50,9 +50,9 @@ Styled.Container = styled.button`
   position: relative;
 
   width: 32vw;
-  max-width: 186px;
-  height: calc(32vw * 0.134);
-  max-height: 22px;
+  max-width: 147px;
+  height: calc(32vw * 0.14);
+  max-height: 21px;
 
   .button-image {
     position: absolute;
@@ -77,5 +77,6 @@ Styled.ImageBox = styled.div`
   }};
 
   background-position: center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 `;

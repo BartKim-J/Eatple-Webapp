@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import ModalVideo from 'react-modal-video'
+import ModalVideo from 'react-modal-video';
 
 import ImgBtnGetStarted from '../Images/BtnGetStarted.svg';
 import ImgBtnMediumShadow from '../Images/BtnGetStartedShadow.svg';
@@ -12,14 +12,25 @@ export default function YoutubeButtonBox() {
 
   return (
     <Styled.Wrap>
-      <ModalVideo channel='youtube' isOpen={isOpen} videoId='SHjQAM1b9kY' onClose={() => { setIsOpen(false) }} />
-      <Styled.Container 
-        type="button" 
-        className="btn-box" 
+      <ModalVideo
+        channel="youtube"
+        isOpen={isOpen}
+        videoId="SHjQAM1b9kY"
+        onClose={() => {
+          setIsOpen(false);
+        }}
+      />
+      <Styled.Container
+        type="button"
+        className="btn-box"
         aria-label="Trial Eatple"
         tabIndex="0"
-        onClick={()=> { setIsOpen(true)}} 
-        onKeyDown={()=> { setIsOpen(true)}}
+        onClick={() => {
+          setIsOpen(true);
+        }}
+        onKeyDown={() => {
+          setIsOpen(true);
+        }}
       >
         <div className="button-image">
           <Styled.ImageBox src={ImgBtnGetStarted} />
@@ -85,5 +96,6 @@ Styled.ImageBox = styled.div`
   }};
 
   background-position: center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 `;
