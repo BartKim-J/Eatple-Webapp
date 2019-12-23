@@ -22,7 +22,6 @@ export default function Homepage() {
         <Styled.Container>
           <ContentMain />
           <ContentMembership />
-          <ContentCalculator />
           <ContentTutorial />
           <ContentMenuSlide />
           <ContentTale />

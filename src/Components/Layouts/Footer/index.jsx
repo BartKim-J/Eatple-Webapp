@@ -24,10 +24,6 @@ import IconYoutube from './Images/IcYoutube.svg';
 
 const siteMap = [
   {
-    label: '제휴 점포 리스트',
-    link: '/',
-  },
-  {
     label: '이용약관',
     link: urlConf.TOS,
   },
