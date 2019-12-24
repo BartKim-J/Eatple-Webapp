@@ -65,34 +65,36 @@ export default function PGPayment({ history }) {
       buyer_name,
       merchant_uid,
     },
-  }).then(response => {
-    const resOrder = response.data;
+  })
+    .then(response => {
+      const resOrder = response.data;
 
-    if (resOrder.error_code === 200) {
-      const { IMP } = window;
+      if (resOrder.error_code === 200) {
+        const { IMP } = window;
 
-      const userCode = 'imp49220546';
+        const userCode = 'imp49220546';
 
-      IMP.init(userCode);
-      IMP.request_pay(data, callback);
-    } else {
-      const data = {
-        success: false,
-        imp_success: false,
-        imp_uid: resOrder.merchant_uid,
-        merchant_uid: resOrder.merchant_uid,
-        error_msg: resOrder.error_msg,
-        error_code: resOrder.error_code,
-        buyer_name
-      };
+        IMP.init(userCode);
+        IMP.request_pay(data, callback);
+      } else {
+        const data = {
+          success: false,
+          imp_success: false,
+          imp_uid: resOrder.merchant_uid,
+          merchant_uid: resOrder.merchant_uid,
+          error_msg: resOrder.error_msg,
+          error_code: resOrder.error_code,
+          buyer_name,
+        };
 
-      const query = queryString.stringify(data);
+        const query = queryString.stringify(data);
 
-      history.push(`/payment/result?${query}`);
-    }
-  }).catch(response => {
-    console.log(response);
-  });
+        history.push(`/payment/result?${query}`);
+      }
+    })
+    .catch(response => {
+      console.log(response);
+    });
 
   return <Wrapper />;
 }

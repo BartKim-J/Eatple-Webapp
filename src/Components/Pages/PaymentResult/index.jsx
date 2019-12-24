@@ -36,8 +36,20 @@ function PaymentResult({ history }) {
     : '다시 결제해 주세요.';
   let colorType = isSuccessed ? '#52c41a' : '#f5222d';
 
-  if (error_msg === undefined || error_code === 'F1001' || error_code === 204) {
-    error_msg = '잇플패스 발급 또는 잇플패스 내역을 확인해주세요.';
+  if (
+    error_msg === undefined ||
+    error_code === 'F1001' ||
+    parseInt(error_code, 10) === 204 ||
+    parseInt(error_code, 10) === 202
+  ) {
+    console.log(error_code);
+
+    if (error_code === 204 || error_code === 202) {
+      error_msg = '발급이 완료되었습니다.';
+    } else {
+      error_msg = '잇플패스 발급 또는 잇플패스 내역을 확인해주세요.';
+    }
+
     colorType = '#FCA100';
     iconType = 'check-circle';
     resultMessage = '앱으로 돌아가 진행을 마무리해주세요.';
