@@ -9,7 +9,7 @@ function kakaoMap(partnersInfo, draggable, zoomable, mapFlag, setMapFlag, setMap
   if (mapFlag === false) {
     window.kakao.maps.load(() => {
       const container = document.getElementById('kakao-map');
-      const imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
+      const imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
 
       const options = {
         center: new window.kakao.maps.LatLng(37.496015, 127.029574),
