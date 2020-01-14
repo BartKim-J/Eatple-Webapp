@@ -2,102 +2,113 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import styled from 'styled-components';
 import RestAPI from 'server/RestAPI';
-import { Icon } from 'antd';
-import { withRouter } from 'react-router-dom';
+import { Icon, Button } from 'antd';
 import queryString from 'query-string';
 
 function PaymentResult({ history }) {
+  const [loaded, setLoaded] = useState(false);
+  const [response, setResponse] = useState(undefined);
+
   const { location } = history;
   const { search } = location;
   const query = queryString.parse(search);
 
   const { merchant_uid, buyer_name } = query;
-  let { error_msg } = query;
-  const { error_code } = query;
-  const isSuccessed = getIsSuccessed();
 
-  function getIsSuccessed() {
-    const { success, imp_success } = query;
-    if (typeof imp_success === 'string') return imp_success === 'true';
-    if (typeof imp_success === 'boolean') return imp_success === true;
-    if (typeof success === 'string') return success === 'true';
-    if (typeof success === 'boolean') return success === true;
+  useEffect(() => {
+    async function orderValidation() {
+      await setLoaded(false);
 
-    return false;
-  }
+      await RestAPI.get('order_validation', {
+        params: {
+          buyer_name,
+          merchant_uid,
+        },
+      })
+        .then(res => {
+          setResponse(res);
+        })
+        .catch(res => {
+          console.log(res);
+        });
 
-  let iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
-  let resultType = isSuccessed ? '결제에 성공하였습니다.' : '결제에 실패하였습니다';
-  let resultMessage = isSuccessed
-    ? '챗봇으로 돌아가 잇플패스를 확인해주세요.'
-    : '다시 결제해 주세요.';
-  let colorType = isSuccessed ? '#52c41a' : '#f5222d';
-
-  if (
-    error_msg === undefined ||
-    error_code === 'F1001' ||
-    parseInt(error_code, 10) === 204 ||
-    parseInt(error_code, 10) === 202
-  ) {
-    console.log(error_code);
-
-    if (error_code === 204 || error_code === 202) {
-      error_msg = '발급이 완료되었습니다.';
-    } else {
-      error_msg = '잇플패스 발급 또는 잇플패스 내역을 확인해주세요.';
+      await setLoaded(true);
     }
 
-    colorType = '#FCA100';
-    iconType = 'check-circle';
-    resultMessage = '앱으로 돌아가 진행을 마무리해주세요.';
-    resultType = '';
-  }
+    orderValidation();
+  }, [setLoaded, buyer_name, merchant_uid]);
 
-  RestAPI.get('order_validation', {
-    params: {
-      merchant_uid,
-      buyer_name,
-    },
-  })
-    .then(response => {
-      console.log(response);
-    })
-    .catch(response => {
-      console.log(response);
-    });
+  if (loaded) {
+    let isSuccessed = false;
 
-  return (
-    <Wrapper>
-      <Container colorType={colorType}>
-        <Icon type={iconType} theme="filled" />
-        <p>{`${resultType}`}</p>
-        <p>{`${resultMessage}`}</p>
-        <ul>
-          <li />
+    const resOrder = response.data;
 
-          {merchant_uid !== undefined ? (
-            <li>
-              <span>주문번호</span>
-              <span>{merchant_uid}</span>
-            </li>
-          ) : (
+    console.log(resOrder);
+
+    let iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
+    let resultType = isSuccessed ? '결제에 성공하였습니다.' : '결제에 실패하였습니다';
+    let resultMessage = isSuccessed
+      ? '챗봇으로 돌아가 잇플패스를 확인해주세요.'
+      : '다시 결제해 주세요.';
+    let colorType = isSuccessed ? '#52c41a' : '#f5222d';
+
+    if (parseInt(resOrder.error_code, 10) === 204) {
+      iconType = 'check-circle';
+      colorType = '#52c41a';
+      resultType = '구매처리가 완료된 잇플패스 입니다.';
+      resultMessage = '앱으로 돌아가 다시 확인해주세요.';
+    } else if (parseInt(resOrder.error_code, 10) === 202) {
+      iconType = 'exclamation-circle';
+      colorType = '#f5222d';
+      resultType = '이미 잇플패스를 발급하셨습니다.';
+      resultMessage = '앱으로 돌아가 다시 확인해주세요.';
+    } else if (parseInt(resOrder.error_code, 10) === 205) {
+      iconType = 'exclamation-circle';
+      colorType = '#f5222d';
+      resultType = '이미 환불 처리된 주문번호입니다.';
+      resultMessage = '앱으로 돌아가 다시 확인해주세요.';
+    } else {
+      isSuccessed = false;
+    }
+
+    return (
+      <Wrapper>
+        <Container colorType={colorType}>
+          <Icon type={iconType} theme="filled" />
+          <p>{`${resultType}`}</p>
+          <p>{`${resultMessage}`}</p>
+          <ul>
             <li />
-          )}
-          {isSuccessed ? (
-            <li />
-          ) : (
+            {merchant_uid !== undefined ? (
+              <li>
+                <span>주문번호</span>
+                <span>{resOrder.order_id}</span>
+              </li>
+            ) : (
+              <li />
+            )}
             <li>
               <span>메시지</span>
-              <span>{error_msg}</span>
+              <span>{resOrder.error_msg}</span>
             </li>
-          )}
-        </ul>
-      </Container>
-    </Wrapper>
-  );
+          </ul>
+          <a href="http://plus.kakao.com/talk/bot/@eatple/로딩중../">
+            <Button size="large">
+              <Icon type="arrow-left" />
+              돌아가기
+            </Button>
+          </a>
+        </Container>
+      </Wrapper>
+    );
+  }
+
+  return <Wrapper />;
 }
 
 const Wrapper = styled.div`

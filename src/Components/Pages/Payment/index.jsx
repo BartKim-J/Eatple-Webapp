@@ -28,16 +28,22 @@ export default function PGPayment({ history }) {
     buyer_email,
   } = query;
 
+  console.log(query);
+
   if (
-    storeName === undefined ||
-    menuName === undefined ||
-    menuPrice === undefined ||
     buyer_name === undefined ||
+    merchant_uid === undefined ||
     buyer_tel === undefined ||
     buyer_email === undefined ||
-    merchant_uid === undefined
+    storeName === undefined ||
+    menuName === undefined ||
+    menuPrice === undefined
   ) {
-    history.push(`/payment/result`);
+    const queryStr = queryString.stringify(query);
+
+    console.log(queryStr);
+
+    history.push(`/payment/result?${queryStr}`);
   }
 
   const data = {
@@ -55,9 +61,10 @@ export default function PGPayment({ history }) {
   };
 
   function callback(response) {
-    const query = queryString.stringify(response);
-
-    history.push(`/payment/result?${query}`);
+    const resQuery = queryString.stringify(data);
+    console.log(response);
+    console.log(data);
+    history.push(`/payment/result?${resQuery}`);
   }
 
   RestAPI.get('order_validation', {
@@ -81,10 +88,10 @@ export default function PGPayment({ history }) {
           success: false,
           imp_success: false,
           imp_uid: resOrder.merchant_uid,
-          merchant_uid: resOrder.merchant_uid,
           error_msg: resOrder.error_msg,
           error_code: resOrder.error_code,
           buyer_name,
+          merchant_uid,
         };
 
         const query = queryString.stringify(data);
