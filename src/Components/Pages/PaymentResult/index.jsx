@@ -19,6 +19,7 @@ function PaymentResult({ history }) {
   const query = queryString.parse(search);
 
   const { merchant_uid, buyer_name } = query;
+  const spinFlag = false;
 
   useEffect(() => {
     async function orderValidation() {
@@ -47,30 +48,37 @@ function PaymentResult({ history }) {
     let isSuccessed = false;
 
     const resOrder = response.data;
-
     console.log(resOrder);
 
     let iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
-    let resultType = isSuccessed ? '결제에 성공하였습니다.' : '결제에 실패하였습니다';
     let resultMessage = isSuccessed
       ? '챗봇으로 돌아가 잇플패스를 확인해주세요.'
       : '다시 결제해 주세요.';
     let colorType = isSuccessed ? '#52c41a' : '#f5222d';
 
-    if (parseInt(resOrder.error_code, 10) === 204) {
+    if (parseInt(resOrder.error_code, 10) === 100) {
       iconType = 'check-circle';
       colorType = '#52c41a';
-      resultType = '구매처리가 완료된 잇플패스 입니다.';
+      resultMessage = '앱으로 돌아가 확인해주세요.';
+    } else if (parseInt(resOrder.error_code, 10) === 204) {
+      iconType = 'check-circle';
+      colorType = '#52c41a';
+      resultMessage = '앱으로 돌아가 확인해주세요.';
+    } else if (parseInt(resOrder.error_code, 10) === 206) {
+      iconType = 'meh';
+      colorType = '#fac800';
       resultMessage = '앱으로 돌아가 다시 확인해주세요.';
     } else if (parseInt(resOrder.error_code, 10) === 202) {
-      iconType = 'exclamation-circle';
-      colorType = '#f5222d';
-      resultType = '이미 잇플패스를 발급하셨습니다.';
+      iconType = 'tags';
+      colorType = '#fac800';
       resultMessage = '앱으로 돌아가 다시 확인해주세요.';
-    } else if (parseInt(resOrder.error_code, 10) === 205) {
+    } else if (parseInt(resOrder.error_code, 10) === 203) {
       iconType = 'exclamation-circle';
       colorType = '#f5222d';
-      resultType = '이미 환불 처리된 주문번호입니다.';
+      resultMessage = '앱으로 돌아가 다시 주문해주세요.';
+    } else if (parseInt(resOrder.error_code, 10) === 205) {
+      iconType = 'frown';
+      colorType = '#f5222d';
       resultMessage = '앱으로 돌아가 다시 확인해주세요.';
     } else {
       isSuccessed = false;
@@ -79,8 +87,8 @@ function PaymentResult({ history }) {
     return (
       <Wrapper>
         <Container colorType={colorType}>
-          <Icon type={iconType} theme="filled" />
-          <p>{`${resultType}`}</p>
+          <Icon type={iconType} spin={spinFlag} />
+          <p>{`${resOrder.error_msg}`}</p>
           <p>{`${resultMessage}`}</p>
           <ul>
             <li />
@@ -97,7 +105,7 @@ function PaymentResult({ history }) {
               <span>{resOrder.error_msg}</span>
             </li>
           </ul>
-          <a href="http://plus.kakao.com/talk/bot/@eatple/로딩중../">
+          <a href="https://plus.kakao.com/talk/bot/@eatple">
             <Button size="large">
               <Icon type="arrow-left" />
               돌아가기
@@ -142,14 +150,15 @@ const Container = styled.div`
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 2rem;
   }
 
   ul {
     list-style: none;
     padding: 0;
+
+    margin-top: 2rem;
     margin-bottom: 3rem;
 
     li {
@@ -168,11 +177,9 @@ const Container = styled.div`
 
   button,
   button:hover {
-    border-color: ${props => props.colorType};
-    color: ${props => props.colorType};
   }
   button:hover {
-    opacity: 0.7;
+    opacity: 1;
   }
 `;
 
