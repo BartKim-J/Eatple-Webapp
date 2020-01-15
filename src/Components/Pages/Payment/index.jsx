@@ -21,9 +21,7 @@ export default function PGPayment({ history }) {
   const { merchant_uid } = query;
 
   if (merchant_uid === undefined) {
-    const queryStr = queryString.stringify(query);
-
-    history.push(`/payment/result?${queryStr}`);
+    history.push(`/payment/result`);
   }
 
   RestAPI.get('order_information', {
@@ -51,9 +49,7 @@ export default function PGPayment({ history }) {
     };
 
     function callback(response) {
-      const resQuery = queryString.stringify(data);
-
-      history.push(`/payment/result?${resQuery}`);
+      history.push(`/payment/result?merchant_uid=${merchant_uid}`);
     }
 
     RestAPI.get('order_validation', {
@@ -63,7 +59,6 @@ export default function PGPayment({ history }) {
     })
       .then(response => {
         const resOrder = response.data;
-        console.log(resOrder);
 
         if (resOrder.error_code === 200) {
           const { IMP } = window;
@@ -83,9 +78,7 @@ export default function PGPayment({ history }) {
             merchant_uid,
           };
 
-          const query = queryString.stringify(data);
-
-          history.push(`/payment/result?${query}`);
+          history.push(`/payment/result?merchant_uid=${merchant_uid}`);
         }
       })
       .catch(response => {

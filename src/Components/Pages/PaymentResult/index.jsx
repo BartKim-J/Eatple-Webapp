@@ -25,19 +25,19 @@ function PaymentResult({ history }) {
     async function orderValidation() {
       await setLoaded(false);
 
-      await RestAPI.get('order_validation', {
-        params: {
-          buyer_name,
-          merchant_uid,
-        },
-      })
-        .then(res => {
-          setResponse(res);
+      if (merchant_uid !== undefined) {
+        await RestAPI.get('order_validation', {
+          params: {
+            merchant_uid,
+          },
         })
-        .catch(res => {
-          console.log(res);
-        });
-
+          .then(res => {
+            setResponse(res);
+          })
+          .catch(res => {
+            console.log(res);
+          });
+      }
       await setLoaded(true);
     }
 
@@ -45,43 +45,42 @@ function PaymentResult({ history }) {
   }, [setLoaded, buyer_name, merchant_uid]);
 
   if (loaded) {
-    let isSuccessed = false;
+    let iconType = 'exclamation-circle';
+    let resultMessage = '앱으로 돌아가 확인해주세요.';
+    let colorType = '#f5222d';
 
-    const resOrder = response.data;
-    console.log(resOrder);
+    let resOrder = {
+      error_msg: '주문번호를 찾을 수 없습니다.',
+    };
 
-    let iconType = isSuccessed ? 'check-circle' : 'exclamation-circle';
-    let resultMessage = isSuccessed
-      ? '챗봇으로 돌아가 잇플패스를 확인해주세요.'
-      : '다시 결제해 주세요.';
-    let colorType = isSuccessed ? '#52c41a' : '#f5222d';
+    if (merchant_uid !== undefined) {
+      resOrder = response.data;
 
-    if (parseInt(resOrder.error_code, 10) === 100) {
-      iconType = 'check-circle';
-      colorType = '#52c41a';
-      resultMessage = '앱으로 돌아가 확인해주세요.';
-    } else if (parseInt(resOrder.error_code, 10) === 204) {
-      iconType = 'check-circle';
-      colorType = '#52c41a';
-      resultMessage = '앱으로 돌아가 확인해주세요.';
-    } else if (parseInt(resOrder.error_code, 10) === 206) {
-      iconType = 'meh';
-      colorType = '#fac800';
-      resultMessage = '앱으로 돌아가 다시 확인해주세요.';
-    } else if (parseInt(resOrder.error_code, 10) === 202) {
-      iconType = 'tags';
-      colorType = '#fac800';
-      resultMessage = '앱으로 돌아가 다시 확인해주세요.';
-    } else if (parseInt(resOrder.error_code, 10) === 203) {
-      iconType = 'exclamation-circle';
-      colorType = '#f5222d';
-      resultMessage = '앱으로 돌아가 다시 주문해주세요.';
-    } else if (parseInt(resOrder.error_code, 10) === 205) {
-      iconType = 'frown';
-      colorType = '#f5222d';
-      resultMessage = '앱으로 돌아가 다시 확인해주세요.';
-    } else {
-      isSuccessed = false;
+      if (parseInt(resOrder.error_code, 10) === 100) {
+        iconType = 'check-circle';
+        colorType = '#52c41a';
+        resultMessage = '앱으로 돌아가 확인해주세요.';
+      } else if (parseInt(resOrder.error_code, 10) === 204) {
+        iconType = 'check-circle';
+        colorType = '#52c41a';
+        resultMessage = '앱으로 돌아가 확인해주세요.';
+      } else if (parseInt(resOrder.error_code, 10) === 206) {
+        iconType = 'meh';
+        colorType = '#fac800';
+        resultMessage = '앱으로 돌아가 다시 확인해주세요.';
+      } else if (parseInt(resOrder.error_code, 10) === 202) {
+        iconType = 'tags';
+        colorType = '#fac800';
+        resultMessage = '앱으로 돌아가 다시 확인해주세요.';
+      } else if (parseInt(resOrder.error_code, 10) === 203) {
+        iconType = 'exclamation-circle';
+        colorType = '#f5222d';
+        resultMessage = '앱으로 돌아가 다시 주문해주세요.';
+      } else if (parseInt(resOrder.error_code, 10) === 205) {
+        iconType = 'frown';
+        colorType = '#f5222d';
+        resultMessage = '앱으로 돌아가 다시 확인해주세요.';
+      }
     }
 
     return (
