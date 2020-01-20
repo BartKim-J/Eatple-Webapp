@@ -104,7 +104,7 @@ function PaymentResult({ history }) {
               <span>{resOrder.error_msg}</span>
             </li>
           </ul>
-          <a href="https://plus.kakao.com/talk/bot/@eatple">
+          <a href="https://plus.kakao.com/talk/bot/@eatple/잇플패스%20확인">
             <Button size="large">
               <Icon type="arrow-left" />
               돌아가기
