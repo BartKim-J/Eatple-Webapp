@@ -8,6 +8,8 @@
 
 - [VS Code for mac](https://code.visualstudio.com/)
 
+![ezgif-3-52a1a69c5efb](https://user-images.githubusercontent.com/36470472/110169866-a8cbd400-7e3c-11eb-84d1-d2de6d982c20.gif)
+
 # **Features**
 
 ---
@@ -154,4 +156,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+![image](https://user-images.githubusercontent.com/36470472/110169086-7f5e7880-7e3b-11eb-89fd-e3bc12c6fe76.png)
 
